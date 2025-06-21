@@ -14,6 +14,7 @@ public class Election {
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    @OneToMany
     private List<Organisation> organisations;
     //List<Results> results; results já não é uma classe.
     //List<Vote> votes;
