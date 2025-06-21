@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.controllers;
 
+import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

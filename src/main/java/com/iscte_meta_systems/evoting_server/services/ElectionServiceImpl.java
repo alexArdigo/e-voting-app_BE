@@ -10,6 +10,6 @@ public class ElectionServiceImpl implements  ElectionService {
 
     @Override
     public List<Election> getElections() {
-        return List.of();
+        return electionRepository.findAll();
     }
 }
