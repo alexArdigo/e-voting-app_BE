@@ -52,6 +52,9 @@ public class ElectionServiceImpl implements  ElectionService {
         }
         Election election;
         switch (dto.getElectionType().toLowerCase()) {
+//            case "legislativa":
+//                election = new Legislativa();
+//                break;
             case "presidencial":
                 election = new Presidencial();
                 break;
