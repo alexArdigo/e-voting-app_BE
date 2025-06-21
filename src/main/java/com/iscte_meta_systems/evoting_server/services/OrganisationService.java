@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface OrganisationService {
 
-    List<Organisation> getAllOrganisations(String election, String electorateCircle);
+    List<Organisation> getAllOrganisations(String election, String electoralCircle);
 
     Organisation getOrganisationById(Long id);
 

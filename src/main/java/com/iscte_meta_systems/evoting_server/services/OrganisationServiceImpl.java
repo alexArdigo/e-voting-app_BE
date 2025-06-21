@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.services;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
 import com.iscte_meta_systems.evoting_server.entities.Party;
 import com.iscte_meta_systems.evoting_server.entities.UniParty;
+import com.iscte_meta_systems.evoting_server.enums.VotingArea;
 import com.iscte_meta_systems.evoting_server.repositories.OrganisationRepository;
 import com.iscte_meta_systems.evoting_server.repositories.PartyRepository;
 import com.iscte_meta_systems.evoting_server.repositories.UniPartyRepository;
@@ -24,13 +25,14 @@ public class OrganisationServiceImpl implements OrganisationService {
     UniPartyRepository uniPartyRepository;
 
     @Override
-    public List<Organisation> getAllOrganisations(String election, String electorateCircle) {
-        List<Organisation> organisations = organisationRepository.findAll();
-        return organisations.stream()
+    public List<Organisation> getAllOrganisations(String election, String electoralCircle) {
+        VotingArea area = VotingArea.valueOf(electoralCircle.toUpperCase());
+
+        return organisationRepository.findAll().stream()
                 .filter(org -> election == null ||
                         (org.getElection() != null && org.getElection().getName().equalsIgnoreCase(election)))
-//                .filter(org -> electorateCircle == null ||
-//                        (org.getElectorateCircle() != null && org.getElectorateCircle().getName().equalsIgnoreCase(electorateCircle)))
+                .filter(org -> org.getElectoralCircle() != null &&
+                        org.getElectoralCircle().getVotingArea() == area)
                 .collect(Collectors.toList());
     }
 

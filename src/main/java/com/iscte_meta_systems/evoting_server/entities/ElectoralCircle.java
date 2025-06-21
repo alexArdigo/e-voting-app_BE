@@ -18,4 +18,37 @@ public class ElectoralCircle {
     private int seats;
     @OneToMany
     List<Party> parties;
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public VotingArea getVotingArea() {
+        return votingArea;
+    }
+
+    public void setVotingArea(VotingArea votingArea) {
+        this.votingArea = votingArea;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+
+    public List<Party> getParties() {
+        return parties;
+    }
+
+    public void setParties(List<Party> parties) {
+        this.parties = parties;
+    }
 }

@@ -17,9 +17,9 @@ public class OrganisationController {
     @GetMapping("/organisations")
     public List<Organisation> getOrganisation(
         @RequestParam(required = false) String election,
-        @RequestParam(required = false) String electorateCircle
+        @RequestParam(required = false) String electoralCircle
     ) {
-        return organisationService.getAllOrganisations(election, electorateCircle);
+        return organisationService.getAllOrganisations(election, electoralCircle);
     }
 
     @GetMapping("/parties")
