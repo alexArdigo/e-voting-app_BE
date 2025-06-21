@@ -70,4 +70,8 @@ public class Election {
     public void startElection() {
         this.started = true;
     }
+
+    public void endElection() {
+        this.started = false;
+    }
 }

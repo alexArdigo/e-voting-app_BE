@@ -65,11 +65,18 @@ public class ElectionServiceImpl implements  ElectionService {
 
     @Override
     public Election startElection(Long id) {
-        if (id == null) {
-            throw new IllegalArgumentException("O ID da eleição é obrigatório.");
-        }
         Election election = getElectionById(id);
         election.startElection();
+        return electionRepository.save(election);
+    }
+
+    @Override
+    public Election endElection(Long id) {
+        Election election = getElectionById(id);
+        if (!election.isStarted()) {
+            throw new IllegalArgumentException("A eleição com o ID " + id + " não foi iniciada.");
+        }
+        election.endElection();
         return electionRepository.save(election);
     }
 }
