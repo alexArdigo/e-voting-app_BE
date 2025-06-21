@@ -47,11 +47,7 @@ public class Party extends Organisation {
         this.description = description;
     }
 
-    public List<Candidate> getCandidates() {
-        return candidates;
-    }
+    public List<Candidate> getCandidates() {return candidates;}
 
-    public void setCandidates(List<Candidate> candidates) {
-        this.candidates = candidates;
-    }
+    public void setCandidates(List<Candidate> candidates) {this.candidates = candidates;}
 }
