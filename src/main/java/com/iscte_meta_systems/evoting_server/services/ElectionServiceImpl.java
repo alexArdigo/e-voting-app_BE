@@ -72,10 +72,10 @@ public class ElectionServiceImpl implements  ElectionService {
         return dto;
     }
 
-    @Override
-    public List<Candidate> getBallotByElectionId(Long id) {
-        return presidencialRepository.getCandidatesByElectionId(id);
-    }
+//    @Override
+//    public List<Candidate> getBallotByElectionId(Long id) {
+//        return presidencialRepository.getCandidatesByElectionId(id);
+//    }
 
 //
 //    @Override
