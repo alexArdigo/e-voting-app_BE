@@ -9,11 +9,18 @@ public class Organisation {
     @GeneratedValue
     private Long id;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    private Election election;
+
+    public Long getId() {return id;}
 
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Election getElection() {return election;}
+
+    public void setElection(Election election) {this.election = election;}
+
+
 }
