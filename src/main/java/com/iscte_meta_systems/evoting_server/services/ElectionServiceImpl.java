@@ -15,8 +15,8 @@ public class ElectionServiceImpl implements  ElectionService {
     @Autowired
     private ElectionRepository electionRepository;
 
-    @Autowired
-    private PresidentialRepository presidencialRepository;
+//    @Autowired
+//    private PresidentialRepository presidencialRepository;
 
     @Override
     public List<Election> getElections(String electionType, Integer electionYear) {

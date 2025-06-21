@@ -1,7 +1,6 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Presidencial extends Election {
