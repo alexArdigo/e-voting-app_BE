@@ -4,7 +4,7 @@ public class OrganisationDTO {
     private Long id;
     private String organisationType;
     private String name;
-    private String description;
+
 
     public Long getId() {
         return id;
@@ -30,11 +30,4 @@ public class OrganisationDTO {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
