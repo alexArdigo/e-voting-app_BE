@@ -1,12 +1,13 @@
 package com.iscte_meta_systems.evoting_server.services;
 
+import com.iscte_meta_systems.evoting_server.entities.Candidate;
 import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 
 import java.util.List;
 
 public interface ElectionService {
-    //List<Candidate> getBallotByElectionId(Long id);
+    List<Candidate> getBallotByElectionId(Long id);
 
     List<Election> getElections(String electionType, Integer electionYear);
 
