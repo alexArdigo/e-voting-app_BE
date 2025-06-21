@@ -60,4 +60,15 @@ public class ElectionServiceImpl implements  ElectionService {
 //                })
 //                .orElseThrow(() -> new IllegalArgumentException("Eleição não encontrada com o ID: " + id));
 //    }
+
+
+    @Override
+    public Election startElection(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("O ID da eleição é obrigatório.");
+        }
+        Election election = getElectionById(id);
+        election.startElection();
+        return electionRepository.save(election);
+    }
 }

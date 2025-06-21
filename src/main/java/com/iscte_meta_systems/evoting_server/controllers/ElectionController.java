@@ -40,4 +40,9 @@ public class ElectionController {
 //    public Vote castVote(@PathVariable Long id, @RequestBody Vote vote) {
 //        return electionService.castVote(id, vote);
 //    }
+
+    @PostMapping("/elections/{id}/startElection")
+    public Election startElection(@PathVariable Long id) {
+        return electionService.startElection(id);
+    }
 }

@@ -16,6 +16,7 @@ public class Election {
     //List<Results> results; results já não é uma classe.
     //List<Vote> votes;
     //List<Hash> voted
+    boolean started = false;
 
 
     public void setId(Long id) {
@@ -56,5 +57,17 @@ public class Election {
 
     public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
+    }
+
+    public boolean isStarted() {
+        return started;
+    }
+
+    public void setStarted(boolean started) {
+        this.started = started;
+    }
+
+    public void startElection() {
+        this.started = true;
     }
 }

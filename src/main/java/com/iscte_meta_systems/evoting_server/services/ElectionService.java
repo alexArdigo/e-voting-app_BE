@@ -13,5 +13,7 @@ public interface ElectionService {
 
     Election createElection(Election election);
 
+    Election startElection(Long id);
+
     //Vote castVote(Long id, Vote vote);
 }
