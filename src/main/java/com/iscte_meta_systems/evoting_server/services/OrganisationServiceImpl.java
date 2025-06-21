@@ -3,6 +3,7 @@ import com.iscte_meta_systems.evoting_server.entities.Organisation;
 import com.iscte_meta_systems.evoting_server.entities.Party;
 import com.iscte_meta_systems.evoting_server.entities.UniParty;
 import com.iscte_meta_systems.evoting_server.enums.VotingArea;
+import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.repositories.OrganisationRepository;
 import com.iscte_meta_systems.evoting_server.repositories.PartyRepository;
 import com.iscte_meta_systems.evoting_server.repositories.UniPartyRepository;
@@ -43,14 +44,33 @@ public class OrganisationServiceImpl implements OrganisationService {
     }
 
     @Override
-    public Organisation createOrganisation(Organisation organisation) {
-//        if (party.getName() == null || organisation.getName().isEmpty()) {
-//            throw new IllegalArgumentException("Organisation name is required.");
-//        }
-//        if (organisation.getDescription() == null || organisation.getDescription().isEmpty()) {
-//            throw new IllegalArgumentException("Organisation description is required.");
-//        }
-        return organisationRepository.save(organisation);
+    public OrganisationDTO createOrganisation(OrganisationDTO organisationDTO) {
+        if (organisationDTO.getName() == null || organisationDTO.getName().isEmpty()) {
+            throw new IllegalArgumentException("Organisation name is required.");
+        }
+        if (organisationDTO.getDescription() == null || organisationDTO.getDescription().isEmpty()) {
+            throw new IllegalArgumentException("Organisation description is required.");
+        }
+        Organisation organisation;
+        switch (organisationDTO.getOrganisationType().toLowerCase()) {
+            case "party":
+                Party party = new Party();
+                party.setName(organisationDTO.getName());
+                party.setDescription(organisationDTO.getDescription());
+                organisation = party;
+                break;
+            case "uniparty":
+                UniParty uniParty = new UniParty();
+                uniParty.setName(organisationDTO.getName());
+                organisation = uniParty;
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown organisation type: " + organisationDTO.getOrganisationType());
+        }
+
+        organisationRepository.save(organisation);
+
+        return organisationDTO;
     }
 
     @Override
