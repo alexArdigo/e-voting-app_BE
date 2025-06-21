@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.controllers;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
 import com.iscte_meta_systems.evoting_server.entities.Party;
 import com.iscte_meta_systems.evoting_server.entities.UniParty;
+import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.services.OrganisationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,8 +39,8 @@ public class OrganisationController {
     }
 
     @PostMapping("/organisations")
-    public Organisation createOrganisation(@RequestBody Organisation organisation) {
-        return organisationService.createOrganisation(organisation);
+    public OrganisationDTO createOrganisation(@RequestBody OrganisationDTO organisationDTO) {
+        return organisationService.createOrganisation(organisationDTO);
     }
 
 
