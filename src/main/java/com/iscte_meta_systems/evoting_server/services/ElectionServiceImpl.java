@@ -4,7 +4,6 @@ import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,6 +13,9 @@ public class ElectionServiceImpl implements  ElectionService {
 
     @Autowired
     private ElectionRepository electionRepository;
+
+//    @Autowired
+//    private PresidentialRepository presidencialRepository;
 
     @Override
     public List<Election> getElections(String electionType, Integer electionYear) {
@@ -28,4 +30,24 @@ public class ElectionServiceImpl implements  ElectionService {
     public Election getElectionById(Long id) {
         return electionRepository.getReferenceById(id);
     }
+
+    @Override
+    public Election createElection(Election election) {
+        if (election.getName() == null) {
+            throw new IllegalArgumentException("O nome da eleição é obrigatório.");
+        }
+        if (election.getStartDate() == null || election.getEndDate() == null) {
+            throw new IllegalArgumentException("Datas de início e fim são obrigatórias.");
+        }
+        if (election.getEndDate().isBefore(election.getStartDate())) {
+            throw new IllegalArgumentException("A data de fim não pode ser anterior à data de início.");
+        }
+        return electionRepository.save(election);
+    }
+
+//    @Override
+//    public List<Candidate> getBallotByElectionId(Long id) {
+//        return presidencialRepository.getCandidatesByElectionId(id);
+//    }
+
 }
