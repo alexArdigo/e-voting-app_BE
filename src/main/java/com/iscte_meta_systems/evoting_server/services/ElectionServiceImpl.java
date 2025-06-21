@@ -2,9 +2,9 @@ package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
+import com.iscte_meta_systems.evoting_server.repositories.PresidentialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,6 +14,9 @@ public class ElectionServiceImpl implements  ElectionService {
 
     @Autowired
     private ElectionRepository electionRepository;
+
+    @Autowired
+    private PresidentialRepository presidencialRepository;
 
     @Override
     public List<Election> getElections(String electionType, Integer electionYear) {
@@ -42,4 +45,10 @@ public class ElectionServiceImpl implements  ElectionService {
         }
         return electionRepository.save(election);
     }
+
+//    @Override
+//    public List<Candidate> getBallotByElectionId(Long id) {
+//        return presidencialRepository.getCandidatesByElectionId(id);
+//    }
+
 }

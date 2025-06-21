@@ -30,4 +30,9 @@ public class ElectionController {
     public Election createElection(@RequestBody Election election) {
         return electionService.createElection(election);
     }
+
+//    @GetMapping("/elections/{id}/ballot")
+//    public List<Candidate> getBallotByElectionId(@PathVariable Long id){
+//        return ElectionService.getBallotByElectionId(id);
+//    }
 }
