@@ -9,4 +9,6 @@ public interface ElectionService {
     List<Election> getElections(String electionType, Integer electionYear);
 
     Election getElectionById(Long id);
+
+    Election createElection(Election election);
 }
