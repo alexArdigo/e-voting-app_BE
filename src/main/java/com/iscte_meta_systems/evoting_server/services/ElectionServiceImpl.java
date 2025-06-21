@@ -1,7 +1,8 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
-import com.iscte_meta_systems.evoting_server.entities.Presidencial;
+import com.iscte_meta_systems.evoting_server.entities.Organisation;
+import com.iscte_meta_systems.evoting_server.entities.Presidential;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,6 @@ public class ElectionServiceImpl implements  ElectionService {
 
     @Autowired
     private ElectionRepository electionRepository;
-
-//    @Autowired
-//    private PresidentialRepository presidencialRepository;
 
     @Override
     public List<Election> getElections(String electionType, Integer electionYear) {
@@ -55,8 +53,8 @@ public class ElectionServiceImpl implements  ElectionService {
 //            case "legislativa":
 //                election = new Legislativa();
 //                break;
-            case "presidencial":
-                election = new Presidencial();
+            case "presidential":
+                election = new Presidential();
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de eleição desconhecido: " + dto.getElectionType());
@@ -72,10 +70,11 @@ public class ElectionServiceImpl implements  ElectionService {
         return dto;
     }
 
-//    @Override
-//    public List<Candidate> getBallotByElectionId(Long id) {
-//        return presidencialRepository.getCandidatesByElectionId(id);
-//    }
+    @Override
+    public List<Organisation> getBallotByElectionId(Long id) {
+        Election election = getElectionById(id);
+        return election.getOrganisations();
+    }
 
 //
 //    @Override

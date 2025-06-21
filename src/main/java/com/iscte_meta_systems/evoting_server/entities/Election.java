@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.entities;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -13,6 +14,7 @@ public class Election {
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    private List<Organisation> organisations;
     //List<Results> results; results já não é uma classe.
     //List<Vote> votes;
     //List<Hash> voted
@@ -73,5 +75,13 @@ public class Election {
 
     public void endElection() {
         this.started = false;
+    }
+
+    public List<Organisation> getOrganisations() {
+        return organisations;
+    }
+
+    public void setOrganisations(List<Organisation> organisations) {
+        this.organisations = organisations;
     }
 }
