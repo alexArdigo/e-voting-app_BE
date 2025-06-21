@@ -8,13 +8,13 @@ import java.util.List;
 @Entity
 public class Presidential extends Election {
     @OneToMany
-    List<Candidate> candidates;
+    List<UniParty> candidates;
 
-    public List<Candidate> getCandidates() {
+    public List<UniParty> getCandidates() {
         return candidates;
     }
 
-    public void setCandidates(List<Candidate> candidates) {
+    public void setCandidates(List<UniParty> candidates) {
         this.candidates = candidates;
     }
 }
