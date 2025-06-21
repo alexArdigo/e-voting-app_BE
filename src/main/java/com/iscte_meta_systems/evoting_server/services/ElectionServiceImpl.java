@@ -50,4 +50,14 @@ public class ElectionServiceImpl implements  ElectionService {
 //        return presidencialRepository.getCandidatesByElectionId(id);
 //    }
 
+//
+//    @Override
+//    public Vote castVote(Long id, Vote vote) {
+//        return electionRepository.findById(id)
+//                .map(election -> {
+//                    election.getVotes().add(vote);
+//                    return electionRepository.save(election);
+//                })
+//                .orElseThrow(() -> new IllegalArgumentException("Eleição não encontrada com o ID: " + id));
+//    }
 }

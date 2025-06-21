@@ -35,4 +35,9 @@ public class ElectionController {
 //    public List<Candidate> getBallotByElectionId(@PathVariable Long id){
 //        return ElectionService.getBallotByElectionId(id);
 //    }
+//
+//    @PostMapping("/elections/{id}/castVote")
+//    public Vote castVote(@PathVariable Long id, @RequestBody Vote vote) {
+//        return electionService.castVote(id, vote);
+//    }
 }
