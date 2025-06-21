@@ -48,15 +48,11 @@ public class OrganisationServiceImpl implements OrganisationService {
         if (organisationDTO.getName() == null || organisationDTO.getName().isEmpty()) {
             throw new IllegalArgumentException("Organisation name is required.");
         }
-        if (organisationDTO.getDescription() == null || organisationDTO.getDescription().isEmpty()) {
-            throw new IllegalArgumentException("Organisation description is required.");
-        }
         Organisation organisation;
         switch (organisationDTO.getOrganisationType().toLowerCase()) {
             case "party":
                 Party party = new Party();
                 party.setName(organisationDTO.getName());
-                party.setDescription(organisationDTO.getDescription());
                 organisation = party;
                 break;
             case "uniparty":
