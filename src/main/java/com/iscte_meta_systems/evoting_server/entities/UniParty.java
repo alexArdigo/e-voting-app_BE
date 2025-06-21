@@ -7,8 +7,8 @@ public class UniParty extends Organisation {
 
     private String name;
     private String imageUrl;
-//    @OneToOne
-//    Candidate candidate;
+    @OneToOne
+    Candidate candidate;
 
     public String getName() {
         return name;
@@ -26,12 +26,12 @@ public class UniParty extends Organisation {
         this.imageUrl = imageUrl;
     }
 
-//    public Candidate getCandidate() {
-//        return candidate;
-//    }
-//
-//    public void setCandidate(Candidate candidate) {
-//        this.candidate = candidate;
-//    }
+    public Candidate getCandidate() {
+        return candidate;
+    }
+
+    public void setCandidate(Candidate candidate) {
+        this.candidate = candidate;
+    }
 
 }
