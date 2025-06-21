@@ -2,6 +2,8 @@ package com.iscte_meta_systems.evoting_server.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
+import java.util.List;
+
 @Entity
 public class Party extends Organisation {
 
@@ -9,8 +11,8 @@ public class Party extends Organisation {
     private String color;
     private String logoUrl;
     private String description;
-    //@OneToMany
-    //List<Candidate> candidates;
+    @OneToMany
+    List<Candidate> candidates;
 
 
     public String getName() {
@@ -45,11 +47,11 @@ public class Party extends Organisation {
         this.description = description;
     }
 
-//    public List<Candidate> getCandidates() {
-//        return candidates;
-//    }
-//
-//    public void setCandidates(List<Candidate> candidates) {
-//        this.candidates = candidates;
-//    }
+    public List<Candidate> getCandidates() {
+        return candidates;
+    }
+
+    public void setCandidates(List<Candidate> candidates) {
+        this.candidates = candidates;
+    }
 }
