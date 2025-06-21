@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
+import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface ElectionService {
 
     Election getElectionById(Long id);
 
-    Election createElection(Election election);
+    ElectionDTO createElection(ElectionDTO electionDTO);
 
     Election startElection(Long id);
 

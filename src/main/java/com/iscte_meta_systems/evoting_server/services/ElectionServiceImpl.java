@@ -1,10 +1,13 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
+import com.iscte_meta_systems.evoting_server.entities.Presidencial;
+import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,17 +36,37 @@ public class ElectionServiceImpl implements  ElectionService {
     }
 
     @Override
-    public Election createElection(Election election) {
-        if (election.getName() == null) {
+    public ElectionDTO createElection(ElectionDTO dto) {
+        if (dto.getName() == null) {
             throw new IllegalArgumentException("O nome da eleição é obrigatório.");
         }
-        if (election.getStartDate() == null || election.getEndDate() == null) {
+        if (dto.getStartDate() == null || dto.getEndDate() == null) {
             throw new IllegalArgumentException("Datas de início e fim são obrigatórias.");
         }
-        if (election.getEndDate().isBefore(election.getStartDate())) {
+
+        LocalDateTime startDate = LocalDateTime.parse(dto.getStartDate());
+        LocalDateTime endDate = LocalDateTime.parse(dto.getEndDate());
+
+        if (endDate.isBefore(startDate)) {
             throw new IllegalArgumentException("A data de fim não pode ser anterior à data de início.");
         }
-        return electionRepository.save(election);
+        Election election;
+        switch (dto.getElectionType().toLowerCase()) {
+            case "presidencial":
+                election = new Presidencial();
+                break;
+            default:
+                throw new IllegalArgumentException("Tipo de eleição desconhecido: " + dto.getElectionType());
+        }
+
+        election.setName(dto.getName());
+        election.setDescription(dto.getDescription());
+        election.setStartDate(startDate);
+        election.setEndDate(endDate);
+
+        electionRepository.save(election);
+
+        return dto;
     }
 
 //    @Override
