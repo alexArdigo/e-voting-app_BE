@@ -26,7 +26,7 @@ public class ElectionController {
         return electionService.getElectionById(id);
     }
 
-    @PostMapping
+    @PostMapping("/elections")
     public Election createElection(@RequestBody Election election) {
         return electionService.createElection(election);
     }
