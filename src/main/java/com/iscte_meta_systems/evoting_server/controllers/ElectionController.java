@@ -4,6 +4,7 @@ import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,7 @@ public class ElectionController {
     }
 
     @GetMapping("/elections/{id}")
-    public Election getElectionById(Long id) {
+    public Election getElectionById(@PathVariable Long id) {
         return electionService.getElectionById(id);
     }
 }
