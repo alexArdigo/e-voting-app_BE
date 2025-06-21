@@ -1,7 +1,7 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
-import com.iscte_meta_systems.evoting_server.entities.Presidencial;
+import com.iscte_meta_systems.evoting_server.entities.Presidential;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,8 +55,8 @@ public class ElectionServiceImpl implements  ElectionService {
 //            case "legislativa":
 //                election = new Legislativa();
 //                break;
-            case "presidencial":
-                election = new Presidencial();
+            case "presidential":
+                election = new Presidential();
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de eleição desconhecido: " + dto.getElectionType());
