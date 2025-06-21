@@ -28,7 +28,8 @@ public class ElectionServiceImpl implements  ElectionService {
 
     @Override
     public Election getElectionById(Long id) {
-        return electionRepository.getReferenceById(id);
+        return electionRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Eleição não encontrada com o ID: " + id));
     }
 
     @Override
