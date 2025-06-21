@@ -14,7 +14,10 @@ public class CandidateController {
 
 
     @GetMapping("/candidates")
-    public List<Candidate> getCandidates(String candidateType, String electionType) {
+    public List<Candidate> getCandidates(
+            @RequestParam (required = false) String candidateType,
+            @RequestParam (required = false) String electionType
+    ) {
         return candidateService.getCandidatesByType(candidateType, electionType);
     }
 
