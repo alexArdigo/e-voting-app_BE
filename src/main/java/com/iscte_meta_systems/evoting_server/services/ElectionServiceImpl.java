@@ -28,4 +28,18 @@ public class ElectionServiceImpl implements  ElectionService {
     public Election getElectionById(Long id) {
         return electionRepository.getReferenceById(id);
     }
+
+    @Override
+    public Election createElection(Election election) {
+        if (election.getName() == null) {
+            throw new IllegalArgumentException("O nome da eleição é obrigatório.");
+        }
+        if (election.getStartDate() == null || election.getEndDate() == null) {
+            throw new IllegalArgumentException("Datas de início e fim são obrigatórias.");
+        }
+        if (election.getEndDate().isBefore(election.getStartDate())) {
+            throw new IllegalArgumentException("A data de fim não pode ser anterior à data de início.");
+        }
+        return electionRepository.save(election);
+    }
 }
