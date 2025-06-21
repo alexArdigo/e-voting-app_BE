@@ -18,4 +18,9 @@ public class ElectionController {
     public List<Election> getElections() {
         return electionService.getElections();
     }
+
+    @GetMapping("/elections/{id}")
+    public Election getElectionById(Long id) {
+        return electionService.getElectionById(id);
+    }
 }

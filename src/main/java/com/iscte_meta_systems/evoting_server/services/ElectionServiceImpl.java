@@ -17,4 +17,9 @@ public class ElectionServiceImpl implements  ElectionService {
     public List<Election> getElections() {
         return electionRepository.findAll();
     }
+
+    @Override
+    public Election getElectionById(Long id) {
+        return electionRepository.getReferenceById(id);
+    }
 }
