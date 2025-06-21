@@ -9,10 +9,10 @@ public class Election {
     @Id
     @GeneratedValue
     private Long id;
-    String name;
-    String description;
-    LocalDateTime startDate;
-    LocalDateTime endDate;
+    private String name;
+    private String description;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     //List<Results> results; results já não é uma classe.
     //List<Vote> votes;
     //List<Hash> voted
@@ -69,5 +69,9 @@ public class Election {
 
     public void startElection() {
         this.started = true;
+    }
+
+    public void endElection() {
+        this.started = false;
     }
 }

@@ -45,4 +45,9 @@ public class ElectionController {
     public Election startElection(@PathVariable Long id) {
         return electionService.startElection(id);
     }
+
+    @PostMapping("/elections/{id}/endElection")
+    public Election endElection(@PathVariable Long id) {
+        return electionService.endElection(id);
+    }
 }
