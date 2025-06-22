@@ -53,18 +53,24 @@ public class UserServiceImpl implements UserService{
     @Override
     public User getUserByUsername(String username) {
         if(username == null || username.isEmpty()) {
-            return null;
+            throw new IllegalArgumentException("Username is either null or empty");
         }
         return userRepository.findByUsername(username);
     }
 
     @Override
     public boolean userExists(String username) {
+        if(username == null || username.isEmpty()) {
+            throw new IllegalArgumentException("Username is either null or empty");
+        }
         return userRepository.existsByUsername(username);
     }
 
     @Override
     public List<Viewer> pendingAuthorization() {
+        if(viewerRepository.findByIsAuthorizedFalse().isEmpty()) {
+            throw new RuntimeException("No pending viewers found");
+        }
         List<Viewer> pendingViewers = viewerRepository.findByIsAuthorizedFalse();
         return pendingViewers;
     }
