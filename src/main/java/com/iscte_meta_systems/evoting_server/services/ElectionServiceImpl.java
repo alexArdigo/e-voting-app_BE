@@ -94,6 +94,7 @@ public class ElectionServiceImpl implements  ElectionService {
 //        Vote vote = new Vote();
 //        vote.setOrganisation(organisation);
 //        vote.setParish(parish);
+//        election.addVote(vote);
 //        electionRepository.save(election);
 //        return voteRepository.save(vote);
 //
