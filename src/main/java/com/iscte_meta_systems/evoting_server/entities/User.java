@@ -22,7 +22,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.name = name;
-        this.isAuth = false; // Default value
+        this.isAuth = false;
     }
 
     public Long getId() {
