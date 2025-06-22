@@ -14,7 +14,8 @@ public class Vote {
 
     @OneToOne
     private Organisation organisation;
-    //private Parish parish;
+    @OneToOne
+    private Parish parish;
 
 
     public Vote() {
@@ -34,5 +35,13 @@ public class Vote {
 
     public void setOrganisation(Organisation organisation) {
         this.organisation = organisation;
+    }
+
+    public Parish getParish() {
+        return parish;
+    }
+
+    public void setParish(Parish parish) {
+        this.parish = parish;
     }
 }
