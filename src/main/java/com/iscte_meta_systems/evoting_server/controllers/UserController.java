@@ -1,4 +1,53 @@
 package com.iscte_meta_systems.evoting_server.controllers;
 
+import com.iscte_meta_systems.evoting_server.entities.User;
+import com.iscte_meta_systems.evoting_server.entities.Viewer;
+import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
+import com.iscte_meta_systems.evoting_server.repositories.ViewerRepository;
+import com.iscte_meta_systems.evoting_server.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
 public class UserController {
+
+    @Autowired
+    UserService userService;
+
+    @PostMapping ("/registerAdmin")
+    public ResponseEntity<String> registerAdmin(UserRegisterDTO userRegisterDTO) {
+        String result = userService.registerAdmin(userRegisterDTO);
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping ("/registerViewer")
+    public ResponseEntity<String> registerViewer(UserRegisterDTO userRegisterDTO) {
+        String result = userService.registerViewer(userRegisterDTO);
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping ("/pendingAuthorization")
+    public List<Viewer> pendingAuthorization() {
+        return userService.pendingAuthorization();
+    }
+
+    @GetMapping("/approveViewer/{viewerId}")
+    public String approveViewer(@PathVariable Long viewerId) {
+        if (userService.approveViewer(viewerId)) {
+            return "Viewer approved successfully";
+        } else {
+            return "Viewer approval failed";
+        }
+    }
+
+    @GetMapping("/findUserByUsername")
+    public User findUserByUsername(String username) {
+        return userService.getUserByUsername(username);
+    }
 }
