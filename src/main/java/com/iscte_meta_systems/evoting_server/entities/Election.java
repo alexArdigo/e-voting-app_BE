@@ -17,6 +17,7 @@ public class Election {
     @OneToMany
     private List<Organisation> organisations;
     //List<Results> results; results já não é uma classe.
+    @OneToMany(mappedBy = "election")
     List<Vote> votes;
     //List<Hash> voted
     boolean started = false;
