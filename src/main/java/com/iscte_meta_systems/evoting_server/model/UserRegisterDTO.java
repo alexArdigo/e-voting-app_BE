@@ -4,6 +4,7 @@ public class UserRegisterDTO {
     private String username;
     private String password;
     private String name;
+    private String institutionName;
 
     public String getUsername() {
         return username;
@@ -27,5 +28,13 @@ public class UserRegisterDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getInstitutionName() {
+        return institutionName;
+    }
+
+    public void setInstitutionName(String institutionName) {
+        this.institutionName = institutionName;
     }
 }

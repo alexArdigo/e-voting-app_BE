@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
+import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import jakarta.persistence.Entity;
 
 @Entity
@@ -10,9 +11,9 @@ public class Viewer extends User {
     public Viewer() {
     }
 
-    public Viewer(String username, String password, String name, String institutionName) {
-        super(username, password, name);
-        this.institutionName = institutionName;
+    public Viewer(UserRegisterDTO userRegisterDTO) {
+        super(userRegisterDTO);
+        this.institutionName = userRegisterDTO.getInstitutionName();
     }
 
     public String getInstitutionName() {
