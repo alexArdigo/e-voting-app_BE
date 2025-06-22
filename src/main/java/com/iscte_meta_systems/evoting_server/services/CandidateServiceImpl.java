@@ -1,21 +1,48 @@
 package com.iscte_meta_systems.evoting_server.services;
 
-import com.iscte_meta_systems.evoting_server.entities.Candidate;
+import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.repositories.CandidateRepository;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class CandidateServiceImpl implements CandidateService {
 
+    @Autowired
     CandidateRepository candidateRepository;
+    @Autowired
+    ElectionService electionService;
 
     @Override
-    public List<Candidate> getCandidatesByType(String candidateType, String electionType) {
-        return candidateRepository.findAllByType(candidateType, electionType);
+    public List<Candidate> getCandidatesByElection(Long electionId) {
+
+        Election election = electionService.getElectionById(electionId);
+
+        List<Organisation> organisations = election.getOrganisations();
+
+        List<Candidate> allCandidates = new ArrayList<>();
+
+        for (Organisation organisation : organisations) {
+            if (organisation instanceof Party) {
+                Party party = (Party) organisation;
+                if (party.getCandidates() != null) {
+                    allCandidates.addAll(party.getCandidates());
+                }
+            } else if (organisation instanceof UniParty) {
+                UniParty uniParty = (UniParty) organisation;
+                if (uniParty.getCandidate() != null) {
+                    allCandidates.add(uniParty.getCandidate());
+                }
+            }
+        }
+
+        return allCandidates;
     }
+
 
     @Override
     public Candidate getCandidatesById(long id) {

@@ -5,7 +5,7 @@ import com.iscte_meta_systems.evoting_server.entities.Candidate;
 import java.util.List;
 
 public interface CandidateService {
-    List<Candidate> getCandidatesByType(String candidateType, String electionType);
+    List<Candidate> getCandidatesByElection(Long electionId);
 
     Candidate getCandidatesById(long id);
 
