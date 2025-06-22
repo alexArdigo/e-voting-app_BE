@@ -1,4 +1,5 @@
 package com.iscte_meta_systems.evoting_server.entities;
+import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,20 +9,20 @@ public class User {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String username;
-    String password;
-    String name;
-    Boolean isAuth;
+    private String username;
+    private String password;
+    private String name;
+    private Boolean isAuth;
 
     public User() {
     }
 
-    public User(String username, String password, String name) {
-        this.username = username;
-        this.password = password;
-        this.name = name;
+    public User(UserRegisterDTO userRegisterDTO) {
+        this.username = userRegisterDTO.getUsername();
+        this.password = userRegisterDTO.getPassword();
+        this.name = userRegisterDTO.getName();
         this.isAuth = false;
     }
 

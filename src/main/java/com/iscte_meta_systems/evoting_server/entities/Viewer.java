@@ -4,7 +4,8 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class Viewer extends User {
-    String institutionName;
+
+    private String institutionName;
 
     public Viewer() {
     }
