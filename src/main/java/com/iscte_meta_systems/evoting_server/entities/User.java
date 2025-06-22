@@ -14,7 +14,8 @@ public class User {
     private String username;
     private String password;
     private String name;
-    private Boolean isAuth;
+    private Boolean isAuthorized;
+    private String role;  //"ADMIN", "VIEWER" em caps
 
     public User() {
     }
@@ -23,7 +24,8 @@ public class User {
         this.username = userRegisterDTO.getUsername();
         this.password = userRegisterDTO.getPassword();
         this.name = userRegisterDTO.getName();
-        this.isAuth = false;
+        this.role = userRegisterDTO.getRole();
+        this.isAuthorized = false;
     }
 
     public Long getId() {
@@ -58,12 +60,20 @@ public class User {
         this.name = name;
     }
 
-    public Boolean getAuth() {
-        return isAuth;
+    public Boolean getIsAuthorized() {
+        return isAuthorized;
     }
 
-    public void setAuth(Boolean auth) {
-        isAuth = auth;
+    public void setIsAuthorized(Boolean authorized) {
+        isAuthorized = authorized;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
 

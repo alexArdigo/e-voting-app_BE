@@ -5,6 +5,7 @@ public class UserRegisterDTO {
     private String password;
     private String name;
     private String institutionName;
+    private String role;
 
     public String getUsername() {
         return username;
@@ -36,5 +37,13 @@ public class UserRegisterDTO {
 
     public void setInstitutionName(String institutionName) {
         this.institutionName = institutionName;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

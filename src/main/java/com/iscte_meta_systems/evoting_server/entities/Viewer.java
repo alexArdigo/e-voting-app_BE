@@ -14,6 +14,7 @@ public class Viewer extends User {
     public Viewer(UserRegisterDTO userRegisterDTO) {
         super(userRegisterDTO);
         this.institutionName = userRegisterDTO.getInstitutionName();
+        this.setRole("VIEWER");
     }
 
     public String getInstitutionName() {
@@ -23,4 +24,6 @@ public class Viewer extends User {
     public void setInstitutionName(String institutionName) {
         this.institutionName = institutionName;
     }
+
+
 }

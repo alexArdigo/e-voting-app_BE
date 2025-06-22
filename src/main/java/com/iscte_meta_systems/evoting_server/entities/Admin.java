@@ -11,6 +11,8 @@ public class Admin extends User {
 
     public Admin(UserRegisterDTO userRegisterDTO) {
         super(userRegisterDTO);
+        this.setRole("ADMIN");
+        this.setIsAuthorized(true);
     }
 }
 
