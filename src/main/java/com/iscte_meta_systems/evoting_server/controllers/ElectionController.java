@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.controllers;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
+import com.iscte_meta_systems.evoting_server.entities.Vote;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +39,10 @@ public class ElectionController {
         return electionService.getBallotByElectionId(id);
     }
 
-//    @PostMapping("/elections/{id}/castVote")
-//    public Vote castVote(@PathVariable Long id, @RequestBody Vote vote) {
-//        return electionService.castVote(id, vote);
-//    }
+    @PostMapping("/elections/{id}/castVote")
+    public Vote castVote(@PathVariable Long id, @RequestBody Vote vote) {
+        return electionService.castVote(id, vote);
+    }
 
     @PostMapping("/elections/{id}/startElection")
     public Election startElection(@PathVariable Long id) {
