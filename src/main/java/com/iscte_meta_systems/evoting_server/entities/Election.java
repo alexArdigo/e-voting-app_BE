@@ -86,4 +86,8 @@ public class Election {
     public void setOrganisations(List<Organisation> organisations) {
         this.organisations = organisations;
     }
+
+    public void addVote(Vote vote) {
+        this.votes.add(vote);
+    }
 }
