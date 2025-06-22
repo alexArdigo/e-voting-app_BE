@@ -7,6 +7,4 @@ import java.util.List;
 
 @Repository
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
-
-    List<Candidate> findAllByType(String candidateType, String electionType);
 }
