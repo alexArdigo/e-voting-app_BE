@@ -90,4 +90,11 @@ public class Election {
     public void addVote(Vote vote) {
         this.votes.add(vote);
     }
+
+    public void addOrganisation(Organisation organisation) {
+        if (this.organisations == null) {
+            this.organisations = new java.util.ArrayList<>();
+        }
+        this.organisations.add(organisation);
+    }
 }
