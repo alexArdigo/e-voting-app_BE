@@ -19,7 +19,7 @@ public class Election {
     //List<Results> results; results já não é uma classe.
     @OneToMany
     List<Vote> votes;
-    //List<Hash> voted
+    List<String> votersVoted; //HASHES
     boolean started = false;
 
     public Election() {}
@@ -97,5 +97,21 @@ public class Election {
             this.organisations = new java.util.ArrayList<>();
         }
         this.organisations.add(organisation);
+    }
+
+    public List<Vote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
+    }
+
+    public List<String> getVotersVoted() {
+        return votersVoted;
+    }
+
+    public void setVotersVoted(List<String> votersVoted) {
+        this.votersVoted = votersVoted;
     }
 }
