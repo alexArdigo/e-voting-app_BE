@@ -9,6 +9,8 @@ public class Organisation {
     @GeneratedValue
     private Long id;
 
+    private String organisationName;
+
     @ManyToOne
     private Election election;
 
@@ -29,6 +31,14 @@ public class Organisation {
 
     public void setElectoralCircle(ElectoralCircle electoralCircle) {
         this.electoralCircle = electoralCircle;
+    }
+
+    public String getOrganisationName() {
+        return organisationName;
+    }
+
+    public void setOrganisationName(String organisationName) {
+        this.organisationName = organisationName;
     }
 
 
