@@ -1,5 +1,7 @@
 package com.iscte_meta_systems.evoting_server.model;
 
+import java.util.List;
+
 public class ElectionDTO {
     private Long id;
     private String electionType;
@@ -7,6 +9,7 @@ public class ElectionDTO {
     private String description;
     private String startDate;
     private String endDate;
+    private List<OrganisationDTO> organisations;
 
     public String getElectionType() {
         return electionType;
@@ -54,5 +57,13 @@ public class ElectionDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<OrganisationDTO> getOrganisations() {
+        return organisations;
+    }
+
+    public void setOrganisations(List<OrganisationDTO> organisations) {
+        this.organisations = organisations;
     }
 }

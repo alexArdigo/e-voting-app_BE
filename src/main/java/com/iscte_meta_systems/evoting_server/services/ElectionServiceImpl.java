@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
+import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
 import com.iscte_meta_systems.evoting_server.repositories.OrganisationRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -28,13 +29,41 @@ public class ElectionServiceImpl implements  ElectionService {
 //    private VoteRepository voteRepository;
 
     @Override
-    public List<Election> getElections(String electionType, Integer electionYear) {
+    public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
         List<Election> elections = electionRepository.findAll();
+
         return elections.stream()
                 .filter(e -> electionType == null || e.getClass().getSimpleName().equalsIgnoreCase(electionType))
                 .filter(e -> electionYear == null || (e.getStartDate() != null && e.getStartDate().getYear() == electionYear))
+                .map(e -> {
+                    ElectionDTO dto = new ElectionDTO();
+                    dto.setId(e.getId());
+                    dto.setName(e.getName());
+                    dto.setDescription(e.getDescription());
+                    dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
+                    dto.setEndDate(e.getEndDate() != null ? e.getEndDate().toString() : null);
+                    dto.setElectionType(e.getClass().getSimpleName());
+
+                    if (e.getOrganisations() != null) {
+                        List<OrganisationDTO> orgDtos = e.getOrganisations().stream()
+                                .map(org -> {
+                                    OrganisationDTO orgDto = new OrganisationDTO();
+                                    orgDto.setId(org.getId());
+                                    orgDto.setName(org.getOrganisationName());
+                                    orgDto.setOrganisationType(org.getClass().getSimpleName());
+                                    orgDto.setElectionId(org.getElection() != null ? org.getElection().getId() : null);
+                                    return orgDto;
+                                })
+                                .collect(Collectors.toList());
+                        dto.setOrganisations(orgDtos);
+                    }
+
+                    return dto;
+                })
                 .collect(Collectors.toList());
     }
+
+
 
     @Override
     public Election getElectionById(Long id) {

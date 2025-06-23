@@ -17,7 +17,7 @@ public class ElectionController {
     private ElectionService electionService;
 
     @GetMapping("/elections")
-    public List<Election> getElections(
+    public List<ElectionDTO> getElections(
             @RequestParam(required = false) String electionType,
             @RequestParam(required = false) Integer electionYear
     ) {

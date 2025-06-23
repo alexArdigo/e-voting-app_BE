@@ -10,7 +10,7 @@ import java.util.List;
 public interface ElectionService {
     List<Organisation> getBallotByElectionId(Long id);
 
-    List<Election> getElections(String electionType, Integer electionYear);
+    List<ElectionDTO> getElections(String electionType, Integer electionYear);
 
     Election getElectionById(Long id);
 
