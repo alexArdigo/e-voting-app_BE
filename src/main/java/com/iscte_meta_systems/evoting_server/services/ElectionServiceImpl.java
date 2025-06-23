@@ -5,6 +5,7 @@ import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
 import com.iscte_meta_systems.evoting_server.repositories.OrganisationRepository;
+import com.iscte_meta_systems.evoting_server.repositories.VoteRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,8 @@ public class ElectionServiceImpl implements  ElectionService {
     @Autowired
     private OrganisationRepository organisationRepository;
 
-//    @Autowired
-//    private VoteRepository voteRepository;
+    @Autowired
+    private VoteRepository voteRepository;
 
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
@@ -114,20 +115,20 @@ public class ElectionServiceImpl implements  ElectionService {
         return election.getOrganisations();
     }
 
-//    @Override
-//    public Vote castVote(Long electionId, Vote voteRequest) {
-//        Election election = getElectionById(electionId);
-//        Voter voter = voterService.getLoggedVoter();
-//        Parish parish = voter.getParish();
-//        Organisation organisation = organisationService.getOrganisationById(voteRequest.getOrganisation().getId());
-//        Vote vote = new Vote();
-//        vote.setOrganisation(organisation);
-//        vote.setParish(parish);
-//        election.addVote(vote);
-//        electionRepository.save(election);
-//        return voteRepository.save(vote);
-//
-//    }
+    @Override
+    public Vote castVote(Long electionId, Vote voteRequest) {
+        Election election = getElectionById(electionId);
+        Voter voter = voterService.getLoggedVoter();
+        Parish parish = voter.getParish();
+        Organisation organisation = organisationRepository.getReferenceById(voteRequest.getOrganisation().getId());
+        Vote vote = new Vote();
+        vote.setOrganisation(organisation);
+        vote.setParish(parish);
+        election.addVote(vote);
+        electionRepository.save(election);
+        return voteRepository.save(vote);
+
+    }
 
     @Override
     public Election startElection(Long id) {

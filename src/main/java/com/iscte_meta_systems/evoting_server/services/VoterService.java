@@ -9,5 +9,5 @@ public interface VoterService {
 
     Boolean hasAlreadyVoted(String voter, Long electionId);
 
-    Voter getLoggedUser();
+    Voter getLoggedVoter();
 }

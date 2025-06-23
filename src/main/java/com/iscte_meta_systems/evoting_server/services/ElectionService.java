@@ -20,5 +20,5 @@ public interface ElectionService {
 
     Election endElection(Long id);
 
-//    Vote castVote(Long id, Vote vote);
+    Vote castVote(Long id, Vote vote);
 }

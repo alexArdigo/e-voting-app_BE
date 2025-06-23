@@ -30,7 +30,7 @@ public class VoterServiceImpl implements VoterService {
     }
 
     @Override
-    public Voter getLoggedUser() {
+    public Voter getLoggedVoter() {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (voterRepository.findByHashIdentification(username) == null)
             return null;
