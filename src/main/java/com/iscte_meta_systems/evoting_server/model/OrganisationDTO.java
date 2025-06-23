@@ -8,7 +8,7 @@ public class OrganisationDTO {
     private String organisationType;
     private String name;
     private ElectoralCircle electoralCircle;
-    private Election election;
+    private String ElectionId;
 
 
 
@@ -44,12 +44,12 @@ public class OrganisationDTO {
         this.electoralCircle = electoralCircle;
     }
 
-    public Election getElection() {
-        return election;
+    public String getElection() {
+        return ElectionId;
     }
     
-    public void setElection(Election election) {
-        this.election = election;
+    public void setElection(String electionId) {
+        this.ElectionId = electionId;
     }
 
 }
