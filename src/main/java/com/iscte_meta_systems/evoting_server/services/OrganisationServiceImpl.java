@@ -64,7 +64,7 @@ public class OrganisationServiceImpl implements OrganisationService {
                 throw new IllegalArgumentException("Unknown organisation type: " + organisationDTO.getOrganisationType());
         }
 
-        Election election = electionService.findElectionById(organisationDTO.getElectionId());
+        Election election = electionService.getElectionById(organisationDTO.getElectionId());
 
         organisation.setOrganisationName(organisationDTO.getName());
         organisation.setElectoralCircle(organisationDTO.getElectoralCircle());
