@@ -44,6 +44,9 @@ public class SecurityWebConfig {
 
         httpSecurity.authorizeHttpRequests(auth -> {
             auth.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll();
+           // auth.requestMatchers(HttpMethod.GET, "/elections/**", "/candidates/**", "/organisations/**").permitAll();
+           // auth.requestMatchers(HttpMethod.POST, "/elections", "/candidates", "/organisations").hasRole("ADMIN");
+            //auth.requestMatchers("/**").authenticated();
            // auth.requestMatchers("/login", "/logged", "/users").permitAll();
 
 /*            auth.requestMatchers(
