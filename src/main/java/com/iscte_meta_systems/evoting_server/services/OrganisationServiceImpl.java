@@ -1,4 +1,5 @@
 package com.iscte_meta_systems.evoting_server.services;
+import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
 import com.iscte_meta_systems.evoting_server.entities.Party;
 import com.iscte_meta_systems.evoting_server.entities.UniParty;
@@ -24,6 +25,9 @@ public class OrganisationServiceImpl implements OrganisationService {
 
     @Autowired
     UniPartyRepository uniPartyRepository;
+
+    @Autowired
+    ElectionService electionService;
 
     @Override
     public List<Organisation> getAllOrganisations(String election, String electoralCircle) {
@@ -60,9 +64,11 @@ public class OrganisationServiceImpl implements OrganisationService {
                 throw new IllegalArgumentException("Unknown organisation type: " + organisationDTO.getOrganisationType());
         }
 
+        Election election = electionService.findElectionById(organisationDTO.getElectionId());
+
         organisation.setOrganisationName(organisationDTO.getName());
         organisation.setElectoralCircle(organisationDTO.getElectoralCircle());
-        organisation.setElection(organisationDTO.getElection());
+        organisation.setElection(organisationDTO.getElectionId());
 
         organisationRepository.save(organisation);
 
