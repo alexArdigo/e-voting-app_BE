@@ -51,18 +51,18 @@ public class OrganisationServiceImpl implements OrganisationService {
         Organisation organisation;
         switch (organisationDTO.getOrganisationType().toLowerCase()) {
             case "party":
-                Party party = new Party();
-                party.setName(organisationDTO.getName());
-                organisation = party;
+                organisation = new Party();
                 break;
             case "uniparty":
-                UniParty uniParty = new UniParty();
-                uniParty.setName(organisationDTO.getName());
-                organisation = uniParty;
+                organisation = new UniParty();
                 break;
             default:
                 throw new IllegalArgumentException("Unknown organisation type: " + organisationDTO.getOrganisationType());
         }
+
+        organisation.setOrganisationName(organisationDTO.getName());
+        organisation.setElectoralCircle(organisationDTO.getElectoralCircle());
+        organisation.setElection(organisationDTO.getElection());
 
         organisationRepository.save(organisation);
 
