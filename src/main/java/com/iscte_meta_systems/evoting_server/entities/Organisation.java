@@ -14,9 +14,6 @@ public class Organisation {
     @ManyToOne
     private Election election;
 
-    @ManyToOne
-    private ElectoralCircle electoralCircle;
-
     public Long getId() {return id;}
 
     public void setId(Long id) {
@@ -26,12 +23,6 @@ public class Organisation {
     public Election getElection() {return election;}
 
     public void setElection(Election election) {this.election = election;}
-
-    public ElectoralCircle getElectoralCircle() {return electoralCircle;}
-
-    public void setElectoralCircle(ElectoralCircle electoralCircle) {
-        this.electoralCircle = electoralCircle;
-    }
 
     public String getOrganisationName() {
         return organisationName;
