@@ -8,7 +8,7 @@ public class OrganisationDTO {
     private String organisationType;
     private String name;
     private ElectoralCircle electoralCircle;
-    private String ElectionId;
+    private Long ElectionId;
 
 
 
@@ -44,11 +44,11 @@ public class OrganisationDTO {
         this.electoralCircle = electoralCircle;
     }
 
-    public String getElectionId() {
+    public Long getElectionId() {
         return ElectionId;
     }
     
-    public void setElectionId(String electionId) {
+    public void setElectionId(Long electionId) {
         this.ElectionId = electionId;
     }
 
