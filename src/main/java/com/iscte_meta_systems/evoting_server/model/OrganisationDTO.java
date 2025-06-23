@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.model;
 
+import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
 
 public class OrganisationDTO {
@@ -7,6 +8,7 @@ public class OrganisationDTO {
     private String organisationType;
     private String name;
     private ElectoralCircle electoralCircle;
+    private Election election;
 
 
 
@@ -42,5 +44,12 @@ public class OrganisationDTO {
         this.electoralCircle = electoralCircle;
     }
 
+    public Election getElection() {
+        return election;
+    }
+    
+    public void setElection(Election election) {
+        this.election = election;
+    }
 
 }
