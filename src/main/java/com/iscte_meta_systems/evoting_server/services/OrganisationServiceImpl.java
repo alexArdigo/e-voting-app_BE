@@ -68,7 +68,7 @@ public class OrganisationServiceImpl implements OrganisationService {
 
         organisation.setOrganisationName(organisationDTO.getName());
         organisation.setElectoralCircle(organisationDTO.getElectoralCircle());
-        organisation.setElection(organisationDTO.getElectionId());
+        organisation.setElection(election);
 
         organisationRepository.save(organisation);
 
