@@ -60,6 +60,10 @@ public class OrganisationServiceImpl implements OrganisationService {
                 throw new IllegalArgumentException("Unknown organisation type: " + organisationDTO.getOrganisationType());
         }
 
+        organisation.setOrganisationName(organisationDTO.getName());
+        organisation.setElectoralCircle(organisationDTO.getElectoralCircle());
+        organisation.setElection(organisationDTO.getElection());
+
         organisationRepository.save(organisation);
 
         return organisationDTO;
