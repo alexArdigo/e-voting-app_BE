@@ -22,6 +22,7 @@ public class Election {
     //List<Hash> voted
     boolean started = false;
 
+    public Election() {}
 
     public void setId(Long id) {
         this.id = id;
