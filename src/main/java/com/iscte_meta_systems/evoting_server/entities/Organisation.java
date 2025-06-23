@@ -40,6 +40,4 @@ public class Organisation {
     public void setOrganisationName(String organisationName) {
         this.organisationName = organisationName;
     }
-
-
 }
