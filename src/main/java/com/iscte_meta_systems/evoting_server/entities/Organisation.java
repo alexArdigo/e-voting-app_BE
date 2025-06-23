@@ -14,7 +14,6 @@ public class Organisation {
 
 
     @ManyToOne
-    @JoinColumn(name = "election_id")
     @JsonBackReference
     private Election election;
 
