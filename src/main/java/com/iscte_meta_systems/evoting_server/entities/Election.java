@@ -114,4 +114,11 @@ public class Election {
     public void setVotersVoted(List<String> votersVoted) {
         this.votersVoted = votersVoted;
     }
+
+    public void addVoted(String hashIdentification) {
+        if (this.votersVoted == null) {
+            this.votersVoted = new java.util.ArrayList<>();
+        }
+        this.votersVoted.add(hashIdentification);
+    }
 }

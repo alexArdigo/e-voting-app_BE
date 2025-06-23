@@ -125,6 +125,7 @@ public class ElectionServiceImpl implements  ElectionService {
         vote.setOrganisation(organisation);
         vote.setParish(parish);
         election.addVote(vote);
+        election.addVoted(voter.getHashIdentification());
         electionRepository.save(election);
         return voteRepository.save(vote);
 
