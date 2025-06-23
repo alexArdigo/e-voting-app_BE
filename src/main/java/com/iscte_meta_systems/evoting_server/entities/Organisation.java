@@ -1,4 +1,5 @@
 package com.iscte_meta_systems.evoting_server.entities;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,7 +12,10 @@ public class Organisation {
 
     private String organisationName;
 
+
     @ManyToOne
+    @JoinColumn(name = "election_id")
+    @JsonBackReference
     private Election election;
 
     public Long getId() {return id;}
