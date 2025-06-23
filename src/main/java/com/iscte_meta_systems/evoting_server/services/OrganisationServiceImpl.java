@@ -31,13 +31,10 @@ public class OrganisationServiceImpl implements OrganisationService {
 
     @Override
     public List<Organisation> getAllOrganisations(String election, String electoralCircle) {
-        VotingArea area = VotingArea.valueOf(electoralCircle.toUpperCase());
 
         return organisationRepository.findAll().stream()
                 .filter(org -> election == null ||
                         (org.getElection() != null && org.getElection().getName().equalsIgnoreCase(election)))
-                .filter(org -> org.getElectoralCircle() != null &&
-                        org.getElectoralCircle().getVotingArea() == area)
                 .collect(Collectors.toList());
     }
 
