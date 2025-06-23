@@ -1,5 +1,7 @@
 package com.iscte_meta_systems.evoting_server.model;
 
+import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
+
 public class OrganisationDTO {
     private Long id;
     private String organisationType;
@@ -29,5 +31,6 @@ public class OrganisationDTO {
     public void setName(String name) {
         this.name = name;
     }
+
 
 }
