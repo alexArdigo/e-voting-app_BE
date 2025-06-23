@@ -5,6 +5,7 @@ import com.iscte_meta_systems.evoting_server.entities.Party;
 import com.iscte_meta_systems.evoting_server.entities.UniParty;
 import com.iscte_meta_systems.evoting_server.enums.VotingArea;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
+import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
 import com.iscte_meta_systems.evoting_server.repositories.OrganisationRepository;
 import com.iscte_meta_systems.evoting_server.repositories.PartyRepository;
 import com.iscte_meta_systems.evoting_server.repositories.UniPartyRepository;
@@ -28,6 +29,9 @@ public class OrganisationServiceImpl implements OrganisationService {
 
     @Autowired
     ElectionService electionService;
+
+    @Autowired
+    ElectionRepository electionRepository;
 
     @Override
     public List<Organisation> getAllOrganisations(String election, String electoralCircle) {
@@ -67,6 +71,7 @@ public class OrganisationServiceImpl implements OrganisationService {
         organisation.setElection(election);
 
         organisationRepository.save(organisation);
+        electionRepository.save(election);
 
         return organisationDTO;
     }
