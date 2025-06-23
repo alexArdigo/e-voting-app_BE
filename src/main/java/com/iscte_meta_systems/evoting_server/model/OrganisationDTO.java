@@ -6,6 +6,8 @@ public class OrganisationDTO {
     private Long id;
     private String organisationType;
     private String name;
+    private ElectoralCircle electoralCircle;
+
 
 
     public Long getId() {
@@ -30,6 +32,14 @@ public class OrganisationDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ElectoralCircle getElectoralCircle() {
+        return electoralCircle;
+    }
+
+    public void setElectoralCircle(ElectoralCircle electoralCircle) {
+        this.electoralCircle = electoralCircle;
     }
 
 
