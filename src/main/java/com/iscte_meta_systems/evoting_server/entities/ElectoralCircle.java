@@ -9,24 +9,14 @@ import jakarta.persistence.OneToMany;
 import java.util.List;
 
 @Entity
-public class ElectoralCircle {
+public class ElectoralCircle extends Election {
 
-    @Id
-    @GeneratedValue
-    private long id;
     private VotingArea votingArea;
     private int seats;
     @OneToMany
     List<Party> parties;
 
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public VotingArea getVotingArea() {
         return votingArea;
