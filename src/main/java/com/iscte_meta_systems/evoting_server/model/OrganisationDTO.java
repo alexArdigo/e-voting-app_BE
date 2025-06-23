@@ -44,11 +44,11 @@ public class OrganisationDTO {
         this.electoralCircle = electoralCircle;
     }
 
-    public String getElection() {
+    public String getElectionId() {
         return ElectionId;
     }
     
-    public void setElection(String electionId) {
+    public void setElectionId(String electionId) {
         this.ElectionId = electionId;
     }
 
