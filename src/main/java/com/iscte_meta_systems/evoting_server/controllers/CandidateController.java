@@ -13,15 +13,12 @@ public class CandidateController {
     CandidateService candidateService;
 
 
-    @GetMapping("/candidates")
-    public List<Candidate> getCandidates(
-            @RequestParam (required = false) String candidateType,
-            @RequestParam (required = false) String electionType
-    ) {
-        return candidateService.getCandidatesByType(candidateType, electionType);
+    @GetMapping("/elections/{id}/candidates")
+    public List<Candidate> getCandidates(@PathVariable Long electionId) {
+        return candidateService.getCandidatesByElection(electionId);
     }
 
-    @GetMapping("/candidates/{id}")
+    @GetMapping("/candidate/{id}")
     public Candidate getCandidateById(@PathVariable long id) {
         return candidateService.getCandidatesById(id);
     }

@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.controllers;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
+import com.iscte_meta_systems.evoting_server.entities.Vote;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import org.springframework.beans.factory.annotation.Autowired;

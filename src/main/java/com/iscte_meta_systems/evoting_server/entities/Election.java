@@ -17,7 +17,8 @@ public class Election {
     @OneToMany
     private List<Organisation> organisations;
     //List<Results> results; results já não é uma classe.
-    //List<Vote> votes;
+    @OneToMany
+    List<Vote> votes;
     //List<Hash> voted
     boolean started = false;
 
@@ -84,5 +85,9 @@ public class Election {
 
     public void setOrganisations(List<Organisation> organisations) {
         this.organisations = organisations;
+    }
+
+    public void addVote(Vote vote) {
+        this.votes.add(vote);
     }
 }
