@@ -22,7 +22,7 @@ public class ElectionServiceImpl implements  ElectionService {
     private VoterService voterService;
 
     @Autowired
-    private OrganisationService organisationService;
+    private OrganisationRepository organisationRepository;
 
 //    @Autowired
 //    private VoteRepository voteRepository;
