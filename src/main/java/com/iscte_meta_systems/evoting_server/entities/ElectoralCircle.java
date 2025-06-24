@@ -11,12 +11,8 @@ public class ElectoralCircle {
     @Id
     @GeneratedValue
     private long id;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "voting_area")
-    private VotingArea votingArea;
-    @OneToMany
-    @JoinColumn(name = "electoral_circle_id")
-    private List<District> districts;
+    @OneToOne
+    District districts;
     private int seats;
     @OneToMany
     List<Party> parties;
@@ -30,13 +26,6 @@ public class ElectoralCircle {
         this.id = id;
     }
 
-    public VotingArea getVotingArea() {
-        return votingArea;
-    }
-
-    public void setVotingArea(VotingArea votingArea) {
-        this.votingArea = votingArea;
-    }
 
     public int getSeats() {
         return seats;
@@ -54,11 +43,11 @@ public class ElectoralCircle {
         this.parties = parties;
     }
 
-    public List<District> getDistricts() {
+    public District getDistricts() {
         return districts;
     }
 
-    public void setDistricts(List<District> districts) {
+    public void setDistricts(District districts) {
         this.districts = districts;
     }
 }
