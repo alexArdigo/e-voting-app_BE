@@ -1,8 +1,8 @@
 package com.iscte_meta_systems.evoting_server.controllers;
 
-import com.iscte_meta_systems.evoting_server.entities.Districts;
-import com.iscte_meta_systems.evoting_server.entities.Municipalities;
-import com.iscte_meta_systems.evoting_server.entities.Parishes;
+import com.iscte_meta_systems.evoting_server.entities.District;
+import com.iscte_meta_systems.evoting_server.entities.Municipality;
+import com.iscte_meta_systems.evoting_server.entities.Parish;
 import com.iscte_meta_systems.evoting_server.repositories.DistrictsRepository;
 import com.iscte_meta_systems.evoting_server.repositories.MunicipalitiesRepository;
 import com.iscte_meta_systems.evoting_server.repositories.ParishesRepository;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @RestController
 public class ElectoralCircleController {
@@ -43,27 +42,27 @@ public class ElectoralCircleController {
     }
 
     @GetMapping("districts")
-    public List<Districts> getAllDistricts() {
+    public List<District> getAllDistricts() {
         return districtsRepository.findAll();
     }
 
     @GetMapping("districts/{districtName}")
-    public Districts getDistrictByName(@PathVariable String districtName) {
+    public District getDistrictByName(@PathVariable String districtName) {
         return districtsRepository.findByDistrictName(districtName).orElse(null);
     }
 
     @GetMapping("/districts/{districtName}/municipalities")
-    public List<Municipalities> getAllMunicipalitiesByDistrict(@PathVariable String districtName) {
+    public List<Municipality> getAllMunicipalitiesByDistrict(@PathVariable String districtName) {
         return municipalitiesRepository.findByDistrictName(districtName);
     }
 
     @GetMapping("/municipalities/{municipalityName}/parishes")
-    public List<Parishes> getParishesByMunicipality(@PathVariable String municipalityName) {
+    public List<Parish> getParishesByMunicipality(@PathVariable String municipalityName) {
         return parishesRepository.findByMunicipalityName(municipalityName);
     }
 
     @GetMapping("/parishes/search")
-    public List<Parishes> searchParishes(@RequestParam String name) {
+    public List<Parish> searchParishes(@RequestParam String name) {
         return parishesRepository.findByParishNameContaining(name);
     }
 

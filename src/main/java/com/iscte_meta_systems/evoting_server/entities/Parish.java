@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "parishes")
-public class Parishes {
+public class Parish {
 
     @Id
     @GeneratedValue
@@ -12,12 +12,12 @@ public class Parishes {
     private String parishName;
     @ManyToOne
     @JoinColumn(name = "municipality_id")
-    private Municipalities municipality;
+    private Municipality municipality;
 
-    public Parishes() {
+    public Parish() {
     }
 
-    public Parishes(String parishName) {
+    public Parish(String parishName) {
         this.parishName = parishName;
     }
 
@@ -37,11 +37,11 @@ public class Parishes {
         this.parishName = parishName;
     }
 
-    public Municipalities getMunicipality() {
+    public Municipality getMunicipality() {
         return municipality;
     }
 
-    public void setMunicipality(Municipalities municipality) {
+    public void setMunicipality(Municipality municipality) {
         this.municipality = municipality;
     }
 }

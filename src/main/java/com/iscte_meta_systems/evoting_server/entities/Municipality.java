@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "municipalities")
-public class Municipalities {
+public class Municipality {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,15 +13,15 @@ public class Municipalities {
     private String municipalityName;
     @ManyToOne
     @JoinColumn(name = "district_id")
-    private Districts district;
+    private District district;
 
     @OneToMany
-    private List<Parishes> parishes;
+    private List<Parish> parishes;
 
-    public Municipalities() {
+    public Municipality() {
     }
 
-    public Municipalities(String municipalityName) {
+    public Municipality(String municipalityName) {
         this.municipalityName = municipalityName;
     }
 
@@ -41,19 +41,19 @@ public class Municipalities {
         this.municipalityName = municipalityName;
     }
 
-    public Districts getDistrict() {
+    public District getDistrict() {
         return district;
     }
 
-    public void setDistrict(Districts district) {
+    public void setDistrict(District district) {
         this.district = district;
     }
 
-    public List<Parishes> getParishes() {
+    public List<Parish> getParishes() {
         return parishes;
     }
 
-    public void setParishes(List<Parishes> parishes) {
+    public void setParishes(List<Parish> parishes) {
         this.parishes = parishes;
     }
 }

@@ -16,7 +16,7 @@ public class ElectoralCircle {
     private VotingArea votingArea;
     @OneToMany
     @JoinColumn(name = "electoral_circle_id")
-    private List<Districts> districts;
+    private List<District> districts;
     private int seats;
     @OneToMany
     List<Party> parties;
@@ -54,11 +54,11 @@ public class ElectoralCircle {
         this.parties = parties;
     }
 
-    public List<Districts> getDistricts() {
+    public List<District> getDistricts() {
         return districts;
     }
 
-    public void setDistricts(List<Districts> districts) {
+    public void setDistricts(List<District> districts) {
         this.districts = districts;
     }
 }

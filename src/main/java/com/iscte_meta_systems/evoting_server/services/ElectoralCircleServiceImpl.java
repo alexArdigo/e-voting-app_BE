@@ -1,12 +1,11 @@
 package com.iscte_meta_systems.evoting_server.services;
 
-import com.iscte_meta_systems.evoting_server.entities.Districts;
-import com.iscte_meta_systems.evoting_server.entities.Municipalities;
-import com.iscte_meta_systems.evoting_server.entities.Parishes;
+import com.iscte_meta_systems.evoting_server.entities.District;
+import com.iscte_meta_systems.evoting_server.entities.Municipality;
+import com.iscte_meta_systems.evoting_server.entities.Parish;
 import com.iscte_meta_systems.evoting_server.repositories.DistrictsRepository;
 import com.iscte_meta_systems.evoting_server.repositories.MunicipalitiesRepository;
 import com.iscte_meta_systems.evoting_server.repositories.ParishesRepository;
-import com.iscte_meta_systems.evoting_server.services.ElectoralCircleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
@@ -33,7 +32,6 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
 
     @PostConstruct
     public void loadData() {
-        // Se já existem dados, não carregar novamente
         if (districtsRepository.count() > 0) {
             System.out.println("Dados já carregados!");
             return;
@@ -68,8 +66,8 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
         ClassPathResource resource = new ClassPathResource("DiscticsMunicipalitiesParishesPortugal.csv");
         BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
 
-        Map<String, Districts> districtsMap = new HashMap<>();
-        Map<String, Municipalities> municipalitiesMap = new HashMap<>();
+        Map<String, District> districtsMap = new HashMap<>();
+        Map<String, Municipality> municipalitiesMap = new HashMap<>();
 
         String line;
         int lineNumber = 0;
@@ -100,9 +98,9 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
             }
 
 
-            Districts district = districtsMap.get(districtName);
+            District district = districtsMap.get(districtName);
             if (district == null) {
-                district = new Districts();
+                district = new District();
                 district.setDistrictName(districtName);
                 district.setMunicipalities(new ArrayList<>());
                 district = districtsRepository.save(district);
@@ -111,9 +109,9 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
 
 
             String municipalityKey = districtName + "_" + municipalityName;
-            Municipalities municipality = municipalitiesMap.get(municipalityKey);
+            Municipality municipality = municipalitiesMap.get(municipalityKey);
             if (municipality == null) {
-                municipality = new Municipalities();
+                municipality = new Municipality();
                 municipality.setMunicipalityName(municipalityName);
                 municipality.setDistrict(district);
                 municipality.setParishes(new ArrayList<>());
@@ -130,7 +128,7 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
                     .anyMatch(parishes -> parishes.getParishName().equals(finalParishName));
 
             if (!parishExists) {
-                Parishes parish = new Parishes();
+                Parish parish = new Parish();
                 parish.setParishName(parishName);
                 parish.setMunicipality(municipality);
                 parishesRepository.save(parish);

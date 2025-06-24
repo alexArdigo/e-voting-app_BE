@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "districts")
-public class Districts {
+public class District {
 
     @Id
     @GeneratedValue
@@ -16,12 +16,12 @@ public class Districts {
     private String districtName;
 
     @OneToMany
-    private List<Municipalities> municipalities;
+    private List<Municipality> municipalities;
 
-    public Districts() {
+    public District() {
     }
 
-    public Districts(String districtName) {
+    public District(String districtName) {
         this.districtName = districtName;
     }
 
@@ -41,11 +41,11 @@ public class Districts {
         this.districtName = districtName;
     }
 
-    public List<Municipalities> getMunicipalities() {
+    public List<Municipality> getMunicipalities() {
         return municipalities;
     }
 
-    public void setMunicipalities(List<Municipalities> municipalities) {
+    public void setMunicipalities(List<Municipality> municipalities) {
         this.municipalities = municipalities;
     }
 

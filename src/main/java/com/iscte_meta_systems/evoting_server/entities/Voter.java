@@ -18,7 +18,7 @@ public class Voter {
     ElectoralCircle electoralCircle;
 
     @OneToOne
-    Parishes parish;
+    Parish parish;
 
     public Voter() {
     }
@@ -47,11 +47,11 @@ public class Voter {
         this.electoralCircle = electoralCircle;
     }
 
-    public Parishes getParish() {
+    public Parish getParish() {
         return parish;
     }
 
-    public void setParish(Parishes parish) {
+    public void setParish(Parish parish) {
         this.parish = parish;
     }
 }

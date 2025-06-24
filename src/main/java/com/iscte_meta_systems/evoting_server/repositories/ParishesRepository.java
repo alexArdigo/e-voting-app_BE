@@ -1,6 +1,6 @@
 package com.iscte_meta_systems.evoting_server.repositories;
 
-import com.iscte_meta_systems.evoting_server.entities.Parishes;
+import com.iscte_meta_systems.evoting_server.entities.Parish;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ParishesRepository extends JpaRepository<Parishes, Long> {
-    Optional<Parishes> findByParishName(String parishName);
+public interface ParishesRepository extends JpaRepository<Parish, Long> {
+    Optional<Parish> findByParishName(String parishName);
 
-    @Query("SELECT p FROM Parishes p WHERE p.municipality.municipalityName = :municipalityName")
-    List<Parishes> findByMunicipalityName(@Param("municipalityName") String municipalityName);
+    @Query("SELECT p FROM Parish p WHERE p.municipality.municipalityName = :municipalityName")
+    List<Parish> findByMunicipalityName(@Param("municipalityName") String municipalityName);
 
-    @Query("SELECT p FROM Parishes p WHERE p.parishName LIKE %:name%")
-    List<Parishes> findByParishNameContaining(@Param("name") String name);
+    @Query("SELECT p FROM Parish p WHERE p.parishName LIKE %:name%")
+    List<Parish> findByParishNameContaining(@Param("name") String name);
 }
