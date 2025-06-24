@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class VoterServiceImpl implements VoterService {
 
@@ -21,12 +24,11 @@ public class VoterServiceImpl implements VoterService {
     public Boolean hasAlreadyVoted(String voter, Long electionId) {
         if (voter == null || electionId == null)
             throw new NullPointerException();
-        /*
-        Election election = electionRepository.findElectionById(electionId);
 
-        return election.getVotedList().stream().allMatch(hash -> hash.equals(voter));
-        */
-        return null;
+        Optional<Election> optional = electionRepository.findById(electionId);
+        List<String> votersVoted = optional.orElseThrow().getVotersVoted();
+
+        return votersVoted.stream().allMatch(hash -> hash.equals(voter));
     }
 
     @Override
