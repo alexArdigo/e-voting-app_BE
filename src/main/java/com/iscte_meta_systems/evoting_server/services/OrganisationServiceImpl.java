@@ -3,7 +3,6 @@ import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
 import com.iscte_meta_systems.evoting_server.entities.Party;
 import com.iscte_meta_systems.evoting_server.entities.UniParty;
-import com.iscte_meta_systems.evoting_server.enums.VotingArea;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
 import com.iscte_meta_systems.evoting_server.repositories.OrganisationRepository;

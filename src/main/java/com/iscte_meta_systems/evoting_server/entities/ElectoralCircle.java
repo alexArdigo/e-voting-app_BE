@@ -1,6 +1,5 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
-import com.iscte_meta_systems.evoting_server.enums.VotingArea;
 import jakarta.persistence.*;
 
 import java.util.List;
