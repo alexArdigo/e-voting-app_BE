@@ -33,15 +33,12 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
     @PostConstruct
     public void loadData() {
         if (districtsRepository.count() > 0) {
-            System.out.println("Dados já carregados!");
             return;
         }
 
-        System.out.println("Carregando dados do CSV...");
 
         try {
             readCSVFile();
-            System.out.println("Dados carregados com sucesso!");
         } catch (Exception e) {
             System.out.println("Erro ao carregar dados: " + e.getMessage());
         }
