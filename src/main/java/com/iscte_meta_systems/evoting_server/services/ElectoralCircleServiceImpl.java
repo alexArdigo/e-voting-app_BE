@@ -33,7 +33,7 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
 
     @PostConstruct
     public void loadData() {
-        // Se já existem dados, não carregar novamente
+
         if (districtsRepository.count() > 0) {
             System.out.println("Dados já carregados!");
             return;
