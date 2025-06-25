@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
+import com.iscte_meta_systems.evoting_server.model.CandidateDTO;
 import com.iscte_meta_systems.evoting_server.repositories.CandidateRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class CandidateServiceImpl implements CandidateService {
     ElectionService electionService;
 
     @Override
-    public List<Candidate> getCandidatesByElection(Long electionId) {
+    public List<CandidateDTO> getCandidatesByElection(Long electionId) {
 
         Election election = electionService.getElectionById(electionId);
 
@@ -40,7 +41,9 @@ public class CandidateServiceImpl implements CandidateService {
             }
         }
 
-        return allCandidates;
+        return allCandidates.stream()
+                .map(CandidateDTO::new)
+                .toList();
     }
 
 

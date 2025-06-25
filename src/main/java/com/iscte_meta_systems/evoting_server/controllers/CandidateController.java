@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.controllers;
 
 
 import com.iscte_meta_systems.evoting_server.entities.Candidate;
+import com.iscte_meta_systems.evoting_server.model.CandidateDTO;
 import com.iscte_meta_systems.evoting_server.services.CandidateService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,7 @@ public class CandidateController {
 
 
     @GetMapping("/elections/{id}/candidates")
-    public List<Candidate> getCandidates(@PathVariable Long id) {
+    public List<CandidateDTO> getCandidates(@PathVariable Long id) {
         return candidateService.getCandidatesByElection(id);
     }
 
