@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VoterRepository extends JpaRepository<Voter, Long> {
     Voter findByHashIdentification(String username);
+
+    boolean existsByHashIdentification(String hashIdentification);
 }

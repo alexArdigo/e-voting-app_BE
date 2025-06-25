@@ -2,10 +2,12 @@ package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.entities.Voter;
+import com.iscte_meta_systems.evoting_server.model.VoterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
 import com.iscte_meta_systems.evoting_server.repositories.VoterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +21,21 @@ public class VoterServiceImpl implements VoterService {
 
     @Autowired
     private VoterRepository voterRepository;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    @Override
+    public void voterAuthenticated(VoterDTO voterDTO) {
+        if (voterDTO == null)
+            throw new NullPointerException("No voter sent over");
+
+        String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString());
+        if (!voterRepository.existsByHashIdentification(hashIdentification)) {
+            Voter voter = new Voter();
+           // voterRepository.save();
+        }
+    }
 
     @Override
     public Boolean hasAlreadyVoted(String voter, Long electionId) {
@@ -38,6 +55,4 @@ public class VoterServiceImpl implements VoterService {
             return null;
         return voterRepository.findByHashIdentification(username);
     }
-
-
 }
