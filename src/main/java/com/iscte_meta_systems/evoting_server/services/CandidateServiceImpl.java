@@ -48,12 +48,22 @@ public class CandidateServiceImpl implements CandidateService {
 
 
     @Override
-    public Candidate getCandidatesById(long id) {
-        return candidateRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Candidate with id " + id + " not found"));
+    public CandidateDTO getCandidatesById(long id) {
+        Candidate candidate = candidateRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Candidate with id " + id + " not found"));
+        return new CandidateDTO(candidate);
     }
 
     @Override
-    public Candidate addCandidate(Candidate candidate) {
-        return candidateRepository.save(candidate);
+    public CandidateDTO addCandidate(CandidateDTO candidate) {
+        Candidate candidateExists = candidateRepository.findByName(candidate.getName());
+        if (candidateExists != null)
+            throw new RuntimeException("Candidate already exists");
+        Candidate newCandidate = new Candidate();
+        newCandidate.setName(candidate.getName());
+        newCandidate.setImageUrl(candidate.getImageUrl());
+        candidateRepository.save(newCandidate);
+        return candidate;
     }
+
+
 }
