@@ -22,9 +22,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public Answer answerComment(String answer, Long id) {
-        HelpComment helpComment = helpCommentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Comment not found with id: " + id));
-
+        HelpComment helpComment = getCommentById(id);
         Answer answerEntity = new Answer();
         answerEntity.setAnswer(answer);
         answerEntity.setCommentId(helpComment.getId());
@@ -33,5 +31,11 @@ public class CommentServiceImpl implements CommentService {
         helpCommentRepository.save(helpComment);
 
         return answerEntity;
+    }
+
+    @Override
+    public HelpComment getCommentById(Long id) {
+        return helpCommentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Comment not found with id: " + id));
     }
 }

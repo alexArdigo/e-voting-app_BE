@@ -7,4 +7,6 @@ public interface CommentService {
     HelpComment comment(String comentario);
 
     Answer answerComment(String answer, Long id);
+
+    HelpComment getCommentById(Long id);
 }
