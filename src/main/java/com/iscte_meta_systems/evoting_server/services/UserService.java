@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.entities.Viewer;
+import com.iscte_meta_systems.evoting_server.model.LoginDTO;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 
 import java.util.List;
@@ -22,5 +23,5 @@ public interface UserService {
 
     User getCurrentUser();
 
-    User login(UserRegisterDTO userRegisterDTO);
+    User login(LoginDTO loginDTO);
 }

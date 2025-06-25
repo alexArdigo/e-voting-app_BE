@@ -4,6 +4,7 @@ import com.iscte_meta_systems.evoting_server.entities.Admin;
 import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.entities.Viewer;
 import com.iscte_meta_systems.evoting_server.enums.Role;
+import com.iscte_meta_systems.evoting_server.model.LoginDTO;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.UserRepository;
 import com.iscte_meta_systems.evoting_server.repositories.ViewerRepository;
@@ -30,12 +31,12 @@ public class UserServiceImpl implements UserService{
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public User login(UserRegisterDTO userRegisterDTO) {
-        User user = userRepository.findByUsername(userRegisterDTO.getUsername());
+    public User login(LoginDTO loginDTO) {
+        User user = userRepository.findByUsername(loginDTO.getUsername());
         if (user == null || user.getId() == null) {
             return null;
         }
-        if (!passwordEncoder.matches(userRegisterDTO.getPassword(), user.getPassword()))
+        if (!passwordEncoder.matches(loginDTO.getPassword(), user.getPassword()))
             return null;
         return user;
     }
