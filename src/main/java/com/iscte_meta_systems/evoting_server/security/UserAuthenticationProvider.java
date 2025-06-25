@@ -1,4 +1,4 @@
-package com.iscte_meta_systems.evoting_server;
+package com.iscte_meta_systems.evoting_server.security;
 
 import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.services.UserService;

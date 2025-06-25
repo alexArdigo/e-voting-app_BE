@@ -1,4 +1,4 @@
-package com.iscte_meta_systems.evoting_server;
+package com.iscte_meta_systems.evoting_server.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

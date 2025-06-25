@@ -1,7 +1,6 @@
-package com.iscte_meta_systems.evoting_server;
+package com.iscte_meta_systems.evoting_server.security;
 
 import jakarta.servlet.DispatcherType;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
