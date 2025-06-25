@@ -13,6 +13,7 @@ public class Answer {
 
     private String answer;
     private Long commentId;
+    private Long adminId;
 
     public Long getId() {
         return id;
