@@ -24,7 +24,7 @@ public class CommentController {
     }
 
     @PostMapping("/comment/{id}/answer")
-    public Answer answerComment(@RequestBody String answer, @PathVariable Long id) {
+    public Answer answerComment(@RequestParam("text") String answer, @PathVariable Long id) {
         return commentService.answerComment(answer, id);
     }
 }
