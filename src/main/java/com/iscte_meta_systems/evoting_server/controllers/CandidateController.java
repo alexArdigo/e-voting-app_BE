@@ -14,8 +14,8 @@ public class CandidateController {
 
 
     @GetMapping("/elections/{id}/candidates")
-    public List<Candidate> getCandidates(@PathVariable Long electionId) {
-        return candidateService.getCandidatesByElection(electionId);
+    public List<Candidate> getCandidates(@PathVariable Long id) {
+        return candidateService.getCandidatesByElection(id);
     }
 
     @GetMapping("/candidate/{id}")
