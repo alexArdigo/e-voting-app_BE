@@ -7,6 +7,7 @@ import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.UserRepository;
 import com.iscte_meta_systems.evoting_server.repositories.ViewerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -84,5 +85,13 @@ public class UserServiceImpl implements UserService{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public User getCurrentUser() {
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (userRepository.existsByUsername(username))
+            return null;
+        return userRepository.findByUsername(username);
     }
 }

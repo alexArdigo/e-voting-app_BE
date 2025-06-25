@@ -20,4 +20,5 @@ public interface UserService {
 
     boolean approveViewer(Long viewerId);
 
+    User getCurrentUser();
 }
