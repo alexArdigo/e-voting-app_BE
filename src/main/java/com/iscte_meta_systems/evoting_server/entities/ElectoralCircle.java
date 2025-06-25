@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
+import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import jakarta.persistence.*;
 import org.springframework.data.geo.Circle;
 
@@ -14,6 +15,39 @@ public class ElectoralCircle extends Election {
     private int seats;
     @OneToMany
     List<Party> parties;
+    @OneToOne
+    Municipality municipalities;
+    @OneToOne
+    Parish parish;
+
+    ElectoralCircleType electoralCircleType;
+
+    public ElectoralCircle() {
+            }
+
+    public ElectoralCircleType getElectoralCircleType() {
+        return electoralCircleType;
+    }
+
+    public void setElectoralCircleType(ElectoralCircleType electoralCircleType) {
+        this.electoralCircleType = electoralCircleType;
+    }
+
+    public Municipality getMunicipalities() {
+        return municipalities;
+    }
+
+    public void setMunicipalities(Municipality municipalities) {
+        this.municipalities = municipalities;
+    }
+
+    public Parish getParish() {
+        return parish;
+    }
+
+    public void setParish(Parish parish) {
+        this.parish = parish;
+    }
 
     public int getSeats() {
         return seats;
