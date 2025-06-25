@@ -108,7 +108,7 @@ public class UserServiceImpl implements UserService{
         User existingAdmin = userRepository.findByUsername("Admin");
         String encodedPassword = passwordEncoder.encode("123456");
         if (existingAdmin == null) {
-            User admin = new User( new UserRegisterDTO(
+            User admin = new Admin( new UserRegisterDTO(
                     "Admin",
                     encodedPassword,
                     "Admin",
