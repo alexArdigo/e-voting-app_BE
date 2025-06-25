@@ -1,30 +1,19 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
 import jakarta.persistence.*;
+import org.springframework.data.geo.Circle;
 
 import java.util.List;
 
 @Entity
-public class ElectoralCircle {
+public class ElectoralCircle extends Election {
 
-    @Id
-    @GeneratedValue
-    private long id;
+
     @OneToOne
     District districts;
     private int seats;
     @OneToMany
     List<Party> parties;
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
 
     public int getSeats() {
         return seats;
