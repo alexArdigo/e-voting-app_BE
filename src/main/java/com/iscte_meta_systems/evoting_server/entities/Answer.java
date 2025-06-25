@@ -38,4 +38,12 @@ public class Answer {
     public void setCommentId(Long commentId) {
         this.commentId = commentId;
     }
+
+    public Long getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(Long adminId) {
+        this.adminId = adminId;
+    }
 }
