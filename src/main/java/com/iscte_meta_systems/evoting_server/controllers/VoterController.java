@@ -17,9 +17,8 @@ public class VoterController {
     private VoterService voterService;
 
     @PostMapping("/voters/authenticated")
-    public void voterAuthenticated(@RequestBody VoterDTO voterDTO) {
-        System.out.println("voterDTO = " + voterDTO.getNif());
-        voterService.voterAuthenticated(voterDTO);
+    public void saveVoterAuthenticated(@RequestBody VoterDTO voterDTO) {
+        voterService.saveVoterAuthenticated(voterDTO);
     }
 
     @GetMapping("/voters/has-voted")

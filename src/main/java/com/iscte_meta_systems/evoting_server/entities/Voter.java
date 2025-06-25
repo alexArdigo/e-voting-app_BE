@@ -15,12 +15,27 @@ public class Voter {
     String hashIdentification;
 
     @OneToOne
-    ElectoralCircle electoralCircle;
+    District district;
+
+    @OneToOne
+    Municipality municipality;
 
     @OneToOne
     Parish parish;
 
     public Voter() {
+    }
+
+    public Voter(
+            String hashIdentification,
+            District district,
+            Municipality municipality,
+            Parish parish
+    ) {
+        this.hashIdentification = hashIdentification;
+        this.district = district;
+        this.municipality = municipality;
+        this.parish = parish;
     }
 
     public Long getId() {
@@ -37,14 +52,6 @@ public class Voter {
 
     public void setHashIdentification(String hashIdentification) {
         this.hashIdentification = hashIdentification;
-    }
-
-    public ElectoralCircle getElectoralCircle() {
-        return electoralCircle;
-    }
-
-    public void setElectoralCircle(ElectoralCircle electoralCircle) {
-        this.electoralCircle = electoralCircle;
     }
 
     public Parish getParish() {

@@ -26,15 +26,21 @@ public class VoterServiceImpl implements VoterService {
     PasswordEncoder passwordEncoder;
 
     @Override
-    public void voterAuthenticated(VoterDTO voterDTO) {
+    public void saveVoterAuthenticated(VoterDTO voterDTO) {
         if (voterDTO == null)
             throw new NullPointerException("No voter sent over");
 
         String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString());
         if (!voterRepository.existsByHashIdentification(hashIdentification)) {
-            Voter voter = new Voter();
-           // voterRepository.save();
+            voterRepository.save(
+                    new Voter(
+                            hashIdentification,
+                            voterDTO.getDistrict(),
+                            voterDTO.getMunicipality(),
+                            voterDTO.getParish()
+                    ));
         }
+
     }
 
     @Override

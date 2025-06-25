@@ -12,5 +12,5 @@ public interface VoterService {
 
     Voter getLoggedVoter();
 
-    void voterAuthenticated(VoterDTO voterDTO);
+    void saveVoterAuthenticated(VoterDTO voterDTO);
 }
