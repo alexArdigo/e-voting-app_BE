@@ -21,11 +21,6 @@ public class UserRegisterDTO {
         this.role = role;
     }
 
-    public UserRegisterDTO(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
     public UserRegisterDTO(User user) {
         this.username = user.getUsername();
         this.password = user.getPassword();
