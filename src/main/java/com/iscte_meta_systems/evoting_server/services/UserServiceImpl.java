@@ -3,14 +3,19 @@ package com.iscte_meta_systems.evoting_server.services;
 import com.iscte_meta_systems.evoting_server.entities.Admin;
 import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.entities.Viewer;
+import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.UserRepository;
 import com.iscte_meta_systems.evoting_server.repositories.ViewerRepository;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static java.lang.System.out;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -21,6 +26,9 @@ public class UserServiceImpl implements UserService{
     @Autowired
     ViewerRepository viewerRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public String registerAdmin(UserRegisterDTO userRegisterDTO) {
         if (userRegisterDTO == null || userRegisterDTO.getUsername() == null || userRegisterDTO.getPassword() == null) {
@@ -30,7 +38,7 @@ public class UserServiceImpl implements UserService{
             return "Username already exists";
         }
         Admin admin = new Admin(userRegisterDTO);
-        admin.setRole("ADMIN");
+        admin.setRole(Role.ADMIN);
         admin.setIsAuthorized(true);
         userRepository.save(admin);
         return "Admin registered successfully";
@@ -45,7 +53,7 @@ public class UserServiceImpl implements UserService{
             return "Username already exists";
         }
         Viewer viewer = new Viewer(userRegisterDTO);
-        viewer.setRole("VIEWER");
+        viewer.setRole(Role.VIEWER);
         viewerRepository.save(viewer);
         return "Viewer registered successfully";
     }
@@ -93,5 +101,23 @@ public class UserServiceImpl implements UserService{
         if (userRepository.existsByUsername(username))
             return null;
         return userRepository.findByUsername(username);
+    }
+
+    @PostConstruct
+    public void init() {
+        User existingAdmin = userRepository.findByUsername("Admin");
+        String encodedPassword = passwordEncoder.encode("123456");
+        if (existingAdmin == null) {
+            User admin = new User( new UserRegisterDTO(
+                    "Admin",
+                    encodedPassword,
+                    "Admin",
+                    "Admin",
+                    Role.ADMIN
+            )
+            );
+            userRepository.save(admin);
+            out.println("Admin registered");
+        }
     }
 }

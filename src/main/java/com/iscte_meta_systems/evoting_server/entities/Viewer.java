@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
+import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import jakarta.persistence.Entity;
 
@@ -14,7 +15,7 @@ public class Viewer extends User {
     public Viewer(UserRegisterDTO userRegisterDTO) {
         super(userRegisterDTO);
         this.institutionName = userRegisterDTO.getInstitutionName();
-        this.setRole("VIEWER");
+        this.setRole(Role.VIEWER);
     }
 
     public String getInstitutionName() {

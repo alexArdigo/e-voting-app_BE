@@ -1,11 +1,24 @@
 package com.iscte_meta_systems.evoting_server.model;
 
+import com.iscte_meta_systems.evoting_server.enums.Role;
+
 public class UserRegisterDTO {
     private String username;
     private String password;
     private String name;
     private String institutionName;
-    private String role;
+    private Role role;
+
+    public UserRegisterDTO() {
+    }
+
+    public UserRegisterDTO(String username, String password, String name, String institutionName, Role role) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.institutionName = institutionName;
+        this.role = role;
+    }
 
     public String getUsername() {
         return username;
@@ -39,11 +52,11 @@ public class UserRegisterDTO {
         this.institutionName = institutionName;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }

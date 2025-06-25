@@ -1,4 +1,5 @@
 package com.iscte_meta_systems.evoting_server.entities;
+import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import jakarta.persistence.*;
 
@@ -15,7 +16,7 @@ public class User {
     private String password;
     private String name;
     private Boolean isAuthorized;
-    private String role;  //"ADMIN", "VIEWER" em caps
+    private Role role;  //"ADMIN", "VIEWER" em caps
 
     public User() {
     }
@@ -68,11 +69,11 @@ public class User {
         isAuthorized = authorized;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }
