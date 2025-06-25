@@ -30,6 +30,17 @@ public class UserServiceImpl implements UserService{
     private PasswordEncoder passwordEncoder;
 
     @Override
+    public User login(UserRegisterDTO userRegisterDTO) {
+        User user = userRepository.findByUsername(userRegisterDTO.getUsername());
+        if (user == null || user.getId() == null) {
+            return null;
+        }
+        if (!passwordEncoder.matches(userRegisterDTO.getPassword(), user.getPassword()))
+            return null;
+        return user;
+    }
+
+    @Override
     public String registerAdmin(UserRegisterDTO userRegisterDTO) {
         if (userRegisterDTO == null || userRegisterDTO.getUsername() == null || userRegisterDTO.getPassword() == null) {
             return "Invalid data provided";

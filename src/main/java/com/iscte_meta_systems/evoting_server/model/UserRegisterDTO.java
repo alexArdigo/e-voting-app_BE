@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.model;
 
+import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.enums.Role;
 
 public class UserRegisterDTO {
@@ -18,6 +19,18 @@ public class UserRegisterDTO {
         this.name = name;
         this.institutionName = institutionName;
         this.role = role;
+    }
+
+    public UserRegisterDTO(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public UserRegisterDTO(User user) {
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.name = user.getName();
+        this.role = user.getRole();
     }
 
     public String getUsername() {

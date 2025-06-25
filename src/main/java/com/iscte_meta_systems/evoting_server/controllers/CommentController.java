@@ -14,8 +14,8 @@ public class CommentController {
     private CommentService commentService;
 
     @PostMapping("/comment")
-    public HelpComment comment(@RequestBody String comentario){
-        return commentService.comment(comentario);
+    public HelpComment comment(@RequestParam("text") String commentText){
+        return commentService.comment(commentText);
     }
 
     @GetMapping("/comment/{id}")

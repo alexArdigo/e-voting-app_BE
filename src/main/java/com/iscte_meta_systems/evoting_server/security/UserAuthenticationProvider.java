@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.security;
 
 import com.iscte_meta_systems.evoting_server.entities.User;
+import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import com.iscte_meta_systems.evoting_server.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -30,7 +31,9 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
 
-        User user = userService.getUserByUsername(username);
+        UserRegisterDTO userRegisterDTO = new UserRegisterDTO(username, password);
+
+        User user = userService.login(userRegisterDTO);
 
         if (user == null || !user.getIsAuthorized()) {
             throw new BadCredentialsException("User not found or not authorized");

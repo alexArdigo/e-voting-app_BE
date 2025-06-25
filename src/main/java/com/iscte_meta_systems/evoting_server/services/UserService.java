@@ -21,4 +21,6 @@ public interface UserService {
     boolean approveViewer(Long viewerId);
 
     User getCurrentUser();
+
+    User login(UserRegisterDTO userRegisterDTO);
 }
