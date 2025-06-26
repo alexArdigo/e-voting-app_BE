@@ -10,5 +10,4 @@ public interface StatisticsService {
 
     public int getTotalVotesByElection(Long electionId);
 
-
 }
