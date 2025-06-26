@@ -4,6 +4,7 @@ import com.iscte_meta_systems.evoting_server.entities.Answer;
 import com.iscte_meta_systems.evoting_server.entities.HelpComment;
 import com.iscte_meta_systems.evoting_server.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -29,5 +30,14 @@ public class CommentController {
     }
 
     @PostMapping("/comment/{id}/like")
+    public ResponseEntity<String> likeComment(@PathVariable Long id, @RequestBody String voterHash) {
+        boolean liked = commentService.likeComment(id, voterHash);
+
+        if (liked) {
+            return ResponseEntity.ok("Comment liked successfully.");
+        } else {
+            return ResponseEntity.status(400).body("You have already liked this comment.");
+        }
+    }
 
 }
