@@ -28,13 +28,11 @@ public class CandidateServiceImpl implements CandidateService {
         List<Candidate> allCandidates = new ArrayList<>();
 
         for (Organisation organisation : organisations) {
-            if (organisation instanceof Party) {
-                Party party = (Party) organisation;
+            if (organisation instanceof Party party) {
                 if (party.getCandidates() != null) {
                     allCandidates.addAll(party.getCandidates());
                 }
-            } else if (organisation instanceof UniParty) {
-                UniParty uniParty = (UniParty) organisation;
+            } else if (organisation instanceof UniParty uniParty) {
                 if (uniParty.getCandidate() != null) {
                     allCandidates.add(uniParty.getCandidate());
                 }
