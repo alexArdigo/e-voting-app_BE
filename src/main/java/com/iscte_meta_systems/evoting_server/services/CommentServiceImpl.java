@@ -49,6 +49,12 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public boolean likeComment(Long id, String voterHash) {
-        return false;
+        HelpComment comment = getCommentById(id);
+        if (comment.hasLiked(voterHash)) {
+            return false;
+        }
+        comment.addLike(voterHash);
+        helpCommentRepository.save(comment);
+        return true;
     }
 }
