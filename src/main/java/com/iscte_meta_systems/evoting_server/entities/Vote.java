@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Vote {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -15,6 +16,8 @@ public class Vote {
     @OneToOne
     private Parish parish;
 
+    @ManyToOne
+    private Election election; //nota, quando criarmos um voto temos que especificar a que eleiçao pertence?
 
     public Vote() {
     }
@@ -41,5 +44,13 @@ public class Vote {
 
     public void setParish(Parish parish) {
         this.parish = parish;
+    }
+
+    public Election getElection() {
+        return election;
+    }
+
+    public void setElection(Election election) {
+        this.election = election;
     }
 }

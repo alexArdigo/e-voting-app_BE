@@ -5,6 +5,11 @@ public class PartyVoteStatsDTO {
     private String partyName;
     private double percentage;
 
+    public PartyVoteStatsDTO(String partyName, double percentage) {
+        this.partyName = partyName;
+        this.percentage = percentage;
+    }
+
     public String getPartyName() {
         return partyName;
     }
