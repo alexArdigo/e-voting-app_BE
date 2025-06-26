@@ -18,8 +18,8 @@ public class HelpComment {
     @ElementCollection
     private Set<String> voterHashLike = new HashSet<>();
 
-    public boolean addLike(String voterHash) {
-        return voterHashLike.add(voterHash);
+    public void addLike(String voterHash) {
+        voterHashLike.add(voterHash);
     }
 
     public boolean hasLiked(String voterHash) {
