@@ -4,7 +4,7 @@ import com.iscte_meta_systems.evoting_server.entities.District;
 import com.iscte_meta_systems.evoting_server.entities.Municipality;
 import com.iscte_meta_systems.evoting_server.entities.Parish;
 import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
-import com.iscte_meta_systems.evoting_server.repositories.MunicipalitiesRepository;
+import com.iscte_meta_systems.evoting_server.repositories.MunicipalityRepository;
 import com.iscte_meta_systems.evoting_server.repositories.ParishesRepository;
 import com.iscte_meta_systems.evoting_server.services.ElectoralCircleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class ElectoralCircleController {
     private DistrictRepository districtRepository;
 
     @Autowired
-    private MunicipalitiesRepository municipalitiesRepository;
+    private MunicipalityRepository municipalityRepository;
 
     @Autowired
     private ParishesRepository parishesRepository;
@@ -53,7 +53,7 @@ public class ElectoralCircleController {
 
     @GetMapping("/districts/{districtName}/municipalities")
     public List<Municipality> getAllMunicipalitiesByDistrict(@PathVariable String districtName) {
-        return municipalitiesRepository.findByDistrictName(districtName);
+        return municipalityRepository.findByDistrictName(districtName);
     }
 
     @GetMapping("/municipalities/{municipalityName}/parishes")
