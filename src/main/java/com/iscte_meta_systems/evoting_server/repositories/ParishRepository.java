@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ParishesRepository extends JpaRepository<Parish, Long> {
+public interface ParishRepository extends JpaRepository<Parish, Long> {
     Optional<Parish> findByParishName(String parishName);
 
     @Query("SELECT p FROM Parish p WHERE p.municipality.municipalityName = :municipalityName")
@@ -18,4 +18,6 @@ public interface ParishesRepository extends JpaRepository<Parish, Long> {
 
     @Query("SELECT p FROM Parish p WHERE p.parishName LIKE %:name%")
     List<Parish> findByParishNameContaining(@Param("name") String name);
+
+    List<Parish> findByParishNameContainingIgnoreCase(String municipality);
 }

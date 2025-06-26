@@ -69,23 +69,23 @@ public class ElectionServiceImpl implements  ElectionService {
     @Override
     public Election getElectionById(Long id) {
         return electionRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Eleição não encontrada com o ID: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Election with ID " + id + " was not found."));
     }
 
     @Override
     public ElectionDTO createElection(ElectionDTO dto) {
         if (dto.getName() == null) {
-            throw new IllegalArgumentException("O nome da eleição é obrigatório.");
+            throw new IllegalArgumentException("Election name is required.");
         }
         if (dto.getStartDate() == null || dto.getEndDate() == null) {
-            throw new IllegalArgumentException("Datas de início e fim são obrigatórias.");
+            throw new IllegalArgumentException("Start and end dates are required.");
         }
 
         LocalDateTime startDate = LocalDateTime.parse(dto.getStartDate());
         LocalDateTime endDate = LocalDateTime.parse(dto.getEndDate());
 
         if (endDate.isBefore(startDate)) {
-            throw new IllegalArgumentException("A data de fim não pode ser anterior à data de início.");
+            throw new IllegalArgumentException("End date cannot be before start date.");
         }
         Election election;
         switch (dto.getElectionType().toLowerCase()) {
@@ -96,7 +96,7 @@ public class ElectionServiceImpl implements  ElectionService {
                 election = new Presidential();
                 break;
             default:
-                throw new IllegalArgumentException("Tipo de eleição desconhecido: " + dto.getElectionType());
+                throw new IllegalArgumentException("Unknown election type: " + dto.getElectionType());
         }
 
         election.setName(dto.getName());
@@ -142,7 +142,7 @@ public class ElectionServiceImpl implements  ElectionService {
     public Election endElection(Long id) {
         Election election = getElectionById(id);
         if (!election.isStarted()) {
-            throw new IllegalArgumentException("A eleição com o ID " + id + " não foi iniciada.");
+            throw new IllegalArgumentException("The election with the " + id + " was not found.");
         }
         election.endElection();
         return electionRepository.save(election);

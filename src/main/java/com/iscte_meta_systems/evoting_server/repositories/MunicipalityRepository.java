@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface MunicipalitiesRepository extends JpaRepository<Municipality, Long> {
+public interface MunicipalityRepository extends JpaRepository<Municipality, Long> {
     Optional<Municipality> findByMunicipalityName(String municipalityName);
 
     @Query("SELECT m FROM Municipality m WHERE m.district.districtName = :districtName")
@@ -18,4 +18,6 @@ public interface MunicipalitiesRepository extends JpaRepository<Municipality, Lo
 
     @Query("SELECT m FROM Municipality m LEFT JOIN FETCH m.parishes WHERE m.municipalityName = :municipalityName")
     Optional<Municipality> findByMunicipalityNameWithParishes(@Param("municipalityName") String municipalityName);
+
+    List<Municipality> findByMunicipalityNameContainingIgnoreCase(String municipality);
 }

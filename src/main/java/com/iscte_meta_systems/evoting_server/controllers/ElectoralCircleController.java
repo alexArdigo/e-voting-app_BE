@@ -4,8 +4,8 @@ import com.iscte_meta_systems.evoting_server.entities.District;
 import com.iscte_meta_systems.evoting_server.entities.Municipality;
 import com.iscte_meta_systems.evoting_server.entities.Parish;
 import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
-import com.iscte_meta_systems.evoting_server.repositories.MunicipalitiesRepository;
-import com.iscte_meta_systems.evoting_server.repositories.ParishesRepository;
+import com.iscte_meta_systems.evoting_server.repositories.MunicipalityRepository;
+import com.iscte_meta_systems.evoting_server.repositories.ParishRepository;
 import com.iscte_meta_systems.evoting_server.services.ElectoralCircleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,10 +27,10 @@ public class ElectoralCircleController {
     private DistrictRepository districtRepository;
 
     @Autowired
-    private MunicipalitiesRepository municipalitiesRepository;
+    private MunicipalityRepository municipalityRepository;
 
     @Autowired
-    private ParishesRepository parishesRepository;
+    private ParishRepository parishRepository;
 
     @GetMapping("/territory")
     public Map<String, Object> getTerritoryData() {
@@ -53,17 +53,17 @@ public class ElectoralCircleController {
 
     @GetMapping("/districts/{districtName}/municipalities")
     public List<Municipality> getAllMunicipalitiesByDistrict(@PathVariable String districtName) {
-        return municipalitiesRepository.findByDistrictName(districtName);
+        return municipalityRepository.findByDistrictName(districtName);
     }
 
     @GetMapping("/municipalities/{municipalityName}/parishes")
     public List<Parish> getParishesByMunicipality(@PathVariable String municipalityName) {
-        return parishesRepository.findByMunicipalityName(municipalityName);
+        return parishRepository.findByMunicipalityName(municipalityName);
     }
 
     @GetMapping("/parishes/search")
     public List<Parish> searchParishes(@RequestParam String name) {
-        return parishesRepository.findByParishNameContaining(name);
+        return parishRepository.findByParishNameContaining(name);
     }
 
 }
