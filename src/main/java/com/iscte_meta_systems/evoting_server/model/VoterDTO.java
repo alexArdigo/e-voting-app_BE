@@ -1,7 +1,6 @@
 package com.iscte_meta_systems.evoting_server.model;
 
 import com.iscte_meta_systems.evoting_server.entities.District;
-import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
 import com.iscte_meta_systems.evoting_server.entities.Municipality;
 import com.iscte_meta_systems.evoting_server.entities.Parish;
 
@@ -11,9 +10,9 @@ public class VoterDTO {
     String telephoneNumber;
     String firstName;
     String lastName;
-    District district;
-    Municipality municipality;
-    Parish parish;
+    String district;
+    String municipality;
+    String parish;
 
     public Long getNif() {
         return nif;
@@ -47,27 +46,27 @@ public class VoterDTO {
         this.lastName = lastName;
     }
 
-    public District getDistrict() {
+    public String getDistrict() {
         return district;
     }
 
-    public void setDistrict(District district) {
+    public void setDistrict(String district) {
         this.district = district;
     }
 
-    public Municipality getMunicipality() {
+    public String getMunicipality() {
         return municipality;
     }
 
-    public void setMunicipality(Municipality municipality) {
+    public void setMunicipality(String municipality) {
         this.municipality = municipality;
     }
 
-    public Parish getParish() {
+    public String getParish() {
         return parish;
     }
 
-    public void setParish(Parish parish) {
+    public void setParish(String parish) {
         this.parish = parish;
     }
 }

@@ -54,6 +54,22 @@ public class Voter {
         this.hashIdentification = hashIdentification;
     }
 
+    public District getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(District district) {
+        this.district = district;
+    }
+
+    public Municipality getMunicipality() {
+        return municipality;
+    }
+
+    public void setMunicipality(Municipality municipality) {
+        this.municipality = municipality;
+    }
+
     public Parish getParish() {
         return parish;
     }

@@ -18,6 +18,10 @@ public class VoterController {
 
     @PostMapping("/voters/authenticated")
     public void saveVoterAuthenticated(@RequestBody VoterDTO voterDTO) {
+        System.out.println("voterDTO.getNif() = " + voterDTO.getNif());
+        System.out.println("voterDTO.getDistrict() = " + voterDTO.getDistrict());
+        System.out.println("voterDTO.getMunicipality() = " + voterDTO.getMunicipality());
+        System.out.println("voterDTO.getParish() = " + voterDTO.getParish());
         voterService.saveVoterAuthenticated(voterDTO);
     }
 
