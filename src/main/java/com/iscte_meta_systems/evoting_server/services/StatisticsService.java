@@ -1,22 +1,14 @@
 package com.iscte_meta_systems.evoting_server.services;
+import com.iscte_meta_systems.evoting_server.model.PartyVoteStatsDTO;
+import java.util.List;
 
 public interface StatisticsService {
 
-    public List<PartyVoteStats> getVotePercentagesByPartyByDistrict(Long electionId, String districtName);
+    public List<PartyVoteStatsDTO> getVotePercentagesByPartyByDistrict(Long electionId, String districtName);
 
-    int getTotalVotes(Long electionId);
+    public int getTotalVotesByPartyByDistrict(String partyName, String districtName);
 
-    int getTotalVoters(Long electionId);
+    public int getTotalVotesByElection(Long electionId);
 
-    int getTotalElections();
 
-    int getTotalVotersByMunicipality(Long electionId, String municipality);
-
-    int getTotalVotersByDistrict(Long electionId, String district);
-
-    int getTotalVotersByParish(Long electionId, String parish);
-
-    int getTotalVotersByUniparty(Long electionId, String unipartyName);
-
-    int getTotalVotersByParty(Long electionId, String partyName);
 }
