@@ -124,10 +124,10 @@ public class UserServiceImpl implements UserService{
                     "Admin",
                     encodedPassword,
                     "Admin",
-                    "Admin",
-                    Role.ADMIN
+                    "Admin"
             )
             );
+            admin.setRole(Role.ADMIN);
             userRepository.save(admin);
             out.println("Admin registered");
         }

@@ -13,12 +13,11 @@ public class UserRegisterDTO {
     public UserRegisterDTO() {
     }
 
-    public UserRegisterDTO(String username, String password, String name, String institutionName, Role role) {
+    public UserRegisterDTO(String username, String password, String name, String institutionName) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.institutionName = institutionName;
-        this.role = role;
     }
 
     public UserRegisterDTO(User user) {
