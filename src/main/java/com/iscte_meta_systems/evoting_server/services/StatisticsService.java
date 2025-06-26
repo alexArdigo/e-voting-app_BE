@@ -2,6 +2,8 @@ package com.iscte_meta_systems.evoting_server.services;
 
 public interface StatisticsService {
 
+    public List<PartyVoteStats> getVotePercentagesByPartyByDistrict(Long electionId, String districtName);
+
     int getTotalVotes(Long electionId);
 
     int getTotalVoters(Long electionId);
