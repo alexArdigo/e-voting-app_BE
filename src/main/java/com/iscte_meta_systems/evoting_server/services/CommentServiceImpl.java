@@ -54,4 +54,15 @@ public class CommentServiceImpl implements CommentService {
         return helpCommentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Comment not found with id: " + id));
     }
+
+    @Override
+    public boolean likeComment(Long id, String voterHash) {
+        HelpComment comment = getCommentById(id);
+        if (comment.hasLiked(voterHash)) {
+            return false;
+        }
+        comment.addLike(voterHash);
+        helpCommentRepository.save(comment);
+        return true;
+    }
 }
