@@ -7,10 +7,7 @@ import com.iscte_meta_systems.evoting_server.repositories.ViewerRepository;
 import com.iscte_meta_systems.evoting_server.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,7 +34,7 @@ public class UserController {
         return userService.pendingAuthorization();
     }
 
-    @GetMapping("/approveViewer/{viewerId}")
+    @PostMapping("/approveViewer/{viewerId}")
     public String approveViewer(@PathVariable Long viewerId) {
         if (userService.approveViewer(viewerId)) {
             return "Viewer approved successfully";
@@ -47,7 +44,7 @@ public class UserController {
     }
 
     @GetMapping("/findUserByUsername")
-    public User findUserByUsername(String username) {
+    public User findUserByUsername(@RequestParam("username") String username) {
         return userService.getUserByUsername(username);
     }
 }
