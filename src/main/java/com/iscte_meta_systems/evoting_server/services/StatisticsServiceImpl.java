@@ -49,7 +49,7 @@ public class StatisticsServiceImpl implements StatisticsService{
         List<Vote> votes = voteRepository.findByElectionId(electionId);
 
         if (votes.isEmpty()) {
-            return List.of(); // No votes found for the specified election and district
+            throw new RuntimeException("No votes found for the specified election in the district");
         }
 
         Map<String, Integer> votesByParty = new HashMap<>();
