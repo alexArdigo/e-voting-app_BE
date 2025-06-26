@@ -77,6 +77,10 @@ public class StatisticsServiceImpl implements StatisticsService{
 
     @Override
     public int getTotalVotesByPartyByDistrict(String partyName, String districtName) {
+
+        ElectoralCircle electoralCircle = electoralCircleRepository.findByDistricts_DistrictName(districtName);
+        List<Organisation> org = electoralCircle.getOrganisations();
+
         return 0;
     }
 
