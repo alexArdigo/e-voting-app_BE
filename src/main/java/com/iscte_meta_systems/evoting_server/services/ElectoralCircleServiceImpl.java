@@ -5,7 +5,7 @@ import com.iscte_meta_systems.evoting_server.entities.Municipality;
 import com.iscte_meta_systems.evoting_server.entities.Parish;
 import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
 import com.iscte_meta_systems.evoting_server.repositories.MunicipalityRepository;
-import com.iscte_meta_systems.evoting_server.repositories.ParishesRepository;
+import com.iscte_meta_systems.evoting_server.repositories.ParishRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
     private MunicipalityRepository municipalityRepository;
 
     @Autowired
-    private ParishesRepository parishesRepository;
+    private ParishRepository parishRepository;
 
     @PostConstruct
     public void loadData() {
@@ -56,7 +56,7 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
 
     @Override
     public long getParishesCount() {
-        return parishesRepository.count();
+        return parishRepository.count();
     }
 
     private void readCSVFile() throws Exception {
@@ -120,7 +120,7 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
 
 
             String finalParishName = parishName;
-            boolean parishExists = parishesRepository.findByMunicipalityName(municipalityName)
+            boolean parishExists = parishRepository.findByMunicipalityName(municipalityName)
                     .stream()
                     .anyMatch(parishes -> parishes.getParishName().equals(finalParishName));
 
@@ -128,7 +128,7 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
                 Parish parish = new Parish();
                 parish.setParishName(parishName);
                 parish.setMunicipality(municipality);
-                parishesRepository.save(parish);
+                parishRepository.save(parish);
 
                 municipality.getParishes().add(parish);
             }

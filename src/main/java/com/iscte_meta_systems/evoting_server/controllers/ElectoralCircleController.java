@@ -5,7 +5,7 @@ import com.iscte_meta_systems.evoting_server.entities.Municipality;
 import com.iscte_meta_systems.evoting_server.entities.Parish;
 import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
 import com.iscte_meta_systems.evoting_server.repositories.MunicipalityRepository;
-import com.iscte_meta_systems.evoting_server.repositories.ParishesRepository;
+import com.iscte_meta_systems.evoting_server.repositories.ParishRepository;
 import com.iscte_meta_systems.evoting_server.services.ElectoralCircleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +30,7 @@ public class ElectoralCircleController {
     private MunicipalityRepository municipalityRepository;
 
     @Autowired
-    private ParishesRepository parishesRepository;
+    private ParishRepository parishRepository;
 
     @GetMapping("/territory")
     public Map<String, Object> getTerritoryData() {
@@ -58,12 +58,12 @@ public class ElectoralCircleController {
 
     @GetMapping("/municipalities/{municipalityName}/parishes")
     public List<Parish> getParishesByMunicipality(@PathVariable String municipalityName) {
-        return parishesRepository.findByMunicipalityName(municipalityName);
+        return parishRepository.findByMunicipalityName(municipalityName);
     }
 
     @GetMapping("/parishes/search")
     public List<Parish> searchParishes(@RequestParam String name) {
-        return parishesRepository.findByParishNameContaining(name);
+        return parishRepository.findByParishNameContaining(name);
     }
 
 }

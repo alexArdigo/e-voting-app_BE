@@ -2,10 +2,7 @@ package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.model.VoterDTO;
-import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
-import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
-import com.iscte_meta_systems.evoting_server.repositories.MunicipalityRepository;
-import com.iscte_meta_systems.evoting_server.repositories.VoterRepository;
+import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
