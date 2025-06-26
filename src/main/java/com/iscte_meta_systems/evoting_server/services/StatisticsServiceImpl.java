@@ -82,6 +82,17 @@ public class StatisticsServiceImpl implements StatisticsService{
 
     @Override
     public int getTotalVotesByElection(Long electionId) {
-        return 0;
+
+        Election election = electionRepository.findById(electionId).orElse(null);
+
+        if (election == null) {
+            throw new IllegalArgumentException("Election with ID " + electionId + " does not exist.");
+        }
+        List<Vote> votes = voteRepository.findByElectionId(electionId);
+        if (votes == null || votes.isEmpty()) {
+            System.out.println("No votes found for election with ID " + electionId);
+            return 0;
+        }
+        return votes.size();
     }
 }

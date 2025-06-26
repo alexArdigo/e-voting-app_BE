@@ -18,10 +18,22 @@ public class StatisticsController {
     @GetMapping("/vote-percentages") //vote-percentages?electionId=1&districtName=Aveiro
     public List<PartyVoteStatsDTO> getStats(
             /**
-             * Retrieves the vote percentages by PARTY for a specific election and DISTRICT.
+             * Retrieves the vote percentages by PARTY for a specific (electoralCircle) election and DISTRICT.
              */
             @RequestParam Long electionId,
             @RequestParam String districtName) {
         return statisticsService.getVotePercentagesByPartyByDistrict(electionId, districtName);
     }
+
+    @GetMapping("/total-votes-by-election") //total-votes-by-election?electionId=1
+    public int getTotalVotes(Long electionId) {
+        /**
+         * Retrieves the total number of votes for a specific election
+         */
+        return statisticsService.getTotalVotesByElection(electionId);
+    }
+
+
+
+
 }
