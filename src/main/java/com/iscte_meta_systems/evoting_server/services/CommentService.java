@@ -9,4 +9,6 @@ public interface CommentService {
     Answer answerComment(String answer, Long id);
 
     HelpComment getCommentById(Long id);
+
+    boolean likeComment(Long id, String voterHash);
 }
