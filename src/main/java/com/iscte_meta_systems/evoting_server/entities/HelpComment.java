@@ -1,9 +1,9 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class HelpComment {
@@ -14,6 +14,22 @@ public class HelpComment {
 
     @OneToOne
     private Answer answer;
+
+    @ElementCollection
+    private Set<String> voterHashLike = new HashSet<>();
+
+    public boolean addLike(String voterHash) {
+        return voterHashLike.add(voterHash);
+    }
+
+    public boolean hasLiked(String voterHash) {
+        return voterHashLike.contains(voterHash);
+    }
+
+    public int getLikeCount() {
+        return voterHashLike.size();
+    }
+
 
     public void setId(Long id) {
         this.id = id;
