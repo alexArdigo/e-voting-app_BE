@@ -17,7 +17,7 @@ public class Vote {
     private Parish parish;
 
     @ManyToOne
-    private Election election; //nota, quando criarmos um voto temos que especificar a que eleiçao pertence?
+    private Election election;
 
     public Vote() {
     }
