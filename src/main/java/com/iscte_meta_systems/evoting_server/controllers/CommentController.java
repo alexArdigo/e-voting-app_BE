@@ -30,7 +30,7 @@ public class CommentController {
     }
 
     @PostMapping("/comment/{id}/like")
-    public ResponseEntity<String> likeComment(@PathVariable Long id, @RequestBody String voterHash) {
+    public ResponseEntity<String> likeComment(@PathVariable Long id, @RequestParam String voterHash) {
         boolean liked = commentService.likeComment(id, voterHash);
 
         if (liked) {
