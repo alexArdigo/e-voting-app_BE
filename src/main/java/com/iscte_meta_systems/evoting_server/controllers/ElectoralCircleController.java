@@ -3,7 +3,7 @@ package com.iscte_meta_systems.evoting_server.controllers;
 import com.iscte_meta_systems.evoting_server.entities.District;
 import com.iscte_meta_systems.evoting_server.entities.Municipality;
 import com.iscte_meta_systems.evoting_server.entities.Parish;
-import com.iscte_meta_systems.evoting_server.repositories.DistrictsRepository;
+import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
 import com.iscte_meta_systems.evoting_server.repositories.MunicipalitiesRepository;
 import com.iscte_meta_systems.evoting_server.repositories.ParishesRepository;
 import com.iscte_meta_systems.evoting_server.services.ElectoralCircleService;
@@ -24,7 +24,7 @@ public class ElectoralCircleController {
     private ElectoralCircleService electoralCircleService;
 
     @Autowired
-    private DistrictsRepository districtsRepository;
+    private DistrictRepository districtRepository;
 
     @Autowired
     private MunicipalitiesRepository municipalitiesRepository;
@@ -43,12 +43,12 @@ public class ElectoralCircleController {
 
     @GetMapping("districts")
     public List<District> getAllDistricts() {
-        return districtsRepository.findAll();
+        return districtRepository.findAll();
     }
 
     @GetMapping("districts/{districtName}")
     public District getDistrictByName(@PathVariable String districtName) {
-        return districtsRepository.findByDistrictName(districtName).orElse(null);
+        return districtRepository.findByDistrictName(districtName);
     }
 
     @GetMapping("/districts/{districtName}/municipalities")

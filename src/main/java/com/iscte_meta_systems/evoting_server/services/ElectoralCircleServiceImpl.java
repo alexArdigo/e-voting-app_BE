@@ -3,7 +3,7 @@ package com.iscte_meta_systems.evoting_server.services;
 import com.iscte_meta_systems.evoting_server.entities.District;
 import com.iscte_meta_systems.evoting_server.entities.Municipality;
 import com.iscte_meta_systems.evoting_server.entities.Parish;
-import com.iscte_meta_systems.evoting_server.repositories.DistrictsRepository;
+import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
 import com.iscte_meta_systems.evoting_server.repositories.MunicipalitiesRepository;
 import com.iscte_meta_systems.evoting_server.repositories.ParishesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import java.util.Map;
 public class ElectoralCircleServiceImpl implements ElectoralCircleService {
 
     @Autowired
-    private DistrictsRepository districtsRepository;
+    private DistrictRepository districtRepository;
 
     @Autowired
     private MunicipalitiesRepository municipalitiesRepository;
@@ -32,7 +32,7 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
 
     @PostConstruct
     public void loadData() {
-        if (districtsRepository.count() > 0) {
+        if (districtRepository.count() > 0) {
             return;
         }
 
@@ -46,7 +46,7 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
 
     @Override
     public long getDistrictsCount() {
-        return districtsRepository.count();
+        return districtRepository.count();
     }
 
     @Override
@@ -100,7 +100,7 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
                 district = new District();
                 district.setDistrictName(districtName);
                 district.setMunicipalities(new ArrayList<>());
-                district = districtsRepository.save(district);
+                district = districtRepository.save(district);
                 districtsMap.put(districtName, district);
             }
 
