@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,6 +16,7 @@ public class Answer {
     private String answer;
     private Long adminId;
     @OneToOne
+    @JsonIgnore
     private HelpComment comment;
 
     public Long getId() {
