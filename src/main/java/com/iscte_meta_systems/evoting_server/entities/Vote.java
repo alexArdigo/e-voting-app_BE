@@ -1,10 +1,7 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Vote {
@@ -14,6 +11,7 @@ public class Vote {
 
     @OneToOne
     private Organisation organisation;
+
     @OneToOne
     private Parish parish;
 
