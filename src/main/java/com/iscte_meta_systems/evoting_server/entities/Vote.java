@@ -9,13 +9,10 @@ public class Vote {
     @Id
     @GeneratedValue
     private Long id;
-
     @OneToOne
     private Organisation organisation;
-
     @OneToOne
     private Parish parish;
-
     @ManyToOne
     private Election election;
 
