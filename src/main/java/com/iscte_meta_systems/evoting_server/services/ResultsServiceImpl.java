@@ -48,6 +48,8 @@ public class ResultsServiceImpl implements ResultsService {
             orgResult.setVotes(votes);
             orgResult.setPercentage((double) (votes * 100) / totalVotes);
             orgResult.setSeats(0);
+
+            organisationResults.add(orgResult);
         }
 
         organisationResults.sort((o1, o2) -> Double.compare(o2.getPercentage(), o1.getPercentage()));
