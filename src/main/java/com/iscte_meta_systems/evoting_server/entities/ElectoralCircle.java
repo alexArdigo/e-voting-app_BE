@@ -12,18 +12,20 @@ public class ElectoralCircle extends Election {
 
     @OneToOne
     District districts;
-    private int seats;
     @OneToMany
     List<Party> parties;
+
+
     @OneToOne
     Municipality municipalities;
     @OneToOne
     Parish parish;
+    private int seats;
 
     ElectoralCircleType electoralCircleType;
 
     public ElectoralCircle() {
-            }
+    }
 
     public ElectoralCircleType getElectoralCircleType() {
         return electoralCircleType;
