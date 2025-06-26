@@ -3,6 +3,7 @@ package com.iscte_meta_systems.evoting_server.services;
 import com.iscte_meta_systems.evoting_server.entities.Answer;
 import com.iscte_meta_systems.evoting_server.entities.HelpComment;
 import com.iscte_meta_systems.evoting_server.entities.User;
+import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.repositories.AnswerRepository;
 import com.iscte_meta_systems.evoting_server.repositories.HelpCommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,17 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Answer answerComment(String answer, Long id) {
         User user = userService.getCurrentUser();
+        if (Role.ADMIN!= user.getRole()) {
+            throw new RuntimeException("Only admins can answer comments.");
+        }
+
         HelpComment helpComment = getCommentById(id);
+
         Answer answerEntity = new Answer();
         answerEntity.setAnswer(answer);
         answerEntity.setCommentId(helpComment.getId());
+        answerEntity.setAdminId(user.getId());
+
         answerRepository.save(answerEntity);
 
         helpComment.setAnswer(answerEntity);
