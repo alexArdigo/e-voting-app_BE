@@ -21,4 +21,5 @@ public class StatisticsController {
             @RequestParam String districtName) {
         return statisticsService.getVotePercentagesByPartyByDistrict(electionId, districtName);
     }
+
 }
