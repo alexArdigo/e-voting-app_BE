@@ -1,5 +1,7 @@
 package com.iscte_meta_systems.evoting_server.model;
 
+import com.iscte_meta_systems.evoting_server.entities.HelpComment;
+
 public class HelpCommentDTO {
     private Long id;
     private String comment;
@@ -14,6 +16,13 @@ public class HelpCommentDTO {
         this.comment = comment;
         this.answer = answer;
         this.likeCount = likeCount;
+    }
+
+    public HelpCommentDTO(HelpComment helpComment) {
+        this.id = helpComment.getId();
+        this.comment = helpComment.getComment();
+        this.answer = helpComment.getAnswer() != null ? helpComment.getAnswer().getAnswer() : null;
+        this.likeCount = helpComment.getLikeCount();
     }
 
     public Long getId() {
