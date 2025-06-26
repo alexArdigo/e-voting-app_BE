@@ -18,5 +18,8 @@ public interface StatisticsService {
 
     int getTotalVotersByParty(Long electionId, String partyName);
 
+    int getTotalVotersByDistrictAndParty(Long electionId, String district, String partyName);
+
+    int getTotalVotersByDistrictAndUniparty(Long electionId, String district, String unipartyName);
 
 }
