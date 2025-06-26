@@ -38,7 +38,7 @@ public class CommentServiceImpl implements CommentService {
 
         Answer answerEntity = new Answer();
         answerEntity.setAnswer(answer);
-        answerEntity.setCommentId(helpComment.getId());
+        answerEntity.setComment(helpComment);
         answerEntity.setAdminId(user.getId());
 
         answerRepository.save(answerEntity);

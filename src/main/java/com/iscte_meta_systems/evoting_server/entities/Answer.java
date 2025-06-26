@@ -3,6 +3,7 @@ package com.iscte_meta_systems.evoting_server.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Answer {
@@ -12,8 +13,9 @@ public class Answer {
     private Long id;
 
     private String answer;
-    private Long commentId;
     private Long adminId;
+    @OneToOne
+    private HelpComment comment;
 
     public Long getId() {
         return id;
@@ -31,19 +33,19 @@ public class Answer {
         this.answer = answer;
     }
 
-    public Long getCommentId() {
-        return commentId;
-    }
-
-    public void setCommentId(Long commentId) {
-        this.commentId = commentId;
-    }
-
     public Long getAdminId() {
         return adminId;
     }
 
     public void setAdminId(Long adminId) {
         this.adminId = adminId;
+    }
+
+    public HelpComment getComment() {
+        return comment;
+    }
+
+    public void setComment(HelpComment comment) {
+        this.comment = comment;
     }
 }
