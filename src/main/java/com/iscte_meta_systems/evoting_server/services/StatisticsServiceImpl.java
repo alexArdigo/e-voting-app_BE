@@ -8,12 +8,14 @@ import com.iscte_meta_systems.evoting_server.model.PartyVoteDTO;
 import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
 import com.iscte_meta_systems.evoting_server.repositories.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Service
 public class StatisticsServiceImpl implements StatisticsService {
     @Autowired
     private VoteRepository voteRepository;
