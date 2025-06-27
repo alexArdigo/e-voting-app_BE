@@ -1,0 +1,2343 @@
+{
+  "Aveiro" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "INÊS GONÇALVES MARCÃO PINTO BASTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "DAVID PINTO DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SARA CRISTINA DA SILVA ALMEIDA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "BRUNO DAVID DOS REIS SOL",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PAULA ALEXANDRA RIBEIRO CUSTÓDIO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "LUÍS EMÍDIO LOPES MATEUS FAZENDA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MOISÉS SALVADOR COELHO FERREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SÓNIA ISABEL LOPES DE ALMEIDA PINTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "NÉLSON RICARDO ESTEVES PERALTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SARA RAQUEL FERREIRA DA COSTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "PEDRO SARAIVA GONÇALVES SANTOS FRAZÃO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA JOSÉ GOMES DE AGUIAR",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ARMANDO CARLOS DA SILVA GRAVE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PEDRO MIGUEL TAVARES DOS SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "DARLENE DE FÁTIMA COUTO COSTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "ANA CARLA GAMELAS DINIZ ANTUNES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CARLOS ALBERTO NUNES DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "NELSON MIGUEL DE SOUSA DOS SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MAFALDA DE CASTRO AMARO PEREIRA COUTINHO PINTO COELHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JORGE MANUEL HENRIQUES DE OLIVEIRA CARVALHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "MÁRIO FILIPE AMORIM FARIA OLIVEIRA LOPES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "DIOGO FALCÃO PAREDES PINTO MEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA RITA SANTOS BASTOS SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PAULO SÉRGIO OLIVEIRA DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CLÁUDIA MANUELA MESQUITA DA ROCHA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Beja" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "CARLOS ALBERTO NUNES SANTOS MARCELINO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI JORGE DE SOUSA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ELOÍSA MARLENE DE SOUSA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "ALBERTO MANUEL BELLO DA CUNHA MATOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MADALENA PÉ-LEVE FIGUEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FÁTIMA DO NACIMENTO CABELEIRA TEIXEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "RUI CELESTINO DOS SANTOS CRISTINA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTÓNIO JOAQUIM ABAMBRES CARNEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "IDALETE DE JESUS ALVES PEREIRA DE BRITO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "JOSÉ ARTUR GONÇALVES ANTUNES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "NUNO FILIPE BARRADAS CANDEIAS DIOGO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SUSANA PAULA HORTA MACHADO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "GENEROSA CORREIA DE BRITO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "NUNO MIGUEL RENDEIRO SOARES PEDROSO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO RODRIGUES DIAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "LIVRE",
+    "color" : "#32CD32",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/l-logo.png",
+    "description" : "LIVRE - Partido político português",
+    "candidates" : [ {
+      "name" : "FAUSTO CAMACHO FIALHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ALEXANDRA PAULA DE CARVALHO ANTUNES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PEDRO GUILHERME MORENO BEIRÃO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "NOVA DIREITA",
+    "color" : "#2F4F4F",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "description" : "NOVA DIREITA - Partido político português",
+    "candidates" : [ {
+      "name" : "JORGE MANUEL DA GAMA PINTO VALENTE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "DEBORA FILIPA DE OLIVEIRA VICENTE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA MARIA DE VIVEIROS OLIVEIRA VICENTE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
+    "color" : "#90EE90",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
+    "candidates" : [ {
+      "name" : "LUÍS CARLOS PAIXÃO COENTRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "VERA LÚCIA LAZERA ANDRÉ",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "DONATO ANTONINO DIAS DE FREITAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CDU - Coligação Democrática Unitária",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "description" : "CDU - Coligação Democrática Unitária - Partido político português",
+    "candidates" : [ {
+      "name" : "BERNARDINO JOSÉ TORRÃO SOARES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "TOMÉ ALEXANDRE MARTINS PIRES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ELSA ISABEL PIRES JANUÁRIO DAS DORES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
+    "color" : "#DC143C",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
+    "candidates" : [ {
+      "name" : "MARIA HELENA VALENTE PINTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CARLOS JOSÉ LAMEIRA PAIS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUÍS FILIPE MARTINS PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "AD - COLIGAÇÃO PSD/CDS",
+    "color" : "#FF8C00",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
+    "candidates" : [ {
+      "name" : "GONÇALO NUNO RAIO VALENTE E HENRIQUE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANDREIA CALVÁRIO GRAÇA GUERREIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "GONÇALO TEIXEIRA COELHO SILVA MOREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Popular Monárquico",
+    "color" : "#9932CC",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "description" : "Partido Popular Monárquico - Partido político português",
+    "candidates" : [ {
+      "name" : "BENTO JOSÉ FURÃO FIALHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA DO CARMO DOTTI SANTOS DO AMARA CAMARA PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ PEDRO PEDRAS MENDONÇA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Socialista",
+    "color" : "#FF69B4",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ps-logo.png",
+    "description" : "Partido Socialista - Partido político português",
+    "candidates" : [ {
+      "name" : "PEDRO NUNO RAPOSO PRAZERES DO CARMO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "TELMA CRISTINA FELIZARDO GUERREIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JUVENÁLIA ISABEL GUERREIRO SALGADO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Reagir Incluir Reciclar",
+    "color" : "#20B2AA",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "description" : "Reagir Incluir Reciclar - Partido político português",
+    "candidates" : [ {
+      "name" : "MARGARIDA ISABEL INVERNO DO ROSÁRIO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RAFAEL ALEXANDRE CARDOSO CURADO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "DINARTE ANDRÉ MURTA RAMOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Volt Portugal",
+    "color" : "#9370DB",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "description" : "Volt Portugal - Partido político português",
+    "candidates" : [ {
+      "name" : "IRIS RAQUEL UEBELHOER DE LÁ FÉRIA E OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "YANNICK SCHADE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SARA FONSECA REIS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Braga" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "GONÇALO NICOLAU CERQUEIRA SOPAS DE MELO BANDEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CARLA MARIA LIMA VASCONCELOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RICARDO FILIPE MOREIRA DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI MANUEL PEREIRA DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MYROSLAVA YAROSHENKO TREMBOVETSKA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "FRANCISCO ANACLETO LOUÇÃ",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RICARDO JORGE DA SILVA CERQUEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA NORBERTA DE ABREU FERREIRA GRILO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOANA FILIPA LINHARES DE AZEVEDO NEIVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARCO FILIPE VIEIRA GOMES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "ANTÓNIO FILIPE DIAS MELO PEIXOTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RODRIGO SANTOS ALVES TAXA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "VANESSA CLAÚDIA NOGUEIRA ROSA BARATA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CARLOS ALBERTO BARBOSA VIEIRA PINTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LINA RAQUEL MAIA PINHEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "TIAGO FERNANDO RIBEIRO RODRIGUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO CARLOS GREGÓRIO DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARTA SOFIA DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "HUGO HENRIQUE FRANCO FERREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUÍS PIO TILLI SIMÕES DE CARVALHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Bragança" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "BRUNO MIGUEL MATOS DO REGO DO NASCIMENTO E SÁ COUTINHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JUDITE LURDES VEIGA DE SOUSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RÚBEN PEDRO DE LIMA NASCIMENTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "VITOR FILIPE OLIVEIRA GONÇALVES PIMENTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RITA CORREIA MADEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA LUÍSA GONÇALVES PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "JOSÉ MÁRIO PINHEIRO MESQUITA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CECILIA DE LURDES FERREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "GONÇALO FILIPE SEIXAS TEIXEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "CARLOS ALBERTO TELES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA CRISTINA MENDES DE OLIVEIRA MARTINS ROSADO DA FONSECA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTÓNIO JOAQUIM FILIPE SANTOS DE MATOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "NUNO ALEXANDRE MONTEIRO FERNANDES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "TIAGO FERNANDO TEIXEIRA MORAIS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA TERESA SANTOS AGUIAR",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "LIVRE",
+    "color" : "#32CD32",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/l-logo.png",
+    "description" : "LIVRE - Partido político português",
+    "candidates" : [ {
+      "name" : "ANABELA LUCIANO CORREIA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ MIGUEL DE BARROS NEVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SANDRA DANIELA GIL OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
+    "color" : "#90EE90",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
+    "candidates" : [ {
+      "name" : "OCTÁVIO JOSÉ PIRES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA MARIA FERNANDES PIRES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SARA ISABEL RONCON LEOTTE BESSA PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CDU - Coligação Democrática Unitária",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "description" : "CDU - Coligação Democrática Unitária - Partido político português",
+    "candidates" : [ {
+      "name" : "FÁTIMA DA CONCEIÇÃO BORGES BENTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MÁRCIO JOSÉ CASTRO PINHEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOANA ISABEL PIRES DA COSTA MONTEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Castelo Branco" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "FILIPE MANUEL DA SILVA LOURENÇO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANABELA SEABRA RODRIGUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTÓNIO AFONSO VICENTE CAMPANUDO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA ETELVINA NUNES BENTO DIOGO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "INÊS FILIPA DA SILVA ANTUNES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FRANCISCO GUERRA OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "HELENA ISABEL GERALDES RIBEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FILIPE TIAGO SILVA SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "JOÃO FILIPE DIAS RIBEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MÁRIO RUI RODRIGUES DINIZ",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA DA CONCEIÇÃO MARTINS PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA MANUELA PEREIRA ROQUE MENDES SALAVESSA DUARTE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "CARLOS MANUEL FERNANDES LOBO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "VALTER DE SOUSA PONTES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOANA CRISTINA MACHADO BRAGA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "AURÉLIA DO ROSÁRIO CLARA PINTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "MANUEL CARLOS LOUREIRO DE LEMOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA RITA FILIPE RIBEIRO GOULÃO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CRISTIANO LEVI DA SILVA FERREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA RITA MACHADO MACHADO PAULO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "LIVRE",
+    "color" : "#32CD32",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/l-logo.png",
+    "description" : "LIVRE - Partido político português",
+    "candidates" : [ {
+      "name" : "JOANA ALVES PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "VIRGÍLIO JOSÉ GALVÃO DOS REIS BERNARDINO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RITA ISABEL ESCOLÁSTICO RAMOS PEDRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "NIKITA BOCHAROV",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
+    "color" : "#90EE90",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
+    "candidates" : [ {
+      "name" : "PAUL FERNANDES SUMMERS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SANDRA GERALDES RODRIGUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARGARIDA BACELAR MOURA BORGES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "EDUARDO MANUEL CORREIA DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CDU - Coligação Democrática Unitária",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "description" : "CDU - Coligação Democrática Unitária - Partido político português",
+    "candidates" : [ {
+      "name" : "VÍTOR MANUEL REIS SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA MARIA RAMOS PINTO LEITÃO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CASIMIRO LOPES DOS SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "EMA PEREIRA GOMES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
+    "color" : "#DC143C",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
+    "candidates" : [ {
+      "name" : "JOSÉ ALBINO ALVES MARRUCHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MANUEL JORGE HONÓRIO DE CARVALHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA VICTÓRIA NUNES OLIVEIRA PACHECO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI INFANTE OLIVEIRA DUARTE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "AD - COLIGAÇÃO PSD/CDS",
+    "color" : "#FF8C00",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
+    "candidates" : [ {
+      "name" : "PEDRO TRIGO DE MORAIS DE ALBUQUERQUE REIS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RICARDO JOSÉ MARTINS AIRES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LEONOR CRISTINA ADRIANO LOPES CIPRIANO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MIGUEL GREGÓRIO BARROSO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Popular Monárquico",
+    "color" : "#9932CC",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "description" : "Partido Popular Monárquico - Partido político português",
+    "candidates" : [ {
+      "name" : "LUÍS ARTUR FLÔR ALMEIDA DUQUE-VIEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA DA NAZARÉ DIAS GARCIA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUÍS MIGUEL PEDROSO DE MOURA CORREIA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "VERÓNICA DE JESUS DOMINGOS DE MELO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Coimbra" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "SANCHO CRISTÓVÃO MARQUES ANTUNES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ALEXANDRE NUNO MENDES DE LEMOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ROSA LUÍSA DOS SANTOS REIS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PAULO MIGUEL PINTO FERREIRA FERNANDES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOAQUIM MANUEL SIMÕES MEDINA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "MIGUEL GONÇALO CARDINA CODINHA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIANA GASPAR RODRIGUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "EDUARDO ANTÓNIO DA SILVA FIGUEIREDO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA CAROLINA DAMAS GOMES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PEDRO MIGUEL DA SILVA RIBEIRO JORGE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "PAULO JORGE RODRIGUES NOGUEIRA SECO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ELISEU DA COSTA NEVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CLÁUDIA SOFIA PIRES FONSECA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "HUGO MIGUEL FRESTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "AUGUSTO JOSÉ DOMINGUES LOURO DE MIRANDA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "PEDRO MIGUEL BELO DE CARVALHO DA COSTA MARQUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO ALEXANDRE AQUINO HERNANDEZ DE OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ALZIRA DE JESUS MENDES SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JORGE MANUEL MARQUES DE OLIVEIRA PEDRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "EVA ALEXANDRA FERNANDES INÁCIO OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "ANA CATARINA DA CRUZ GOMES GRAVETO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CELSO FILIPE MONTEIRO FERREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MANUEL CARLOS PIMENTEL DOS SANTOS SOARES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "BERTINA MARIA COSTA MARTINS ROCHA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PEDRO JOSÉ ANTUNES RODRIGUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Juntos pelo Povo",
+    "color" : "#FFD700",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "description" : "Juntos pelo Povo - Partido político português",
+    "candidates" : [ {
+      "name" : "JOÃO GUILHERME GONÇALVES RIBEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FERNANDO MANUEL CARREIRA ABREU",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CARLA MARISA TEIXEIRA NUNES DA LUZ",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTÓNIO JOÃO DA MATA TEIXEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI RODRIGUES VIEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Évora" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "RODRIGO JOSÉ RAMALHO PAIAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUÍS MIGUEL GUERRA GODINHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PAULA ROSÁRIO AZEDO COTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "PEDRO MIGUEL NUNES FERREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "AMÁLIA MARIA MARQUES ESPIRIDIÃO DE OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO MANUEL CARVALHO PINHEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "JORGE MANUEL DE VALSASSINA GALVEIAS RODRIGUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FLÁVIO CRISTIANO QUARESMA ANTUNES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RAQUEL MANUELA BULAS SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "CARLA MARIA ASSUNÇÃO ANDRADE REBELO RIBEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUIS MIGUEL ADELINO FIGUEIRAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO PAULO CARRAPIÇO SARAIVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "RODRIGO VARGAS MENDONÇA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO GABRIEL SOFIO BATISTA PERES SABINO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIANA RITA FRANCISCO MARQUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "LIVRE",
+    "color" : "#32CD32",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/l-logo.png",
+    "description" : "LIVRE - Partido político português",
+    "candidates" : [ {
+      "name" : "MARIA DA GLÓRIA CAPELA TOMÁS CEBOLA DE ALMEIDA FRANCO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "NUNO ANTÓNIO ALMEIDA GARCIA MOREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "DANIELA ANDREIA VIOLA FERREIRA SALAZAR",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Nós, Cidadãos!",
+    "color" : "#4169E1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nc-logo.png",
+    "description" : "Nós, Cidadãos! - Partido político português",
+    "candidates" : [ {
+      "name" : "JORGE MANUEL CORREIA CANHOTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ELISABETE DE JESUS DOS PASSOS GALHARDAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ADÃO BATISTA PEREIRA LOPES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
+    "color" : "#90EE90",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
+    "candidates" : [ {
+      "name" : "SÉRGIO MANUEL PASCOAL NEVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA RITA DE SAMPAIO FRANCO RELVAS DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "TIAGO MIGUEL DE SEIXAS FONSECA DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CDU - Coligação Democrática Unitária",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "description" : "CDU - Coligação Democrática Unitária - Partido político português",
+    "candidates" : [ {
+      "name" : "MARIA DA GRAÇA DUARTE NASCIMENTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "NOEL ALEXANDRE FONTES MOREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ MARIA RODRIGUES FIGUEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "AD - COLIGAÇÃO PSD/CDS",
+    "color" : "#FF8C00",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
+    "candidates" : [ {
+      "name" : "FRANCISCO MARIA GONÇALVES LOPES FIGUEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUIS MARIA NUNES DOS SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RAQUEL MAUDSLAY COSTA CARREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Popular Monárquico",
+    "color" : "#9932CC",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "description" : "Partido Popular Monárquico - Partido político português",
+    "candidates" : [ {
+      "name" : "LUIS DA SILVA MADEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LÚCIA SOFIA DOS SANTOS CEGONHO FIGUEIRAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "VASCO MARIA PACHECO DA CAMARA PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Socialista",
+    "color" : "#FF69B4",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ps-logo.png",
+    "description" : "Partido Socialista - Partido político português",
+    "candidates" : [ {
+      "name" : "LUÍS CARLOS PITEIRA DIAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CLÁUDIA MARIA FERREIRA DE SOUSA PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "TIAGO MIGUEL SAPATEIRO CAPITÃO PARDAL",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Reagir Incluir Reciclar",
+    "color" : "#20B2AA",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "description" : "Reagir Incluir Reciclar - Partido político português",
+    "candidates" : [ {
+      "name" : "RICARDO JOÃO CAMÕES MENDES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA PATRÍCIA LOPES TEIXEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ALBERTO JOSÉ GRILO BELO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Volt Portugal",
+    "color" : "#9370DB",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "description" : "Volt Portugal - Partido político português",
+    "candidates" : [ {
+      "name" : "HÉLDER FILIPE TOMAZ MACHADO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SOFIA ISABEL BORREGO FRANZINA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO PEDRO METELO DIAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Faro" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "JOÃO CARLOS TEIXEIRA SIMPLÍCIO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ MANUEL FREITAS DE OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ISABEL MARIA VIEIRA SIMÕES ALMEIDA DAS NEVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ MARIA FERREIRA DAS NEVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SUSANA PACHECO DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Guarda" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "FRANCISCO JOSÉ FIGUEIREDO MONTEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARINA SOFIA CANTARINHA BRAZETE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "VERA LÚCIA FERNANDES GASPAR",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "BEATRIZ REALINHO PIRES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "BÁRBARA INÊS GONÇALVES DE ALMEIDA XAVIER",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RODRIGO ALEXANDRE MENDES SOUSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "CARLOS NUNO GOMES E SIMÕES DE MELO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARISA AUGUSTA LOURENÇO IGREJA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "HENRIQUE FERNANDES MARQUES JANELA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "DIOGO CRISTIANO DE CASTRO CASANOVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI JORGE CASAL TEIXEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA UMBELINA SOARES BENIGNO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "RUI FERNANDO RIBEIRO ABREU",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "INÊS PATRÍCIA AFONSO PAIS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUIS ALEXANDRE PINTO GONÇALVES ROLO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "LIVRE",
+    "color" : "#32CD32",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/l-logo.png",
+    "description" : "LIVRE - Partido político português",
+    "candidates" : [ {
+      "name" : "MARGARIDA GARCIA BORDALO BENTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "VITOR EMANUEL ANDRADE ANDRÉ",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ROSA MARIA DO CÉU BARROS COELHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Leiria" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "NUNO HENRIQUES MONTEIRO E SILVA BARROSO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUÍS FILIPE FERNANDES PIRES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ALEXANDRA JÚLIA RODRIGUES MACHADO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA DA GRAÇA TAVARES DINIZ",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "GONÇALO PEDRO DE SOUSA VIEIRA DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "FERNANDO JOSÉ MENDES ROSAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RAFAEL JOSÉ SIMÕES HENRIQUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LINA MARIA CARREIRA DE OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FREDERICO DE MOURA PORTUGAL DIAS PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "TELMA DE JESUS LABORINHO FERREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "GABRIEL SÉRGIO MITHÁ RIBEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUÍS PAULO PEREIRA FERNANDES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CRISTINA MARIA VIEIRA HENRIQUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI ALEXANDRE NUNES FERNANDES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOEL DOS REIS LOPES ESPERANÇA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "DANIEL CARLOS DE ALMEIDA RAMOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PAULO JORGE ALVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SANDRA MARIA DE JESUS SILVÉRIO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA ISABEL PEDROSA TEOTÓNIO ALVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ARMANDO AUGUSTO FONSECA COSTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Lisboa" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "JOANA BEATRIZ NUNES VICENTE AMARAL DIAS TERRINCA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ MANUEL DE CASTRO DOS SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PAULA DE JESUS PEREIRA COSTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "IRENE MARIA DAMIÃO PIRES CABRAL",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FREDERICO DUARTE CAVACAS TEIXEIRA DE CARVALHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Portalegre" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "AUGUSTO MANUEL FONA VIEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MANUELA GRAÇA DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "JOSÉ CARITA MONTEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARGARIDA MARIA DEUS COSTA ROSADO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "JOÃO FERREIRA LOPES ALEIXO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUÍS ALEXANDRE HOMEM FURTADO GONÇALVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "MADALENA DE UTRA MACHADO PINTO COELHO THOMAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CARLOS JOÃO MACHADO PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "FRANCISCO BISCAYA CARDOSO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO MARIA LEAL DA COSTA MALATO CORREIA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "LIVRE",
+    "color" : "#32CD32",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/l-logo.png",
+    "description" : "LIVRE - Partido político português",
+    "candidates" : [ {
+      "name" : "JOÃO TIAGO POMBA RAMOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ISABEL MARIA DUARTE FARIA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
+    "color" : "#90EE90",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
+    "candidates" : [ {
+      "name" : "TELMA ISABEL TAVARES DO ESPÍRITO SANTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "TIAGO ANDRÉ SHON SOUSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CDU - Coligação Democrática Unitária",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "description" : "CDU - Coligação Democrática Unitária - Partido político português",
+    "candidates" : [ {
+      "name" : "HELENA ISABEL DUARTE NEVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUÍS ARMANDO RODRIGUES SOEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
+    "color" : "#DC143C",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
+    "candidates" : [ {
+      "name" : "ANTÓNIO MANUEL ESPERTO CORRICAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PATRÍCIA ALEXANDRA DIAS PEREIRA ALMEIDA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "AD - COLIGAÇÃO PSD/CDS",
+    "color" : "#FF8C00",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
+    "candidates" : [ {
+      "name" : "MANUEL CASTRO ALMEIDA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO PEDRO CACHIÇO RIBEIRO LUIS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Popular Monárquico",
+    "color" : "#9932CC",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "description" : "Partido Popular Monárquico - Partido político português",
+    "candidates" : [ {
+      "name" : "HUGO ALEXANDRE PIRES LOPES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ROSE LUCIANE PERINOTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Socialista",
+    "color" : "#FF69B4",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ps-logo.png",
+    "description" : "Partido Socialista - Partido político português",
+    "candidates" : [ {
+      "name" : "LUÍS DAVID TRINDADE DE MOREIRA TESTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RICARDO MIGUEL FURTADO PINHEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Reagir Incluir Reciclar",
+    "color" : "#20B2AA",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "description" : "Reagir Incluir Reciclar - Partido político português",
+    "candidates" : [ {
+      "name" : "EMANUEL DE JESUS FIGUEIREDO MARTINS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LÍGIA MARIA ROCHA GONÇALVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Volt Portugal",
+    "color" : "#9370DB",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "description" : "Volt Portugal - Partido político português",
+    "candidates" : [ {
+      "name" : "ANA RITA AMANTE LEAL VIDE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MIGUEL MARINHO MENDES ABREU",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Porto" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "BRUNO ALEXANDRE RAMALHO FIALHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "NUNO MIGUEL MATOS PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "OLENA ZHARCHYNSKA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI MANUEL FERNANDES SEQUEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANDRIY GNATKIVSKYY",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "MARISA ISABEL DOS SANTOS MATIAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ADRIANO PEREIRA CAMPOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ISABEL CRISTINA RUA PIRES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTÓNIO SOUSA SOARES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA MANUEL DE ALMEIDA ROLA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Santarém" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "MARTA DA SILVA GAMEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SÉRGIO ALEXANDRE ROXO DE OLIVEIRA GOMES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOANA FRANCISCA COSTA TELES DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO PEDRO FERREIRA VEIGA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CLAUDIA ALEXANDRA SANTOS CARDOSO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Setúbal" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "MÁRCIO ANTONIO DE SOUZA OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUÍS AFONSO BERARDO DUARTE PINA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA SOFIA MARTINS RODRIGUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTÓNIO DA SILVA ARANTES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ MANUEL DE MATOS MIRANDA RENTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "JOANA RODRIGUES MORTÁGUA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "DANIEL CARDOSO BERNARDINO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "DIOGO MIGUEL DA SILVA MIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIE BASSE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MÁRIO ANDRÉ PINHEIRO DE MAGALHÃES MACEDO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Viana do Castelo" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "LUÍS FILIPE MARTINS AREZES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SONIA DA SILVA CARDOSO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MANUEL ALEXANDRE BARRETO MACHADO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "AISHA DOS SANTOS VASQUEZ",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI MIGUEL MARQUES MOURA DE ESPINHEIRA QUELHAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "ADRIANA  BEATRIZ OLIVEIRA TEMPORÃO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LUIS FILIPE DE OLIVEIRA LOURO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA MARIA MIRANDA FORTE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI CARLOS GUEDES  DE CARVALHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "EDITE ALEXANDRA SOUSA COSTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "EDUARDO ALEXANDRE RIBEIRO GONÇALVES TEIXEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MECIA SOFIA ALVES CORREIA MARTINS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "GERMANO AUGUSTO FARIA DE MIRANDA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MIGUEL MALHEIRO REYMÃO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ALEXANDRA SOFIA VIEITAS DA CUNHA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "JOSÉ ÂNGELO MORENO LIMA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "NICOLAS DE SOUSA PINON",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SORAIA PATRÍCIA DUQUE PINTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ORLANDA CRISTINA MORAIS ARAÚJO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "AVELINO LAUREANO RODRIGUES DA CUNHA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Vila Real" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "JOÃO ANTÓNIO VILELA DO CABEÇO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CARLOS JORGE MOURA FECHA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PAULA DE FÁTIMA PEIXOTO DOS SANTOS LOBO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA DA CONCEIÇÃO PEREIRA DE SOUSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RICARDO ALEXANDRE PEREIRA CORREIA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "ANABELA DINIS BRANCO DE OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MÁRIO EMANUEL PINTO GONÇALVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PAULA ALEXANDRA DOS SANTOS CHAVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI DE CARVALHO SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA SOFIA MATOS GOMES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "MARIA MANUELA PEREIRA TENDER",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ALBERTO JOSÉ DA SILVA MOURA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANABELA MARIA GOMES DA COSTA MARTINS MORAIS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA SUSETE CRISTINA DOS ANJOS CARDOSO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO FELISBINO GARCIA PEREIRA DE OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Viseu" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "LUIS RAFAEL CRUZ DE ALMEIDA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ADRIANO PEREIRA MARTINS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUTE MARISA GUEDES DA COSTA PAIVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "BRUNO FILIPE MOURA PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "TATIANA CRISTINA ANGELINO FERREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "DAVID FILIPE DOS SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA DE FÁTIMA TELES DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ISMAEL JOSÉ PIRES SOUSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CÉLIA CLÁUDIA LOURENÇO RODRIGUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ MIGUEL SILVA LOPES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Madeira" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "JOÃO GILBERTO RAMOS DE ABREU",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA OTÍLIA RAMOS SOUSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CAROLINA SOFIA GOUVEIA MARTINS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTÓNIO FIGUEIRA PITA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ALEXANDRA PATRÍCIA NUNES GONÇALVES PITA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "DIOGO JOSÉ FERREIRA TEIXEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CARINA SOFIA FERNANDES QUINTAL",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ ANTÓNIO DE SOUSA FIGUEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA MARGARIDA LOURENÇO MONTEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "HIGINO PESTANA VASCONCELOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "FRANCISCO  MANUEL DE FREITAS GOMES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "TIAGO SPÍNOLA ABREU",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RENATA LUÍSA FERNANDES ROCHA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ROBERTO CARLOS GONÇALVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RICARDO MIGUEL PONTES CORREIA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "ANTÓNIO ÁLVARO AGUIAR ARAÚJO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FÁTIMA NICOLE MENDONÇA ARAÚJO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CLEMENTINA BETTENCOURT GONÇALVES SANTO SOUSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTÓNIO FERREIRA MENDONÇA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA FÁTIMA GONÇALVES MENDONÇA ARAÚJO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "JOÃO HENRIQUES CORTE FERNANDES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "BÁRBARA CARINA PEREIRA GIL PESTANA PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ROSALINA MARY BAYNTUN",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTÓNIO BRUNO FERREIRA AFONSO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CAROLINA JOSÉ SPÍNOLA ALVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Juntos pelo Povo",
+    "color" : "#FFD700",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "description" : "Juntos pelo Povo - Partido político português",
+    "candidates" : [ {
+      "name" : "FILIPE MARTINIANO MARTINS DE SOUSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "CARLOS JOSÉ MENDES DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA RAQUEL FERREIRA DA SILVA NASCIMENTO DE JESUS TEIXEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "EDITE PESTANA ROCHA ALVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ BASÍLIO AZEVEDO DOS SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "LIVRE",
+    "color" : "#32CD32",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/l-logo.png",
+    "description" : "LIVRE - Partido político português",
+    "candidates" : [ {
+      "name" : "MARTA SOFIA VIEIRA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FRANCISCO TOMÁS FRANCO FERREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOANA PEREIRA PESTANA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LEONEL DAVID NÓBREGA CAIRES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ÉRICA FURTADO VIEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido da Terra",
+    "color" : "#8FBC8F",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/mpt-logo.png",
+    "description" : "Partido da Terra - Partido político português",
+    "candidates" : [ {
+      "name" : "RICARDO JORGE DA SILVA CAMACHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SÓNIA MARIA AGUIAR DE FREITAS CAMACHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MIGUEL CÂNCIO DE JESUS E SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA CATARINA SANTOS MOREIRA,",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FILIPE DE JESUS BORGES TAVARES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "NOVA DIREITA",
+    "color" : "#2F4F4F",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "description" : "NOVA DIREITA - Partido político português",
+    "candidates" : [ {
+      "name" : "PAULO RICARDO AZEVEDO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "AMÍLCAR LINO GOUVEIA MACEDO ORNELAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA RUBINA BRITO DE SOUSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOSÉ ALBERTO DA COSTA FRANCO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ARLINDO PIETRO SOUSA BATISTA AIRES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Açores" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "RUI JORGE DE SOUSA MATOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FRANCISCO JOSÉ DE OLIVEIRA DUTRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "LINDA CABRAL CIPRIANO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTÓNIO FRANCO MEDEIROS MENDONÇA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA DE JESUS CANDEIAS JOSÉ ALVES RIBEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "PEDRO GASPAR AMARAL",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "VERA LÚCIA PINHEIRO PIRES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FABÍOLA SABINO GIL",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FLÁVIO RODRIGUES DA ROSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANTERO HORTA FRAGA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "FRANCISCO GABRIEL MENESES DE LIMA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "OLIVÉRIA DE LURDES CABRAL DOS SANTOS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA MARIA LOURENÇO MARTINS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PEDRO MIGUEL RAMALHO FURTADO RODRIGUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO PAULO FERREIRA COSTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "ROQUE MANUEL DA SILVA GAIO E MELO DE ALMEIDA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANABELA DE CARVALHO ANTUNES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PLÁCIDO BARROS DA SILVA CLARA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "DIAMANTINO JOSÉ MACHADO PINTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SANDRA MARIA DA SILVA PEREIRA DIAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Europa" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "ANTÓNIO JOSÉ DOS SANTOS FERRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA FERNANDA MENDES DA SILVA MODESTO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "MARIA TERESA NÓBREGA DUARTE SOARES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "BRUNO FIALHO DA ASSUNÇÃO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "JOSÉ DIAS FERNANDES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA EDITE TEIXEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "JORGE ALBERTO FÁTIMA PEREIRA CAMEIRÃO DE ALMEIDA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA FILIPA SERRÃO SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "ANA LUÍSA FLÔR MOURA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RUI MANUEL CARVALHO SALGUEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Juntos pelo Povo",
+    "color" : "#FFD700",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "description" : "Juntos pelo Povo - Partido político português",
+    "candidates" : [ {
+      "name" : "ÉLVIO DUARTE MARTINS SOUSA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MANUEL ADRIANO DE GOUVEIA VIVEIROS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "LIVRE",
+    "color" : "#32CD32",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/l-logo.png",
+    "description" : "LIVRE - Partido político português",
+    "candidates" : [ {
+      "name" : "ANA MAFALDA DÂMASO BERNARDINO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MIGUEL GARCIA PIMENTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Nós, Cidadãos!",
+    "color" : "#4169E1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nc-logo.png",
+    "description" : "Nós, Cidadãos! - Partido político português",
+    "candidates" : [ {
+      "name" : "JOÃO MANUEL PEIXOTO JARDINE NETO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA ISABEL SOARES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ],
+  "Fora da Europa" : [ {
+    "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
+    "color" : "#800080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/adn-logo.png",
+    "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
+    "candidates" : [ {
+      "name" : "MARIA EMÍLIA CARDOSO GADELHA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SAMIRA MARIA ABIBE",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Bloco de Esquerda",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "description" : "Bloco de Esquerda - Partido político português",
+    "candidates" : [ {
+      "name" : "ANA ISABEL CARNEIRO GOUVEIA DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "GONÇALO FILIPE PESSA FIGUEIREDO COSTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CHEGA",
+    "color" : "#000080",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "description" : "CHEGA - Partido político português",
+    "candidates" : [ {
+      "name" : "MANUEL MAGNO ALVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "JOÃO JÚLIO JANELA BAPTISTA DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Ergue-te",
+    "color" : "#8B4513",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "description" : "Ergue-te - Partido político português",
+    "candidates" : [ {
+      "name" : "JORGE DA COSTA ALVES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANABELA CANAIS HENRIQUES SERRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Iniciativa Liberal",
+    "color" : "#00CED1",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "description" : "Iniciativa Liberal - Partido político português",
+    "candidates" : [ {
+      "name" : "CHRISTIAN MICHAEL ERNST WERNER BAUMS HÖHN",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARCELA DE LACERDA TRÓPIA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Juntos pelo Povo",
+    "color" : "#FFD700",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "description" : "Juntos pelo Povo - Partido político português",
+    "candidates" : [ {
+      "name" : "LINA GRACIELA JARDIM PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RAFAEL FABRÍCIO GOMES NUNES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "LIVRE",
+    "color" : "#32CD32",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/l-logo.png",
+    "description" : "LIVRE - Partido político português",
+    "candidates" : [ {
+      "name" : "MANUEL DA CRUZ BRITO SEMEDO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA TERESA BRAGA PAIXÃO DE ALMEIDA LEITÃO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "NOVA DIREITA",
+    "color" : "#2F4F4F",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "description" : "NOVA DIREITA - Partido político português",
+    "candidates" : [ {
+      "name" : "ALEXANDRE JOSÉ DE OLIVEIRA PAULO MENDES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "NUNO MANUEL JORGE PEREIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
+    "color" : "#90EE90",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
+    "candidates" : [ {
+      "name" : "NELSON CORREIA ABREU",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MÁRCIA ALEXANDRA MESQUITA MADEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "CDU - Coligação Democrática Unitária",
+    "color" : "#FF0000",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "description" : "CDU - Coligação Democrática Unitária - Partido político português",
+    "candidates" : [ {
+      "name" : "ANA ISABEL MOURA FRIAS DE OLIVEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "PEDRO MIGUEL NEVES TEIXEIRA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
+    "color" : "#DC143C",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
+    "candidates" : [ {
+      "name" : "HUMBERTO FILIPE DA SILVA FREITAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "SANDRA ORLANDA FRADÃO DA COSTA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "PARTIDO LIBERAL SOCIAL",
+    "color" : "#4682B4",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pls-logo.png",
+    "description" : "PARTIDO LIBERAL SOCIAL - Partido político português",
+    "candidates" : [ {
+      "name" : "HÉLDER DANIEL DE AZEVEDO ALVARES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "RICARDO JOSE GOMES DA SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "AD - COLIGAÇÃO PSD/CDS",
+    "color" : "#FF8C00",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
+    "candidates" : [ {
+      "name" : "JOSÉ DE ALMEIDA CESÁRIO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FLÁVIO ALVES MARTINS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Popular Monárquico",
+    "color" : "#9932CC",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "description" : "Partido Popular Monárquico - Partido político português",
+    "candidates" : [ {
+      "name" : "DEOLINDA ROSA MACHADO VIEIRA ESTÊVÃO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ASHLEY MARIA DOMINGOS RIBEIRO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Partido Socialista",
+    "color" : "#FF69B4",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ps-logo.png",
+    "description" : "Partido Socialista - Partido político português",
+    "candidates" : [ {
+      "name" : "VÍTOR MANUEL SILVA",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "ANA CRISTINA MENDONÇA CONTREIRAS",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Reagir Incluir Reciclar",
+    "color" : "#20B2AA",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "description" : "Reagir Incluir Reciclar - Partido político português",
+    "candidates" : [ {
+      "name" : "LUÍS MIGUEL DE JESUS MENDES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "FILIPA VALÉRIA GONÇALVES RODRIGUES",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  }, {
+    "partyName" : "Volt Portugal",
+    "color" : "#9370DB",
+    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "description" : "Volt Portugal - Partido político português",
+    "candidates" : [ {
+      "name" : "LEANDRO AUGUSTO DA MOTA DASMACENO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    }, {
+      "name" : "MARIA ALEXANDRA PIMENTA ROQUE ESTORNINHO",
+      "imageUrl" : "https://via.placeholder.com/150x150/cccccc/000000?text=Candidate"
+    } ]
+  } ]
+}
