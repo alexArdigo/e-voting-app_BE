@@ -5,7 +5,6 @@ import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 public class PartyVoteStatsDTO {
 
     private String partyName;
-    private Double percentage;
     private Long organisationId;
     private String organisationName;
     private ElectoralCircleType organisationType;
