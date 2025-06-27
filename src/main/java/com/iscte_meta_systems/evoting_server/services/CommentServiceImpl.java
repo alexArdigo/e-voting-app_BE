@@ -9,6 +9,8 @@ import com.iscte_meta_systems.evoting_server.repositories.HelpCommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -64,5 +66,10 @@ public class CommentServiceImpl implements CommentService {
         comment.addLike(voterHash);
         helpCommentRepository.save(comment);
         return true;
+    }
+
+    @Override
+    public List<HelpComment> getAllComments() {
+        return helpCommentRepository.findAll();
     }
 }
