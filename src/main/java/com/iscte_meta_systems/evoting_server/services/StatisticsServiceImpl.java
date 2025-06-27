@@ -2,9 +2,10 @@ package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.District;
 import com.iscte_meta_systems.evoting_server.entities.Vote;
+import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.model.DistrictStatisticsDTO;
 import com.iscte_meta_systems.evoting_server.model.MunicipalityStatisticsDTO;
-import com.iscte_meta_systems.evoting_server.model.PartyVoteDTO;
+import com.iscte_meta_systems.evoting_server.model.PartyVoteStatsDTO;
 import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
 import com.iscte_meta_systems.evoting_server.repositories.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,7 @@ public class StatisticsServiceImpl implements StatisticsService {
                             Collectors.collectingAndThen(Collectors.counting(), Math::toIntExact)
                     ));
 
-            List<PartyVoteDTO> partyResults = new ArrayList<>();
+            List<PartyVoteStatsDTO> partyResults = new ArrayList<>();
             for (Map.Entry<Long, Integer> orgEntry : organisationVotes.entrySet()) {
                 Vote sampleVote = municipalityVotes.stream()
                         .filter(vote -> vote.getOrganisation().getId().equals(orgEntry.getKey()))
@@ -61,10 +62,10 @@ public class StatisticsServiceImpl implements StatisticsService {
                         .orElse(null);
 
                 if (sampleVote != null) {
-                    PartyVoteDTO partyDTO = new PartyVoteDTO();
+                    PartyVoteStatsDTO partyDTO = new PartyVoteStatsDTO();
                     partyDTO.setOrganisationId(orgEntry.getKey());
                     partyDTO.setOrganisationName(sampleVote.getOrganisation().getOrganisationName());
-                    partyDTO.setOrganisationType(sampleVote.getOrganisation().getClass().getSimpleName());
+                    partyDTO.setOrganisationType(ElectoralCircleType.valueOf(sampleVote.getOrganisation().getClass().getSimpleName()));
                     partyDTO.setVotes(orgEntry.getValue());
                     partyDTO.setPercentage((double) (orgEntry.getValue() * 100) / municipalityVotes.size());
                     partyResults.add(partyDTO);
