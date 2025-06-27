@@ -42,7 +42,7 @@ public class CommentController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/comments")
     public List<HelpComment> getAllComments() {
         return commentService.getAllComments();
     }
