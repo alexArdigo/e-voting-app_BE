@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,12 +12,17 @@ public class HelpComment {
     @GeneratedValue
     private Long id;
     private String comment;
+    private LocalDateTime localDateTime;
 
     @OneToOne
     private Answer answer;
 
     @ElementCollection
     private Set<String> voterHashLike = new HashSet<>();
+
+    public HelpComment() {
+        this.localDateTime = LocalDateTime.now();
+    }
 
     public void addLike(String voterHash) {
         voterHashLike.add(voterHash);
@@ -53,5 +59,21 @@ public class HelpComment {
 
     public void setAnswer(Answer answer) {
         this.answer = answer;
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
+    }
+
+    public void setLocalDateTime(LocalDateTime localDateTime) {
+        this.localDateTime = localDateTime;
+    }
+
+    public Set<String> getVoterHashLike() {
+        return voterHashLike;
+    }
+
+    public void setVoterHashLike(Set<String> voterHashLike) {
+        this.voterHashLike = voterHashLike;
     }
 }
