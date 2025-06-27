@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 public class CommentController {
@@ -38,6 +40,11 @@ public class CommentController {
         } else {
             return ResponseEntity.status(400).body("You have already liked this comment.");
         }
+    }
+
+    @GetMapping
+    public List<HelpComment> getAllComments() {
+        return commentService.getAllComments();
     }
 
 }
