@@ -5,7 +5,7 @@ import java.util.List;
 public class MunicipalityStatisticsDTO {
     private String municipalityName;
     private int totalVotes;
-    private List<PartyVoteDTO> partyResults;
+    private List<PartyVoteStatsDTO> partyResults;
 
     public MunicipalityStatisticsDTO() {}
 
@@ -25,11 +25,11 @@ public class MunicipalityStatisticsDTO {
         this.totalVotes = totalVotes;
     }
 
-    public List<PartyVoteDTO> getPartyResults() {
+    public List<PartyVoteStatsDTO> getPartyResults() {
         return partyResults;
     }
 
-    public void setPartyResults(List<PartyVoteDTO> partyResults) {
+    public void setPartyResults(List<PartyVoteStatsDTO> partyResults) {
         this.partyResults = partyResults;
     }
 }
