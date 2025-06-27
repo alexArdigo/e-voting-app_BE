@@ -28,7 +28,7 @@ public class StatisticsController {
     @GetMapping("/districts/{districtName}/statistics")
     public DistrictStatisticsDTO getDistrictStatistics(@PathVariable String districtName) {
         return statisticsService.getDistrictStatistics(districtName);
-        }
+    }
 
     @GetMapping("/total-votes-by-election") //total-votes-by-election?electionId=1
     public int getTotalVotes(Long electionId) {

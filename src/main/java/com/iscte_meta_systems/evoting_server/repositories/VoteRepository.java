@@ -10,4 +10,5 @@ public interface VoteRepository extends JpaRepository<Vote, Long> {
 
     List<Vote> findByElectionId(Long electionId);
 
+    List<Vote> findByDistrictName(String districtName);
 }
