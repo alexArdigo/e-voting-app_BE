@@ -10,6 +10,11 @@ public class ElectionDTO {
     private String startDate;
     private String endDate;
     private List<OrganisationDTO> organisations;
+    private String districtName;
+    private Integer seats;
+    private String municipalityName;
+    private String parishName;
+    private String electoralCircleType;
 
     public String getElectionType() {
         return electionType;
@@ -65,5 +70,45 @@ public class ElectionDTO {
 
     public void setOrganisations(List<OrganisationDTO> organisations) {
         this.organisations = organisations;
+    }
+
+    public String getDistrictName() {
+        return districtName;
+    }
+
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
+    }
+
+    public Integer getSeats() {
+        return seats;
+    }
+
+    public void setSeats(Integer seats) {
+        this.seats = seats;
+    }
+
+    public String getMunicipalityName() {
+        return municipalityName;
+    }
+
+    public void setMunicipalityName(String municipalityName) {
+        this.municipalityName = municipalityName;
+    }
+
+    public String getParishName() {
+        return parishName;
+    }
+
+    public void setParishName(String parishName) {
+        this.parishName = parishName;
+    }
+
+    public String getElectoralCircleType() {
+        return electoralCircleType;
+    }
+
+    public void setElectoralCircleType(String electoralCircleType) {
+        this.electoralCircleType = electoralCircleType;
     }
 }
