@@ -60,7 +60,7 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
     }
 
     private void readCSVFile() throws Exception {
-        ClassPathResource resource = new ClassPathResource("DiscticsMunicipalitiesParishesPortugal.csv");
+        ClassPathResource resource = new ClassPathResource("DistrictsMunicipalitiesParishesPortugal.csv");
         BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
 
         Map<String, District> districtsMap = new HashMap<>();
