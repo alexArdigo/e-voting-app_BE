@@ -132,6 +132,12 @@ public class ElectionServiceImpl implements  ElectionService {
     }
 
     @Override
+    public Boolean isStarted(Long id) {
+        Election election = getElectionById(id);
+        return election.isStarted();
+    }
+
+    @Override
     public Election startElection(Long id) {
         Election election = getElectionById(id);
         election.startElection();
@@ -147,4 +153,5 @@ public class ElectionServiceImpl implements  ElectionService {
         election.endElection();
         return electionRepository.save(election);
     }
+
 }

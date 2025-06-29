@@ -21,4 +21,6 @@ public interface ElectionService {
     Election endElection(Long id);
 
     Vote castVote(Long id, Vote vote);
+
+    Boolean isStarted(Long id);
 }
