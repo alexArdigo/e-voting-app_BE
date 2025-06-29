@@ -53,4 +53,9 @@ public class ElectionController {
     public Election endElection(@PathVariable Long id) {
         return electionService.endElection(id);
     }
+
+    @GetMapping("/{id}/isStarted")
+    public boolean isElectionStarted(@PathVariable Long id) {
+        return electionService.isStarted(id);
+    }
 }
