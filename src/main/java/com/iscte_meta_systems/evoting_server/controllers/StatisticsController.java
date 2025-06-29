@@ -39,17 +39,13 @@ public class StatisticsController {
         return statisticsService.getTotalVotesByElection(electionId);
     }
 
-//    @GetMapping("/total-votes-by-party") //total-votes-by-party?electionId=1&partyName=IniciativaLiberal
-//    public int getNumberOfVotesByParty(
-//            @RequestParam Long electionId,
-//            @RequestParam String partyName) {
-//        /**
-//         * Retrieves the total number of votes for a specific party in a specific election
-//         */
-//        return statisticsService.getVotesByPartyByElectoralCircle(partyName, electionId);
-//    }
-
-
-
-
+    @GetMapping("/total-votes-by-party") //total-votes-by-party?electionId=1&partyName=IniciativaLiberal
+    public int getNumberOfVotesByParty(
+            @RequestParam Long electionId,
+            @RequestParam String partyName) {
+        /**
+         * Retrieves the total number of votes for a specific party in a specific election
+         */
+        return statisticsService.getVotesByPartyByElectoralCircle(partyName, electionId);
+    }
 }

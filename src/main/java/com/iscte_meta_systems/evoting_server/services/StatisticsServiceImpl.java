@@ -167,6 +167,34 @@ public class StatisticsServiceImpl implements StatisticsService{
 
         return result;
     }
+
+    @Override
+    public int getVotesByPartyByElectoralCircle(String partyName, Long electoralCircleId) {
+        Election election = (ElectoralCircle) electionRepository.findById(electoralCircleId).orElse(null);
+
+        if (election == null) {
+            throw new IllegalArgumentException("Electoral Circle with ID " + electoralCircleId + " does not exist.");
+        }
+
+        List<Vote> votes = election.getVotes();
+
+        if (votes == null || votes.isEmpty()) {
+            System.out.println("No votes found for electoral circle with ID " + electoralCircleId);
+            return 0;
+        }
+
+        int count = 0;
+
+        for (Vote vote : votes) {
+            if (vote.getOrganisation() instanceof Party && vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
+                count++;
+            }
+        }
+
+        return count;
+
+    }
+
 }
 
 
