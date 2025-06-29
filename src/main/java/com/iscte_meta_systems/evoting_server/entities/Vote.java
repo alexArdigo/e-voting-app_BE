@@ -13,8 +13,6 @@ public class Vote {
     private Organisation organisation;
     @OneToOne
     private Parish parish;
-    @ManyToOne
-    private Election election;
 
     public Vote() {
     }
@@ -43,11 +41,4 @@ public class Vote {
         this.parish = parish;
     }
 
-    public Election getElection() {
-        return election;
-    }
-
-    public void setElection(Election election) {
-        this.election = election;
-    }
 }

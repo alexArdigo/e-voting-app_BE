@@ -1,17 +1,16 @@
 package com.iscte_meta_systems.evoting_server.controllers;
 
-import com.iscte_meta_systems.evoting_server.model.DistrictStatisticsDTO;
 import com.iscte_meta_systems.evoting_server.model.PartyVoteStatsDTO;
 import com.iscte_meta_systems.evoting_server.services.StatisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/statistics")
 public class StatisticsController {
 
     @Autowired
@@ -39,6 +38,16 @@ public class StatisticsController {
          * Retrieves the total number of votes for a specific election
          */
         return statisticsService.getTotalVotesByElection(electionId);
+    }
+
+    @GetMapping("/total-votes-by-party") //total-votes-by-party?electionId=1&partyName=IniciativaLiberal
+    public int getNumberOfVotesByParty(
+            @RequestParam Long electionId,
+            @RequestParam String partyName) {
+        /**
+         * Retrieves the total number of votes for a specific party in a specific election
+         */
+        return statisticsService.getVotesByPartyByElectoralCircle(partyName, electionId);
     }
 
 
