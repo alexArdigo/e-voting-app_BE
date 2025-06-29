@@ -157,7 +157,14 @@ public class ElectionServiceImpl implements  ElectionService {
 
     @Override
     public List<Election> getNotActiveElections() {
-        return List.of();
+        List<Election> elections = electionRepository.findAll();
+        List<Election> notActiveElections = new ArrayList<>();
+        for(Election election : elections) {
+            if (!election.isStarted()){
+                notActiveElections.add(election);
+            }
+        }
+        return notActiveElections;
     }
 
     @Override

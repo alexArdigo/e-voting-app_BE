@@ -69,4 +69,9 @@ public class ElectionController {
         return electionService.getActiveElections();
     }
 
+    @GetMapping("/election/notactive")
+    public List<Election> getNotActiveElections() {
+        return electionService.getNotActiveElections();
+    }
+
 }
