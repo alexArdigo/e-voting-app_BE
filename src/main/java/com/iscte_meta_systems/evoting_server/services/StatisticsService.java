@@ -15,6 +15,6 @@ public interface StatisticsService {
 
     public int getTotalVotesByElection(Long electionId);
 
-    public int getVotesByPartyByElectoralCircle(String partyName, Long electoralCircleId);
+//    public int getNumberVotesByPartyByElectoralCircle(String partyName, Long electoralCircleId);
 
 }
