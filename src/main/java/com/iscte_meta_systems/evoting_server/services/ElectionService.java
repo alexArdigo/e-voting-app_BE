@@ -23,4 +23,7 @@ public interface ElectionService {
     Vote castVote(Long id, Vote vote);
 
     Boolean isStarted(Long id);
+
+    List<Election> getAllElections();
+
 }

@@ -138,6 +138,11 @@ public class ElectionServiceImpl implements  ElectionService {
     }
 
     @Override
+    public List<Election> getAllElections() {
+        return electionRepository.findAll();
+    }
+
+    @Override
     public Election startElection(Long id) {
         Election election = getElectionById(id);
         election.startElection();

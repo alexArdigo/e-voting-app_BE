@@ -58,4 +58,9 @@ public class ElectionController {
     public boolean isElectionStarted(@PathVariable Long id) {
         return electionService.isStarted(id);
     }
+
+    @GetMapping("/elections/all")
+    public List<Election> getAllElections() {
+        return electionService.getAllElections();
+    }
 }
