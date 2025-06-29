@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -140,6 +141,23 @@ public class ElectionServiceImpl implements  ElectionService {
     @Override
     public List<Election> getAllElections() {
         return electionRepository.findAll();
+    }
+
+    @Override
+    public List<Election> getActiveElections() {
+        List<Election> elections = electionRepository.findAll();
+        List<Election> activeElection = new ArrayList<>();
+        for(Election election : elections) {
+            if (election.isStarted()){
+                activeElection.add(election);
+            }
+        }
+        return activeElection;
+    }
+
+    @Override
+    public List<Election> getNotActiveElections() {
+        return List.of();
     }
 
     @Override

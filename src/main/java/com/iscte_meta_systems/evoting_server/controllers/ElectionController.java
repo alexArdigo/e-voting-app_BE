@@ -63,4 +63,10 @@ public class ElectionController {
     public List<Election> getAllElections() {
         return electionService.getAllElections();
     }
+
+    @GetMapping("/election/active")
+    public List<Election> getActiveElections() {
+        return electionService.getActiveElections();
+    }
+
 }

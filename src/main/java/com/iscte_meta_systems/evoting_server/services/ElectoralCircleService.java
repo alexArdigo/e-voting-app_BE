@@ -7,4 +7,5 @@ public interface ElectoralCircleService {
     long getMunicipalitiesCount();
 
     long getParishesCount();
+
 }
