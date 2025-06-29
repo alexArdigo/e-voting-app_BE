@@ -4,12 +4,14 @@ import com.iscte_meta_systems.evoting_server.model.PartyVoteStatsDTO;
 import com.iscte_meta_systems.evoting_server.services.StatisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/statistics")
 public class StatisticsController {
 
     @Autowired
@@ -38,7 +40,7 @@ public class StatisticsController {
             @RequestParam Long electionId,
             @RequestParam String partyName) {
         /**
-         * Retrieves the total number of votes for a specific party in a specific election and district
+         * Retrieves the total number of votes for a specific party in a specific election
          */
         return statisticsService.getVotesByPartyByElectoralCircle(partyName, electionId);
     }
