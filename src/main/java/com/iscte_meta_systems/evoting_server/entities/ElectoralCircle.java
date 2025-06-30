@@ -9,6 +9,8 @@ import java.util.List;
 @Entity
 public class ElectoralCircle extends Election {
 
+    @ManyToOne
+    Legislative legislative;
 
     @OneToOne
     District districts;
@@ -71,5 +73,13 @@ public class ElectoralCircle extends Election {
 
     public void setDistricts(District districts) {
         this.districts = districts;
+    }
+
+    public Legislative getLegislative() {
+        return legislative;
+    }
+
+    public void setLegislative(Legislative legislative) {
+        this.legislative = legislative;
     }
 }
