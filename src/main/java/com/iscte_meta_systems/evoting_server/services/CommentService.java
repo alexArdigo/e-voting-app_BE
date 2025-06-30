@@ -12,7 +12,7 @@ public interface CommentService {
 
     HelpComment getCommentById(Long id);
 
-    boolean likeComment(Long id, String voterHash);
+    boolean likeComment(Long id);
 
     List<HelpComment> getAllComments();
 }
