@@ -3,6 +3,7 @@ package com.iscte_meta_systems.evoting_server.controllers;
 import com.iscte_meta_systems.evoting_server.entities.Answer;
 import com.iscte_meta_systems.evoting_server.entities.HelpComment;
 import com.iscte_meta_systems.evoting_server.services.CommentService;
+import com.iscte_meta_systems.evoting_server.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,8 @@ public class CommentController {
 
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/comment")
     public HelpComment comment(@RequestParam("text") String commentText){
@@ -32,8 +35,8 @@ public class CommentController {
     }
 
     @PostMapping("/comment/{id}/like")
-    public ResponseEntity<String> likeComment(@PathVariable Long id, @RequestParam String voterHash) {
-        boolean liked = commentService.likeComment(id, voterHash);
+    public ResponseEntity<String> likeComment(@PathVariable Long id) {
+        boolean liked = commentService.likeComment(id);
 
         if (liked) {
             return ResponseEntity.ok("Comment liked successfully.");
