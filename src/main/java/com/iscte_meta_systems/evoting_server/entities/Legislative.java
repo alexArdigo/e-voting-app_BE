@@ -1,0 +1,35 @@
+package com.iscte_meta_systems.evoting_server.entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
+
+@Entity
+public class Legislative {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @OneToMany
+    private List<ElectoralCircle> electoralCircles;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<ElectoralCircle> getElectoralCircles() {
+        return electoralCircles;
+    }
+
+    public void setElectoralCircles(List<ElectoralCircle> electoralCircles) {
+        this.electoralCircles = electoralCircles;
+    }
+}
