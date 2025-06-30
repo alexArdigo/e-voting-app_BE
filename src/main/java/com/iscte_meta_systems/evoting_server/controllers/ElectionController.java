@@ -1,10 +1,13 @@
 package com.iscte_meta_systems.evoting_server.controllers;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
+import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
 import com.iscte_meta_systems.evoting_server.entities.Vote;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
+import com.iscte_meta_systems.evoting_server.repositories.ElectoralCircleRepository;
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
+import com.iscte_meta_systems.evoting_server.services.PartiesAndCandidatesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +18,12 @@ public class ElectionController {
 
     @Autowired
     private ElectionService electionService;
+
+    @Autowired
+    private ElectoralCircleRepository electoralCircleRepository;
+
+    @Autowired
+    private PartiesAndCandidatesService partiesAndCandidatesService;
 
     @GetMapping("/elections")
     public List<ElectionDTO> getElections(
@@ -52,5 +61,19 @@ public class ElectionController {
     @PostMapping("/elections/{id}/endElection")
     public Election endElection(@PathVariable Long id) {
         return electionService.endElection(id);
+    }
+    @PostMapping("/elections/{id}/populate-parties")
+
+    public String populatePartiesAndCandidates(@PathVariable Long id) {
+        try {
+            ElectoralCircle electoralCircle = electoralCircleRepository.findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("Electoral Circle not found"));
+
+            partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(electoralCircle);
+
+            return "Parties and candidates populated successfully";
+        } catch (Exception e) {
+            return "Error populating parties and candidates: " + e.getMessage();
+        }
     }
 }

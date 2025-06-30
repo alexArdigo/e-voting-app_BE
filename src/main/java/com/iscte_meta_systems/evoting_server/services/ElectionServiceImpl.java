@@ -1,8 +1,10 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
+import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
+import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
 import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
 import com.iscte_meta_systems.evoting_server.repositories.OrganisationRepository;
 import com.iscte_meta_systems.evoting_server.repositories.VoteRepository;
@@ -15,7 +17,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ElectionServiceImpl implements  ElectionService {
+public class ElectionServiceImpl implements ElectionService {
+
+    @Autowired
+    private DistrictRepository districtRepository;
+
+    @Autowired
+    private PartiesAndCandidatesService partiesAndCandidatesService;
 
     @Autowired
     private ElectionRepository electionRepository;
@@ -65,7 +73,6 @@ public class ElectionServiceImpl implements  ElectionService {
     }
 
 
-
     @Override
     public Election getElectionById(Long id) {
         return electionRepository.findById(id)
@@ -104,7 +111,37 @@ public class ElectionServiceImpl implements  ElectionService {
         election.setStartDate(startDate);
         election.setEndDate(endDate);
 
-        electionRepository.save(election);
+        if (election instanceof ElectoralCircle) {
+            ElectoralCircle electoralCircle = (ElectoralCircle) election;
+
+            if (dto.getDistrictName() != null) {
+                District district = districtRepository.findByDistrictName(dto.getDistrictName());
+                if (district != null) {
+                    electoralCircle.setDistricts(district);
+
+                    if (dto.getElectoralCircleType() != null) {
+                        electoralCircle.setElectoralCircleType(
+                                ElectoralCircleType.valueOf(dto.getElectoralCircleType().toUpperCase())
+                        );
+                    }
+                    if (dto.getSeats() != null) {
+                        electoralCircle.setSeats(dto.getSeats());
+                    }
+
+                    electionRepository.save(electoralCircle);
+
+                    try {
+                        partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(electoralCircle);
+                    } catch (Exception e) {
+                        System.err.println("Failed to populate parties and candidates: " + e.getMessage());
+                    }
+                }
+            } else {
+                electionRepository.save(electoralCircle);
+            }
+        } else {
+            electionRepository.save(election);
+        }
 
         return dto;
     }
