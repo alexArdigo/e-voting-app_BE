@@ -62,6 +62,7 @@ public class ElectionController {
     public Election endElection(@PathVariable Long id) {
         return electionService.endElection(id);
     }
+
     @PostMapping("/elections/{id}/populate-parties")
 
     public String populatePartiesAndCandidates(@PathVariable Long id) {
