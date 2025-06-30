@@ -15,6 +15,7 @@ public class ElectionDTO {
     private String municipalityName;
     private String parishName;
     private String electoralCircleType;
+    private String legislativeId;
 
     public String getElectionType() {
         return electionType;
@@ -110,5 +111,13 @@ public class ElectionDTO {
 
     public void setElectoralCircleType(String electoralCircleType) {
         this.electoralCircleType = electoralCircleType;
+    }
+
+    public String getLegislativeId() {
+        return legislativeId;
+    }
+
+    public void setLegislativeId(String legislativeId) {
+        this.legislativeId = legislativeId;
     }
 }

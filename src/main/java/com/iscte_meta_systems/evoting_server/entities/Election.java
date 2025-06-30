@@ -16,7 +16,6 @@ public class Election {
     private LocalDateTime endDate;
     @OneToMany
     private List<Organisation> organisations;
-    //List<Results> results; results já não é uma classe.
     @OneToMany
     List<Vote> votes;
     List<String> votersVoted; //HASHES

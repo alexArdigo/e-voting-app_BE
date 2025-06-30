@@ -4,11 +4,7 @@ import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
-import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
-import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
-import com.iscte_meta_systems.evoting_server.repositories.OrganisationRepository;
-import com.iscte_meta_systems.evoting_server.repositories.VoteRepository;
-import jakarta.persistence.EntityNotFoundException;
+import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +33,9 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Autowired
     private VoteRepository voteRepository;
+
+    @Autowired
+    private LegislativeRepository legislativeRepository;
 
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
@@ -100,8 +99,18 @@ public class ElectionServiceImpl implements ElectionService {
             case "legislativa":
                 election = new ElectoralCircle();
                 break;
-            case "presidential":
-                election = new Presidential();
+            case "circle":
+                ElectoralCircle circle = new ElectoralCircle();
+                circle.setSeats(dto.getSeats());
+                circle.setElectoralCircleType(ElectoralCircleType.valueOf(dto.getElectoralCircleType()));
+
+                if (dto.getLegislativeId() != null) {
+                    Legislative legislative = legislativeRepository.findById(Long.valueOf(dto.getLegislativeId()))
+                            .orElseThrow(() -> new IllegalArgumentException("Legislative not found"));
+                    circle.setLegislative(legislative);
+                }
+
+                election = circle;
                 break;
             default:
                 throw new IllegalArgumentException("Unknown election type: " + dto.getElectionType());
