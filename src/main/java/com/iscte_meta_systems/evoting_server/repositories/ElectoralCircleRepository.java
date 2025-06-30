@@ -11,4 +11,5 @@ import java.util.List;
 public interface ElectoralCircleRepository extends JpaRepository<ElectoralCircle, Long> {
 
     ElectoralCircle findByDistricts_DistrictName(String districtName);
+
 }

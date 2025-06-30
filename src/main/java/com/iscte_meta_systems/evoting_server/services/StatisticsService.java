@@ -9,7 +9,7 @@ public interface StatisticsService {
 
     DistrictStatisticsDTO getDistrictStatistics(String districtName);
 
-    public List<PartyVoteStatsDTO> getVotePercentagesByPartyByDistrict(Long electionId, String districtName);
+//    public List<PartyVoteStatsDTO> getVotePercentagesByPartyByDistrict(Long electionId, String districtName);
 
     public int getTotalVotesByPartyByDistrict(String partyName, String districtName);
 

@@ -33,9 +33,9 @@ public class StatisticsServiceImpl implements StatisticsService{
     private DistrictRepository districtRepository;
 
 
-    @Override
-    public List<PartyVoteStatsDTO> getVotePercentagesByPartyByDistrict(Long electionId, String districtName) {
-
+//    @Override
+//    public List<PartyVoteStatsDTO> getVotePercentagesByPartyByDistrict(Long electionId, String districtName) {
+//
 //        Election election = electionRepository.findById(electionId).orElse(null);
 //
 //        if (election == null || districtName == null) {
@@ -79,8 +79,7 @@ public class StatisticsServiceImpl implements StatisticsService{
 //                .toList();
 //
 //        return partyVotesByDistrictPercentage;
-        return null;
-    }
+//    }
 
     @Override
     public int getTotalVotesByPartyByDistrict(String partyName, String districtName) {
