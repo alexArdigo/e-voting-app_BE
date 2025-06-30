@@ -23,26 +23,18 @@ public class SecurityWebConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("*")); // allows all origins
+        configuration.setAllowedOrigins(List.of(
+                "http://localhost:5173",
+                "http://localhost:5174",
+                "http://localhost:9090"
+        ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
-        configuration.setAllowCredentials(true); // still allows credentials like cookies
+        configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
-//    @Bean
-//    public CorsConfigurationSource corsConfigurationSource() {
-//        CorsConfiguration configuration = new CorsConfiguration();
-//        configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:5174"));
-//        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-//        configuration.setAllowedHeaders(List.of("*"));
-//        configuration.setAllowCredentials(true);
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        source.registerCorsConfiguration("/**", configuration);
-//        return source;
-//    }
 
 
     @Bean
@@ -57,6 +49,7 @@ public class SecurityWebConfig {
             auth.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll();
 
             auth.requestMatchers(HttpMethod.POST, "/login").permitAll();
+            auth.requestMatchers("/oauth/**").permitAll();
             auth.requestMatchers(HttpMethod.POST, "/registerAdmin", "/registerViewer").permitAll();
             auth.requestMatchers(HttpMethod.GET, "/elections", "/elections/{id}", "/elections/{id}/ballot").permitAll();
             auth.requestMatchers(HttpMethod.GET, "/elections/{id}/candidates", "/candidate/{id}").permitAll();
@@ -73,10 +66,10 @@ public class SecurityWebConfig {
             auth.requestMatchers(HttpMethod.GET, "/findUserByUsername").authenticated();
             auth.requestMatchers(HttpMethod.GET, "/voters/has-voted").authenticated();
 
-           // auth.requestMatchers(HttpMethod.GET, "/elections/**", "/candidates/**", "/organisations/**").permitAll();
-           // auth.requestMatchers(HttpMethod.POST, "/elections", "/candidates", "/organisations").hasRole("ADMIN");
+            // auth.requestMatchers(HttpMethod.GET, "/elections/**", "/candidates/**", "/organisations/**").permitAll();
+            // auth.requestMatchers(HttpMethod.POST, "/elections", "/candidates", "/organisations").hasRole("ADMIN");
             //auth.requestMatchers("/**").authenticated();
-           // auth.requestMatchers("/login", "/logged", "/users").permitAll();
+            // auth.requestMatchers("/login", "/logged", "/users").permitAll();
 
 /*            auth.requestMatchers(
                     HttpMethod.POST, ... ).hasRole("ADMIN");*/
@@ -86,13 +79,13 @@ public class SecurityWebConfig {
                     HttpMethod.POST,  ... ).authenticated();*/
 
 
-/*            auth.requestMatchers( ... ).authenticated();*/
+            /*            auth.requestMatchers( ... ).authenticated();*/
 
             auth.requestMatchers("**").permitAll();
 
             //auth.requestMatchers("**").denyAll();
         });
-        httpSecurity.formLogin(loginConfig -> {
+        /*httpSecurity.formLogin(loginConfig -> {
             loginConfig.loginPage("/login");
             loginConfig.loginProcessingUrl("/login");
             loginConfig.successHandler((request, response, authentication) -> {
@@ -101,7 +94,7 @@ public class SecurityWebConfig {
             loginConfig.failureHandler((request, response, authentication) -> {
                 response.setStatus(401);
             });
-        });
+        });*/
 
         /*httpSecurity.logout(
                 logout -> {
