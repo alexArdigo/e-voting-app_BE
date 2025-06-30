@@ -96,8 +96,8 @@ public class ElectionServiceImpl implements ElectionService {
         }
         Election election;
         switch (dto.getElectionType().toLowerCase()) {
-            case "legislativa":
-                election = new ElectoralCircle();
+            case "presidential":
+                election = new Presidential();
                 break;
             case "circle":
                 ElectoralCircle circle = new ElectoralCircle();
@@ -153,6 +153,7 @@ public class ElectionServiceImpl implements ElectionService {
             electionRepository.save(election);
         }
 
+        dto.setId(election.getId());
         return dto;
     }
 
