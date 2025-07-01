@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.model;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.iscte_meta_systems.evoting_server.entities.District;
 import com.iscte_meta_systems.evoting_server.entities.Municipality;
 import com.iscte_meta_systems.evoting_server.entities.Parish;
@@ -13,6 +14,20 @@ public class VoterDTO {
     String district;
     String municipality;
     String parish;
+
+    public VoterDTO(JsonNode jsonNode) {
+        if (jsonNode == null) {
+            throw new NullPointerException("JsonNode cannot be null");
+        }
+        this.nif = jsonNode.path("nif").asLong();
+        this.telephoneNumber = jsonNode.path("telephoneNumber").asText();
+        this.firstName = jsonNode.path("firstName").asText();
+        this.lastName = jsonNode.path("lastName").asText();
+        this.district = jsonNode.path("district").asText();
+        this.municipality = jsonNode.path("municipality").asText();
+        this.parish = jsonNode.path("parish").asText();
+    }
+
 
     public Long getNif() {
         return nif;
