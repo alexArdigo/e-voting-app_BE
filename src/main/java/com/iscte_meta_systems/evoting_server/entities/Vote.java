@@ -12,9 +12,19 @@ public class Vote {
     @OneToOne
     private Organisation organisation;
     @OneToOne
+    private Municipality municipality;
+    @OneToOne
     private Parish parish;
 
     public Vote() {
+    }
+
+    public Municipality getMunicipality() {
+        return municipality;
+    }
+
+    public void setMunicipality(Municipality municipality) {
+        this.municipality = municipality;
     }
 
     public Long getId() {
