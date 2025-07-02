@@ -170,15 +170,15 @@ public class ElectionServiceImpl implements ElectionService {
     public Vote castVote(Long electionId, VoteRequestModel voteRequest) {
         Election election = getElectionById(electionId);
         VoterDTO voterDTO = voterService.getInfo();
-        String voterHash = passwordEncoder.encode(voterDTO.getNif().toString());
+        String voterId = voterDTO.getNif().toString();
 
-        if(election.getVotersVoted() != null && election.getVotersVoted().contains(voterHash)) {
-            throw new IllegalStateException("Voter has already voted in this election.");
+        if (election.getVotersVoted() != null) {
+            boolean alreadyVoted = election.getVotersVoted().stream()
+                    .anyMatch(hash -> passwordEncoder.matches(voterId, String.valueOf(hash)));
+            if (alreadyVoted) {
+                throw new IllegalStateException("Voter has already voted in this election.");
+            }
         }
-
-//        if(!election.isStarted()){
-//            throw new IllegalStateException("Election has not started.");
-//        }
 
         Parish parish = parishRepository.findByParishName(voterDTO.getParish());
         Organisation organisation = organisationRepository.findOrganisationById(voteRequest.getOrganisationId());
@@ -191,10 +191,9 @@ public class ElectionServiceImpl implements ElectionService {
         vote.setParish(parish);
 
         election.addVote(vote);
-        election.addVoted(voterHash);
+        election.addVoted(passwordEncoder.encode(voterId));
         electionRepository.save(election);
         return voteRepository.save(vote);
-
     }
 
     @Override

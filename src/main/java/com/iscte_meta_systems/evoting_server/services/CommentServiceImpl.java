@@ -67,17 +67,17 @@ public class CommentServiceImpl implements CommentService {
     public boolean likeComment(Long id) {
         HelpComment comment = getCommentById(id);
 
-        String hash = passwordEncoder.encode(voterService.getInfo().getNif().toString());
+        String voterId = voterService.getInfo().getNif().toString();
 
         boolean alreadyLiked = comment.getLikedBy().stream()
-                .anyMatch(vh -> vh.getVoterHash().equals(hash));
+                .anyMatch(vh -> passwordEncoder.matches(voterId, vh.getVoterHash()));
 
         if (alreadyLiked) {
             return false;
         }
 
         VoterHash newLike = new VoterHash();
-        newLike.setVoterHash(hash);
+        newLike.setVoterHash(passwordEncoder.encode(voterId));
 
         comment.addLike(newLike);
 
