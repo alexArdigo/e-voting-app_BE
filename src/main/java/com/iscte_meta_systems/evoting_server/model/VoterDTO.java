@@ -28,6 +28,9 @@ public class VoterDTO {
         this.parish = jsonNode.path("parish").asText();
     }
 
+    public VoterDTO() {
+    }
+
 
     public Long getNif() {
         return nif;
