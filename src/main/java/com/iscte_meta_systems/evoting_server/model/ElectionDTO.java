@@ -1,11 +1,16 @@
 package com.iscte_meta_systems.evoting_server.model;
 
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 import java.util.List;
 
 public class ElectionDTO {
     private Long id;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private ElectionType electionType;
     private String name;
     private String description;

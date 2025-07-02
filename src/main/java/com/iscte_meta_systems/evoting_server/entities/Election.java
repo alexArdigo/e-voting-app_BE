@@ -1,6 +1,10 @@
 package com.iscte_meta_systems.evoting_server.entities;
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestAttribute;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -11,6 +15,7 @@ public class Election {
     @Id
     @GeneratedValue
     private Long id;
+    @NotNull
     private ElectionType type;
     private String name;
     private String description;

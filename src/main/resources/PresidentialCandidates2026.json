@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Marcelo Rebelo de Sousa",
+    "party": "Independente",
+    "birthDate": "1948-12-12",
+    "profession": "Professor Universitário",
+    "biography": "Presidente da República desde 2016, recandidata-se para um novo mandato."
+  },
+  {
+    "name": "Ana Gomes",
+    "party": "Independente",
+    "birthDate": "1954-02-09",
+    "profession": "Diplomata",
+    "biography": "Ex-eurodeputada e diplomata, conhecida pelo seu ativismo cívico."
+  },
+  {
+    "name": "André Ventura",
+    "party": "Chega",
+    "birthDate": "1982-01-15",
+    "profession": "Jurista",
+    "biography": "Deputado e líder do partido Chega."
+  },
+  {
+    "name": "João Ferreira",
+    "party": "PCP",
+    "birthDate": "1978-11-20",
+    "profession": "Biólogo",
+    "biography": "Eurodeputado pelo Partido Comunista Português."
+  },
+  {
+    "name": "Marisa Matias",
+    "party": "Bloco de Esquerda",
+    "birthDate": "1976-02-20",
+    "profession": "Socióloga",
+    "biography": "Eurodeputada pelo Bloco de Esquerda."
+  }
+]
+
+
