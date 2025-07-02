@@ -140,5 +140,22 @@ public class ElectionControllerTest {
         mockMvc.perform(get("/election/notactive"))
                 .andExpect(status().isOk());
     }
-}
 
+    @Test
+    void testCreateLegislativeElection() throws Exception {
+        ElectionDTO dto = new ElectionDTO();
+        // Removido dto.setId(400L); para evitar conflito de chave única
+        dto.setElectionType(com.iscte_meta_systems.evoting_server.enums.ElectionType.LEGISLATIVE);
+        dto.setName("Legislativas 2026");
+        dto.setDescription("Eleições legislativas portuguesas de 2026");
+        dto.setStartDate("2026-03-10");
+        dto.setEndDate("2026-03-11");
+        String json = objectMapper.writeValueAsString(dto);
+        MvcResult result = mockMvc.perform(post("/elections")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json))
+                .andExpect(status().isOk())
+                .andReturn();
+        System.out.println("testCreateLegislativeElection: " + result.getResponse().getContentAsString());
+    }
+}
