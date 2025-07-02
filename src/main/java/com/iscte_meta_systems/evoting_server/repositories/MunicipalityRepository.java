@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface MunicipalityRepository extends JpaRepository<Municipality, Long> {
-    Optional<Municipality> findByMunicipalityName(String municipalityName);
+    Municipality findByMunicipalityName(String municipalityName);
 
     @Query("SELECT m FROM Municipality m WHERE m.district.districtName = :districtName")
     List<Municipality> findByDistrictName(@Param("districtName") String districtName);

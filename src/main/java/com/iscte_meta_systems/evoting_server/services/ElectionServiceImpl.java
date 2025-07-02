@@ -5,6 +5,7 @@ import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
+import com.iscte_meta_systems.evoting_server.model.VoteRequestModel;
 import com.iscte_meta_systems.evoting_server.model.VoterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,12 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private ParishRepository parishRepository;
+
+    @Autowired
+    private MunicipalityRepository municipalityRepository;
 
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
@@ -160,7 +167,7 @@ public class ElectionServiceImpl implements ElectionService {
     }
 
     @Override
-    public Vote castVote(Long electionId, Vote voteRequest) {
+    public Vote castVote(Long electionId, VoteRequestModel voteRequest) {
         Election election = getElectionById(electionId);
         VoterDTO voterDTO = voterService.getInfo();
         String voterHash = passwordEncoder.encode(voterDTO.getNif().toString());
@@ -173,9 +180,10 @@ public class ElectionServiceImpl implements ElectionService {
 //            throw new IllegalStateException("Election has not started.");
 //        }
 
-        Parish parish = voter.getParish();
-        Organisation organisation = organisationRepository.getReferenceById(voteRequest.getOrganisation().getId());
-        Municipality municipality = voter.getMunicipality();
+        Parish parish = parishRepository.findByParishName(voterDTO.getParish());
+        Organisation organisation = organisationRepository.getReferenceById(voteRequest.getOrganisationId());
+        Municipality municipality = voterDTO.getMunicipality() != null ?
+                municipalityRepository.findByMunicipalityName(voterDTO.getMunicipality()) : null;
 
         Vote vote = new Vote();
         vote.setOrganisation(organisation);
@@ -183,7 +191,7 @@ public class ElectionServiceImpl implements ElectionService {
         vote.setParish(parish);
 
         election.addVote(vote);
-        election.addVoted(voter.getHashIdentification());
+        election.addVoted(voterHash);
         electionRepository.save(election);
         return voteRepository.save(vote);
 
