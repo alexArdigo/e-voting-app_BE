@@ -35,7 +35,7 @@ public class VoterServiceImpl implements VoterService {
         if (voterDTO == null)
             throw new NullPointerException("No voter sent over");
 
-        String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString());
+        String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString()); //Não sei se isto ira resultar.
         if (!voterRepository.existsByHashIdentification(hashIdentification)) {
             try {
                 // Find distinct district

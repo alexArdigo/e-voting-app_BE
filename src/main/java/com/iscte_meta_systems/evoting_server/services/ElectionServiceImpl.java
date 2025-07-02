@@ -167,11 +167,22 @@ public class ElectionServiceImpl implements ElectionService {
     public Vote castVote(Long electionId, Vote voteRequest) {
         Election election = getElectionById(electionId);
         Voter voter = voterService.getLoggedVoter();
+
+        if(election.getVotersVoted() != null && election.getVotersVoted().contains(voter.getHashIdentification())) {
+            throw new IllegalStateException("Voter has already voted in this election.");
+        }
+
+        if(!election.isStarted()){
+            throw new IllegalStateException("Election has not started.");
+        }
+
         Parish parish = voter.getParish();
         Organisation organisation = organisationRepository.getReferenceById(voteRequest.getOrganisation().getId());
+
         Vote vote = new Vote();
         vote.setOrganisation(organisation);
         vote.setParish(parish);
+
         election.addVote(vote);
         election.addVoted(voter.getHashIdentification());
         electionRepository.save(election);

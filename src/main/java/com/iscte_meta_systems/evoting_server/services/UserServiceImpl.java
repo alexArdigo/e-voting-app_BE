@@ -110,7 +110,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public User getCurrentUser() {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (userRepository.existsByUsername(username))
+        if (!userRepository.existsByUsername(username))
             return null;
         return userRepository.findByUsername(username);
     }
