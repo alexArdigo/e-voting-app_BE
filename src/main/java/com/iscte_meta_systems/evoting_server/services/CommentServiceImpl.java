@@ -66,24 +66,25 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public boolean likeComment(Long id) {
         HelpComment comment = getCommentById(id);
-
-        String voterId = voterService.getInfo().getNif().toString();
+        String nif = voterService.getInfo().getNif().toString();
 
         boolean alreadyLiked = comment.getLikedBy().stream()
-                .anyMatch(vh -> passwordEncoder.matches(voterId, vh.getVoterHash()));
+                .anyMatch(vh -> passwordEncoder.matches(nif, vh.getVoterHash()));
 
         if (alreadyLiked) {
             return false;
         }
 
-        VoterHash newLike = new VoterHash();
-        newLike.setVoterHash(passwordEncoder.encode(voterId));
+        String hash = passwordEncoder.encode(nif);
 
+        VoterHash newLike = new VoterHash();
+        newLike.setVoterHash(hash);
         comment.addLike(newLike);
 
         helpCommentRepository.save(comment);
         return true;
     }
+
 
     @Override
     public List<HelpComment> getAllComments() {
