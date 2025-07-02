@@ -24,8 +24,8 @@ public class ResultsController {
         return resultsService.getLegislativeResults(id);
     }
 
-    @GetMapping("/electoralcircles/results")
-    public List<LegislativeResultDTO> getAllLegislativeResults() {
-        return resultsService.getAllLegislativeResults();
+    @GetMapping("/Elections/{id}/results/legislative")
+    public List<LegislativeResultDTO> getAllLegislativeResults(@PathVariable Long id) {
+        return resultsService.getAllLegislativeResults(id);
     }
 }

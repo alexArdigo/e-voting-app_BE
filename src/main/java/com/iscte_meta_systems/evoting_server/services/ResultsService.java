@@ -11,5 +11,5 @@ public interface ResultsService {
 
     LegislativeResultDTO getLegislativeResults(Long electionId);
 
-    List<LegislativeResultDTO> getAllLegislativeResults();
+    List<LegislativeResultDTO> getAllLegislativeResults(Long electionId);
 }
