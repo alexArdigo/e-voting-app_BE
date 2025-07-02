@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
