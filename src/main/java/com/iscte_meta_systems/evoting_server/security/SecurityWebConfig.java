@@ -69,6 +69,7 @@ public class SecurityWebConfig {
             // Authenticated voters
             auth.requestMatchers(HttpMethod.POST, "/elections/{id}/castVote").authenticated();
             auth.requestMatchers(HttpMethod.GET, "/findUserByUsername").authenticated();
+            auth.requestMatchers(HttpMethod.GET, "/voters/info").permitAll();
             auth.requestMatchers(HttpMethod.GET, "/voters/has-voted").authenticated();
 
             auth.requestMatchers("/**").permitAll();

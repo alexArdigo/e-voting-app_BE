@@ -14,6 +14,8 @@ import java.util.Optional;
 @Service
 public class VoterServiceImpl implements VoterService {
 
+    VoterDTO info;
+
     @Autowired
     private ElectionRepository electionRepository;
 
@@ -35,33 +37,19 @@ public class VoterServiceImpl implements VoterService {
         if (voterDTO == null)
             throw new NullPointerException("No voter sent over");
 
-        String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString()); //Não sei se isto ira resultar.
+        info = voterDTO;
+
+        String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString());
         if (!voterRepository.existsByHashIdentification(hashIdentification)) {
             try {
                 // Find distinct district
-                List<District> districts = districtRepository.findByDistrictNameContainingIgnoreCase(voterDTO.getDistrict());
-                District district = districts.stream()
-                    .filter(d -> normalizeString(d.getDistrictName()).equalsIgnoreCase(normalizeString(voterDTO.getDistrict())))
-                    .findFirst()
-                    .orElseThrow(() -> new RuntimeException("District not found: " + voterDTO.getDistrict()));
+                District district = getDistrict(voterDTO);
 
                 // Find municipality belonging to the found district
-                List<Municipality> municipalities = municipalityRepository.findByMunicipalityNameContainingIgnoreCase(voterDTO.getMunicipality());
-                Municipality municipality = municipalities.stream()
-                    .filter(m -> normalizeString(m.getMunicipalityName()).equalsIgnoreCase(normalizeString(voterDTO.getMunicipality()))
-                           && m.getDistrict().equals(district))
-                    .findFirst()
-                    .orElseThrow(() -> new RuntimeException("Municipality not found in district: " + voterDTO.getMunicipality() +
-                                  ". Please check spelling and accents."));
+                Municipality municipality = getMunicipality(voterDTO, district);
 
                 // Find parish belonging to the found municipality
-                List<Parish> parishes = parishRepository.findByParishNameContainingIgnoreCase(voterDTO.getParish());
-                Parish parish = parishes.stream()
-                    .filter(p -> normalizeString(p.getParishName()).equalsIgnoreCase(normalizeString(voterDTO.getParish()))
-                           && p.getMunicipality().equals(municipality))
-                    .findFirst()
-                    .orElseThrow(() -> new RuntimeException("Parish not found in municipality: " + voterDTO.getParish() +
-                                  ". Please check spelling and accents."));
+                Parish parish = getParish(voterDTO, municipality);
 
                 voterRepository.save(
                     new Voter(
@@ -78,6 +66,42 @@ public class VoterServiceImpl implements VoterService {
     }
 
     @Override
+    public VoterDTO getInfo() {
+        return info;
+    }
+
+    @Override
+    public District getDistrict(VoterDTO voterDTO) {
+        List<District> districts = districtRepository.findByDistrictNameContainingIgnoreCase(voterDTO.getDistrict());
+        return districts.stream()
+                .filter(d -> normalizeString(d.getDistrictName()).equalsIgnoreCase(normalizeString(voterDTO.getDistrict())))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("District not found: " + voterDTO.getDistrict()));
+    }
+
+    @Override
+    public Municipality getMunicipality(VoterDTO voterDTO, District district) {
+        List<Municipality> municipalities = municipalityRepository.findByMunicipalityNameContainingIgnoreCase(voterDTO.getMunicipality());
+        return municipalities.stream()
+            .filter(m -> normalizeString(m.getMunicipalityName()).equalsIgnoreCase(normalizeString(voterDTO.getMunicipality()))
+                   && m.getDistrict().equals(district))
+            .findFirst()
+            .orElseThrow(() -> new RuntimeException("Municipality not found in district: " + voterDTO.getMunicipality() +
+                          ". Please check spelling and accents."));
+    }
+
+    @Override
+    public Parish getParish(VoterDTO voterDTO, Municipality municipality) {
+        List<Parish> parishes = parishRepository.findByParishNameContainingIgnoreCase(voterDTO.getParish());
+        return parishes.stream()
+                .filter(p -> normalizeString(p.getParishName()).equalsIgnoreCase(normalizeString(voterDTO.getParish()))
+                        && p.getMunicipality().equals(municipality))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Parish not found in municipality: " + voterDTO.getParish() +
+                        ". Please check spelling and accents."));
+    }
+
+    @Override
     public Boolean hasAlreadyVoted(String voter, Long electionId) {
         if (voter == null || electionId == null)
             throw new NullPointerException();
@@ -85,7 +109,7 @@ public class VoterServiceImpl implements VoterService {
         Optional<Election> optional = electionRepository.findById(electionId);
         List<String> votersVoted = optional.orElseThrow().getVotersVoted();
 
-        return votersVoted.stream().anyMatch(hash -> hash.equals(voter));
+        return votersVoted.stream().allMatch(hash -> hash.equals(voter));
     }
 
     @Override
