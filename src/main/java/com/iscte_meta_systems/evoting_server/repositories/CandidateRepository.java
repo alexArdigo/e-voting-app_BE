@@ -8,4 +8,6 @@ import java.util.List;
 @Repository
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
     Candidate findByName(String name);
+
+    boolean existsCandidateByName(String name);
 }
