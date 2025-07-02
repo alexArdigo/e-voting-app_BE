@@ -1,6 +1,8 @@
 package com.iscte_meta_systems.evoting_server.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.iscte_meta_systems.evoting_server.enums.OrganisationType;
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -9,8 +11,10 @@ public class Organisation {
     @Id
     @GeneratedValue
     private Long id;
-
     private String organisationName;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private OrganisationType organisationType;
 
 
     @ManyToOne

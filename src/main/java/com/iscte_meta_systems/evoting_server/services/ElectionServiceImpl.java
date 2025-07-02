@@ -60,7 +60,7 @@ public class ElectionServiceImpl implements ElectionService {
                                     OrganisationDTO orgDto = new OrganisationDTO();
                                     orgDto.setId(org.getId());
                                     orgDto.setName(org.getOrganisationName());
-                                    orgDto.setOrganisationType(org.getClass().getSimpleName());
+                                    orgDto.setType(orgDto.getType());
                                     orgDto.setElectionId(org.getElection() != null ? org.getElection().getId() : null);
                                     return orgDto;
                                 })
