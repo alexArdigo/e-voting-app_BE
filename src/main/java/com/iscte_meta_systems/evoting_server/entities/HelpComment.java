@@ -3,6 +3,7 @@ package com.iscte_meta_systems.evoting_server.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,8 +17,8 @@ public class HelpComment {
     @OneToOne
     private Answer answer;
 
-    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<VoterHash> likedBy;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<VoterHash> likedBy = new HashSet<>();
 
     public HelpComment() {
         this.localDateTime = LocalDateTime.now();

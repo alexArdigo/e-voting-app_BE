@@ -3,10 +3,12 @@ package com.iscte_meta_systems.evoting_server.services;
 import com.iscte_meta_systems.evoting_server.entities.Answer;
 import com.iscte_meta_systems.evoting_server.entities.HelpComment;
 import com.iscte_meta_systems.evoting_server.entities.User;
+import com.iscte_meta_systems.evoting_server.entities.VoterHash;
 import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.repositories.AnswerRepository;
 import com.iscte_meta_systems.evoting_server.repositories.HelpCommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +22,10 @@ public class CommentServiceImpl implements CommentService {
     private AnswerRepository answerRepository;
     @Autowired
     private UserService userService;
+    @Autowired
+    private VoterService voterService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public HelpComment comment(String comentario) {
@@ -60,11 +66,21 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public boolean likeComment(Long id) {
         HelpComment comment = getCommentById(id);
-        String voterHash = userService.getCurrentUser().getUsername();
-        if (comment.hasLiked(voterHash)) {
+
+        String hash = passwordEncoder.encode(voterService.getInfo().getNif().toString());
+
+        boolean alreadyLiked = comment.getLikedBy().stream()
+                .anyMatch(vh -> vh.getVoterHash().equals(hash));
+
+        if (alreadyLiked) {
             return false;
         }
-        comment.addLike(voterHash);
+
+        VoterHash newLike = new VoterHash();
+        newLike.setVoterHash(hash);
+
+        comment.addLike(newLike);
+
         helpCommentRepository.save(comment);
         return true;
     }
