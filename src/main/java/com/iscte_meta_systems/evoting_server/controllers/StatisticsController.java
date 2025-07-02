@@ -15,7 +15,7 @@ public class StatisticsController {
     @Autowired
     private StatisticsService statisticsService;
 
-    @GetMapping("/vote-percentages") //vote-percentages?electionId=1&districtName=Aveiro
+    @GetMapping("/vote-percentages") //api/statistics/vote-percentages?electionId=1&districtName=Aveiro
     public List<PartyVoteStatsDTO> getStats(
             /**
              * Retrieves the vote percentages by PARTY for a specific (electoralCircle) election and DISTRICT.
@@ -24,7 +24,6 @@ public class StatisticsController {
             @RequestParam String districtName) {
         return statisticsService.getVotePercentagesByPartyByDistrict(electionId, districtName);
     }
-
 
     @GetMapping("/districts/{districtName}/statistics")
     public DistrictStatisticsDTO getDistrictStatistics(@PathVariable String districtName) {

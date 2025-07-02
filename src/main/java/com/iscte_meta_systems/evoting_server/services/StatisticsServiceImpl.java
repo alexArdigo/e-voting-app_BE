@@ -38,20 +38,13 @@ public class StatisticsServiceImpl implements StatisticsService{
 
         Election election = electionRepository.findById(electionId).orElse(null);
 
-        if (election == null || districtName == null) {
-            throw new IllegalArgumentException("District name or election ID cannot be null");
-        }
-
-        if(!(election instanceof ElectoralCircle)) {
-            throw new IllegalArgumentException("Election does not belong to the specified district");
-        }
-
         ElectoralCircle electoralCircle = (ElectoralCircle) election;
 
-        if (!electoralCircle.getDistricts().getDistrictName().equalsIgnoreCase(districtName)) {
-            throw new IllegalArgumentException("Election does not belong to the specified district");
+        if(!electoralCircle.getDistricts().equals(districtName)){
+            throw new IllegalArgumentException("The specified district does not match the electoral circle's districts.");
         }
 
+        assert electoralCircle != null;
         List<Vote> votes = electoralCircle.getVotes();
 
         if (votes == null || votes.isEmpty()) {
@@ -59,7 +52,6 @@ public class StatisticsServiceImpl implements StatisticsService{
         }
 
         int totalVotes = votes.size();
-
         Map<String, Integer> votesByParty = new HashMap<>();
 
         for(Vote i : votes){
