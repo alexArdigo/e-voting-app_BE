@@ -25,7 +25,8 @@ public class Election {
     private List<Organisation> organisations;
     @OneToMany(cascade = CascadeType.ALL)
     List<Vote> votes;
-    List<String> votersVoted; //HASHES
+    @OneToMany(mappedBy = "election", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VoterHash> votersVoted;
     boolean started = false;
 
     public Election() {}
@@ -113,11 +114,11 @@ public class Election {
         this.votes = votes;
     }
 
-    public List<String> getVotersVoted() {
+    public List<VoterHash> getVotersVoted() {
         return votersVoted;
     }
 
-    public void setVotersVoted(List<String> votersVoted) {
+    public void setVotersVoted(List<VoterHash> votersVoted) {
         this.votersVoted = votersVoted;
     }
 
@@ -125,7 +126,10 @@ public class Election {
         if (this.votersVoted == null) {
             this.votersVoted = new java.util.ArrayList<>();
         }
-        this.votersVoted.add(hashIdentification);
+        VoterHash voterHash = new VoterHash();
+        voterHash.setVoterHash(hashIdentification);
+        voterHash.setElection(this);
+        this.votersVoted.add(voterHash);
     }
 
     public ElectionType getType() {
