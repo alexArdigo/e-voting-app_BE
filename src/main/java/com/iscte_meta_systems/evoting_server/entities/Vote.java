@@ -12,11 +12,21 @@ public class Vote {
     @OneToOne
     private Organisation organisation;
     @OneToOne
+    private District district;
+    @OneToOne
     private Municipality municipality;
     @OneToOne
     private Parish parish;
 
     public Vote() {
+    }
+
+    public District getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(District district) {
+        this.district = district;
     }
 
     public Municipality getMunicipality() {
