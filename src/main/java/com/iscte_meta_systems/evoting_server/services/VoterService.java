@@ -20,4 +20,5 @@ public interface VoterService {
     void saveVoterAuthenticated(VoterDTO voterDTO);
 
     VoterDTO getInfo();
+
 }

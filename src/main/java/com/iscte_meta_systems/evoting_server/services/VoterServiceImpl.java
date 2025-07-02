@@ -136,4 +136,5 @@ public class VoterServiceImpl implements VoterService {
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
         return result;
     }
+
 }
