@@ -2,10 +2,13 @@ package com.iscte_meta_systems.evoting_server.model;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
+import com.iscte_meta_systems.evoting_server.enums.OrganisationType;
+import org.antlr.v4.runtime.misc.NotNull;
 
 public class OrganisationDTO {
     private Long id;
-    private String organisationType;
+    @NotNull
+    private OrganisationType type;
     private String name;
     private Long ElectionId;
 
@@ -19,12 +22,12 @@ public class OrganisationDTO {
         this.id = id;
     }
 
-    public String getOrganisationType() {
-        return organisationType;
+    public OrganisationType getType() {
+        return type;
     }
 
-    public void setOrganisationType(String organisationType) {
-        this.organisationType = organisationType;
+    public void setType(OrganisationType type) {
+        this.type = type;
     }
 
     public String getName() {

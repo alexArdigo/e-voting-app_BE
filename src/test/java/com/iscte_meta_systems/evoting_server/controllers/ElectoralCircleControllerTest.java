@@ -10,6 +10,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+//testes criado por IA
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class ElectoralCircleControllerTest {
