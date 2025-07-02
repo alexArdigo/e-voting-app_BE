@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface ParishRepository extends JpaRepository<Parish, Long> {
-    Optional<Parish> findByParishName(String parishName);
+    Parish findByParishName(String parishName);
 
     @Query("SELECT p FROM Parish p WHERE p.municipality.municipalityName = :municipalityName")
     List<Parish> findByMunicipalityName(@Param("municipalityName") String municipalityName);

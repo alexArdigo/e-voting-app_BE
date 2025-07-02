@@ -5,6 +5,7 @@ import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
 import com.iscte_meta_systems.evoting_server.entities.Vote;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
+import com.iscte_meta_systems.evoting_server.model.VoteRequestModel;
 import com.iscte_meta_systems.evoting_server.repositories.ElectoralCircleRepository;
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import com.iscte_meta_systems.evoting_server.services.PartiesAndCandidatesService;
@@ -49,7 +50,7 @@ public class ElectionController {
     }
 
     @PostMapping("/elections/{id}/castVote")
-    public Vote castVote(@PathVariable Long id, @RequestBody Vote vote) {
+    public Vote castVote(@PathVariable Long id, @RequestBody VoteRequestModel vote) {
         return electionService.castVote(id, vote);
     }
 
