@@ -85,7 +85,7 @@ public class VoterServiceImpl implements VoterService {
         Optional<Election> optional = electionRepository.findById(electionId);
         List<String> votersVoted = optional.orElseThrow().getVotersVoted();
 
-        return votersVoted.stream().allMatch(hash -> hash.equals(voter));
+        return votersVoted.stream().anyMatch(hash -> hash.equals(voter));
     }
 
     @Override
