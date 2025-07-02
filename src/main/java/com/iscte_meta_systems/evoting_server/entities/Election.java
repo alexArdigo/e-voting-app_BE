@@ -1,4 +1,5 @@
 package com.iscte_meta_systems.evoting_server.entities;
+import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,6 +11,7 @@ public class Election {
     @Id
     @GeneratedValue
     private Long id;
+    private ElectionType type;
     private String name;
     private String description;
     private LocalDateTime startDate;
@@ -121,5 +123,11 @@ public class Election {
         this.votersVoted.add(hashIdentification);
     }
 
+    public ElectionType getType() {
+        return type;
+    }
 
+    public void setType(ElectionType type) {
+        this.type = type;
+    }
 }
