@@ -5,8 +5,10 @@ import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
+import com.iscte_meta_systems.evoting_server.model.VoterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -37,6 +39,9 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Autowired
     private LegislativeRepository legislativeRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
@@ -167,9 +172,10 @@ public class ElectionServiceImpl implements ElectionService {
     @Override
     public Vote castVote(Long electionId, Vote voteRequest) {
         Election election = getElectionById(electionId);
-        Voter voter = voterService.getLoggedVoter();
+        VoterDTO voterDTO = voterService.getInfo();
+        String voterHash = passwordEncoder.encode(voterDTO.getNif().toString());
 
-        if(election.getVotersVoted() != null && election.getVotersVoted().contains(voter.getHashIdentification())) {
+        if(election.getVotersVoted() != null && election.getVotersVoted().contains(voterHash)) {
             throw new IllegalStateException("Voter has already voted in this election.");
         }
 
