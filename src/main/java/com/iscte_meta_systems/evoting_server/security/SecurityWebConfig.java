@@ -76,16 +76,16 @@ public class SecurityWebConfig {
             //auth.requestMatchers("**").denyAll();
         });
 
-        /*httpSecurity.formLogin(loginConfig -> {
-            loginConfig.loginPage("/login");
-            loginConfig.loginProcessingUrl("/login");
-            loginConfig.successHandler((request, response, authentication) -> {
-                response.setStatus(200);
-            });
-            loginConfig.failureHandler((request, response, authentication) -> {
-                response.setStatus(401);
-            });
-        });*/
+//        httpSecurity.formLogin(loginConfig -> {
+//            loginConfig.loginPage("/login");
+//            loginConfig.loginProcessingUrl("/login");
+//            loginConfig.successHandler((request, response, authentication) -> {
+//                response.setStatus(200);
+//            });
+//            loginConfig.failureHandler((request, response, authentication) -> {
+//                response.setStatus(401);
+//            });
+//        });
 
         /*httpSecurity.logout(
                 logout -> {
