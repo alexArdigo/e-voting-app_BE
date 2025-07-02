@@ -46,11 +46,11 @@ public class StatisticsServiceImpl implements StatisticsService{
             throw new IllegalArgumentException("Election does not belong to the specified district");
         }
 
-        ElectoralCircle electoralCircle = (ElectoralCircle) election;
-
-        if (!electoralCircle.getDistricts().getDistrictName().equalsIgnoreCase(districtName)) {
-            throw new IllegalArgumentException("Election does not belong to the specified district");
-        }
+        Election electoralCircle = election;
+        System.out.println("Electoral Circle: " + electoralCircle.getVotes());
+//        if (!electoralCircle.getDistricts().getDistrictName().equalsIgnoreCase(districtName)) {
+//            throw new IllegalArgumentException("Election does not belong to the specified district");
+//        }
 
         List<Vote> votes = electoralCircle.getVotes();
 

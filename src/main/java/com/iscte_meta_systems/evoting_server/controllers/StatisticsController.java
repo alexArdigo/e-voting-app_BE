@@ -15,15 +15,15 @@ public class StatisticsController {
     @Autowired
     private StatisticsService statisticsService;
 
-//    @GetMapping("/vote-percentages") //vote-percentages?electionId=1&districtName=Aveiro
-//    public List<PartyVoteStatsDTO> getStats(
-//            /**
-//             * Retrieves the vote percentages by PARTY for a specific (electoralCircle) election and DISTRICT.
-//             */
-//            @RequestParam Long electionId,
-//            @RequestParam String districtName) {
-//        return statisticsService.getVotePercentagesByPartyByDistrict(electionId, districtName);
-//    }
+    @GetMapping("/vote-percentages") //vote-percentages?electionId=1&districtName=Aveiro
+    public List<PartyVoteStatsDTO> getStats(
+            /**
+             * Retrieves the vote percentages by PARTY for a specific (electoralCircle) election and DISTRICT.
+             */
+            @RequestParam Long electionId,
+            @RequestParam String districtName) {
+        return statisticsService.getVotePercentagesByPartyByDistrict(electionId, districtName);
+    }
 
 
     @GetMapping("/districts/{districtName}/statistics")
