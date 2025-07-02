@@ -1,10 +1,12 @@
 package com.iscte_meta_systems.evoting_server.model;
 
+import com.iscte_meta_systems.evoting_server.enums.ElectionType;
+
 import java.util.List;
 
 public class ElectionDTO {
     private Long id;
-    private String electionType;
+    private ElectionType electionType;
     private String name;
     private String description;
     private String startDate;
@@ -17,11 +19,11 @@ public class ElectionDTO {
     private String electoralCircleType;
     private Long legislativeId;
 
-    public String getElectionType() {
+    public ElectionType getElectionType() {
         return electionType;
     }
 
-    public void setElectionType(String electionType) {
+    public void setElectionType(ElectionType electionType) {
         this.electionType = electionType;
     }
 
