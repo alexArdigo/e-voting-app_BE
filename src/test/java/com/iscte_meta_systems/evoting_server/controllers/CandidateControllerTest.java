@@ -58,9 +58,11 @@ public class CandidateControllerTest {
 
     @Test
     void testAddCandidateAndGetByElection() throws Exception {
-
+        // Adiciona um candidato à eleição 1
         CandidateDTO candidate = new CandidateDTO();
         candidate.setName("Candidato Teste");
+//        candidate.setPartyName("Partido Teste");
+//        candidate.setElectionId(1L); // Certifique-se que a eleição 1 existe
         String json = objectMapper.writeValueAsString(candidate);
         MvcResult addResult = mockMvc.perform(post("/candidates")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -75,6 +77,8 @@ public class CandidateControllerTest {
                 .andReturn();
         String response = getResult.getResponse().getContentAsString();
         System.out.println("testGetCandidatesByElection: " + response);
+        // Verifica se o nome e o partido aparecem na resposta
         assert response.contains("Candidato Teste");
+        assert response.contains("Partido Teste");
     }
 }
