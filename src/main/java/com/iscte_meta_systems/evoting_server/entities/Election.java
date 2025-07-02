@@ -23,7 +23,7 @@ public class Election {
     private LocalDateTime endDate;
     @OneToMany
     private List<Organisation> organisations;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     List<Vote> votes;
     List<String> votersVoted; //HASHES
     boolean started = false;

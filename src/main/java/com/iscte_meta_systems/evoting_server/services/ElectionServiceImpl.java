@@ -181,7 +181,7 @@ public class ElectionServiceImpl implements ElectionService {
 //        }
 
         Parish parish = parishRepository.findByParishName(voterDTO.getParish());
-        Organisation organisation = organisationRepository.getReferenceById(voteRequest.getOrganisationId());
+        Organisation organisation = organisationRepository.findOrganisationById(voteRequest.getOrganisationId());
         Municipality municipality = voterDTO.getMunicipality() != null ?
                 municipalityRepository.findByMunicipalityName(voterDTO.getMunicipality()) : null;
 
