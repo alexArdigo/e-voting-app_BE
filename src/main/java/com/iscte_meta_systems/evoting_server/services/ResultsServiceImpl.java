@@ -67,8 +67,9 @@ public class ResultsServiceImpl implements ResultsService {
     }
 
     @Override
-    public List<LegislativeResultDTO> getAllLegislativeResults() {
-        List<ElectoralCircle> allCircles = electoralCircleRepository.findAll();
+    public List<LegislativeResultDTO> getAllLegislativeResults(Long electionId) {
+        Election election = electionService.getElectionById(electionId);
+        List<ElectoralCircle> allCircles = electoralCircleRepository.findElectoralCirclesByLegislativeElectionId(electionId);
         List<LegislativeResultDTO> results = new ArrayList<>();
 
         for (ElectoralCircle circle : allCircles) {

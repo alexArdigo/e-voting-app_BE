@@ -35,7 +35,7 @@ public class VoterServiceImpl implements VoterService {
         if (voterDTO == null)
             throw new NullPointerException("No voter sent over");
 
-        String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString());
+        String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString()); //Não sei se isto ira resultar.
         if (!voterRepository.existsByHashIdentification(hashIdentification)) {
             try {
                 // Find distinct district
@@ -85,7 +85,7 @@ public class VoterServiceImpl implements VoterService {
         Optional<Election> optional = electionRepository.findById(electionId);
         List<String> votersVoted = optional.orElseThrow().getVotersVoted();
 
-        return votersVoted.stream().allMatch(hash -> hash.equals(voter));
+        return votersVoted.stream().anyMatch(hash -> hash.equals(voter));
     }
 
     @Override

@@ -16,10 +16,10 @@ public class ElectoralCircle extends Election {
     District districts;
     @OneToMany
     List<Party> parties;
-    @OneToOne
-    Municipality municipalities;
-    @OneToOne
-    Parish parish;
+    @OneToMany
+    List<Municipality> municipalities;
+    @OneToMany
+    List<Parish> parish;
     private int seats;
     ElectoralCircleType electoralCircleType;
 
@@ -35,19 +35,19 @@ public class ElectoralCircle extends Election {
         this.electoralCircleType = electoralCircleType;
     }
 
-    public Municipality getMunicipalities() {
+    public List<Municipality> getMunicipalities() {
         return municipalities;
     }
 
-    public void setMunicipalities(Municipality municipalities) {
+    public void setMunicipalities(List<Municipality> municipalities) {
         this.municipalities = municipalities;
     }
 
-    public Parish getParish() {
+    public List<Parish> getParish() {
         return parish;
     }
 
-    public void setParish(Parish parish) {
+    public void setParish(List<Parish> parish) {
         this.parish = parish;
     }
 
