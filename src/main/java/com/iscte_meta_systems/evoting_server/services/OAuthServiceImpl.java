@@ -8,9 +8,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -86,20 +84,19 @@ public class OAuthServiceImpl implements OAuthService {
             JsonNode tokenJson = objectMapper.readTree(token);
 
             // Extract user info
-            JsonNode userInfo = tokenJson.get("user");
+            JsonNode voterInfo = tokenJson.get("user");
 
-            addVoter(userInfo);
+            addVoter(voterInfo);
 
             // Extract access token
-            String accessToken = tokenJson.get("access_token").get("token").asText();
-
-            return accessToken;
+            return tokenJson.get("access_token").get("token").asText();
 
         } catch (Exception e) {
             System.err.println("Error parsing token response: " + e.getMessage());
             throw new RuntimeException("Failed to parse token response", e);
         }
     }
+
 
     @Override
     public void addVoter(JsonNode userInfo) {

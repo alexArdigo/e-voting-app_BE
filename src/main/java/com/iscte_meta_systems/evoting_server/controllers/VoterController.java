@@ -21,6 +21,11 @@ public class VoterController {
         voterService.saveVoterAuthenticated(voterDTO);
     }
 
+    @GetMapping("/voters/info")
+    public ResponseEntity<?> getInfo() {
+        return ResponseEntity.ok().body(voterService.getInfo());
+    }
+
     @GetMapping("/voters/has-voted")
     public ResponseEntity<?> hasAlreadyVoted(@RequestBody String voter, Long electionId) {
         return ResponseEntity.ok().body(voterService.hasAlreadyVoted(voter, electionId));
