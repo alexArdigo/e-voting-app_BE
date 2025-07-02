@@ -3,7 +3,6 @@ package com.iscte_meta_systems.evoting_server.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -17,23 +16,23 @@ public class HelpComment {
     @OneToOne
     private Answer answer;
 
-    @ElementCollection
-    private Set<String> voterHashLike = new HashSet<>();
+    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<VoterHash> likedBy;
 
     public HelpComment() {
         this.localDateTime = LocalDateTime.now();
     }
 
-    public void addLike(String voterHash) {
-        voterHashLike.add(voterHash);
+    public void addLike(VoterHash voterHash) {
+        likedBy.add(voterHash);
     }
 
-    public boolean hasLiked(String voterHash) {
-        return voterHashLike.contains(voterHash);
+    public boolean hasLiked(VoterHash voterHash) {
+        return likedBy.contains(voterHash);
     }
 
     public int getLikeCount() {
-        return voterHashLike.size();
+        return likedBy.size();
     }
 
 
@@ -69,11 +68,11 @@ public class HelpComment {
         this.localDateTime = localDateTime;
     }
 
-    public Set<String> getVoterHashLike() {
-        return voterHashLike;
+    public Set<VoterHash> getLikedBy() {
+        return likedBy;
     }
 
-    public void setVoterHashLike(Set<String> voterHashLike) {
-        this.voterHashLike = voterHashLike;
+    public void setLikedBy(Set<VoterHash> likedBy) {
+        this.likedBy = likedBy;
     }
 }
