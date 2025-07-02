@@ -39,8 +39,10 @@ public class VoterServiceImpl implements VoterService {
 
         info = voterDTO;
 
-        String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString());
-        if (!voterRepository.existsByHashIdentification(hashIdentification)) {
+        boolean exists = voterRepository.findAll().stream()
+                .anyMatch(voter -> passwordEncoder.matches(voterDTO.getNif().toString(), voter.getHashIdentification()));
+
+        if (!exists) {
             try {
                 // Find distinct district
                 District district = getDistrict(voterDTO);
@@ -51,19 +53,22 @@ public class VoterServiceImpl implements VoterService {
                 // Find parish belonging to the found municipality
                 Parish parish = getParish(voterDTO, municipality);
 
+                String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString());
+
                 voterRepository.save(
-                    new Voter(
-                        hashIdentification,
-                        district,
-                        municipality,
-                        parish
-                    )
+                        new Voter(
+                                hashIdentification,
+                                district,
+                                municipality,
+                                parish
+                        )
                 );
             } catch (Exception e) {
                 throw new RuntimeException("Error processing voter data: " + e.getMessage(), e);
             }
         }
     }
+
 
     @Override
     public VoterDTO getInfo() {
