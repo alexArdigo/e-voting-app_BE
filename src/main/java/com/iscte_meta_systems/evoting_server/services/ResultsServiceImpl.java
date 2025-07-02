@@ -59,10 +59,9 @@ public class ResultsServiceImpl implements ResultsService {
     }
 
     @Override
-    public LegislativeResultDTO getLegislativeResults(Long electionId) {
-        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electionId)
-                .orElseThrow(() -> new IllegalArgumentException("Electoral circle not found"));
-
+    public LegislativeResultDTO getLegislativeResults(Long electoralCircleId) {
+        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electoralCircleId)
+                .orElseThrow(() -> new IllegalArgumentException("Electoral circle with ID " + electoralCircleId + " not found. Certifique-se que está a usar o ID de um círculo eleitoral e não de uma eleição presidencial."));
         return calculateElectoralCircleResults(electoralCircle);
     }
 
@@ -173,3 +172,4 @@ public class ResultsServiceImpl implements ResultsService {
         return seats;
     }
 }
+
