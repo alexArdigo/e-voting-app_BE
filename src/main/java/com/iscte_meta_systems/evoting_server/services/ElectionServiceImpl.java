@@ -178,9 +178,11 @@ public class ElectionServiceImpl implements ElectionService {
 
         Parish parish = voter.getParish();
         Organisation organisation = organisationRepository.getReferenceById(voteRequest.getOrganisation().getId());
+        Municipality municipality = voter.getMunicipality();
 
         Vote vote = new Vote();
         vote.setOrganisation(organisation);
+        vote.setMunicipality(municipality);
         vote.setParish(parish);
 
         election.addVote(vote);

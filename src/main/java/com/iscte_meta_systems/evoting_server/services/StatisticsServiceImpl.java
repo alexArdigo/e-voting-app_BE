@@ -33,53 +33,66 @@ public class StatisticsServiceImpl implements StatisticsService{
     private DistrictRepository districtRepository;
 
 
-//    @Override
-//    public List<PartyVoteStatsDTO> getVotePercentagesByPartyByDistrict(Long electionId, String districtName) {
-//
-//        Election election = electionRepository.findById(electionId).orElse(null);
-//
-//        if (election == null || districtName == null) {
-//            throw new IllegalArgumentException("District name or election ID cannot be null");
-//        }
-//
-//        if(!(election instanceof ElectoralCircle)) {
-//            throw new IllegalArgumentException("Election does not belong to the specified district");
-//        }
-//
-//        ElectoralCircle electoralCircle = (ElectoralCircle) election;
-//
-//        if (!electoralCircle.getDistricts().getDistrictName().equalsIgnoreCase(districtName)) {
-//            throw new IllegalArgumentException("Election does not belong to the specified district");
-//        }
-//
-//        List<Vote> votes = electoralCircle.getVotes();
-//
-//        if (votes.isEmpty()) {
-//            throw new RuntimeException("No votes found for the specified election in the district");
-//        }
-//
-//        Map<String, Integer> votesByParty = new HashMap<>();
-//
-//        for(Vote i : votes){
-//            Organisation org = i.getOrganisation();
-//            if(org instanceof Party){
-//                String partyName = org.getOrganisationName();
-//                int currentVotes = votesByParty.containsKey(partyName) ? votesByParty.get(partyName) : 0;
-//                votesByParty.put(partyName, currentVotes + 1);
-//            }
-//        }
-//
-//        List<PartyVoteStatsDTO> partyVotesByDistrictPercentage = votesByParty.entrySet().stream()
-//                .map(entry -> {
-//                    String partyName = entry.getKey();
-//                    int voteCount = entry.getValue();
-//                    double percentage = (double) voteCount / votes.size() * 100;
-//                    return new PartyVoteStatsDTO(partyName, percentage);
-//                })
-//                .toList();
-//
-//        return partyVotesByDistrictPercentage;
-//    }
+    @Override
+    public List<PartyVoteStatsDTO> getVotePercentagesByPartyByDistrict(Long electionId, String districtName) {
+
+        Election election = electionRepository.findById(electionId).orElse(null);
+
+        if (election == null || districtName == null) {
+            throw new IllegalArgumentException("District name or election ID cannot be null");
+        }
+
+        if(!(election instanceof ElectoralCircle)) {
+            throw new IllegalArgumentException("Election does not belong to the specified district");
+        }
+
+        ElectoralCircle electoralCircle = (ElectoralCircle) election;
+
+        if (!electoralCircle.getDistricts().getDistrictName().equalsIgnoreCase(districtName)) {
+            throw new IllegalArgumentException("Election does not belong to the specified district");
+        }
+
+        List<Vote> votes = electoralCircle.getVotes();
+
+        if (votes == null || votes.isEmpty()) {
+            throw new RuntimeException("No votes found for the specified election in the district");
+        }
+
+        int totalVotes = votes.size();
+
+        Map<String, Integer> votesByParty = new HashMap<>();
+        Map<String, Long> organisationIds = new HashMap<>();
+
+        for(Vote i : votes){
+            Organisation org = i.getOrganisation();
+            if(org instanceof Party){
+                String partyName = org.getOrganisationName();
+                int currentVotes = votesByParty.getOrDefault(partyName, 0);
+                votesByParty.put(partyName, currentVotes + 1);
+                organisationIds.put(partyName, org.getId());
+            }
+        }
+
+        List<PartyVoteStatsDTO> partyVotesByDistrictPercentage = votesByParty.entrySet().stream()
+                .map(entry -> {
+                    String partyName = entry.getKey();
+                    int voteCount = entry.getValue();
+                    double percentage = (double) voteCount / totalVotes * 100;
+                    PartyVoteStatsDTO dto = new PartyVoteStatsDTO();
+                    dto.setPartyName(partyName);
+                    dto.setOrganisationId(organisationIds.get(partyName));
+                    dto.setOrganisationName(partyName);
+                    dto.setVotes(voteCount);
+                    dto.setPercentage(percentage);
+                    dto.setOrganisationType(ElectoralCircleType.NATIONAL);
+
+                    return dto;
+                })
+                .sorted((a, b) -> Double.compare(b.getPercentage(), a.getPercentage()))
+                .toList();
+
+        return partyVotesByDistrictPercentage;
+    }
 
     @Override
     public int getTotalVotesByPartyByDistrict(String partyName, String districtName) {
