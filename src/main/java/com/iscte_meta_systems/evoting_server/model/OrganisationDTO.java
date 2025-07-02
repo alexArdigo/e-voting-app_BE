@@ -10,7 +10,7 @@ public class OrganisationDTO {
     @NotNull
     private OrganisationType type;
     private String name;
-    private Long ElectionId;
+    private Long electionId;
 
 
 
@@ -39,11 +39,11 @@ public class OrganisationDTO {
     }
 
     public Long getElectionId() {
-        return ElectionId;
+        return electionId;
     }
     
     public void setElectionId(Long electionId) {
-        this.ElectionId = electionId;
+        this.electionId = electionId;
     }
 
 }
