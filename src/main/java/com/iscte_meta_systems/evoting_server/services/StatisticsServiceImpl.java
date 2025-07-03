@@ -38,20 +38,13 @@ public class StatisticsServiceImpl implements StatisticsService{
 
         Election election = electionRepository.findById(electionId).orElse(null);
 
-        if (election == null || districtName == null) {
-            throw new IllegalArgumentException("District name or election ID cannot be null");
-        }
-
-        if(!(election instanceof ElectoralCircle)) {
-            throw new IllegalArgumentException("Election does not belong to the specified district");
-        }
-
         ElectoralCircle electoralCircle = (ElectoralCircle) election;
 
-        if (!electoralCircle.getDistricts().getDistrictName().equalsIgnoreCase(districtName)) {
-            throw new IllegalArgumentException("Election does not belong to the specified district");
+        if(!electoralCircle.getDistricts().equals(districtName)){
+            throw new IllegalArgumentException("The specified district does not match the electoral circle's districts.");
         }
 
+        assert electoralCircle != null;
         List<Vote> votes = electoralCircle.getVotes();
 
         if (votes == null || votes.isEmpty()) {
@@ -59,7 +52,6 @@ public class StatisticsServiceImpl implements StatisticsService{
         }
 
         int totalVotes = votes.size();
-
         Map<String, Integer> votesByParty = new HashMap<>();
         Map<String, Long> organisationIds = new HashMap<>();
 
@@ -207,6 +199,32 @@ public class StatisticsServiceImpl implements StatisticsService{
 
         return count;
 
+    }
+
+    @Override
+    public int getVotesByPartyByDistrict(String partyName, String districtName) {
+        ElectoralCircle electoralCircle = electoralCircleRepository.findByDistricts_DistrictName(districtName);
+
+        if (electoralCircle == null) {
+            throw new IllegalArgumentException("Electoral Circle with ID " + districtName + " does not exist.");
+        }
+
+        List<Vote> votes = electoralCircle.getVotes();
+
+        if (votes == null || votes.isEmpty()) {
+            System.out.println("No votes found for electoral circle with ID " + districtName);
+            return 0;
+        }
+
+        int count = 0;
+
+        for (Vote vote : votes) {
+            if (vote.getOrganisation() instanceof Party && vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
+                count++;
+            }
+        }
+
+        return count;
     }
 
 }
