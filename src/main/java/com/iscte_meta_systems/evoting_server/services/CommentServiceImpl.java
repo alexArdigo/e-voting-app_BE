@@ -8,6 +8,7 @@ import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.repositories.AnswerRepository;
 import com.iscte_meta_systems.evoting_server.repositories.HelpCommentRepository;
 import com.iscte_meta_systems.evoting_server.repositories.VoterHashRepository;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -103,5 +104,27 @@ public class CommentServiceImpl implements CommentService {
 
         return comment.getLikedBy().stream()
                 .anyMatch(vh -> passwordEncoder.matches(nif, vh.getVoterHash()));
+    }
+
+    @PostConstruct
+    public void init() {
+        HelpComment comment1 = new HelpComment();
+        comment1.setComment("Posso votar com 16 anos?");
+        helpCommentRepository.save(comment1);
+
+        HelpComment comment2 = new HelpComment();
+        comment2.setComment("Como posso alterar o meu voto?");
+        helpCommentRepository.save(comment2);
+
+        Answer answer = new Answer();
+        answer.setAnswer("O voto, assim que registado, já não pode ser alterado.");
+        answer.setComment(comment2);
+        answer.setAdminId(1L);
+
+        answerRepository.save(answer);
+
+        comment2.setAnswer(answer);
+        helpCommentRepository.save(comment2);
+
     }
 }
