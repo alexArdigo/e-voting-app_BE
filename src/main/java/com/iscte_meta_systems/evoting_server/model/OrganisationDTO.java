@@ -6,21 +6,11 @@ import com.iscte_meta_systems.evoting_server.enums.OrganisationType;
 import org.antlr.v4.runtime.misc.NotNull;
 
 public class OrganisationDTO {
-    private Long id;
+
     @NotNull
     private OrganisationType type;
     private String name;
     private Long electionId;
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public OrganisationType getType() {
         return type;
@@ -41,7 +31,7 @@ public class OrganisationDTO {
     public Long getElectionId() {
         return electionId;
     }
-    
+
     public void setElectionId(Long electionId) {
         this.electionId = electionId;
     }

@@ -61,6 +61,7 @@ public class StatisticsServiceImpl implements StatisticsService{
         int totalVotes = votes.size();
 
         Map<String, Integer> votesByParty = new HashMap<>();
+        Map<String, Long> organisationIds = new HashMap<>();
 
         for(Vote i : votes){
             Organisation org = i.getOrganisation();
@@ -68,6 +69,7 @@ public class StatisticsServiceImpl implements StatisticsService{
                 String partyName = org.getOrganisationName();
                 int currentVotes = votesByParty.getOrDefault(partyName, 0);
                 votesByParty.put(partyName, currentVotes + 1);
+                organisationIds.put(partyName, org.getId());
             }
         }
 
@@ -76,9 +78,12 @@ public class StatisticsServiceImpl implements StatisticsService{
                     String partyName = entry.getKey();
                     int voteCount = entry.getValue();
                     double percentage = (double) voteCount / totalVotes * 100;
-                    PartyVoteStatsDTO dto = new PartyVoteStatsDTO(partyName, percentage);
+                    PartyVoteStatsDTO dto = new PartyVoteStatsDTO();
                     dto.setPartyName(partyName);
+                    dto.setOrganisationName(partyName);
+                    dto.setVotes(voteCount);
                     dto.setPercentage(percentage);
+                    dto.setOrganisationType(ElectoralCircleType.NATIONAL);
 
                     return dto;
                 })
@@ -152,7 +157,6 @@ public class StatisticsServiceImpl implements StatisticsService{
 
                 if (sampleVote != null) {
                     PartyVoteStatsDTO partyDTO = new PartyVoteStatsDTO();
-                    partyDTO.setOrganisationId(orgEntry.getKey());
                     partyDTO.setOrganisationName(sampleVote.getOrganisation().getOrganisationName());
                     partyDTO.setOrganisationType(ElectoralCircleType.valueOf(sampleVote.getOrganisation().getClass().getSimpleName()));
                     partyDTO.setVotes(orgEntry.getValue());

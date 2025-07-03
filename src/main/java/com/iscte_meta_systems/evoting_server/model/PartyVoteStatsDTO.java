@@ -5,7 +5,6 @@ import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 public class PartyVoteStatsDTO {
 
     private String partyName;
-    private Long organisationId;
     private String organisationName;
     private ElectoralCircleType organisationType;
     private Integer votes;
@@ -33,14 +32,6 @@ public class PartyVoteStatsDTO {
 
     public void setPercentage(double percentage) {
         this.percentage = percentage;
-    }
-
-    public void setOrganisationId(Long organisationId) {
-        this.organisationId = organisationId;
-    }
-
-    public Long getOrganisationId() {
-        return organisationId;
     }
 
     public void setOrganisationName(String organisationName) {
