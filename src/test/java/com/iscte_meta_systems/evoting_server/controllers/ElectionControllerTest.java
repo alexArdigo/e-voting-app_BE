@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -144,8 +145,7 @@ public class ElectionControllerTest {
     @Test
     void testCreateLegislativeElection() throws Exception {
         ElectionDTO dto = new ElectionDTO();
-        // Removido dto.setId(400L); para evitar conflito de chave única
-        dto.setElectionType(com.iscte_meta_systems.evoting_server.enums.ElectionType.LEGISLATIVE);
+        dto.setElectionType(ElectionType.LEGISLATIVE);
         dto.setName("Legislativas 2026");
         dto.setDescription("Eleições legislativas portuguesas de 2026");
         dto.setStartDate("2026-03-10");

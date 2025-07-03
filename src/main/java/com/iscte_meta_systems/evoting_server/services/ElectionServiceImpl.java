@@ -116,26 +116,26 @@ public class ElectionServiceImpl implements ElectionService {
                 election = new Presidential();
                 break;
             case LEGISLATIVE:
-                List<String> distritos = List.of(
+                List<String> districts = List.of(
                     "Viana do Castelo", "Braga", "Vila Real", "Bragança", "Porto", "Aveiro", "Viseu", "Guarda",
                     "Coimbra", "Leiria", "Castelo Branco", "Santarém", "Lisboa", "Portalegre", "Évora", "Setúbal",
                     "Beja", "Faro", "Madeira", "Açores", "Europa", "Fora da Europa"
                 );
-                int[] seatsDistritos = {6,19,5,3,40,16,8,3,9,10,4,9,48,2,3,18,3,9,6,5,2,2};
+                int[] seatsDistricts = {6,19,5,3,40,16,8,3,9,10,4,9,48,2,3,18,3,9,6,5,2,2};
                 List<ElectoralCircle> circles = new ArrayList<>();
-                for (int i = 0; i < distritos.size(); i++) {
+                for (int i = 0; i < districts.size(); i++) {
                     ElectoralCircle circle = new ElectoralCircle();
-                    circle.setName(distritos.get(i));
-                    circle.setSeats(seatsDistritos[i]);
+                    circle.setName(districts.get(i));
+                    circle.setSeats(seatsDistricts[i]);
                     circle.setElectoralCircleType(ElectoralCircleType.NATIONAL);
-                    District district = districtRepository.findByDistrictName(distritos.get(i));
+                    District district = districtRepository.findByDistrictName(districts.get(i));
                     if (district != null) {
                         circle.setDistricts(district);
                     }
-                    circle.setName(distritos.get(i));
+                    circle.setName(districts.get(i));
                     circle.setStartDate(startDate);
                     circle.setEndDate(endDate);
-                    circle.setName(dto.getName() + " - " + distritos.get(i));
+                    circle.setName(dto.getName() + " - " + districts.get(i));
                     circle.setDescription(dto.getDescription());
                     electionRepository.save(circle);
                     circles.add(circle);
