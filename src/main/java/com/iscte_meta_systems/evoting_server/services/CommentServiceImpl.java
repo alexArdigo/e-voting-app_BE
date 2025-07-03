@@ -7,6 +7,7 @@ import com.iscte_meta_systems.evoting_server.entities.VoterHash;
 import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.repositories.AnswerRepository;
 import com.iscte_meta_systems.evoting_server.repositories.HelpCommentRepository;
+import com.iscte_meta_systems.evoting_server.repositories.VoterHashRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,8 @@ public class CommentServiceImpl implements CommentService {
     private VoterService voterService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private VoterHashRepository voterHashRepository;
 
     @Override
     public HelpComment comment(String comentario) {
@@ -81,6 +84,8 @@ public class CommentServiceImpl implements CommentService {
         newLike.setVoterHash(hash);
         comment.addLike(newLike);
 
+        voterHashRepository.save(newLike);
+
         helpCommentRepository.save(comment);
         return true;
     }
@@ -89,5 +94,14 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<HelpComment> getAllComments() {
         return helpCommentRepository.findAll();
+    }
+
+    @Override
+    public boolean hasUserLiked(Long commentId) {
+        HelpComment comment = getCommentById(commentId);
+        String nif = voterService.getInfo().getNif().toString();
+
+        return comment.getLikedBy().stream()
+                .anyMatch(vh -> passwordEncoder.matches(nif, vh.getVoterHash()));
     }
 }

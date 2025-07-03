@@ -15,4 +15,6 @@ public interface CommentService {
     boolean likeComment(Long id);
 
     List<HelpComment> getAllComments();
+
+    boolean hasUserLiked(Long id);
 }
