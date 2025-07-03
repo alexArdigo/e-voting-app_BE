@@ -80,7 +80,6 @@ public class StatisticsServiceImpl implements StatisticsService{
                     double percentage = (double) voteCount / totalVotes * 100;
                     PartyVoteStatsDTO dto = new PartyVoteStatsDTO();
                     dto.setPartyName(partyName);
-                    dto.setOrganisationId(organisationIds.get(partyName));
                     dto.setOrganisationName(partyName);
                     dto.setVotes(voteCount);
                     dto.setPercentage(percentage);
@@ -158,7 +157,6 @@ public class StatisticsServiceImpl implements StatisticsService{
 
                 if (sampleVote != null) {
                     PartyVoteStatsDTO partyDTO = new PartyVoteStatsDTO();
-                    partyDTO.setOrganisationId(orgEntry.getKey());
                     partyDTO.setOrganisationName(sampleVote.getOrganisation().getOrganisationName());
                     partyDTO.setOrganisationType(ElectoralCircleType.valueOf(sampleVote.getOrganisation().getClass().getSimpleName()));
                     partyDTO.setVotes(orgEntry.getValue());

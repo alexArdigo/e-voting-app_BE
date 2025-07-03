@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.model;
 
 public class LoginDTO {
+
     private String username;
     private String password;
 

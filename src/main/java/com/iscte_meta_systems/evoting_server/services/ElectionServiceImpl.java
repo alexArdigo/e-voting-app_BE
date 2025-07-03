@@ -47,7 +47,6 @@ public class ElectionServiceImpl implements ElectionService {
                 .filter(e -> electionYear == null || (e.getStartDate() != null && e.getStartDate().getYear() == electionYear))
                 .map(e -> {
                     ElectionDTO dto = new ElectionDTO();
-                    dto.setId(e.getId());
                     dto.setName(e.getName());
                     dto.setDescription(e.getDescription());
                     dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
@@ -58,7 +57,6 @@ public class ElectionServiceImpl implements ElectionService {
                         List<OrganisationDTO> orgDtos = e.getOrganisations().stream()
                                 .map(org -> {
                                     OrganisationDTO orgDto = new OrganisationDTO();
-                                    orgDto.setId(org.getId());
                                     orgDto.setName(org.getOrganisationName());
                                     orgDto.setType(orgDto.getType());
                                     orgDto.setElectionId(org.getElection() != null ? org.getElection().getId() : null);
@@ -132,7 +130,6 @@ public class ElectionServiceImpl implements ElectionService {
                 }
 
                 ElectionDTO resultDto = new ElectionDTO();
-                resultDto.setId(circles.get(0).getId());
                 return resultDto;
             default:
                 throw new IllegalArgumentException("Unknown election type: " + dto.getElectionType());
@@ -144,7 +141,6 @@ public class ElectionServiceImpl implements ElectionService {
         election.setEndDate(endDate);
 
         electionRepository.save(election);
-        dto.setId(election.getId());
         return dto;
     }
 
@@ -158,6 +154,10 @@ public class ElectionServiceImpl implements ElectionService {
     public Vote castVote(Long electionId, Vote voteRequest) {
         Election election = getElectionById(electionId);
         Voter voter = voterService.getLoggedVoter();
+
+        if(voter == null) {
+            throw new IllegalArgumentException("Voter is not authenticated.");
+        }
 
         if(election.getVotersVoted() != null && election.getVotersVoted().contains(voter.getHashIdentification())) {
             throw new IllegalStateException("Voter has already voted in this election.");
