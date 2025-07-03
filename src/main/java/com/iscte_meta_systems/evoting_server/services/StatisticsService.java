@@ -12,8 +12,6 @@ public interface StatisticsService {
 
     public List<PartyVoteStatsDTO> getVotePercentagesByPartyByDistrict(Long electionId, String districtName);
 
-    public int getTotalVotesByPartyByDistrict(String partyName, String districtName);
-
     public int getTotalVotesByElection(Long electionId);
 
     public int getVotesByPartyByElectoralCircle(String partyName, Long electoralCircleId);
