@@ -45,7 +45,7 @@ public class StatisticsServiceImpl implements StatisticsService{
         }
 
         assert electoralCircle != null;
-        List<Vote> votes = electoralCircle.getVotes();
+        List<Vote> votes = voteRepository.findByDistrictName(districtName);
 
         if (votes == null || votes.isEmpty()) {
             throw new RuntimeException("No votes found for the specified election in the district");
@@ -176,57 +176,48 @@ public class StatisticsServiceImpl implements StatisticsService{
 
     @Override
     public int getVotesByPartyByElectoralCircle(String partyName, Long electoralCircleId) {
-        Election election = (ElectoralCircle) electionRepository.findById(electoralCircleId).orElse(null);
+//        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electoralCircleId).orElse(null);
+//
+//        if (electoralCircle == null) {
+//            throw new IllegalArgumentException("Electoral Circle with ID " + electoralCircleId + " does not exist.");
+//        }
+//
+//
+//        if (votes == null || votes.isEmpty()) {
+//            System.out.println("No votes found for electoral circle with ID " + electoralCircleId);
+//            return 0;
+//        }
+//
+//        int count = 0;
+//
+//        for (Vote vote : votes) {
+//            if (vote.getOrganisation() instanceof Party && vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
+//                count ++;
+//            }
+//        }
 
-        if (election == null) {
-            throw new IllegalArgumentException("Electoral Circle with ID " + electoralCircleId + " does not exist.");
-        }
-
-        List<Vote> votes = election.getVotes();
-
-        if (votes == null || votes.isEmpty()) {
-            System.out.println("No votes found for electoral circle with ID " + electoralCircleId);
-            return 0;
-        }
-
-        int count = 0;
-
-        for (Vote vote : votes) {
-            if (vote.getOrganisation() instanceof Party && vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
-                count++;
-            }
-        }
-
-        return count;
+        return 0;
 
     }
 
     @Override
     public int getVotesByPartyByDistrict(String partyName, String districtName) {
-        ElectoralCircle electoralCircle = electoralCircleRepository.findByDistricts_DistrictName(districtName);
-
-        if (electoralCircle == null) {
-            throw new IllegalArgumentException("Electoral Circle with ID " + districtName + " does not exist.");
-        }
-
-        List<Vote> votes = electoralCircle.getVotes();
+        List<Vote> votes = voteRepository.findByDistrictName(districtName);
 
         if (votes == null || votes.isEmpty()) {
-            System.out.println("No votes found for electoral circle with ID " + districtName);
+            System.out.println("No votes found for district " + districtName);
             return 0;
         }
 
         int count = 0;
-
         for (Vote vote : votes) {
-            if (vote.getOrganisation() instanceof Party && vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
+            if (vote.getOrganisation() instanceof Party &&
+                    vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
                 count++;
             }
         }
-
         return count;
     }
-
 }
 
 

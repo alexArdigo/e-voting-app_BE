@@ -1,4 +1,5 @@
 package com.iscte_meta_systems.evoting_server.services;
+import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.model.PartyVoteStatsDTO;
 
 import java.util.List;
