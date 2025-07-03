@@ -4,7 +4,6 @@ import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.enums.Role;
 
 public class UserRegisterDTO {
-
     private String username;
     private String password;
     private String name;

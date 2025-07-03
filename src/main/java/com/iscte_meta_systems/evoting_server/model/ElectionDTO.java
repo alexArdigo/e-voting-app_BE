@@ -1,17 +1,10 @@
 package com.iscte_meta_systems.evoting_server.model;
 
-import com.iscte_meta_systems.evoting_server.enums.ElectionType;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-
 import java.util.List;
 
 public class ElectionDTO {
-
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ElectionType electionType;
+    private Long id;
+    private String electionType;
     private String name;
     private String description;
     private String startDate;
@@ -24,11 +17,11 @@ public class ElectionDTO {
     private String electoralCircleType;
     private Long legislativeId;
 
-    public ElectionType getElectionType() {
+    public String getElectionType() {
         return electionType;
     }
 
-    public void setElectionType(ElectionType electionType) {
+    public void setElectionType(String electionType) {
         this.electionType = electionType;
     }
 
@@ -62,6 +55,14 @@ public class ElectionDTO {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public List<OrganisationDTO> getOrganisations() {

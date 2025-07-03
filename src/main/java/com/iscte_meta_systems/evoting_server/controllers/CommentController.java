@@ -36,7 +36,6 @@ public class CommentController {
 
     @PostMapping("/comment/{id}/like")
     public ResponseEntity<String> likeComment(@PathVariable Long id) {
-        System.out.println("Like comment with ID: " + id);
         boolean liked = commentService.likeComment(id);
 
         if (liked) {
@@ -49,12 +48,6 @@ public class CommentController {
     @GetMapping("/comments")
     public List<HelpComment> getAllComments() {
         return commentService.getAllComments();
-    }
-
-    @GetMapping("/comment/{id}/hasLiked")
-    public ResponseEntity<Boolean> hasUserLiked(@PathVariable Long id) {
-        boolean liked = commentService.hasUserLiked(id);
-        return ResponseEntity.ok(liked);
     }
 
 }

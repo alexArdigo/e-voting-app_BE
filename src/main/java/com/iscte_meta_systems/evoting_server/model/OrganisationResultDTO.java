@@ -1,13 +1,20 @@
 package com.iscte_meta_systems.evoting_server.model;
 
 public class OrganisationResultDTO {
-
+    private Long organisationId;
     private String organisationName;
     private int votes;
     private double percentage;
     private int seats; // Para legislativas
 
-    public OrganisationResultDTO() {
+    public OrganisationResultDTO() {}
+
+    public Long getOrganisationId() {
+        return organisationId;
+    }
+
+    public void setOrganisationId(Long organisationId) {
+        this.organisationId = organisationId;
     }
 
     public String getOrganisationName() {

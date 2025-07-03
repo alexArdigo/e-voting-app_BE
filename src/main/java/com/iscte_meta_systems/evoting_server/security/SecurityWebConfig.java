@@ -23,13 +23,10 @@ public class SecurityWebConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("*")); // for testing
-        /*configuration.setAllowedOriginPatterns(List.of(
+        configuration.setAllowedOriginPatterns(List.of(
                 "http://localhost:5173",
-                "http://localhost:5174",
-                "http://localhost:8080",
-                "http://localhost:9090"
-        ));*/
+                "http://localhost:5174"
+        ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
@@ -48,45 +45,45 @@ public class SecurityWebConfig {
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
 
         httpSecurity.authorizeHttpRequests(auth -> {
-//            auth.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll();
-//            // Put OAuth first - this is important!
-//            auth.requestMatchers("/oauth/**").permitAll();
-//            auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll(); // Add this for CORS preflight
-//
-//            auth.requestMatchers(HttpMethod.POST, "/login").permitAll();
-//            //auth.requestMatchers("/oauth/**").permitAll();
-//            auth.requestMatchers(HttpMethod.POST, "/registerAdmin", "/registerViewer").permitAll();
-//            auth.requestMatchers(HttpMethod.GET, "/elections", "/elections/{id}", "/elections/{id}/ballot").permitAll();
-//            auth.requestMatchers(HttpMethod.GET, "/elections/{id}/candidates", "/candidate/{id}").permitAll();
-//            auth.requestMatchers(HttpMethod.GET, "/organisations", "/parties", "/uniparties", "/organisations/{id}").permitAll();
-//
-//            // Admin
-//            auth.requestMatchers(HttpMethod.POST, "/elections", "/candidates", "/organisations").hasRole("ADMIN");
-//            auth.requestMatchers(HttpMethod.POST, "/elections/{id}/startElection", "/elections/{id}/endElection").hasRole("ADMIN");
-//            auth.requestMatchers(HttpMethod.GET, "/pendingAuthorization").hasRole("ADMIN");
-//            auth.requestMatchers(HttpMethod.GET, "/approveViewer/{viewerId}").hasRole("ADMIN");
-//
-//            // Authenticated voters
-//            auth.requestMatchers(HttpMethod.POST, "/elections/{id}/castVote").authenticated();
-//            auth.requestMatchers(HttpMethod.GET, "/findUserByUsername").authenticated();
-//            auth.requestMatchers(HttpMethod.GET, "/voters/info").permitAll();
-//            auth.requestMatchers(HttpMethod.GET, "/voters/has-voted").authenticated();
+            auth.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll();
+            // Put OAuth first - this is important!
+            auth.requestMatchers("/oauth/**").permitAll();
+            auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll(); // Add this for CORS preflight
+
+            auth.requestMatchers(HttpMethod.POST, "/login").permitAll();
+            //auth.requestMatchers("/oauth/**").permitAll();
+            auth.requestMatchers(HttpMethod.POST, "/registerAdmin", "/registerViewer").permitAll();
+            auth.requestMatchers(HttpMethod.GET, "/elections", "/elections/{id}", "/elections/{id}/ballot").permitAll();
+            auth.requestMatchers(HttpMethod.GET, "/elections/{id}/candidates", "/candidate/{id}").permitAll();
+            auth.requestMatchers(HttpMethod.GET, "/organisations", "/parties", "/uniparties", "/organisations/{id}").permitAll();
+
+            // Admin
+            auth.requestMatchers(HttpMethod.POST, "/elections", "/candidates", "/organisations").hasRole("ADMIN");
+            auth.requestMatchers(HttpMethod.POST, "/elections/{id}/startElection", "/elections/{id}/endElection").hasRole("ADMIN");
+            auth.requestMatchers(HttpMethod.GET, "/pendingAuthorization").hasRole("ADMIN");
+            auth.requestMatchers(HttpMethod.GET, "/approveViewer/{viewerId}").hasRole("ADMIN");
+
+            // Authenticated voters
+            auth.requestMatchers(HttpMethod.POST, "/elections/{id}/castVote").authenticated();
+            auth.requestMatchers(HttpMethod.GET, "/findUserByUsername").authenticated();
+            auth.requestMatchers(HttpMethod.GET, "/voters/info").permitAll();
+            auth.requestMatchers(HttpMethod.GET, "/voters/has-voted").authenticated();
 
             auth.requestMatchers("/**").permitAll();
 
             //auth.requestMatchers("**").denyAll();
         });
 
-//        httpSecurity.formLogin(loginConfig -> {
-//            loginConfig.loginPage("/login");
-//            loginConfig.loginProcessingUrl("/login");
-//            loginConfig.successHandler((request, response, authentication) -> {
-//                response.setStatus(200);
-//            });
-//            loginConfig.failureHandler((request, response, authentication) -> {
-//                response.setStatus(401);
-//            });
-//        });
+        /*httpSecurity.formLogin(loginConfig -> {
+            loginConfig.loginPage("/login");
+            loginConfig.loginProcessingUrl("/login");
+            loginConfig.successHandler((request, response, authentication) -> {
+                response.setStatus(200);
+            });
+            loginConfig.failureHandler((request, response, authentication) -> {
+                response.setStatus(401);
+            });
+        });*/
 
         /*httpSecurity.logout(
                 logout -> {

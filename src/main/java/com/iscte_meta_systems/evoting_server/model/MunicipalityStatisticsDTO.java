@@ -3,13 +3,11 @@ package com.iscte_meta_systems.evoting_server.model;
 import java.util.List;
 
 public class MunicipalityStatisticsDTO {
-
     private String municipalityName;
     private int totalVotes;
     private List<PartyVoteStatsDTO> partyResults;
 
-    public MunicipalityStatisticsDTO() {
-    }
+    public MunicipalityStatisticsDTO() {}
 
     public String getMunicipalityName() {
         return municipalityName;

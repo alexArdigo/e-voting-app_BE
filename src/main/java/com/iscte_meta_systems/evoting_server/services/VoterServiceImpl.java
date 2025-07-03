@@ -20,7 +20,7 @@ public class VoterServiceImpl implements VoterService {
     private ElectionRepository electionRepository;
 
     @Autowired
-    private VoterRepository voterRepository;
+    private VoterHashRepository voterHashRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -33,16 +33,16 @@ public class VoterServiceImpl implements VoterService {
     private ParishRepository parishRepository;
 
     @Override
-    public void saveVoterAuthenticated(VoterDTO voterDTO) {
+    public void saveVoterHash(VoterDTO voterDTO) {
         if (voterDTO == null)
             throw new NullPointerException("No voter sent over");
 
         info = voterDTO;
 
-        boolean exists = voterRepository.findAll().stream()
-                .anyMatch(voter -> passwordEncoder.matches(voterDTO.getNif().toString(), voter.getHashIdentification()));
+        String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString());
 
-        if (!exists) {
+
+        if (!voterHashRepository.existsByHashIdentification(hashIdentification)) {
             try {
                 // Find distinct district
                 District district = getDistrict(voterDTO);
@@ -53,15 +53,13 @@ public class VoterServiceImpl implements VoterService {
                 // Find parish belonging to the found municipality
                 Parish parish = getParish(voterDTO, municipality);
 
-                String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString());
-
-                voterRepository.save(
-                        new Voter(
-                                hashIdentification,
-                                district,
-                                municipality,
-                                parish
-                        )
+                voterHashRepository.save(
+                    new VoterHash(
+                        hashIdentification,
+                        district,
+                        municipality,
+                        parish
+                    )
                 );
             } catch (Exception e) {
                 throw new RuntimeException("Error processing voter data: " + e.getMessage(), e);
@@ -73,6 +71,11 @@ public class VoterServiceImpl implements VoterService {
     @Override
     public VoterDTO getInfo() {
         return info;
+    }
+
+    @Override
+    public void saveVoter(VoterDTO voterDTO) {
+
     }
 
     @Override
@@ -112,17 +115,17 @@ public class VoterServiceImpl implements VoterService {
             throw new NullPointerException();
 
         Optional<Election> optional = electionRepository.findById(electionId);
-        List<VoterHash> votersVoted = optional.orElseThrow().getVotersVoted();
+        List<String> votersVoted = optional.orElseThrow().getVotersVoted();
 
-        return votersVoted.stream().anyMatch(v -> v.getVoterHash().equals(voter));
+        return votersVoted.contains(voter);
     }
 
     @Override
-    public Voter getLoggedVoter() {
+    public VoterHash getLoggedVoter() {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (voterRepository.findByHashIdentification(username) == null)
+        if (voterHashRepository.findByHashIdentification(username) == null)
             return null;
-        return voterRepository.findByHashIdentification(username);
+        return voterHashRepository.findByHashIdentification(username);
     }
 
     /**
@@ -141,5 +144,4 @@ public class VoterServiceImpl implements VoterService {
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
         return result;
     }
-
 }

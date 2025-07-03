@@ -2,8 +2,6 @@ package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.model.VoterDTO;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.stereotype.Service;
 
 public interface VoterService {
 
@@ -15,10 +13,11 @@ public interface VoterService {
 
     Boolean hasAlreadyVoted(String voter, Long electionId);
 
-    Voter getLoggedVoter();
+    VoterHash getLoggedVoter();
 
-    void saveVoterAuthenticated(VoterDTO voterDTO);
+    void saveVoterHash(VoterDTO voterDTO);
 
     VoterDTO getInfo();
 
+    void saveVoter(VoterDTO voterDTO);
 }

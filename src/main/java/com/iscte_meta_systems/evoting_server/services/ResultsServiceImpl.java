@@ -32,6 +32,7 @@ public class ResultsServiceImpl implements ResultsService {
         int totalVotes = voteCounts.values().stream().mapToInt(Integer::intValue).sum();
 
         ElectionResultDTO result = new ElectionResultDTO();
+        result.setElectionId(electionId);
         result.setElectionName(election.getName());
         result.setElectionType("presidential");
         result.setTotalVotes(totalVotes);
@@ -40,6 +41,7 @@ public class ResultsServiceImpl implements ResultsService {
 
         for (Organisation org : election.getOrganisations()) {
             OrganisationResultDTO orgResult = new OrganisationResultDTO();
+            orgResult.setOrganisationId(org.getId());
             orgResult.setOrganisationName(org.getOrganisationName());
 
             int votes = voteCounts.get(org.getId());
@@ -57,9 +59,10 @@ public class ResultsServiceImpl implements ResultsService {
     }
 
     @Override
-    public LegislativeResultDTO getLegislativeResults(Long electoralCircleId) {
-        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electoralCircleId)
-                .orElseThrow(() -> new IllegalArgumentException("Electoral circle with ID " + electoralCircleId + " not found. Certifique-se que está a usar o ID de um círculo eleitoral e não de uma eleição presidencial."));
+    public LegislativeResultDTO getLegislativeResults(Long electionId) {
+        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electionId)
+                .orElseThrow(() -> new IllegalArgumentException("Electoral circle not found"));
+
         return calculateElectoralCircleResults(electoralCircle);
     }
 
@@ -86,6 +89,7 @@ public class ResultsServiceImpl implements ResultsService {
         Map<Long, Integer> seatDistribution = calculateDHondtSeats(voteCounts, totalSeats);
 
         LegislativeResultDTO result = new LegislativeResultDTO();
+        result.setElectionId(electoralCircle.getId());
         result.setElectionName(electoralCircle.getName());
         result.setDistrictName(getDistrictName(electoralCircle));
         result.setTotalSeats(totalSeats);
@@ -96,6 +100,7 @@ public class ResultsServiceImpl implements ResultsService {
         if (electoralCircle.getOrganisations() != null) {
             for (Organisation org : electoralCircle.getOrganisations()) {
                 OrganisationResultDTO orgResult = new OrganisationResultDTO();
+                orgResult.setOrganisationId(org.getId());
                 orgResult.setOrganisationName(org.getOrganisationName());
 
                 int votes = voteCounts.getOrDefault(org.getId(), 0);
@@ -168,4 +173,3 @@ public class ResultsServiceImpl implements ResultsService {
         return seats;
     }
 }
-

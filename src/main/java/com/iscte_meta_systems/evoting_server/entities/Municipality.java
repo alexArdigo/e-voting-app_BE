@@ -1,6 +1,5 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -16,7 +15,6 @@ public class Municipality {
     @JoinColumn(name = "district_id")
     private District district;
 
-    @JsonIgnore
     @OneToMany
     private List<Parish> parishes;
 
