@@ -108,6 +108,9 @@ public class CommentServiceImpl implements CommentService {
 
     @PostConstruct
     public void init() {
+        if (helpCommentRepository.count() != 0) {
+            return;
+        }
         HelpComment comment1 = new HelpComment();
         comment1.setComment("Posso votar com 16 anos?");
         helpCommentRepository.save(comment1);
