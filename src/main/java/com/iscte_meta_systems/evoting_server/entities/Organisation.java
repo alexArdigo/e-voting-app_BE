@@ -18,7 +18,7 @@ public class Organisation {
 
 
     @ManyToOne
-    @JsonBackReference
+    @JoinColumn(name = "election_id")
     private Election election;
 
     public Long getId() {return id;}

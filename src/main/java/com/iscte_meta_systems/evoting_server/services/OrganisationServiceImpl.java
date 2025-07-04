@@ -54,27 +54,21 @@ public class OrganisationServiceImpl implements OrganisationService {
         }
         Organisation organisation;
         switch (organisationDTO.getType()) {
-            case PARTY:
-                organisation = new Party();
-                break;
-            case UNIPARTY:
-                organisation = new UniParty();
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown organisation type: " + organisationDTO.getType());
+            case PARTY -> organisation = new Party();
+            case UNIPARTY -> organisation = new UniParty();
+            default -> throw new IllegalArgumentException("Unknown organisation type: " + organisationDTO.getType());
         }
 
         Election election = electionService.getElectionById(organisationDTO.getElectionId());
 
         organisation.setOrganisationName(organisationDTO.getName());
-        organisation.setElection(election);
-
-        organisationRepository.save(organisation);
         election.addOrganisation(organisation);
+
         electionRepository.save(election);
 
         return organisationDTO;
     }
+
 
     @Override
     public List<Party> getAllParties() {

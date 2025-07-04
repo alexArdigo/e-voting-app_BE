@@ -90,7 +90,7 @@ public class ElectionController {
     }
 
     @GetMapping("/election/active")
-    public List<Election> getActiveElections() {
+    public List<ElectionDTO> getActiveElections() {
         return electionService.getActiveElections();
     }
 
