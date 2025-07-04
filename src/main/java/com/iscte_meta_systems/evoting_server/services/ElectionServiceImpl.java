@@ -204,15 +204,24 @@ public class ElectionServiceImpl implements ElectionService {
     }
 
     @Override
-    public List<Election> getActiveElections() {
+    public List<ElectionDTO> getActiveElections() {
         List<Election> elections = electionRepository.findAll();
         List<Election> activeElection = new ArrayList<>();
-        for(Election election : elections) {
-            if (election.isStarted()){
+        for (Election election : elections) {
+            if (election.isStarted()) {
                 activeElection.add(election);
             }
         }
-        return activeElection;
+
+        return activeElection.stream().map(e -> {
+            ElectionDTO dto = new ElectionDTO();
+            dto.setName(e.getName());
+            dto.setDescription(e.getDescription());
+            dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
+            dto.setEndDate(e.getEndDate() != null ? e.getEndDate().toString() : null);
+            dto.setElectionType(e.getType());
+            return dto;
+        }).collect(Collectors.toList());
     }
 
     @Override

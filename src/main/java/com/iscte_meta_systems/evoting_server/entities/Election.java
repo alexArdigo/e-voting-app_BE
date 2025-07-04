@@ -1,6 +1,11 @@
 package com.iscte_meta_systems.evoting_server.entities;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,15 +15,26 @@ public class Election {
     @Id
     @GeneratedValue
     private Long id;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ElectionType type;
     private String name;
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    @OneToMany
-    private List<Organisation> organisations;
-    @OneToMany
-    List<Vote> votes;
-    List<String> votersVoted; //HASHES
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "election", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Organisation> organisations = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Vote> votes = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "election", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VoterHash> votersVoted = new ArrayList<>();
+
     boolean started = false;
 
     public Election() {}
@@ -92,9 +108,6 @@ public class Election {
     }
 
     public void addOrganisation(Organisation organisation) {
-        if (this.organisations == null) {
-            this.organisations = new java.util.ArrayList<>();
-        }
         this.organisations.add(organisation);
     }
 
@@ -106,20 +119,26 @@ public class Election {
         this.votes = votes;
     }
 
-    public List<String> getVotersVoted() {
+    public List<VoterHash> getVotersVoted() {
         return votersVoted;
     }
 
-    public void setVotersVoted(List<String> votersVoted) {
+    public void setVotersVoted(List<VoterHash> votersVoted) {
         this.votersVoted = votersVoted;
     }
 
     public void addVoted(String hashIdentification) {
-        if (this.votersVoted == null) {
-            this.votersVoted = new java.util.ArrayList<>();
-        }
-        this.votersVoted.add(hashIdentification);
+        VoterHash voterHash = new VoterHash();
+        voterHash.setVoterHash(hashIdentification);
+        voterHash.setElection(this);
+        this.votersVoted.add(voterHash);
     }
 
+    public ElectionType getType() {
+        return type;
+    }
 
+    public void setType(ElectionType type) {
+        this.type = type;
+    }
 }
