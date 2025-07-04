@@ -6,6 +6,7 @@ import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.repositories.AnswerRepository;
 import com.iscte_meta_systems.evoting_server.repositories.HelpCommentRepository;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class CommentServiceImpl implements CommentService {
     private AnswerRepository answerRepository;
     @Autowired
     private UserService userService;
+    @Autowired
+    private VoterService voterService;
 
     @Override
     public HelpComment comment(String comentario) {
@@ -69,8 +72,41 @@ public class CommentServiceImpl implements CommentService {
         return true;
     }
 
+
     @Override
     public List<HelpComment> getAllComments() {
         return helpCommentRepository.findAll();
+    }
+
+    @Override
+    public boolean hasUserLiked(Long commentId) {
+        HelpComment comment = getCommentById(commentId);
+        String voterHash = voterService.getInfo().getNif().toString();
+        return comment.getVoterHashLike().contains(voterHash);
+    }
+
+    @PostConstruct
+    public void init() {
+        if (helpCommentRepository.count() != 0) {
+            return;
+        }
+        HelpComment comment1 = new HelpComment();
+        comment1.setComment("Posso votar com 16 anos?");
+        helpCommentRepository.save(comment1);
+
+        HelpComment comment2 = new HelpComment();
+        comment2.setComment("Como posso alterar o meu voto?");
+        helpCommentRepository.save(comment2);
+
+        Answer answer = new Answer();
+        answer.setAnswer("O voto, assim que registado, já não pode ser alterado.");
+        answer.setComment(comment2);
+        answer.setAdminId(1L);
+
+        answerRepository.save(answer);
+
+        comment2.setAnswer(answer);
+        helpCommentRepository.save(comment2);
+
     }
 }

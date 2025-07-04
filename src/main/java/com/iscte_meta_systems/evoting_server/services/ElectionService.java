@@ -26,7 +26,7 @@ public interface ElectionService {
 
     List<Election> getAllElections();
 
-    List<Election> getActiveElections();
+    List<ElectionDTO> getActiveElections();
 
     List<Election> getNotActiveElections();
 

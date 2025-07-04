@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
+import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
@@ -51,7 +52,7 @@ public class ElectionServiceImpl implements ElectionService {
                     dto.setDescription(e.getDescription());
                     dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
                     dto.setEndDate(e.getEndDate() != null ? e.getEndDate().toString() : null);
-                    dto.setElectionType(e.getClass().getSimpleName());
+                    dto.setElectionType(e.getType());
 
                     if (e.getOrganisations() != null) {
                         List<OrganisationDTO> orgDtos = e.getOrganisations().stream()
@@ -59,7 +60,7 @@ public class ElectionServiceImpl implements ElectionService {
                                     OrganisationDTO orgDto = new OrganisationDTO();
                                     orgDto.setId(org.getId());
                                     orgDto.setName(org.getOrganisationName());
-                                    orgDto.setOrganisationType(org.getClass().getSimpleName());
+                                    orgDto.setOrganisationType(org.getOrganisationType());
                                     orgDto.setElectionId(org.getElection() != null ? org.getElection().getId() : null);
                                     return orgDto;
                                 })
@@ -95,17 +96,17 @@ public class ElectionServiceImpl implements ElectionService {
             throw new IllegalArgumentException("End date cannot be before start date.");
         }
         Election election;
-        switch (dto.getElectionType().toLowerCase()) {
-            case "presidential":
+        switch (dto.getElectionType()) {
+            case ElectionType.PRESIDENTIAL:
                 election = new Presidential();
                 break;
-            case "circle":
+            case ElectionType.LEGISLATIVE:
                 ElectoralCircle circle = new ElectoralCircle();
                 circle.setSeats(dto.getSeats());
                 circle.setElectoralCircleType(ElectoralCircleType.valueOf(dto.getElectoralCircleType()));
 
                 if (dto.getLegislativeId() != null) {
-                    Legislative legislative = legislativeRepository.findById(Long.valueOf(dto.getLegislativeId()))
+                    Legislative legislative = legislativeRepository.findById(dto.getLegislativeId())
                             .orElseThrow(() -> new IllegalArgumentException("Legislative not found"));
                     circle.setLegislative(legislative);
                 }
@@ -204,15 +205,24 @@ public class ElectionServiceImpl implements ElectionService {
     }
 
     @Override
-    public List<Election> getActiveElections() {
+    public List<ElectionDTO> getActiveElections() {
         List<Election> elections = electionRepository.findAll();
         List<Election> activeElection = new ArrayList<>();
-        for(Election election : elections) {
-            if (election.isStarted()){
+        for (Election election : elections) {
+            if (election.isStarted()) {
                 activeElection.add(election);
             }
         }
-        return activeElection;
+
+        return activeElection.stream().map(e -> {
+            ElectionDTO dto = new ElectionDTO();
+            dto.setName(e.getName());
+            dto.setDescription(e.getDescription());
+            dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
+            dto.setEndDate(e.getEndDate() != null ? e.getEndDate().toString() : null);
+            dto.setElectionType(e.getType());
+            return dto;
+        }).collect(Collectors.toList());
     }
 
     @Override
