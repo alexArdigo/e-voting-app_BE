@@ -55,4 +55,9 @@ public class UserController {
     public User findUserByUsername(@RequestParam("username") String username) {
         return userService.getUserByUsername(username);
     }
+
+    @GetMapping ("/loggedUser")
+    public User getLoggedUser() {
+        return userService.getLoggedUser();
+    }
 }
