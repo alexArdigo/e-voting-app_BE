@@ -42,6 +42,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public User getLoggedUser() {
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (!userRepository.existsByUsername(username)) {
+            return null;
+        }
+        return userRepository.findByUsername(username);
+    }
+
+
+    @Override
     public String registerAdmin(UserRegisterDTO userRegisterDTO) {
         if (userRegisterDTO == null || userRegisterDTO.getUsername() == null || userRegisterDTO.getPassword() == null) {
             return "Invalid data provided";
