@@ -25,8 +25,12 @@ public class UserController {
 
     @PostMapping ("/registerViewer")
     public ResponseEntity<String> registerViewer(UserRegisterDTO userRegisterDTO) {
+        try {
         String result = userService.registerViewer(userRegisterDTO);
         return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error registering viewer: " + e.getMessage());
+        }
     }
 
     @GetMapping ("/pendingAuthorization")
