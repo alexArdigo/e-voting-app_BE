@@ -19,8 +19,12 @@ public class UserController {
 
     @PostMapping ("/registerAdmin")
     public ResponseEntity<String> registerAdmin(UserRegisterDTO userRegisterDTO) {
-        String result = userService.registerAdmin(userRegisterDTO);
-        return ResponseEntity.ok(result);
+        try {
+            String result = userService.registerAdmin(userRegisterDTO);
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error registering admin: " + e.getMessage());
+        }
     }
 
     @PostMapping ("/registerViewer")
