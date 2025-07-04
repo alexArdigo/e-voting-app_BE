@@ -9,22 +9,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/statistics")
 public class StatisticsController {
 
     @Autowired
     private StatisticsService statisticsService;
 
-//    @GetMapping("/vote-percentages") //vote-percentages?electionId=1&districtName=Aveiro
-//    public List<PartyVoteStatsDTO> getStats(
-//            /**
-//             * Retrieves the vote percentages by PARTY for a specific (electoralCircle) election and DISTRICT.
-//             */
-//            @RequestParam Long electionId,
-//            @RequestParam String districtName) {
-//        return statisticsService.getVotePercentagesByPartyByDistrict(electionId, districtName);
-//    }
-
+    @GetMapping("/vote-percentages") //api/statistics/vote-percentages?electionId=1&districtName=Aveiro
+    public List<PartyVoteStatsDTO> getStats(
+            /**
+             * Retrieves the vote percentages by PARTY for a specific (electoralCircle) election and DISTRICT.
+             */
+            @RequestParam Long electionId,
+            @RequestParam String districtName) {
+        return statisticsService.getVotePercentagesByPartyByDistrict(electionId, districtName);
+    }
 
     @GetMapping("/districts/{districtName}/statistics")
     public DistrictStatisticsDTO getDistrictStatistics(@PathVariable String districtName) {
@@ -47,5 +45,15 @@ public class StatisticsController {
          * Retrieves the total number of votes for a specific party in a specific election
          */
         return statisticsService.getVotesByPartyByElectoralCircle(partyName, electionId);
+    }
+
+    @GetMapping("/total-votes-by-party-by-district") //total-votes-by-party-by-district?partyName=Partido Socialista&districtName=Aveiro
+    public int getTotalVotesByPartyByDistrict(
+            @RequestParam String partyName,
+            @RequestParam String districtName) {
+        /**
+         * Retrieves the total number of votes for a specific party in a specific district
+         */
+        return statisticsService.getVotesByPartyByDistrict(partyName, districtName);
     }
 }
