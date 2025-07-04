@@ -3,21 +3,13 @@ package com.iscte_meta_systems.evoting_server.model;
 import java.util.List;
 
 public class ElectionResultDTO {
-    private Long electionId;
+
     private String electionName;
     private String electionType;
     private int totalVotes;
     private List<OrganisationResultDTO> results;
 
     public ElectionResultDTO() {}
-
-    public Long getElectionId() {
-        return electionId;
-    }
-
-    public void setElectionId(Long electionId) {
-        this.electionId = electionId;
-    }
 
     public String getElectionName() {
         return electionName;

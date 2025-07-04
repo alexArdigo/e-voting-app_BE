@@ -5,20 +5,10 @@ import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
 import com.iscte_meta_systems.evoting_server.enums.OrganisationType;
 
 public class OrganisationDTO {
-    private Long id;
+
     private OrganisationType organisationType;
     private String name;
     private Long ElectionId;
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public OrganisationType getOrganisationType() {
         return organisationType;

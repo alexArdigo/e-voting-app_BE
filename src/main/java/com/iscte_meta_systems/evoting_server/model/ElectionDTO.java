@@ -4,7 +4,7 @@ import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import java.util.List;
 
 public class ElectionDTO {
-    private Long id;
+
     private ElectionType electionType;
     private String name;
     private String description;
@@ -56,14 +56,6 @@ public class ElectionDTO {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public List<OrganisationDTO> getOrganisations() {
