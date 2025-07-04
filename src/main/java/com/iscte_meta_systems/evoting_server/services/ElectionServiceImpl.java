@@ -89,8 +89,10 @@ public class ElectionServiceImpl implements ElectionService {
             throw new IllegalArgumentException("Start and end dates are required.");
         }
 
-        LocalDateTime startDate = LocalDateTime.parse(dto.getStartDate());
-        LocalDateTime endDate = LocalDateTime.parse(dto.getEndDate());
+        String startDateStr = dto.getStartDate().contains("T") ? dto.getStartDate() : dto.getStartDate() + "T00:00:00";
+        String endDateStr = dto.getEndDate().contains("T") ? dto.getEndDate() : dto.getEndDate() + "T00:00:00";
+        LocalDateTime startDate = LocalDateTime.parse(startDateStr);
+        LocalDateTime endDate = LocalDateTime.parse(endDateStr);
 
         if (endDate.isBefore(startDate)) {
             throw new IllegalArgumentException("End date cannot be before start date.");
@@ -101,13 +103,12 @@ public class ElectionServiceImpl implements ElectionService {
                 election = new Presidential();
                 break;
             case LEGISLATIVE:
-                Legislative legislative = new Legislative();
                 List<String> distritos = List.of(
                         "Viana do Castelo", "Braga", "Vila Real", "Bragança", "Porto", "Aveiro", "Viseu", "Guarda",
                         "Coimbra", "Leiria", "Castelo Branco", "Santarém", "Lisboa", "Portalegre", "Évora", "Setúbal",
                         "Beja", "Faro", "Madeira", "Açores", "Europa", "Fora da Europa"
                 );
-                int[] seatsDistritos = {6, 19, 5, 3, 40, 16, 8, 3, 9, 10, 4, 9, 48, 2, 3, 18, 3, 9, 6, 5, 2, 2};
+                int[] seatsDistritos = {6,19,5,3,40,16,8,3,9,10,4,9,48,2,3,18,3,9,6,5,2,2};
                 List<ElectoralCircle> circles = new ArrayList<>();
                 for (int i = 0; i < distritos.size(); i++) {
                     ElectoralCircle circle = new ElectoralCircle();
@@ -119,13 +120,16 @@ public class ElectionServiceImpl implements ElectionService {
                         circle.setDistricts(district);
                     }
                     circle.setName(distritos.get(i));
+                    circle.setStartDate(startDate);
+                    circle.setEndDate(endDate);
                     circle.setName(dto.getName() + " - " + distritos.get(i));
+                    circle.setDescription(dto.getDescription());
+                    electionRepository.save(circle);
                     circles.add(circle);
                 }
 
-                legislative.setElectoralCircles(circles);
-
                 ElectionDTO resultDto = new ElectionDTO();
+                resultDto.setId(circles.get(0).getId());
                 return resultDto;
             default:
                 throw new IllegalArgumentException("Unknown election type: " + dto.getElectionType());
@@ -137,6 +141,7 @@ public class ElectionServiceImpl implements ElectionService {
         election.setEndDate(endDate);
 
         electionRepository.save(election);
+        dto.setId(election.getId());
         return dto;
     }
 

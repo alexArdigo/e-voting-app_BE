@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.iscte_meta_systems.evoting_server.enums.ElectionType;
+import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,20 +143,20 @@ public class ElectionControllerTest {
                 .andExpect(status().isOk());
     }
 
-//    @Test
-//    void testCreateLegislativeElection() throws Exception {
-//        ElectionDTO dto = new ElectionDTO();
-//        dto.setElectionType(ElectionType.LEGISLATIVE);
-//        dto.setName("Legislativas 2026");
-//        dto.setDescription("Eleições legislativas portuguesas de 2026");
-//        dto.setStartDate("2026-03-10");
-//        dto.setEndDate("2026-03-11");
-//        String json = objectMapper.writeValueAsString(dto);
-//        MvcResult result = mockMvc.perform(post("/elections")
-//                .contentType(MediaType.APPLICATION_JSON)
-//                .content(json))
-//                .andExpect(status().isOk())
-//                .andReturn();
-//        System.out.println("testCreateLegislativeElection: " + result.getResponse().getContentAsString());
-//    }
+    @Test
+    void testCreateLegislativeElection() throws Exception {
+        ElectionDTO dto = new ElectionDTO();
+        dto.setElectionType(ElectionType.LEGISLATIVE);
+        dto.setName("Legislativas 2026");
+        dto.setDescription("Eleições legislativas portuguesas de 2026");
+        dto.setStartDate("2026-03-10");
+        dto.setEndDate("2026-03-11");
+        String json = objectMapper.writeValueAsString(dto);
+        MvcResult result = mockMvc.perform(post("/elections")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json))
+                .andExpect(status().isOk())
+                .andReturn();
+        System.out.println("testCreateLegislativeElection: " + result.getResponse().getContentAsString());
+    }
 }
