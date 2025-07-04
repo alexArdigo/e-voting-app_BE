@@ -1,10 +1,5 @@
 package com.iscte_meta_systems.evoting_server.entities;
-import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestAttribute;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,18 +10,15 @@ public class Election {
     @Id
     @GeneratedValue
     private Long id;
-    @NotNull
-    private ElectionType type;
     private String name;
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     @OneToMany
     private List<Organisation> organisations;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     List<Vote> votes;
-    @OneToMany(mappedBy = "election", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<VoterHash> votersVoted;
+    List<String> votersVoted; //HASHES
     boolean started = false;
 
     public Election() {}
@@ -114,11 +106,11 @@ public class Election {
         this.votes = votes;
     }
 
-    public List<VoterHash> getVotersVoted() {
+    public List<String> getVotersVoted() {
         return votersVoted;
     }
 
-    public void setVotersVoted(List<VoterHash> votersVoted) {
+    public void setVotersVoted(List<String> votersVoted) {
         this.votersVoted = votersVoted;
     }
 
@@ -126,17 +118,8 @@ public class Election {
         if (this.votersVoted == null) {
             this.votersVoted = new java.util.ArrayList<>();
         }
-        VoterHash voterHash = new VoterHash();
-        voterHash.setVoterHash(hashIdentification);
-        voterHash.setElection(this);
-        this.votersVoted.add(voterHash);
+        this.votersVoted.add(hashIdentification);
     }
 
-    public ElectionType getType() {
-        return type;
-    }
 
-    public void setType(ElectionType type) {
-        this.type = type;
-    }
 }

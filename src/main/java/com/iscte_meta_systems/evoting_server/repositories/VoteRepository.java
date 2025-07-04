@@ -13,4 +13,5 @@ public interface VoteRepository extends JpaRepository<Vote, Long> {
 
     @Query("SELECT v FROM Vote v WHERE v.parish.municipality.district.districtName = :districtName")
     List<Vote> findByDistrictName(String districtName);
+
 }

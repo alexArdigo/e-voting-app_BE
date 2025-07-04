@@ -23,9 +23,11 @@ public class CandidateServiceImpl implements CandidateService {
 
         Election election = electionService.getElectionById(electionId);
 
+        List<Organisation> organisations = election.getOrganisations();
+
         List<Candidate> allCandidates = new ArrayList<>();
 
-        for (Organisation organisation : election.getOrganisations()) {
+        for (Organisation organisation : organisations) {
             if (organisation instanceof Party party) {
                 if (party.getCandidates() != null) {
                     allCandidates.addAll(party.getCandidates());
@@ -37,36 +39,29 @@ public class CandidateServiceImpl implements CandidateService {
             }
         }
 
-        List<CandidateDTO> result = allCandidates.stream()
-                .distinct()
+        return allCandidates.stream()
                 .map(CandidateDTO::new)
                 .toList();
-        return result;
     }
 
+
     @Override
-    public CandidateDTO getCandidatesById(Long id) {
+    public CandidateDTO getCandidatesById(long id) {
         Candidate candidate = candidateRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Candidate with id " + id + " not found"));
         return new CandidateDTO(candidate);
     }
 
     @Override
-    public Candidate addCandidate(CandidateDTO candidate) {
-        boolean exists = candidateRepository.existsCandidateByName(candidate.getName());
-        if (exists) {
-            List<Candidate> candidates = candidateRepository.findAll();
-            for (Candidate c : candidates) {
-                if (c.getName().equalsIgnoreCase(candidate.getName())) {
-                    return c;
-                }
-            }
-            return null;
-        }
+    public CandidateDTO addCandidate(CandidateDTO candidate) {
+        Candidate candidateExists = candidateRepository.findByName(candidate.getName());
+        if (candidateExists != null)
+            throw new RuntimeException("Candidate already exists");
         Candidate newCandidate = new Candidate();
         newCandidate.setName(candidate.getName());
         newCandidate.setImageUrl(candidate.getImageUrl());
         candidateRepository.save(newCandidate);
-        return newCandidate;
+        return candidate;
     }
+
 
 }

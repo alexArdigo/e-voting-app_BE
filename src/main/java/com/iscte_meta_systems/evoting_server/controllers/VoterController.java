@@ -16,11 +16,6 @@ public class VoterController {
     @Autowired
     private VoterService voterService;
 
-    @PostMapping("/voters/authenticated")
-    public void saveVoterAuthenticated(@RequestBody VoterDTO voterDTO) {
-        voterService.saveVoterAuthenticated(voterDTO);
-    }
-
     @GetMapping("/voters/info")
     public ResponseEntity<?> getInfo() {
         return ResponseEntity.ok().body(voterService.getInfo());

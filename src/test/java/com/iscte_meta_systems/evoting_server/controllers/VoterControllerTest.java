@@ -23,18 +23,18 @@ public class VoterControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Test
-    void testSaveVoterAuthenticated() throws Exception {
-        VoterDTO voterDTO = new VoterDTO();
-        // Preencha outros campos obrigatórios se necessário
-        String json = objectMapper.writeValueAsString(voterDTO);
-        MvcResult result = mockMvc.perform(post("/voters/authenticated")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(json))
-                .andExpect(status().isOk())
-                .andReturn();
-        System.out.println("testSaveVoterAuthenticated: " + result.getResponse().getContentAsString());
-    }
+//    @Test
+//    void testSaveVoterAuthenticated() throws Exception {
+//        VoterDTO voterDTO = new VoterDTO();
+//        // Preencha outros campos obrigatórios se necessário
+//        String json = objectMapper.writeValueAsString(voterDTO);
+//        MvcResult result = mockMvc.perform(post("/voters/authenticated")
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(json))
+//                .andExpect(status().isOk())
+//                .andReturn();
+//        System.out.println("testSaveVoterAuthenticated: " + result.getResponse().getContentAsString());
+//    }
 
     @Test
     void testGetInfo() throws Exception {

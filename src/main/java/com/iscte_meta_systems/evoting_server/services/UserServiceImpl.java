@@ -59,12 +59,13 @@ public class UserServiceImpl implements UserService{
     @Override
     public String registerViewer(UserRegisterDTO userRegisterDTO){
         if(userRegisterDTO == null || userRegisterDTO.getUsername() == null || userRegisterDTO.getPassword() == null) {
-            return "Invalid data provided";
+            throw new IllegalArgumentException("Invalid data provided");
         }
         if(userRepository.existsByUsername(userRegisterDTO.getUsername())){
-            return "Username already exists";
+            throw new IllegalArgumentException("Username already exists");
         }
         Viewer viewer = new Viewer(userRegisterDTO);
+        viewer.setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
         viewer.setRole(Role.VIEWER);
         viewerRepository.save(viewer);
         return "Viewer registered successfully";

@@ -9,28 +9,14 @@ public class Vote {
     @Id
     @GeneratedValue
     private Long id;
-
-    @ManyToOne
+    @OneToOne
     private Organisation organisation;
-
-    @ManyToOne
-    private District district;
-
-    @ManyToOne
+    @OneToOne
     private Municipality municipality;
-
-    @ManyToOne
+    @OneToOne
     private Parish parish;
 
     public Vote() {
-    }
-
-    public District getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(District district) {
-        this.district = district;
     }
 
     public Municipality getMunicipality() {

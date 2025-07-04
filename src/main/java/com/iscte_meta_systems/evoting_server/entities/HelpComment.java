@@ -17,23 +17,23 @@ public class HelpComment {
     @OneToOne
     private Answer answer;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<VoterHash> likedBy = new HashSet<>();
+    @ElementCollection
+    private Set<String> voterHashLike = new HashSet<>();
 
     public HelpComment() {
         this.localDateTime = LocalDateTime.now();
     }
 
-    public void addLike(VoterHash voterHash) {
-        likedBy.add(voterHash);
+    public void addLike(String voterHash) {
+        voterHashLike.add(voterHash);
     }
 
-    public boolean hasLiked(VoterHash voterHash) {
-        return likedBy.contains(voterHash);
+    public boolean hasLiked(String voterHash) {
+        return voterHashLike.contains(voterHash);
     }
 
     public int getLikeCount() {
-        return likedBy.size();
+        return voterHashLike.size();
     }
 
 
@@ -69,11 +69,11 @@ public class HelpComment {
         this.localDateTime = localDateTime;
     }
 
-    public Set<VoterHash> getLikedBy() {
-        return likedBy;
+    public Set<String> getVoterHashLike() {
+        return voterHashLike;
     }
 
-    public void setLikedBy(Set<VoterHash> likedBy) {
-        this.likedBy = likedBy;
+    public void setVoterHashLike(Set<String> voterHashLike) {
+        this.voterHashLike = voterHashLike;
     }
 }

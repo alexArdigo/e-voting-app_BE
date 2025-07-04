@@ -1,9 +1,6 @@
 package com.iscte_meta_systems.evoting_server.model;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.iscte_meta_systems.evoting_server.entities.District;
-import com.iscte_meta_systems.evoting_server.entities.Municipality;
-import com.iscte_meta_systems.evoting_server.entities.Parish;
 
 public class VoterDTO {
 
@@ -26,9 +23,6 @@ public class VoterDTO {
         this.district = jsonNode.path("district").asText();
         this.municipality = jsonNode.path("municipality").asText();
         this.parish = jsonNode.path("parish").asText();
-    }
-
-    public VoterDTO() {
     }
 
 

@@ -1,18 +1,42 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class VoterHash {
+
     @Id
     @GeneratedValue
-    private Long id;
+    Long id;
+    String hashIdentification;
 
-    private String voterHash;
+    @OneToOne
+    District district;
 
-    @ManyToOne
-    @JoinColumn(name = "election_id")
-    private Election election;
+    @OneToOne
+    Municipality municipality;
+
+    @OneToOne
+    Parish parish;
+
+    public VoterHash() {
+    }
+
+    public VoterHash(
+            String hashIdentification,
+            District district,
+            Municipality municipality,
+            Parish parish
+    ) {
+        this.hashIdentification = hashIdentification;
+        this.district = district;
+        this.municipality = municipality;
+        this.parish = parish;
+    }
 
     public Long getId() {
         return id;
@@ -22,20 +46,35 @@ public class VoterHash {
         this.id = id;
     }
 
-    public String getVoterHash() {
-        return voterHash;
+    public String getHashIdentification() {
+        return hashIdentification;
     }
 
-    public void setVoterHash(String voterHash) {
-        this.voterHash = voterHash;
+    public void setHashIdentification(String hashIdentification) {
+        this.hashIdentification = hashIdentification;
     }
 
-    public Election getElection() {
-        return election;
+    public District getDistrict() {
+        return district;
     }
 
-    public void setElection(Election election) {
-        this.election = election;
+    public void setDistrict(District district) {
+        this.district = district;
+    }
+
+    public Municipality getMunicipality() {
+        return municipality;
+    }
+
+    public void setMunicipality(Municipality municipality) {
+        this.municipality = municipality;
+    }
+
+    public Parish getParish() {
+        return parish;
+    }
+
+    public void setParish(Parish parish) {
+        this.parish = parish;
     }
 }
-

@@ -1,7 +1,6 @@
 // Districts.java (corrigido o nome da classe)
 package com.iscte_meta_systems.evoting_server.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,7 +15,6 @@ public class District {
     @Column(unique = true)
     private String districtName;
 
-    @JsonIgnore
     @OneToMany
     private List<Municipality> municipalities;
 
