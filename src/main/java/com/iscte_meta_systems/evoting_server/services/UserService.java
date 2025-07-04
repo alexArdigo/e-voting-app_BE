@@ -24,4 +24,6 @@ public interface UserService {
     User getCurrentUser();
 
     User login(LoginDTO loginDTO);
+
+    User getLoggedUser();
 }
