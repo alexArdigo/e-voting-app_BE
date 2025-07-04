@@ -6,6 +6,7 @@ import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.repositories.AnswerRepository;
 import com.iscte_meta_systems.evoting_server.repositories.HelpCommentRepository;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class CommentServiceImpl implements CommentService {
     private AnswerRepository answerRepository;
     @Autowired
     private UserService userService;
+    @Autowired
+    private VoterService voterService;
 
     @Override
     public HelpComment comment(String comentario) {
