@@ -63,7 +63,6 @@ public class ElectionServiceImpl implements ElectionService {
                     dto.setDescription(e.getDescription());
                     dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
                     dto.setEndDate(e.getEndDate() != null ? e.getEndDate().toString() : null);
-//                    dto.setElectionType(ElectionType.valueOf(e.getClass().getSimpleName()));
 
                     if (e.getOrganisations() != null) {
                         List<OrganisationDTO> orgDtos = e.getOrganisations().stream()
@@ -219,7 +218,7 @@ public class ElectionServiceImpl implements ElectionService {
             dto.setDescription(e.getDescription());
             dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
             dto.setEndDate(e.getEndDate() != null ? e.getEndDate().toString() : null);
-            dto.setElectionType(ElectionType.valueOf(e.getClass().getSimpleName()));
+            dto.setElectionType(e.getType());
             return dto;
         }).collect(Collectors.toList());
     }

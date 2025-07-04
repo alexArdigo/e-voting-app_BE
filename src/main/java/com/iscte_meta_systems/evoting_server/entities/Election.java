@@ -15,6 +15,8 @@ public class Election {
     @Id
     @GeneratedValue
     private Long id;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ElectionType type;
     private String name;
     private String description;
