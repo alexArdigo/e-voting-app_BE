@@ -97,22 +97,36 @@ public class ElectionServiceImpl implements ElectionService {
         }
         Election election;
         switch (dto.getElectionType()) {
-            case ElectionType.PRESIDENTIAL:
+            case PRESIDENTIAL:
                 election = new Presidential();
                 break;
-            case ElectionType.LEGISLATIVE:
-                ElectoralCircle circle = new ElectoralCircle();
-                circle.setSeats(dto.getSeats());
-                circle.setElectoralCircleType(ElectoralCircleType.valueOf(dto.getElectoralCircleType()));
-
-                if (dto.getLegislativeId() != null) {
-                    Legislative legislative = legislativeRepository.findById(dto.getLegislativeId())
-                            .orElseThrow(() -> new IllegalArgumentException("Legislative not found"));
-                    circle.setLegislative(legislative);
+            case LEGISLATIVE:
+                Legislative legislative = new Legislative();
+                List<String> distritos = List.of(
+                        "Viana do Castelo", "Braga", "Vila Real", "Bragança", "Porto", "Aveiro", "Viseu", "Guarda",
+                        "Coimbra", "Leiria", "Castelo Branco", "Santarém", "Lisboa", "Portalegre", "Évora", "Setúbal",
+                        "Beja", "Faro", "Madeira", "Açores", "Europa", "Fora da Europa"
+                );
+                int[] seatsDistritos = {6, 19, 5, 3, 40, 16, 8, 3, 9, 10, 4, 9, 48, 2, 3, 18, 3, 9, 6, 5, 2, 2};
+                List<ElectoralCircle> circles = new ArrayList<>();
+                for (int i = 0; i < distritos.size(); i++) {
+                    ElectoralCircle circle = new ElectoralCircle();
+                    circle.setName(distritos.get(i));
+                    circle.setSeats(seatsDistritos[i]);
+                    circle.setElectoralCircleType(ElectoralCircleType.NATIONAL);
+                    District district = districtRepository.findByDistrictName(distritos.get(i));
+                    if (district != null) {
+                        circle.setDistricts(district);
+                    }
+                    circle.setName(distritos.get(i));
+                    circle.setName(dto.getName() + " - " + distritos.get(i));
+                    circles.add(circle);
                 }
 
-                election = circle;
-                break;
+                legislative.setElectoralCircles(circles);
+
+                ElectionDTO resultDto = new ElectionDTO();
+                return resultDto;
             default:
                 throw new IllegalArgumentException("Unknown election type: " + dto.getElectionType());
         }
@@ -122,39 +136,7 @@ public class ElectionServiceImpl implements ElectionService {
         election.setStartDate(startDate);
         election.setEndDate(endDate);
 
-        if (election instanceof ElectoralCircle) {
-            ElectoralCircle electoralCircle = (ElectoralCircle) election;
-
-            if (dto.getDistrictName() != null) {
-                District district = districtRepository.findByDistrictName(dto.getDistrictName());
-                if (district != null) {
-                    electoralCircle.setDistricts(district);
-
-                    if (dto.getElectoralCircleType() != null) {
-                        electoralCircle.setElectoralCircleType(
-                                ElectoralCircleType.valueOf(dto.getElectoralCircleType().toUpperCase())
-                        );
-                    }
-                    if (dto.getSeats() != null) {
-                        electoralCircle.setSeats(dto.getSeats());
-                    }
-
-                    electionRepository.save(electoralCircle);
-
-                    try {
-                        partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(electoralCircle);
-                    } catch (Exception e) {
-                        System.err.println("Failed to populate parties and candidates: " + e.getMessage());
-                    }
-                }
-            } else {
-                electionRepository.save(electoralCircle);
-            }
-        } else {
-            electionRepository.save(election);
-        }
-
-        dto.setId(election.getId());
+        electionRepository.save(election);
         return dto;
     }
 
@@ -169,11 +151,11 @@ public class ElectionServiceImpl implements ElectionService {
         Election election = getElectionById(electionId);
         VoterHash voterHash = voterService.getLoggedVoter();
 
-        if(election.getVotersVoted() != null && election.getVotersVoted().contains(voterHash.getHashIdentification())) {
+        if (election.getVotersVoted() != null && election.getVotersVoted().contains(voterHash.getHashIdentification())) {
             throw new IllegalStateException("Voter has already voted in this election.");
         }
 
-        if(!election.isStarted()){
+        if (!election.isStarted()) {
             throw new IllegalStateException("Election has not started.");
         }
 
@@ -229,8 +211,8 @@ public class ElectionServiceImpl implements ElectionService {
     public List<Election> getNotActiveElections() {
         List<Election> elections = electionRepository.findAll();
         List<Election> notActiveElections = new ArrayList<>();
-        for(Election election : elections) {
-            if (!election.isStarted()){
+        for (Election election : elections) {
+            if (!election.isStarted()) {
                 notActiveElections.add(election);
             }
         }
