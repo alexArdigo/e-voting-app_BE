@@ -29,12 +29,12 @@ public class InitializeStuffImpl {
     @Autowired
     private ElectoralCircleRepository electoralCircleRepository;
 
-    @PostConstruct
-    public void initializeData() {
-        initializeElections();
-        initializeParties();
-        initializeVotes();
-    }
+//    @PostConstruct
+//    public void initializeData() {
+//        initializeElections();
+//        initializeParties();
+//        initializeVotes();
+//    }
 
     public void initializeElections() {
         if (electionRepository.count() == 0) {
