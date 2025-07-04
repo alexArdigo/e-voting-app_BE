@@ -129,7 +129,7 @@ public class Election {
 
     public void addVoted(String hashIdentification) {
         VoterHash voterHash = new VoterHash();
-        voterHash.setVoterHash(hashIdentification);
+        voterHash.setHashIdentification(hashIdentification);
         voterHash.setElection(this);
         this.votersVoted.add(voterHash);
     }

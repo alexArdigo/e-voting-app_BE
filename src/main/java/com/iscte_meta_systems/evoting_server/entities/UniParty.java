@@ -1,4 +1,5 @@
 package com.iscte_meta_systems.evoting_server.entities;
+import com.iscte_meta_systems.evoting_server.enums.OrganisationType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 
@@ -34,4 +35,8 @@ public class UniParty extends Organisation {
         this.candidate = candidate;
     }
 
+    @Override
+    public OrganisationType getOrganisationType() {
+        return OrganisationType.UNIPARTY;
+    }
 }

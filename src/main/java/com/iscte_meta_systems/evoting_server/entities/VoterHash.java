@@ -1,9 +1,9 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -23,6 +23,8 @@ public class VoterHash {
     @OneToOne
     Parish parish;
 
+    @ManyToOne
+    Election election;
     public VoterHash() {
     }
 
@@ -76,5 +78,13 @@ public class VoterHash {
 
     public void setParish(Parish parish) {
         this.parish = parish;
+    }
+
+    public Election getElection() {
+        return election;
+    }
+
+    public void setElection(Election election) {
+        this.election = election;
     }
 }
