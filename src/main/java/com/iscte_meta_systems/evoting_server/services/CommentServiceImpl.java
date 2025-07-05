@@ -81,7 +81,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public boolean hasUserLiked(Long commentId) {
         HelpComment comment = getCommentById(commentId);
-        String voterHash = voterService.getInfo().getNif().toString();
+        String voterHash = voterService.getLoggedVoter().getNif().toString();
         return comment.getVoterHashLike().contains(voterHash);
     }
 

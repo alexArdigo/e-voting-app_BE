@@ -11,5 +11,4 @@ public interface VoterHashRepository extends JpaRepository<VoterHash, Long> {
 
     VoterHash getVoterHashByHashIdentification(String hash);
 
-    VoterHash findVoterHashByHashIdentification(String token);
 }
