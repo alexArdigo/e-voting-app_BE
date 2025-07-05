@@ -154,7 +154,7 @@ public class ElectionServiceImpl implements ElectionService {
         Election election = getElectionById(electionId);
         VoterHash voterHash = voterService.getLoggedVoter();
 
-        if (election.getVotersVoted() != null && election.getVotersVoted().contains(voterHash.getHashIdentification())) {
+        if(election.getVotersVoted() != null && election.getVotersVoted().stream().anyMatch(hash -> hash.getHashIdentification().equals(voterHash.getHashIdentification()))) {
             throw new IllegalStateException("Voter has already voted in this election.");
         }
 
