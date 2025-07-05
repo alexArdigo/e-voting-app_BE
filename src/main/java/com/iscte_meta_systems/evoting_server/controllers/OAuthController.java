@@ -25,7 +25,6 @@ public class OAuthController {
             @RequestParam String token,
             @RequestParam Long id
     ) {
-        System.out.println("id = " + id);
         oAuthService.authWithToken(token, id);
         return ResponseEntity.ok().build();
     }

@@ -112,7 +112,6 @@ public class VoterServiceImpl implements VoterService {
     @Override
     public Voter getLoggedVoter() {
         String id = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
-        System.out.println("getloggedvoter = " + id);
 
         Voter voter = voterRepository.findVoterById(Long.valueOf(id));
         if (voter == null)

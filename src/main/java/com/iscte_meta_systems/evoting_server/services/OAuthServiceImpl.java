@@ -141,8 +141,6 @@ public class OAuthServiceImpl implements OAuthService {
 
         JsonNode user = payload.get("user");
 
-        System.out.println("user = " + user);
-
         return addVoter(user, token);
     }
 
