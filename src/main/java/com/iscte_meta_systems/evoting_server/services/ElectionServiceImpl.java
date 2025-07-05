@@ -36,6 +36,8 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Autowired
     private LegislativeRepository legislativeRepository;
+    @Autowired
+    private VoterHashRepository voterHashRepository;
 
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
@@ -166,9 +168,13 @@ public class ElectionServiceImpl implements ElectionService {
     @Override
     public Vote castVote(Long electionId, Vote voteRequest) {
         Election election = getElectionById(electionId);
-        VoterHash voterHash = voterService.getLoggedVoter();
+        Voter voter = voterService.getLoggedVoter();
 
-        if(election.getVotersVoted() != null && election.getVotersVoted().contains(voterHash.getHashIdentification())) {
+        String hash = voterService.getHashIdentification(voter.getNif());
+
+        VoterHash voterHash = voterHashRepository.getVoterHashByHashIdentification(hash);
+
+        if(election.getVotersVoted() != null && election.getVotersVoted().contains(hash)) {
             throw new IllegalStateException("Voter has already voted in this election.");
         }
 
@@ -176,7 +182,7 @@ public class ElectionServiceImpl implements ElectionService {
             throw new IllegalStateException("Election has not started.");
         }
 
-        Parish parish = voterHash.getParish();
+        Parish parish = voter.getParish();
         Organisation organisation = organisationRepository.getReferenceById(voteRequest.getOrganisation().getId());
         Municipality municipality = voterHash.getMunicipality();
 

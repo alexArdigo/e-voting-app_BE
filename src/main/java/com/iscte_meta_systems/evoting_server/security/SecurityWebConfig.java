@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.security;
 
 import jakarta.servlet.DispatcherType;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -66,7 +67,7 @@ public class SecurityWebConfig {
             // Authenticated voters
             auth.requestMatchers(HttpMethod.POST, "/elections/{id}/castVote").authenticated();
             auth.requestMatchers(HttpMethod.GET, "/findUserByUsername").authenticated();
-            auth.requestMatchers(HttpMethod.GET, "/voters/info").permitAll();
+            auth.requestMatchers(HttpMethod.GET, "/voters").permitAll();
             auth.requestMatchers(HttpMethod.GET, "/voters/has-voted").authenticated();
 
             auth.requestMatchers("/**").permitAll();
@@ -85,14 +86,14 @@ public class SecurityWebConfig {
             });
         });*/
 
-        /*httpSecurity.logout(
+        httpSecurity.logout(
                 logout -> {
                     logout.logoutUrl("/logout");
                     logout.deleteCookies("JSESSIONID");
                     logout.logoutSuccessHandler((request, response, authentication) -> {
                         response.setStatus(HttpServletResponse.SC_OK);
                     });
-                });*/
+                });
 
         httpSecurity.authenticationProvider(userAuthenticationProvider);
 
