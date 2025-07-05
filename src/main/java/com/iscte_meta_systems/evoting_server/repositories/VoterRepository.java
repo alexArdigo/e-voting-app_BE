@@ -10,4 +10,5 @@ public interface VoterRepository extends JpaRepository<Voter, Long> {
 
     Voter findVoterByNif(Long nif);
 
+    Voter findVoterById(Long voterId);
 }

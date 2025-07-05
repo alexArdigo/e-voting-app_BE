@@ -1,7 +1,6 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
-import com.iscte_meta_systems.evoting_server.model.VoterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,10 +13,12 @@ import java.util.Optional;
 @Service
 public class VoterServiceImpl implements VoterService {
 
-    VoterDTO info;
 
     @Autowired
     private ElectionRepository electionRepository;
+
+    @Autowired
+    private VoterRepository voterRepository;
 
     @Autowired
     private VoterHashRepository voterHashRepository;
@@ -27,38 +28,31 @@ public class VoterServiceImpl implements VoterService {
 
     @Autowired
     private DistrictRepository districtRepository;
+
     @Autowired
     private MunicipalityRepository municipalityRepository;
+
     @Autowired
     private ParishRepository parishRepository;
 
+
     @Override
-    public void saveVoterHash(VoterDTO voterDTO) {
-        if (voterDTO == null)
+    public void saveVoterHash(Voter voter) {
+        if (voter == null)
             throw new NullPointerException("No voter sent over");
 
-        info = voterDTO;
-
-        String hashIdentification = passwordEncoder.encode(voterDTO.getNif().toString());
-
+        String hashIdentification = getHashIdentification(voter.getNif());
 
         if (!voterHashRepository.existsByHashIdentification(hashIdentification)) {
             try {
-                // Find distinct district
-                District district = getDistrict(voterDTO);
 
-                // Find municipality belonging to the found district
-                Municipality municipality = getMunicipality(voterDTO, district);
-
-                // Find parish belonging to the found municipality
-                Parish parish = getParish(voterDTO, municipality);
 
                 voterHashRepository.save(
                     new VoterHash(
                         hashIdentification,
-                        district,
-                        municipality,
-                        parish
+                        voter.getDistrict(),
+                        voter.getMunicipality(),
+                        voter.getParish()
                     )
                 );
             } catch (Exception e) {
@@ -67,65 +61,64 @@ public class VoterServiceImpl implements VoterService {
         }
     }
 
-
     @Override
-    public VoterDTO getInfo() {
-        return info;
+    public String getHashIdentification(Long nif) {
+        return passwordEncoder.encode(nif.toString());
     }
 
-    @Override
-    public void saveVoter(VoterDTO voterDTO) {
-
-    }
 
     @Override
-    public District getDistrict(VoterDTO voterDTO) {
-        List<District> districts = districtRepository.findByDistrictNameContainingIgnoreCase(voterDTO.getDistrict());
+    public District getDistrict(String districtName) {
+        List<District> districts = districtRepository.findByDistrictNameContainingIgnoreCase(districtName);
         return districts.stream()
-                .filter(d -> normalizeString(d.getDistrictName()).equalsIgnoreCase(normalizeString(voterDTO.getDistrict())))
+                .filter(d -> normalizeString(d.getDistrictName()).equalsIgnoreCase(normalizeString(districtName)))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("District not found: " + voterDTO.getDistrict()));
+                .orElseThrow(() -> new RuntimeException("District not found: " + districtName));
     }
 
     @Override
-    public Municipality getMunicipality(VoterDTO voterDTO, District district) {
-        List<Municipality> municipalities = municipalityRepository.findByMunicipalityNameContainingIgnoreCase(voterDTO.getMunicipality());
+    public Municipality getMunicipality(String municipalityName, District district) {
+        List<Municipality> municipalities = municipalityRepository.findByMunicipalityNameContainingIgnoreCase(municipalityName);
         return municipalities.stream()
-            .filter(m -> normalizeString(m.getMunicipalityName()).equalsIgnoreCase(normalizeString(voterDTO.getMunicipality()))
+            .filter(m -> normalizeString(m.getMunicipalityName()).equalsIgnoreCase(normalizeString(municipalityName))
                    && m.getDistrict().equals(district))
             .findFirst()
-            .orElseThrow(() -> new RuntimeException("Municipality not found in district: " + voterDTO.getMunicipality() +
+            .orElseThrow(() -> new RuntimeException("Municipality not found in district: " + municipalityName +
                           ". Please check spelling and accents."));
     }
 
     @Override
-    public Parish getParish(VoterDTO voterDTO, Municipality municipality) {
-        List<Parish> parishes = parishRepository.findByParishNameContainingIgnoreCase(voterDTO.getParish());
+    public Parish getParish(String parishName, Municipality municipality) {
+        List<Parish> parishes = parishRepository.findByParishNameContainingIgnoreCase(parishName);
         return parishes.stream()
-                .filter(p -> normalizeString(p.getParishName()).equalsIgnoreCase(normalizeString(voterDTO.getParish()))
+                .filter(p -> normalizeString(p.getParishName()).equalsIgnoreCase(normalizeString(parishName))
                         && p.getMunicipality().equals(municipality))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Parish not found in municipality: " + voterDTO.getParish() +
+                .orElseThrow(() -> new RuntimeException("Parish not found in municipality: " + parishName +
                         ". Please check spelling and accents."));
     }
 
     @Override
-    public Boolean hasAlreadyVoted(String voter, Long electionId) {
-        if (voter == null || electionId == null)
+    public Boolean hasAlreadyVoted(String hash, Long electionId) {
+        if (hash == null || electionId == null)
             throw new NullPointerException();
 
         Optional<Election> optional = electionRepository.findById(electionId);
         List<String> votersVoted = optional.orElseThrow().getVotersVoted();
 
-        return votersVoted.contains(voter);
+        return votersVoted.contains(hash);
     }
 
     @Override
-    public VoterHash getLoggedVoter() {
-        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (voterHashRepository.findByHashIdentification(username) == null)
-            return null;
-        return voterHashRepository.findByHashIdentification(username);
+    public Voter getLoggedVoter() {
+        String id = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+        System.out.println("getloggedvoter = " + id);
+
+        Voter voter = voterRepository.findVoterById(Long.valueOf(id));
+        if (voter == null)
+            throw new RuntimeException("Voter not found with ID: " + id);
+
+        return voter;
     }
 
     /**

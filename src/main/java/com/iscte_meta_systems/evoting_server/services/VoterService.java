@@ -1,23 +1,22 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
-import com.iscte_meta_systems.evoting_server.model.VoterDTO;
 
 public interface VoterService {
 
-    District getDistrict(VoterDTO voterDTO);
+    District getDistrict(String districtName);
 
-    Municipality getMunicipality(VoterDTO voterDTO, District district);
+    Municipality getMunicipality(String municipalityName, District district);
 
-    Parish getParish(VoterDTO voterDTO, Municipality municipality);
+    Parish getParish(String parishName, Municipality municipality);
 
     Boolean hasAlreadyVoted(String voter, Long electionId);
 
-    VoterHash getLoggedVoter();
+    Voter getLoggedVoter();
 
-    void saveVoterHash(VoterDTO voterDTO);
+    void saveVoterHash(Voter voter);
 
-    VoterDTO getInfo();
+    String getHashIdentification(Long nif);
 
-    void saveVoter(VoterDTO voterDTO);
+
 }

@@ -16,13 +16,13 @@ public class VoterController {
     @Autowired
     private VoterService voterService;
 
-    @GetMapping("/voters/info")
-    public ResponseEntity<?> getInfo() {
-        return ResponseEntity.ok().body(voterService.getInfo());
+    @GetMapping("/voters")
+    public ResponseEntity<?> getVoter() {
+        return ResponseEntity.ok().body(voterService.getLoggedVoter());
     }
 
     @GetMapping("/voters/has-voted")
-    public ResponseEntity<?> hasAlreadyVoted(@RequestBody String voter, Long electionId) {
-        return ResponseEntity.ok().body(voterService.hasAlreadyVoted(voter, electionId));
+    public ResponseEntity<?> hasAlreadyVoted(@RequestBody String hash, Long electionId) {
+        return ResponseEntity.ok().body(voterService.hasAlreadyVoted(hash, electionId));
     }
 }
