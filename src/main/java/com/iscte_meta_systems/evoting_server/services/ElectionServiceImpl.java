@@ -71,7 +71,6 @@ public class ElectionServiceImpl implements ElectionService {
                 .collect(Collectors.toList());
     }
 
-
     @Override
     public Election getElectionById(Long id) {
         return electionRepository.findById(id)
@@ -99,6 +98,7 @@ public class ElectionServiceImpl implements ElectionService {
         switch (dto.getElectionType()) {
             case PRESIDENTIAL:
                 election = new Presidential();
+                election.setType(ElectionType.PRESIDENTIAL);
                 break;
             case LEGISLATIVE:
                 List<String> distritos = List.of(
@@ -117,10 +117,9 @@ public class ElectionServiceImpl implements ElectionService {
                     if (district != null) {
                         circle.setDistricts(district);
                     }
-                    circle.setName(distritos.get(i));
+                    circle.setName(dto.getName() + " - " + distritos.get(i));
                     circle.setStartDate(startDate);
                     circle.setEndDate(endDate);
-                    circle.setName(dto.getName() + " - " + distritos.get(i));
                     circle.setDescription(dto.getDescription());
                     electionRepository.save(circle);
                     circles.add(circle);
@@ -175,7 +174,6 @@ public class ElectionServiceImpl implements ElectionService {
         election.addVoted(voterHash.getHashIdentification());
         electionRepository.save(election);
         return voteRepository.save(vote);
-
     }
 
     @Override
@@ -238,5 +236,4 @@ public class ElectionServiceImpl implements ElectionService {
         election.endElection();
         return electionRepository.save(election);
     }
-
 }
