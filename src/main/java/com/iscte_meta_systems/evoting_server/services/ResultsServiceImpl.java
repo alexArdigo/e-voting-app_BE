@@ -32,7 +32,6 @@ public class ResultsServiceImpl implements ResultsService {
         int totalVotes = voteCounts.values().stream().mapToInt(Integer::intValue).sum();
 
         ElectionResultDTO result = new ElectionResultDTO();
-        result.setElectionId(electionId);
         result.setElectionName(election.getName());
         result.setElectionType("presidential");
         result.setTotalVotes(totalVotes);
@@ -41,7 +40,6 @@ public class ResultsServiceImpl implements ResultsService {
 
         for (Organisation org : election.getOrganisations()) {
             OrganisationResultDTO orgResult = new OrganisationResultDTO();
-            orgResult.setOrganisationId(org.getId());
             orgResult.setOrganisationName(org.getOrganisationName());
 
             int votes = voteCounts.get(org.getId());
@@ -89,7 +87,6 @@ public class ResultsServiceImpl implements ResultsService {
         Map<Long, Integer> seatDistribution = calculateDHondtSeats(voteCounts, totalSeats);
 
         LegislativeResultDTO result = new LegislativeResultDTO();
-        result.setElectionId(electoralCircle.getId());
         result.setElectionName(electoralCircle.getName());
         result.setDistrictName(getDistrictName(electoralCircle));
         result.setTotalSeats(totalSeats);
@@ -100,7 +97,6 @@ public class ResultsServiceImpl implements ResultsService {
         if (electoralCircle.getOrganisations() != null) {
             for (Organisation org : electoralCircle.getOrganisations()) {
                 OrganisationResultDTO orgResult = new OrganisationResultDTO();
-                orgResult.setOrganisationId(org.getId());
                 orgResult.setOrganisationName(org.getOrganisationName());
 
                 int votes = voteCounts.getOrDefault(org.getId(), 0);

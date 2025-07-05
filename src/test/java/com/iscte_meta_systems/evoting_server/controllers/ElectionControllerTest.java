@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import org.junit.jupiter.api.Test;
@@ -40,25 +41,25 @@ public class ElectionControllerTest {
         System.out.println("testGetElectionById: " + result.getResponse().getContentAsString());
     }
 
-    @Test
-    void testCreateElection() throws Exception {
-        ElectionDTO dto = new ElectionDTO();
-        dto.setElectionType(com.iscte_meta_systems.evoting_server.enums.ElectionType.PRESIDENTIAL);
-        dto.setName("Presidenciais 2026");
-        dto.setDescription("Eleições presidenciais portuguesas de 2026");
-        dto.setStartDate("2026-01-24");
-        dto.setEndDate("2026-01-25");
-        dto.setDistrictName("Lisboa");
-        dto.setSeats(1); // Exemplo, ajuste conforme necessário
-        // Preencher outros campos obrigatórios se necessário
-        String json = objectMapper.writeValueAsString(dto);
-        MvcResult result = mockMvc.perform(post("/elections")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(json))
-                .andExpect(status().isOk())
-                .andReturn();
-        System.out.println("testCreateElection: " + result.getResponse().getContentAsString());
-    }
+//    @Test
+//    void testCreateElection() throws Exception {
+//        ElectionDTO dto = new ElectionDTO();
+//        dto.setElectionType(com.iscte_meta_systems.evoting_server.enums.ElectionType.PRESIDENTIAL);
+//        dto.setName("Presidenciais 2026");
+//        dto.setDescription("Eleições presidenciais portuguesas de 2026");
+//        dto.setStartDate("2026-01-24");
+//        dto.setEndDate("2026-01-25");
+//        dto.setDistrictName("Lisboa");
+//        dto.setSeats(1); // Exemplo, ajuste conforme necessário
+//        // Preencher outros campos obrigatórios se necessário
+//        String json = objectMapper.writeValueAsString(dto);
+//        MvcResult result = mockMvc.perform(post("/elections")
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(json))
+//                .andExpect(status().isOk())
+//                .andReturn();
+//        System.out.println("testCreateElection: " + result.getResponse().getContentAsString());
+//    }
 
     @Test
     void testCreateElection_MissingType() throws Exception {

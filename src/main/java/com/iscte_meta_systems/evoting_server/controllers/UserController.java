@@ -19,14 +19,22 @@ public class UserController {
 
     @PostMapping ("/registerAdmin")
     public ResponseEntity<String> registerAdmin(UserRegisterDTO userRegisterDTO) {
-        String result = userService.registerAdmin(userRegisterDTO);
-        return ResponseEntity.ok(result);
+        try {
+            String result = userService.registerAdmin(userRegisterDTO);
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error registering admin: " + e.getMessage());
+        }
     }
 
     @PostMapping ("/registerViewer")
     public ResponseEntity<String> registerViewer(UserRegisterDTO userRegisterDTO) {
+        try {
         String result = userService.registerViewer(userRegisterDTO);
         return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error registering viewer: " + e.getMessage());
+        }
     }
 
     @GetMapping ("/pendingAuthorization")
@@ -46,5 +54,10 @@ public class UserController {
     @GetMapping("/findUserByUsername")
     public User findUserByUsername(@RequestParam("username") String username) {
         return userService.getUserByUsername(username);
+    }
+
+    @GetMapping ("/loggedUser")
+    public User getLoggedUser() {
+        return userService.getLoggedUser();
     }
 }

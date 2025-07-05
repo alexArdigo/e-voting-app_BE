@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.iscte_meta_systems.evoting_server.enums.OrganisationType.PARTY;
+import static com.iscte_meta_systems.evoting_server.enums.OrganisationType.UNIPARTY;
+
 @Service
 public class OrganisationServiceImpl implements OrganisationService {
 
@@ -53,28 +56,22 @@ public class OrganisationServiceImpl implements OrganisationService {
             throw new IllegalArgumentException("Organisation name is required.");
         }
         Organisation organisation;
-        switch (organisationDTO.getOrganisationType().toLowerCase()) {
-            case "party":
-                organisation = new Party();
-                break;
-            case "uniparty":
-                organisation = new UniParty();
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown organisation type: " + organisationDTO.getOrganisationType());
+        switch (organisationDTO.getOrganisationType()) {
+            case PARTY -> organisation = new Party();
+            case UNIPARTY -> organisation = new UniParty();
+            default -> throw new IllegalArgumentException("Unknown organisation type: " + organisationDTO.getOrganisationType());
         }
 
         Election election = electionService.getElectionById(organisationDTO.getElectionId());
 
         organisation.setOrganisationName(organisationDTO.getName());
-        organisation.setElection(election);
-
-        organisationRepository.save(organisation);
         election.addOrganisation(organisation);
+
         electionRepository.save(election);
 
         return organisationDTO;
     }
+
 
     @Override
     public List<Party> getAllParties() {

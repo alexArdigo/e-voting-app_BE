@@ -38,28 +38,20 @@ public class StatisticsServiceImpl implements StatisticsService{
 
         Election election = electionRepository.findById(electionId).orElse(null);
 
-        if (election == null || districtName == null) {
-            throw new IllegalArgumentException("District name or election ID cannot be null");
-        }
-
-        if(!(election instanceof ElectoralCircle)) {
-            throw new IllegalArgumentException("Election does not belong to the specified district");
-        }
-
         ElectoralCircle electoralCircle = (ElectoralCircle) election;
 
-        if (!electoralCircle.getDistricts().getDistrictName().equalsIgnoreCase(districtName)) {
-            throw new IllegalArgumentException("Election does not belong to the specified district");
+        if(!electoralCircle.getDistricts().equals(districtName)){
+            throw new IllegalArgumentException("The specified district does not match the electoral circle's districts.");
         }
 
-        List<Vote> votes = electoralCircle.getVotes();
+        assert electoralCircle != null;
+        List<Vote> votes = voteRepository.findByDistrictName(districtName);
 
         if (votes == null || votes.isEmpty()) {
             throw new RuntimeException("No votes found for the specified election in the district");
         }
 
         int totalVotes = votes.size();
-
         Map<String, Integer> votesByParty = new HashMap<>();
         Map<String, Long> organisationIds = new HashMap<>();
 
@@ -92,15 +84,6 @@ public class StatisticsServiceImpl implements StatisticsService{
                 .toList();
 
         return partyVotesByDistrictPercentage;
-    }
-
-    @Override
-    public int getTotalVotesByPartyByDistrict(String partyName, String districtName) {
-
-        ElectoralCircle electoralCircle = electoralCircleRepository.findByDistricts_DistrictName(districtName);
-        List<Organisation> org = electoralCircle.getOrganisations();
-
-        return 0;
     }
 
     @Override
@@ -184,31 +167,48 @@ public class StatisticsServiceImpl implements StatisticsService{
 
     @Override
     public int getVotesByPartyByElectoralCircle(String partyName, Long electoralCircleId) {
-        Election election = (ElectoralCircle) electionRepository.findById(electoralCircleId).orElse(null);
+//        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electoralCircleId).orElse(null);
+//
+//        if (electoralCircle == null) {
+//            throw new IllegalArgumentException("Electoral Circle with ID " + electoralCircleId + " does not exist.");
+//        }
+//
+//
+//        if (votes == null || votes.isEmpty()) {
+//            System.out.println("No votes found for electoral circle with ID " + electoralCircleId);
+//            return 0;
+//        }
+//
+//        int count = 0;
+//
+//        for (Vote vote : votes) {
+//            if (vote.getOrganisation() instanceof Party && vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
+//                count ++;
+//            }
+//        }
 
-        if (election == null) {
-            throw new IllegalArgumentException("Electoral Circle with ID " + electoralCircleId + " does not exist.");
-        }
+        return 0;
 
-        List<Vote> votes = election.getVotes();
+    }
+
+    @Override
+    public int getVotesByPartyByDistrict(String partyName, String districtName) {
+        List<Vote> votes = voteRepository.findByDistrictName(districtName);
 
         if (votes == null || votes.isEmpty()) {
-            System.out.println("No votes found for electoral circle with ID " + electoralCircleId);
+            System.out.println("No votes found for district " + districtName);
             return 0;
         }
 
         int count = 0;
-
         for (Vote vote : votes) {
-            if (vote.getOrganisation() instanceof Party && vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
+            if (vote.getOrganisation() instanceof Party &&
+                    vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
                 count++;
             }
         }
-
         return count;
-
     }
-
 }
 
 

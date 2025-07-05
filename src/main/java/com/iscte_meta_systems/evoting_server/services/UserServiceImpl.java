@@ -42,6 +42,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public User getLoggedUser() {
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (!userRepository.existsByUsername(username)) {
+            return null;
+        }
+        return userRepository.findByUsername(username);
+    }
+
+
+    @Override
     public String registerAdmin(UserRegisterDTO userRegisterDTO) {
         if (userRegisterDTO == null || userRegisterDTO.getUsername() == null || userRegisterDTO.getPassword() == null) {
             return "Invalid data provided";
@@ -59,12 +69,13 @@ public class UserServiceImpl implements UserService{
     @Override
     public String registerViewer(UserRegisterDTO userRegisterDTO){
         if(userRegisterDTO == null || userRegisterDTO.getUsername() == null || userRegisterDTO.getPassword() == null) {
-            return "Invalid data provided";
+            throw new IllegalArgumentException("Invalid data provided");
         }
         if(userRepository.existsByUsername(userRegisterDTO.getUsername())){
-            return "Username already exists";
+            throw new IllegalArgumentException("Username already exists");
         }
         Viewer viewer = new Viewer(userRegisterDTO);
+        viewer.setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
         viewer.setRole(Role.VIEWER);
         viewerRepository.save(viewer);
         return "Viewer registered successfully";
