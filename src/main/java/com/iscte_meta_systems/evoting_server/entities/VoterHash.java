@@ -1,10 +1,7 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class VoterHash {
@@ -14,13 +11,13 @@ public class VoterHash {
     Long id;
     String hashIdentification;
 
-    @OneToOne
+    @ManyToOne
     District district;
 
-    @OneToOne
+    @ManyToOne
     Municipality municipality;
 
-    @OneToOne
+    @ManyToOne
     Parish parish;
 
     public VoterHash() {

@@ -2,9 +2,9 @@ package com.iscte_meta_systems.evoting_server.entities;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.iscte_meta_systems.evoting_server.enums.Role;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.iscte_meta_systems.evoting_server.services.VoterService;
+import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Voter {
@@ -12,30 +12,35 @@ public class Voter {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(unique=true)
     private String telephoneNumber;
-    private Long pin;
+    @Column(unique=true)
     private Long nif;
     private String firstName;
     private String lastName;
-    private String district;
-    private String municipality;
-    private String parish;
+    @ManyToOne
+    private District district;
+    @ManyToOne
+    private Municipality municipality;
+    @ManyToOne
+    private Parish parish;
     private Role role = Role.VOTER;
 
     public Voter() {
     }
 
-    public Voter(JsonNode jsonNode) {
+    public Voter(JsonNode jsonNode, District district, Municipality municipality, Parish parish) {
         if (jsonNode == null) {
             throw new NullPointerException("JsonNode cannot be null");
         }
+
         this.nif = jsonNode.path("nif").asLong();
         this.telephoneNumber = jsonNode.path("telephoneNumber").asText();
         this.firstName = jsonNode.path("firstName").asText();
         this.lastName = jsonNode.path("lastName").asText();
-        this.district = jsonNode.path("district").asText();
-        this.municipality = jsonNode.path("municipality").asText();
-        this.parish = jsonNode.path("parish").asText();
+        this.district = district;
+        this.municipality = municipality;
+        this.parish = parish;
     }
 
     public Long getId() {
@@ -52,14 +57,6 @@ public class Voter {
 
     public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
-    }
-
-    public Long getPin() {
-        return pin;
-    }
-
-    public void setPin(Long pin) {
-        this.pin = pin;
     }
 
     public Long getNif() {
@@ -86,27 +83,27 @@ public class Voter {
         this.lastName = lastName;
     }
 
-    public String getDistrict() {
+    public District getDistrict() {
         return district;
     }
 
-    public void setDistrict(String district) {
+    public void setDistrict(District district) {
         this.district = district;
     }
 
-    public String getMunicipality() {
+    public Municipality getMunicipality() {
         return municipality;
     }
 
-    public void setMunicipality(String municipality) {
+    public void setMunicipality(Municipality municipality) {
         this.municipality = municipality;
     }
 
-    public String getParish() {
+    public Parish getParish() {
         return parish;
     }
 
-    public void setParish(String parish) {
+    public void setParish(Parish parish) {
         this.parish = parish;
     }
 

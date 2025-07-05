@@ -1,6 +1,9 @@
 package com.iscte_meta_systems.evoting_server.security;
 
+import com.iscte_meta_systems.evoting_server.entities.OAuthToken;
 import com.iscte_meta_systems.evoting_server.entities.Voter;
+import com.iscte_meta_systems.evoting_server.entities.VoterHash;
+import com.iscte_meta_systems.evoting_server.repositories.OAuthTokenRepository;
 import com.iscte_meta_systems.evoting_server.repositories.VoterHashRepository;
 import com.iscte_meta_systems.evoting_server.repositories.VoterRepository;
 import com.iscte_meta_systems.evoting_server.services.UserService;
@@ -21,34 +24,34 @@ import java.util.List;
 public class VoterAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
+    private OAuthTokenRepository oAuthTokenRepository;
+
+    @Autowired
+    private VoterHashRepository voterHashRepository;
+    @Autowired
     private VoterRepository voterRepository;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String nif = authentication.getName();
-        String pin = authentication.getCredentials().toString();
+        String id = authentication.getName();
+        String token = authentication.getCredentials().toString();
 
-        Voter voter = voterRepository.findVoterByNif(Long.valueOf(nif));
+        Voter existingVoter = voterRepository.findVoterById(Long.valueOf(id));
 
-        if (voter == null || voter.getId() == null)
+        if (existingVoter == null || existingVoter.getId() == null)
             throw new AuthenticationException("Voter not found") {};
+
+        OAuthToken existingToken = oAuthTokenRepository.findOAuthTokenByToken(token);
+
+        if (existingToken == null || existingToken.getId() == null)
+            throw new AuthenticationException("Token not found") {};
 
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_" + voter.getRole()));
+        authorities.add(new SimpleGrantedAuthority("ROLE_VOTER"));
 
-        return new UsernamePasswordAuthenticationToken(nif, pin, authorities);
+        return new UsernamePasswordAuthenticationToken(id, token, authorities);
 
-        /*if (user != null) {
-            List<GrantedAuthority> roles = new ArrayList<>();
-            roles.add(new SimpleGrantedAuthority("ROLE_USER"));
-            if(user.getRole() == Role.ADMIN) {
-                roles.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-            }
-            return new UsernamePasswordAuthenticationToken(username, password, roles);
-        }
-
-         */
     }
 
     @Override
