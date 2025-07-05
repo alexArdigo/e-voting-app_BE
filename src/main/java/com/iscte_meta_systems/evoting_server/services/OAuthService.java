@@ -7,9 +7,9 @@ import java.util.Map;
 public interface OAuthService {
     Map<String, String> authUrl();
 
-    String callback(JsonNode payload);
+    Long addVoter(JsonNode userInfo, String token);
 
-    void getAccessToken(String token);
+    void authWithToken(String token, Long voterId);
 
-    void addVoter(JsonNode userInfo);
+    Long callback(JsonNode payload);
 }

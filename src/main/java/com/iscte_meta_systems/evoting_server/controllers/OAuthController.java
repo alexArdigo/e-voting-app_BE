@@ -20,10 +20,18 @@ public class OAuthController {
         return ResponseEntity.ok().body(oAuthService.authUrl());
     }
 
-    @PostMapping("/callback")
-    public ResponseEntity<?> callback(@RequestBody JsonNode payload) {
-        System.out.println("payload @callback = " + payload.get("clientToken"));
-        return ResponseEntity.ok().body(oAuthService.callback(payload));
+    @PostMapping("/auth-with-token")
+    public ResponseEntity<?> authWithToken(
+            @RequestParam String token,
+            @RequestParam Long id
+    ) {
+        System.out.println("id = " + id);
+        oAuthService.authWithToken(token, id);
+        return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/callback")
+    public ResponseEntity<?> callback(@RequestBody JsonNode payload) {
+        return ResponseEntity.ok().body(oAuthService.callback(payload));
+    }
 }

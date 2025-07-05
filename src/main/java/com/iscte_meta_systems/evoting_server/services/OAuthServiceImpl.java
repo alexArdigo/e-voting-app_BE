@@ -1,11 +1,8 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iscte_meta_systems.evoting_server.controllers.VoterController;
-import com.iscte_meta_systems.evoting_server.entities.OAuthToken;
-import com.iscte_meta_systems.evoting_server.entities.Voter;
-import com.iscte_meta_systems.evoting_server.model.VoterDTO;
+import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.repositories.OAuthTokenRepository;
 import com.iscte_meta_systems.evoting_server.repositories.VoterRepository;
 import com.iscte_meta_systems.evoting_server.security.VoterAuthenticationProvider;
@@ -20,10 +17,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Map;
@@ -33,14 +30,15 @@ import java.util.UUID;
 public class OAuthServiceImpl implements OAuthService {
 
     WebClient webClient;
-    @Autowired
-    private VoterRepository voterRepository;
 
     public OAuthServiceImpl(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .build();
     }
+
+    @Autowired
+    private VoterRepository voterRepository;
 
     @Autowired
     private VoterAuthenticationProvider voterAuthenticationProvider;
@@ -94,68 +92,29 @@ public class OAuthServiceImpl implements OAuthService {
         tokenRequest.put("redirectUri", redirectUri);
 
 
-        String requestUrl = chavemovelUrl + "/oauth/client-token";
+        String requestUrl = chavemovelUrl + "/oauth/token";
         restTemplate.postForObject(requestUrl, new HttpEntity<>(tokenRequest.toString(), headers), String.class);
     }
 
     @Override
-    public String callback(JsonNode payload) {
-        String clientToken = payload.get("clientToken").asText();
-        Long userId = payload.get("userId").asLong();
+    @Transactional
+    public void authWithToken(String token, Long voterId) {
+        OAuthToken existingOAuthToken = oAuthTokenRepository.findOAuthTokenByToken(token);
 
-        boolean tokenExists = oAuthTokenRepository.existsOAuthTokenByToken(clientToken);
-
-        if (!tokenExists)
-            throw new IllegalArgumentException("Invalid or expired client token");
-
-        String token = webClient.post()
-                .uri(chavemovelUrl + "/oauth/token")
-                .body(BodyInserters.fromFormData("grant_type", "authorization_code")
-                        .with("client_id", clientId)
-                        .with("client_secret", clientSecret)
-                        .with("user_id", userId.toString()))
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
-
-        if (token == null || token.isEmpty()) {
-            throw new RuntimeException("Failed to retrieve access token");
+        if (existingOAuthToken == null) {
+            throw new IllegalArgumentException("Invalid OAuth token");
         }
 
-        System.out.println("token @callback = " + token);
+        authenticationToken(voterId.toString(), existingOAuthToken.getToken());
 
-        getAccessToken(token);
+        oAuthTokenRepository.deleteByToken(existingOAuthToken.getToken());
 
-        return "http://localhost:5173/voter-data";
     }
 
-    @Override
-    public void getAccessToken(String token) {
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode tokenJson = objectMapper.readTree(token);
+    private UsernamePasswordAuthenticationToken authenticationToken(String voterId, String token) {
 
-            // Extract user info
-            JsonNode userInfo = tokenJson.get("user");
-
-            addVoter(userInfo);
-
-            System.out.println("tokenJson = " + tokenJson);
-            // Extract access token
-            Long nif = tokenJson.get("PROVIDER_TOKEN").get("principal").asLong();
-            String pin = tokenJson.get("PROVIDER_TOKEN").get("credentials").asText();
-
-            authenticationToken(nif, pin);
-
-        } catch (Exception e) {
-            System.err.println("Error parsing token response: " + e.getMessage());
-            throw new RuntimeException("Failed to parse token response", e);
-        }
-    }
-
-    private UsernamePasswordAuthenticationToken authenticationToken(Long nif, String pin) {
         UsernamePasswordAuthenticationToken authToken =
-                new UsernamePasswordAuthenticationToken(nif, pin);
+                new UsernamePasswordAuthenticationToken(voterId, token);
         Authentication authentication = voterAuthenticationProvider.authenticate(authToken);
 
         if (authentication != null && authentication.isAuthenticated()) {
@@ -168,9 +127,40 @@ public class OAuthServiceImpl implements OAuthService {
     }
 
     @Override
-    public void addVoter(JsonNode userInfo) {
-        voterRepository.save(new Voter(userInfo));
-        VoterDTO voterDTO = new VoterDTO(userInfo);
-        voterService.saveVoterHash(voterDTO);
+    public Long callback(JsonNode payload) {
+        if (payload == null || !payload.has("token") || !payload.has("user")) {
+            throw new IllegalArgumentException("Invalid payload");
+        }
+
+        String token = payload.get("token").asText();
+
+        OAuthToken oAuthToken = oAuthTokenRepository.findOAuthTokenByToken(token);
+        if (oAuthToken == null) {
+            throw new IllegalArgumentException("Invalid OAuth token");
+        }
+
+        JsonNode user = payload.get("user");
+
+        System.out.println("user = " + user);
+
+        return addVoter(user, token);
+    }
+
+    @Override
+    public Long addVoter(JsonNode user, String token) {
+        Voter existingVoter = voterRepository.findVoterByNif(user.path("nif").asLong());
+
+        if (existingVoter != null) {
+            return existingVoter.getId();
+        }
+
+        District district = voterService.getDistrict(user.path("district").asText());
+        Municipality municipality = voterService.getMunicipality(user.path("municipality").asText(), district);
+        Parish parish = voterService.getParish(user.path("parish").asText(), municipality);
+
+        Voter voter = voterRepository.save(new Voter(user, district, municipality, parish));
+        voterService.saveVoterHash(voter);
+
+        return voter.getId();
     }
 }
