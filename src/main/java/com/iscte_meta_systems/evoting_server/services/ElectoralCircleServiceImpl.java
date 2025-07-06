@@ -35,8 +35,6 @@ public class ElectoralCircleServiceImpl implements ElectoralCircleService {
         if (districtRepository.count() > 0) {
             return;
         }
-
-
         try {
             readCSVFile();
         } catch (Exception e) {

@@ -103,4 +103,5 @@ public class ElectionController {
         return electionService.generateTestVotes(numberOfVotes, electionId);
     }
 
+
 }

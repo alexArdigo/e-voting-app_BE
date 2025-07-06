@@ -54,6 +54,14 @@ public class InitializeStuffImpl {
             election2.setStarted(false);
             election2.setType(ElectionType.PRESIDENTIAL);
 
+            Election election3 = new Election();
+            election2.setName("Legislativas 2024");
+            election2.setDescription("Eleições para Presidente da República");
+            election2.setStartDate(LocalDateTime.of(2024, 1, 20, 8, 0));
+            election2.setEndDate(LocalDateTime.of(2024, 1, 20, 19, 0));
+            election2.setStarted(false);
+            election2.setType(ElectionType.LEGISLATIVE);
+
             electionRepository.save(election1);
             electionRepository.save(election2);
         }
