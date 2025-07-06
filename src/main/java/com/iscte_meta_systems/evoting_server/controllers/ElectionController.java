@@ -102,6 +102,4 @@ public class ElectionController {
     public List<Vote> generateTestVotes(@PathVariable int numberOfVotes, @PathVariable Long electionId) {
         return electionService.generateTestVotes(numberOfVotes, electionId);
     }
-
-
 }

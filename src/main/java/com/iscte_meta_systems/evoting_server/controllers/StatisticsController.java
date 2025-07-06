@@ -50,11 +50,14 @@ public class StatisticsController {
     @GetMapping("/total-votes-by-party-by-district") //total-votes-by-party-by-district?partyName=Partido Socialista&districtName=Aveiro
     public int getTotalVotesByPartyByDistrict(
             @RequestParam String partyName,
-            @RequestParam String districtName) {
+            @RequestParam String districtName
+            , @RequestParam int year,
+            @RequestParam Long electoralCircleId
+    ) {
         /**
          * Retrieves the total number of votes for a specific party in a specific district
          */
-        return statisticsService.getVotesByPartyByDistrict(partyName, districtName);
+        return statisticsService.getVotesByPartyByDistrict(partyName, districtName, year, electoralCircleId);
     }
 
     @GetMapping ("/stats/{year}/{partyName}")
