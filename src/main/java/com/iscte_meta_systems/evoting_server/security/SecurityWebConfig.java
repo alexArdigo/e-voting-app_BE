@@ -39,9 +39,7 @@ public class SecurityWebConfig {
 
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.cors(corsConfigurer -> {
-            corsConfigurer.configurationSource(corsConfigurationSource());
-        });
+        httpSecurity.cors(corsConfigurer -> corsConfigurer.configurationSource(corsConfigurationSource()));
 
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
 
@@ -54,9 +52,12 @@ public class SecurityWebConfig {
 
             auth.requestMatchers(HttpMethod.POST, "/login").permitAll();
             auth.requestMatchers(HttpMethod.POST, "/registerAdmin", "/registerViewer").permitAll();
-            auth.requestMatchers(HttpMethod.GET, "/elections", "/elections/{id}", "/elections/{id}/ballot").permitAll();
-            auth.requestMatchers(HttpMethod.GET, "/elections/{id}/candidates", "/candidate/{id}").permitAll();
-            auth.requestMatchers(HttpMethod.GET, "/organisations", "/parties", "/uniparties", "/organisations/{id}").permitAll();
+            auth.requestMatchers(HttpMethod.GET,
+                    "/elections", "/elections/{id}", "/elections/{id}/ballot",
+                    "/elections/{id}/candidates", "/candidate/{id}",
+                    "/organisations", "/uniparties", "/organisations/{id}",
+                    "/voters"
+            ).permitAll();
 
             // Admin
             auth.requestMatchers(
@@ -73,16 +74,12 @@ public class SecurityWebConfig {
                     "/elections/{id}/endElection"
             ).hasRole("ADMIN");
 
-            auth.requestMatchers(HttpMethod.GET, "/pendingAuthorization").hasRole("ADMIN");
-            auth.requestMatchers(HttpMethod.GET, "/approveViewer/{viewerId}").hasRole("ADMIN");
+            auth.requestMatchers(HttpMethod.GET, "/pendingAuthorization", "/approveViewer/{viewerId}").hasRole("ADMIN");
 
             // Authenticated voters
             auth.requestMatchers(HttpMethod.POST, "/elections/{id}/castVote").hasRole("VOTER");
-            auth.requestMatchers(HttpMethod.GET, "/findUserByUsername").authenticated();
-            auth.requestMatchers(HttpMethod.GET, "/parties", "parties/**").permitAll();
-            auth.requestMatchers(HttpMethod.GET, "/voters/has-voted").authenticated();
-            auth.requestMatchers(HttpMethod.GET, "/voters").permitAll();
 
+            auth.requestMatchers(HttpMethod.GET, "/findUserByUsername", "/voters/has-voted").authenticated();
 
             auth.requestMatchers("/**").permitAll();
 
@@ -92,12 +89,8 @@ public class SecurityWebConfig {
         httpSecurity.formLogin(loginConfig -> {
             loginConfig.loginPage("/login");
             loginConfig.loginProcessingUrl("/login");
-            loginConfig.successHandler((request, response, authentication) -> {
-                response.setStatus(200);
-            });
-            loginConfig.failureHandler((request, response, authentication) -> {
-                response.setStatus(401);
-            });
+            loginConfig.successHandler((request, response, authentication) -> response.setStatus(200));
+            loginConfig.failureHandler((request, response, authentication) -> response.setStatus(401));
         });
 
         httpSecurity.logout(
