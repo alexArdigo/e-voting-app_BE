@@ -215,6 +215,7 @@ public class ElectionServiceImpl implements ElectionService {
 
         return activeElection.stream().map(e -> {
             ElectionDTO dto = new ElectionDTO();
+            dto.setId(e.getId());
             dto.setName(e.getName());
             dto.setDescription(e.getDescription());
             dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
