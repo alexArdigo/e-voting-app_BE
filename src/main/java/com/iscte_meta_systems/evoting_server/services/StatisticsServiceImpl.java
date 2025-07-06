@@ -212,25 +212,16 @@ public class StatisticsServiceImpl implements StatisticsService{
 //    }
 
     @Override
-    public int getVotesByPartyByDistrict(String partyName, String districtName, int year, Long electoralCircleId) {
-        // Procurar círculo eleitoral por ID
-        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electoralCircleId)
-                .orElseThrow(() -> new IllegalArgumentException("Círculo eleitoral com ID " + electoralCircleId + " não encontrado."));
+    public int getVotesByPartyByDistrict(String partyName, String districtName, int year) {
 
-        // Verificar se o distrito corresponde ao do círculo
-        if (!electoralCircle.getDistricts().getDistrictName().equalsIgnoreCase(districtName)) {
-            System.out.println("Distrito não pertence ao círculo eleitoral especificado.");
-            return 0;
-        }
+        ElectoralCircle electoralCircle = electoralCircleRepository.findByDistricts_DistrictName(districtName);
 
-        // Filtrar votos pelo nome do distrito
         List<Vote> votes = voteRepository.findByDistrictName(districtName);
         if (votes == null || votes.isEmpty()) {
             System.out.println("Sem votos para o distrito " + districtName);
             return 0;
         }
 
-        // Contar apenas os votos do partido certo, do ano certo e círculo certo
         int count = 0;
         for (Vote vote : votes) {
             if (vote.getOrganisation() instanceof Party &&
@@ -264,8 +255,6 @@ public class StatisticsServiceImpl implements StatisticsService{
 
         return totalVotes;
     }
-
-
 }
 
 

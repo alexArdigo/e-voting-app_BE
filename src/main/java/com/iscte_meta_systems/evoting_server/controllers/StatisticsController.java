@@ -47,17 +47,9 @@ public class StatisticsController {
         return statisticsService.getVotesByPartyByElectoralCircle(partyName, electionId);
     }
 
-    @GetMapping("/total-votes-by-party-by-district") //total-votes-by-party-by-district?partyName=Partido Socialista&districtName=Aveiro
-    public int getTotalVotesByPartyByDistrict(
-            @RequestParam String partyName,
-            @RequestParam String districtName
-            , @RequestParam int year,
-            @RequestParam Long electoralCircleId
-    ) {
-        /**
-         * Retrieves the total number of votes for a specific party in a specific district
-         */
-        return statisticsService.getVotesByPartyByDistrict(partyName, districtName, year, electoralCircleId);
+    @GetMapping("/total-votes-by-party-by-district")
+    public int getTotalVotesByPartyByDistrict(@RequestParam String partyName, @RequestParam String districtName, @RequestParam int year) {
+        return statisticsService.getVotesByPartyByDistrict(partyName, districtName, year);
     }
 
     @GetMapping ("/stats/{year}/{partyName}")
