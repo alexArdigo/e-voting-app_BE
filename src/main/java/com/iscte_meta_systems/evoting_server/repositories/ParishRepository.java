@@ -20,4 +20,6 @@ public interface ParishRepository extends JpaRepository<Parish, Long> {
     List<Parish> findByParishNameContaining(@Param("name") String name);
 
     List<Parish> findByParishNameContainingIgnoreCase(String municipality);
+
+    List<Parish> findByMunicipalityId(Long municipalityId);
 }

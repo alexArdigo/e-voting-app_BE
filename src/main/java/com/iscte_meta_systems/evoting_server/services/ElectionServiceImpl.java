@@ -249,36 +249,43 @@ public class ElectionServiceImpl implements ElectionService {
         return electionRepository.save(election);
     }
 
+    @Override
     public List<Vote> generateTestVotes(int numberOfVotes, Long electionId) {
-        List<Parish> parishes = parishRepository.findAll();
         List<Municipality> municipalities = municipalityRepository.findAll();
         List<Organisation> organisations = organisationRepository.findAll();
 
-        if (parishes.isEmpty() || organisations.isEmpty()) {
-            throw new IllegalStateException("Parishes or organisations are empty");
+        if (municipalities.isEmpty() || organisations.isEmpty()) {
+            throw new IllegalStateException("Municipalities or Organisations are empty");
         }
 
+        Election election = getElectionById(electionId);
         List<Vote> votes = new ArrayList<>();
 
         for (int i = 0; i < numberOfVotes; i++) {
+            Municipality municipality = municipalities.get((int) (Math.random() * municipalities.size()));
 
-            int random = (int) (Math.random() * organisations.size());
-            int randomMunicipality = (int) (Math.random() * municipalities.size());
+            List<Parish> parishesFromMunicipality = parishRepository.findByMunicipalityId(municipality.getId());
 
-            Municipality municipality = municipalities.get(randomMunicipality);
-            Parish parish = municipality.getParishes().getFirst();
-            Organisation organisation = organisations.get(random);
+            if (parishesFromMunicipality == null || parishesFromMunicipality.isEmpty()) {
+                throw new IllegalStateException("No parishes found for municipality: " + municipality.getMunicipalityName());
+            }
+
+            Parish parish = parishesFromMunicipality.get((int) (Math.random() * parishesFromMunicipality.size()));
+            Organisation organisation = organisations.get((int) (Math.random() * organisations.size()));
 
             Vote vote = new Vote();
             vote.setParish(parish);
             vote.setMunicipality(municipality);
             vote.setOrganisation(organisation);
 
-            Election election = getElectionById(electionId);
+            votes.add(vote);
             election.addVote(vote);
-
         }
+
+        voteRepository.saveAll(votes);
+        electionRepository.save(election);
 
         return votes;
     }
+
 }

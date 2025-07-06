@@ -9,11 +9,11 @@ public class Vote {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToOne
+    @ManyToOne
     private Organisation organisation;
-    @OneToOne
+    @ManyToOne
     private Municipality municipality;
-    @OneToOne
+    @ManyToOne
     private Parish parish;
 
     public Vote() {
