@@ -16,8 +16,8 @@ public class VoterController {
     @Autowired
     private VoterService voterService;
 
-    @GetMapping("/voters")
-    public ResponseEntity<?> getVoter() {
+    @GetMapping("/loggedVoter")
+    public ResponseEntity<?> getLoggedVoter() {
         return ResponseEntity.ok().body(voterService.getLoggedVoter());
     }
 

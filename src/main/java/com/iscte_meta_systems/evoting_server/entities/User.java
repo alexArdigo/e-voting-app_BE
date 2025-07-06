@@ -1,4 +1,5 @@
 package com.iscte_meta_systems.evoting_server.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import jakarta.persistence.*;
@@ -13,6 +14,7 @@ public class User {
     private Long id;
 
     private String username;
+    @JsonIgnore
     private String password;
     private String name;
     private Boolean isAuthorized;
