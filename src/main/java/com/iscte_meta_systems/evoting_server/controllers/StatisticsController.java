@@ -56,4 +56,11 @@ public class StatisticsController {
          */
         return statisticsService.getVotesByPartyByDistrict(partyName, districtName);
     }
+
+    @GetMapping ("/stats/{year}/{partyName}")
+    public int getVotesByPartyByYear(
+            @PathVariable String partyName,
+            @PathVariable int year) {
+        return statisticsService.getGlobalVotesByPartyByYearOfElection(partyName, year);
+    }
 }

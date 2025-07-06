@@ -12,7 +12,7 @@ public class ElectoralCircle extends Election {
     @ManyToOne
     Legislative legislative;
 
-    @OneToOne
+    @ManyToOne
     District districts;
     @OneToMany
     List<Party> parties;
