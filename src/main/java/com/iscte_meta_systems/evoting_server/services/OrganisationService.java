@@ -17,6 +17,10 @@ public interface OrganisationService {
 
     List<Party> getAllParties();
 
+    Party getPartyById(Long id);
+
+    Party addParty(String name, String color, String imageURL, String description);
+
     List<UniParty> getAllUniParties();
 }
 

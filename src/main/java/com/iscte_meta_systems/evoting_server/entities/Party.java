@@ -15,6 +15,15 @@ public class Party extends Organisation {
     @OneToMany
     List<Candidate> candidates;
 
+    public Party() {
+    }
+
+    public Party(String name, String color, String logoUrl, String description) {
+        this.name = name;
+        this.color = color;
+        this.logoUrl = logoUrl;
+        this.description = description;
+    }
 
     public String getName() {
         return name;

@@ -79,6 +79,16 @@ public class OrganisationServiceImpl implements OrganisationService {
     }
 
     @Override
+    public Party getPartyById(Long id) {
+        return partyRepository.findPartyById(id);
+    }
+
+    @Override
+    public Party addParty(String name, String color, String imageURL, String description) {
+        return partyRepository.save(new Party(name, color, imageURL, description));
+    }
+
+    @Override
     public List<UniParty> getAllUniParties() {
         return uniPartyRepository.findAll();
     }
