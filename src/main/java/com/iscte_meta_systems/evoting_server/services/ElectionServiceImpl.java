@@ -43,6 +43,9 @@ public class ElectionServiceImpl implements ElectionService {
     @Autowired
     private ParishRepository parishRepository;
 
+    @Autowired
+    private MunicipalityRepository municipalityRepository;
+
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
         List<Election> elections = electionRepository.findAll();
@@ -248,18 +251,23 @@ public class ElectionServiceImpl implements ElectionService {
 
     public List<Vote> generateTestVotes(int numberOfVotes) {
         List<Parish> parishes = parishRepository.findAll();
+        List<Municipality> municipalities = municipalityRepository.findAll();
         List<Organisation> organisations = organisationRepository.findAll();
 
         if (parishes.isEmpty() || organisations.isEmpty()) {
-            throw new IllegalStateException("Parishes or Organisations are empty.");
+            throw new IllegalStateException("Parishes or organisations are empty");
         }
 
         List<Vote> votes = new ArrayList<>();
 
         for (int i = 0; i < numberOfVotes; i++) {
-            Parish parish = parishes.get(i % parishes.size());
-            Organisation organisation = organisations.get(i % organisations.size());
-            Municipality municipality = parish.getMunicipality();
+
+            int random = (int) (Math.random() * organisations.size());
+            int randomMunicipality = (int) (Math.random() * municipalities.size());
+
+            Municipality municipality = municipalities.get(randomMunicipality);
+            Parish parish = municipality.getParishes().getFirst();
+            Organisation organisation = organisations.get(random);
 
             Vote vote = new Vote();
             vote.setParish(parish);
