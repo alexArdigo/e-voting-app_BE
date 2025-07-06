@@ -40,6 +40,9 @@ public class ElectionServiceImpl implements ElectionService {
     @Autowired
     private VoterHashRepository voterHashRepository;
 
+    @Autowired
+    private ParishRepository parishRepository;
+
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
         List<Election> elections = electionRepository.findAll();
@@ -241,5 +244,31 @@ public class ElectionServiceImpl implements ElectionService {
         }
         election.endElection();
         return electionRepository.save(election);
+    }
+
+    public List<Vote> generateTestVotes(int numberOfVotes) {
+        List<Parish> parishes = parishRepository.findAll();
+        List<Organisation> organisations = organisationRepository.findAll();
+
+        if (parishes.isEmpty() || organisations.isEmpty()) {
+            throw new IllegalStateException("Parishes or Organisations are empty.");
+        }
+
+        List<Vote> votes = new ArrayList<>();
+
+        for (int i = 0; i < numberOfVotes; i++) {
+            Parish parish = parishes.get(i % parishes.size());
+            Organisation organisation = organisations.get(i % organisations.size());
+            Municipality municipality = parish.getMunicipality();
+
+            Vote vote = new Vote();
+            vote.setParish(parish);
+            vote.setMunicipality(municipality);
+            vote.setOrganisation(organisation);
+
+            votes.add(vote);
+        }
+
+        return votes;
     }
 }
