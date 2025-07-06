@@ -111,47 +111,64 @@ public class ElectionServiceImpl implements ElectionService {
             case PRESIDENTIAL:
                 election = new Presidential();
                 election.setType(ElectionType.PRESIDENTIAL);
-                break;
+                election.setName(dto.getName());
+                election.setDescription(dto.getDescription());
+                election.setStartDate(startDate);
+                election.setEndDate(endDate);
+
+                election = electionRepository.save(election);
+
+                ElectionDTO presidentialResult = new ElectionDTO();
+                presidentialResult.setName(election.getName());
+                presidentialResult.setDescription(election.getDescription());
+                presidentialResult.setStartDate(election.getStartDate().toString());
+                presidentialResult.setEndDate(election.getEndDate().toString());
+                presidentialResult.setElectionType(election.getType());
+                return presidentialResult;
+
             case LEGISLATIVE:
+                Legislative legislative = new Legislative();
                 List<String> distritos = List.of(
                         "Viana do Castelo", "Braga", "Vila Real", "Bragança", "Porto", "Aveiro", "Viseu", "Guarda",
                         "Coimbra", "Leiria", "Castelo Branco", "Santarém", "Lisboa", "Portalegre", "Évora", "Setúbal",
                         "Beja", "Faro", "Madeira", "Açores", "Europa", "Fora da Europa"
                 );
-                int[] seatsDistritos = {6,19,5,3,40,16,8,3,9,10,4,9,48,2,3,18,3,9,6,5,2,2};
+                int[] seatsDistritos = {6, 19, 5, 3, 40, 16, 8, 3, 9, 10, 4, 9, 48, 2, 3, 18, 3, 9, 6, 5, 2, 2};
+
                 List<ElectoralCircle> circles = new ArrayList<>();
                 for (int i = 0; i < distritos.size(); i++) {
                     ElectoralCircle circle = new ElectoralCircle();
-                    circle.setName(distritos.get(i));
+                    circle.setName(dto.getName() + " - " + distritos.get(i));
                     circle.setSeats(seatsDistritos[i]);
                     circle.setElectoralCircleType(ElectoralCircleType.NATIONAL);
+                    circle.setStartDate(startDate);
+                    circle.setEndDate(endDate);
+                    circle.setDescription(dto.getDescription());
+                    circle.setType(ElectionType.LEGISLATIVE);
+
                     District district = districtRepository.findByDistrictName(distritos.get(i));
                     if (district != null) {
                         circle.setDistricts(district);
                     }
-                    circle.setName(dto.getName() + " - " + distritos.get(i));
-                    circle.setStartDate(startDate);
-                    circle.setEndDate(endDate);
-                    circle.setDescription(dto.getDescription());
-                    electionRepository.save(circle);
+
+                    circle.setLegislative(legislative);
+
+                    circle = electionRepository.save(circle);
                     circles.add(circle);
                 }
-                Legislative legislative = new Legislative();
                 legislative.setElectoralCircles(circles);
+                legislative = legislativeRepository.save(legislative);
+                ElectionDTO legislativeResult = new ElectionDTO();
+                legislativeResult.setName(dto.getName());
+                legislativeResult.setDescription(dto.getDescription());
+                legislativeResult.setStartDate(startDate.toString());
+                legislativeResult.setEndDate(endDate.toString());
+                legislativeResult.setElectionType(ElectionType.LEGISLATIVE);
+                return legislativeResult;
 
-                ElectionDTO resultDto = new ElectionDTO();
-                return resultDto;
             default:
                 throw new IllegalArgumentException("Unknown election type: " + dto.getElectionType());
         }
-
-        election.setName(dto.getName());
-        election.setDescription(dto.getDescription());
-        election.setStartDate(startDate);
-        election.setEndDate(endDate);
-
-        electionRepository.save(election);
-        return dto;
     }
 
     @Override
