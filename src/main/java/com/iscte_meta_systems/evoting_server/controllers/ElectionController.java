@@ -98,4 +98,9 @@ public class ElectionController {
         return electionService.getNotActiveElections();
     }
 
+    @PostMapping ("/elections/testVotes/{numberOfVotes}")
+    public List<Vote> generateTestVotes(@PathVariable int numberOfVotes) {
+        return electionService.generateTestVotes(numberOfVotes);
+    }
+
 }
