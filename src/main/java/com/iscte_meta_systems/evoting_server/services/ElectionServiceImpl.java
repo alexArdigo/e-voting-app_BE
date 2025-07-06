@@ -249,7 +249,7 @@ public class ElectionServiceImpl implements ElectionService {
         return electionRepository.save(election);
     }
 
-    public List<Vote> generateTestVotes(int numberOfVotes) {
+    public List<Vote> generateTestVotes(int numberOfVotes, Long electionId) {
         List<Parish> parishes = parishRepository.findAll();
         List<Municipality> municipalities = municipalityRepository.findAll();
         List<Organisation> organisations = organisationRepository.findAll();
@@ -274,7 +274,9 @@ public class ElectionServiceImpl implements ElectionService {
             vote.setMunicipality(municipality);
             vote.setOrganisation(organisation);
 
-            votes.add(vote);
+            Election election = getElectionById(electionId);
+            election.addVote(vote);
+
         }
 
         return votes;

@@ -30,6 +30,6 @@ public interface ElectionService {
 
     List<Election> getNotActiveElections();
 
-    List<Vote> generateTestVotes(int numberOfVotes);
+    List<Vote> generateTestVotes(int numberOfVotes, Long electionId);
 
 }
