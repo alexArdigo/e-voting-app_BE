@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.services.InitializeStuff;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
+import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +30,11 @@ public class InitializeStuffImpl {
     @Autowired
     private ElectoralCircleRepository electoralCircleRepository;
 
-//    @PostConstruct
-//    public void initializeData() {
-//        initializeElections();
-//        initializeParties();
-//        initializeVotes();
-//    }
+    @PostConstruct
+    public void initializeData() {
+        initializeElections();
+        initializeParties();
+    }
 
     public void initializeElections() {
         if (electionRepository.count() == 0) {
@@ -44,6 +44,7 @@ public class InitializeStuffImpl {
             election1.setStartDate(LocalDateTime.of(2025, 7, 1, 8, 0));
             election1.setEndDate(LocalDateTime.of(2025, 7, 1, 19, 0));
             election1.setStarted(true);
+            election1.setType(ElectionType.LEGISLATIVE);
 
             Election election2 = new Election();
             election2.setName("Presidenciais 2026");
@@ -51,6 +52,7 @@ public class InitializeStuffImpl {
             election2.setStartDate(LocalDateTime.of(2026, 1, 20, 8, 0));
             election2.setEndDate(LocalDateTime.of(2026, 1, 20, 19, 0));
             election2.setStarted(false);
+            election2.setType(ElectionType.PRESIDENTIAL);
 
             electionRepository.save(election1);
             electionRepository.save(election2);
