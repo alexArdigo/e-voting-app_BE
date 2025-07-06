@@ -127,7 +127,18 @@ public class ElectionServiceImpl implements ElectionService {
                 return presidentialResult;
 
             case LEGISLATIVE:
+                Election baseElection = new Election();
+                baseElection.setType(ElectionType.LEGISLATIVE);
+                baseElection.setName(dto.getName());
+                baseElection.setDescription(dto.getDescription());
+                baseElection.setStartDate(startDate);
+                baseElection.setEndDate(endDate);
+                baseElection = electionRepository.save(baseElection);
+
                 Legislative legislative = new Legislative();
+                legislative.setElection(baseElection);
+                legislative = legislativeRepository.save(legislative);
+
                 List<String> distritos = List.of(
                         "Viana do Castelo", "Braga", "Vila Real", "Bragança", "Porto", "Aveiro", "Viseu", "Guarda",
                         "Coimbra", "Leiria", "Castelo Branco", "Santarém", "Lisboa", "Portalegre", "Évora", "Setúbal",
@@ -152,15 +163,16 @@ public class ElectionServiceImpl implements ElectionService {
                     }
 
                     circle.setLegislative(legislative);
-
                     circle = electionRepository.save(circle);
                     circles.add(circle);
                 }
+
                 legislative.setElectoralCircles(circles);
                 legislativeRepository.save(legislative);
+
                 ElectionDTO legislativeResult = new ElectionDTO();
-                legislativeResult.setName(dto.getName());
-                legislativeResult.setDescription(dto.getDescription());
+                legislativeResult.setName(baseElection.getName());
+                legislativeResult.setDescription(baseElection.getDescription());
                 legislativeResult.setStartDate(startDate.toString());
                 legislativeResult.setEndDate(endDate.toString());
                 legislativeResult.setElectionType(ElectionType.LEGISLATIVE);
