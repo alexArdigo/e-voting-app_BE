@@ -157,7 +157,7 @@ public class ElectionServiceImpl implements ElectionService {
                     circles.add(circle);
                 }
                 legislative.setElectoralCircles(circles);
-                legislative = legislativeRepository.save(legislative);
+                legislativeRepository.save(legislative);
                 ElectionDTO legislativeResult = new ElectionDTO();
                 legislativeResult.setName(dto.getName());
                 legislativeResult.setDescription(dto.getDescription());
