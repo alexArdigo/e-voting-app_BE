@@ -46,6 +46,10 @@ public class ElectionServiceImpl implements ElectionService {
     @Autowired
     private MunicipalityRepository municipalityRepository;
 
+    @Autowired
+    private ElectoralCircleRepository electoralCircleRepository;
+
+
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
         List<Election> elections = electionRepository.findAll();
@@ -251,23 +255,24 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Override
     public List<Vote> generateTestVotes(int numberOfVotes, Long electionId) {
-        List<Municipality> municipalities = municipalityRepository.findAll();
         List<Organisation> organisations = organisationRepository.findAll();
 
-        if (municipalities.isEmpty() || organisations.isEmpty()) {
-            throw new IllegalStateException("Municipalities or Organisations are empty");
-        }
+        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electionId)
+                .orElseThrow(() -> new IllegalArgumentException("Electoral Circle with ID " + electionId + " was not found."));
 
-        Election election = getElectionById(electionId);
+        List<Municipality> municipalities = municipalityRepository.findAll().stream()
+                .filter(m -> m.getDistrict().getDistrictName()
+                        .equals(electoralCircle.getDistricts().getDistrictName()))
+                .toList();
+
         List<Vote> votes = new ArrayList<>();
 
         for (int i = 0; i < numberOfVotes; i++) {
             Municipality municipality = municipalities.get((int) (Math.random() * municipalities.size()));
 
             List<Parish> parishesFromMunicipality = parishRepository.findByMunicipalityId(municipality.getId());
-
             if (parishesFromMunicipality == null || parishesFromMunicipality.isEmpty()) {
-                throw new IllegalStateException("No parishes found for municipality: " + municipality.getMunicipalityName());
+                continue;
             }
 
             Parish parish = parishesFromMunicipality.get((int) (Math.random() * parishesFromMunicipality.size()));
@@ -279,13 +284,15 @@ public class ElectionServiceImpl implements ElectionService {
             vote.setOrganisation(organisation);
 
             votes.add(vote);
-            election.addVote(vote);
+            electoralCircle.addVote(vote);
         }
 
         voteRepository.saveAll(votes);
-        electionRepository.save(election);
+        electoralCircleRepository.save(electoralCircle);
 
         return votes;
     }
+
+
 
 }
