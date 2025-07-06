@@ -18,4 +18,6 @@ public interface StatisticsService {
 
     public int getVotesByPartyByDistrict(String partyName, String districtName);
 
+    public int getGlobalVotesByPartyByYearOfElection(String partyName, int year);
+
 }

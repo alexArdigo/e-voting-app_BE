@@ -8,6 +8,7 @@ import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -208,6 +209,27 @@ public class StatisticsServiceImpl implements StatisticsService{
             }
         }
         return count;
+    }
+
+    @Override
+    public int getGlobalVotesByPartyByYearOfElection(String partyName, int year) {  //Only for Legislative Elections
+        List<ElectoralCircle> electoralCircles = electoralCircleRepository.findAll();
+
+        int totalVotes = 0;
+
+        for (ElectoralCircle e : electoralCircles) {
+            District district = e.getDistricts();
+
+            if (e.getStartDate().getYear() == year) {
+                for (Vote vote : voteRepository.findByDistrictName(district.getDistrictName())) {
+                    if (vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
+                        totalVotes++;
+                    }
+                }
+            }
+        }
+
+        return totalVotes;
     }
 }
 
