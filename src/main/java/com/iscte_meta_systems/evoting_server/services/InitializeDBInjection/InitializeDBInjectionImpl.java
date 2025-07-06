@@ -1,4 +1,4 @@
-package com.iscte_meta_systems.evoting_server.services.InitializeStuff;
+package com.iscte_meta_systems.evoting_server.services.InitializeDBInjection;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
@@ -6,7 +6,6 @@ import com.iscte_meta_systems.evoting_server.repositories.*;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
 
@@ -17,7 +16,7 @@ import java.util.Optional;
 
 
 @Service
-public class InitializeStuffImpl {
+public class InitializeDBInjectionImpl implements InitializeDBInjection {
 
     @Autowired
     private ElectionRepository electionRepository;
@@ -35,11 +34,36 @@ public class InitializeStuffImpl {
     private DistrictRepository districtRepository;
 
     @PostConstruct
-    public void initializeData() {
-        initializeParties();
+    public void init() {
+        initializeElections();
         initializeElectoralCircles();
+        initializeParties();
     }
 
+    @Override
+    public void initializeElections() {
+        if (electionRepository.count() == 0) {
+            Election election1 = new Election();
+            election1.setName("Eleições Legislativas 2025");
+            election1.setType(ElectionType.LEGISLATIVE);
+            election1.setDescription("Eleições para a Assembleia da República");
+            election1.setStartDate(LocalDateTime.of(2025, 7, 1, 8, 0));
+            election1.setEndDate(LocalDateTime.of(2025, 7, 1, 19, 0));
+            election1.setStarted(true);
+
+            Election election2 = new Election();
+            election2.setName("Presidenciais 2026");
+            election2.setType(ElectionType.PRESIDENTIAL);
+            election2.setDescription("Eleições para Presidente da República");
+            election2.setStartDate(LocalDateTime.of(2026, 1, 20, 8, 0));
+            election2.setEndDate(LocalDateTime.of(2026, 1, 20, 19, 0));
+            election2.setStarted(false);
+
+            electionRepository.save(election1);
+            electionRepository.save(election2);
+        }
+    }
+    @Override
     public void initializeParties() {
         Optional<Election> optionalElection = electionRepository.findAll().stream().findFirst();
 
@@ -63,9 +87,7 @@ public class InitializeStuffImpl {
             parties.add(createParty("CDS-PP", "Centro Democrático Social – Partido Popular", "#003399", "https://partidos.pt/logos/cdspp.png", election));
             parties.add(createParty("RIR", "Reagir Incluir Reciclar", "#FFA500", "https://partidos.pt/logos/rir.png", election));
 
-            for (Party party : parties) {
-                organisationRepository.save(party);
-            }
+            organisationRepository.saveAll(parties);
 
             UniParty unip = new UniParty();
             unip.setName("Candidato Independente");
@@ -76,7 +98,14 @@ public class InitializeStuffImpl {
         }
     }
 
-    private Party createParty(String shortName, String fullName, String color, String logoUrl, Election election) {
+    @Override
+    public Party createParty(
+            String shortName,
+            String fullName,
+            String color,
+            String logoUrl,
+            Election election
+    ) {
         Party party = new Party();
         party.setName(shortName);
         party.setOrganisationName(fullName);
@@ -87,43 +116,47 @@ public class InitializeStuffImpl {
         return party;
     }
 
+    @Override
     public void initializeElectoralCircles() {
         if (electionRepository.count() == 0) {
             List<District> districts = districtRepository.findAll();
             if (districts.isEmpty()) throw new IllegalStateException("Distritos não inicializados");
 
-            ElectoralCircle aveiro2025 = new ElectoralCircle();
-            aveiro2025.setName("Ciclo Eleitoral Aveiro 2025");
-            aveiro2025.setDescription("Eleições para a Assembleia da República");
-            aveiro2025.setStartDate(LocalDateTime.of(2025, 7, 1, 8, 0));
-            aveiro2025.setEndDate(LocalDateTime.of(2025, 7, 1, 19, 0));
-            aveiro2025.setStarted(true);
-            aveiro2025.setType(ElectionType.LEGISLATIVE);
-            aveiro2025.setElectoralCircleType(ElectoralCircleType.NATIONAL);
-            aveiro2025.setSeats(16);
-            aveiro2025.setDistricts(findDistrictByName(districts, "Aveiro"));
+            ElectoralCircle aveiro2025 = createElectoralCircle(
+                "Ciclo Eleitoral Aveiro 2025",
+                "Eleições para a Assembleia da República",
+                LocalDateTime.of(2025, 7, 1, 8, 0),
+                LocalDateTime.of(2025, 7, 1, 19, 0),
+                true,
+                ElectionType.LEGISLATIVE,
+                ElectoralCircleType.NATIONAL,
+                16,
+                findDistrictByName(districts, "Aveiro")
+            );
 
-            ElectoralCircle lisboa2024 = new ElectoralCircle();
-            lisboa2024.setName("Ciclo Eleitoral Lisboa 2024");
-            lisboa2024.setDescription("Eleições para a Assembleia da República");
-            lisboa2024.setStartDate(LocalDateTime.of(2024, 1, 20, 8, 0));
-            lisboa2024.setEndDate(LocalDateTime.of(2024, 1, 20, 19, 0));
-            lisboa2024.setStarted(false);
-            lisboa2024.setType(ElectionType.LEGISLATIVE);
-            lisboa2024.setElectoralCircleType(ElectoralCircleType.NATIONAL);
-            lisboa2024.setSeats(48);
-            lisboa2024.setDistricts(findDistrictByName(districts, "Lisboa"));
+            ElectoralCircle lisboa2024 = createElectoralCircle(
+                "Ciclo Eleitoral Lisboa 2024",
+                "Eleições para a Assembleia da República",
+                LocalDateTime.of(2024, 1, 20, 8, 0),
+                LocalDateTime.of(2024, 1, 20, 19, 0),
+                false,
+                ElectionType.LEGISLATIVE,
+                ElectoralCircleType.NATIONAL,
+                48,
+                findDistrictByName(districts, "Lisboa")
+            );
 
-            ElectoralCircle lisboa2025 = new ElectoralCircle();
-            lisboa2025.setName("Ciclo Eleitoral Lisboa 2025");
-            lisboa2025.setDescription("Eleições para a Assembleia da República");
-            lisboa2025.setStartDate(LocalDateTime.of(2025, 7, 1, 8, 0));
-            lisboa2025.setEndDate(LocalDateTime.of(2025, 7, 1, 19, 0));
-            lisboa2025.setStarted(true);
-            lisboa2025.setType(ElectionType.LEGISLATIVE);
-            lisboa2025.setElectoralCircleType(ElectoralCircleType.NATIONAL);
-            lisboa2025.setSeats(48);
-            lisboa2025.setDistricts(findDistrictByName(districts, "Lisboa"));
+            ElectoralCircle lisboa2025 = createElectoralCircle(
+                "Ciclo Eleitoral Lisboa 2025",
+                "Eleições para a Assembleia da República",
+                LocalDateTime.of(2025, 7, 1, 8, 0),
+                LocalDateTime.of(2025, 7, 1, 19, 0),
+                true,
+                ElectionType.LEGISLATIVE,
+                ElectoralCircleType.NATIONAL,
+                48,
+                findDistrictByName(districts, "Lisboa")
+            );
 
             Election presidencial2026 = new Election();
             presidencial2026.setName("Presidenciais 2026");
@@ -137,6 +170,20 @@ public class InitializeStuffImpl {
                     aveiro2025, lisboa2024, lisboa2025, presidencial2026
             ));
         }
+    }
+
+    private ElectoralCircle createElectoralCircle(String name, String description, LocalDateTime startDate, LocalDateTime endDate, boolean started, ElectionType type, ElectoralCircleType circleType, int seats, District district) {
+        ElectoralCircle circle = new ElectoralCircle();
+        circle.setName(name);
+        circle.setDescription(description);
+        circle.setStartDate(startDate);
+        circle.setEndDate(endDate);
+        circle.setStarted(started);
+        circle.setType(type);
+        circle.setElectoralCircleType(circleType);
+        circle.setSeats(seats);
+        circle.setDistricts(district);
+        return circle;
     }
 
     private District findDistrictByName(List<District> list, String name) {

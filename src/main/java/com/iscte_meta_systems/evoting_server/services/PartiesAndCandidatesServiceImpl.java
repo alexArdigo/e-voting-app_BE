@@ -95,6 +95,7 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
         }
     }
 
+
     private Map<String, PartyData> readPartiesFromJSON(String districtName) throws Exception {
         ClassPathResource resource = new ClassPathResource("PartiesAndCandidates.json");
         InputStream inputStream = resource.getInputStream();

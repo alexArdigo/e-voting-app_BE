@@ -106,6 +106,7 @@ public class VoterServiceImpl implements VoterService {
         Optional<Election> optional = electionRepository.findById(electionId);
         List<VoterHash> votersVoted = optional.orElseThrow().getVotersVoted();
 
+
         return votersVoted.contains(hash);
     }
 
@@ -113,11 +114,10 @@ public class VoterServiceImpl implements VoterService {
     public Voter getLoggedVoter() {
         String id = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
 
-        Voter voter = voterRepository.findVoterById(Long.valueOf(id));
-        if (voter == null)
-            throw new RuntimeException("Voter not found with ID: " + id);
-
-        return voter;
+        if (id == null || id.isEmpty() || id.equals("anonymousUser")) {
+            return null;
+        }
+        return voterRepository.findVoterById(Long.valueOf(id));
     }
 
     /**
