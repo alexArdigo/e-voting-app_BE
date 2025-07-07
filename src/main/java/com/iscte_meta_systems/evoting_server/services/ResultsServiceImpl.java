@@ -22,7 +22,6 @@ public class ResultsServiceImpl implements ResultsService {
     @Autowired
     private ElectoralCircleRepository electoralCircleRepository;
 
-    ////////////Testing
     @Autowired
     private VoteRepository voteRepository;
 
@@ -73,18 +72,19 @@ public class ResultsServiceImpl implements ResultsService {
     }
 
     @Override
-    public List<LegislativeResultDTO> getAllLegislativeResults(Long electionId) {
+    public List<LegislativeResultDTO> getAllLegislativeResults(Long electoralCircleId) {
 
-        Election election = electionService.getElectionById(electionId);
-        List<ElectoralCircle> allCircles = electoralCircleRepository.findElectoralCirclesByLegislativeElectionId(electionId);
+        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electoralCircleId).orElseThrow(() -> new IllegalArgumentException("Electoral circle not found"));
+        List<ElectoralCircle> allCircles = electoralCircleRepository.findAll();
         List<LegislativeResultDTO> results = new ArrayList<>();
+
+        List<Vote> votes = voteRepository.findByDistrictName(electoralCircle.getDistricts().getDistrictName());
 
         for (ElectoralCircle circle : allCircles) {
             if (circle.getVotes() != null && !circle.getVotes().isEmpty()) {
                 results.add(calculateElectoralCircleResults(circle));
             }
         }
-
         return results;
     }
 
@@ -176,23 +176,6 @@ public class ResultsServiceImpl implements ResultsService {
         }
 
         return seats;
-    }
-
-    @Override
-    public List<LegislativeResultDTO> getAllLegislativeResultsXX(Long electoralCircleId) {
-
-        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electoralCircleId).orElseThrow(() -> new IllegalArgumentException("Electoral circle not found"));
-        List<ElectoralCircle> allCircles = electoralCircleRepository.findAll();
-        List<LegislativeResultDTO> results = new ArrayList<>();
-
-        List<Vote> votes = voteRepository.findByDistrictName(electoralCircle.getDistricts().getDistrictName());
-
-        for (ElectoralCircle circle : allCircles) {
-            if (circle.getVotes() != null && !circle.getVotes().isEmpty()) {
-                results.add(calculateElectoralCircleResults(circle));
-            }
-        }
-        return results;
     }
 
 
