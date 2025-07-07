@@ -28,4 +28,9 @@ public class ResultsController {
     public List<LegislativeResultDTO> getAllLegislativeResults(@PathVariable Long id) {
         return resultsService.getAllLegislativeResults(id);
     }
+
+    @GetMapping ("/testing/{id}")
+    public List<LegislativeResultDTO> test(@PathVariable Long id) {
+        return resultsService.getAllLegislativeResultsXX(id);
+    }
 }

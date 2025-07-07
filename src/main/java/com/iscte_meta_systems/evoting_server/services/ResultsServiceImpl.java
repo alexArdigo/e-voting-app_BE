@@ -5,6 +5,7 @@ import com.iscte_meta_systems.evoting_server.model.ElectionResultDTO;
 import com.iscte_meta_systems.evoting_server.model.LegislativeResultDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationResultDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ElectoralCircleRepository;
+import com.iscte_meta_systems.evoting_server.repositories.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,13 @@ public class ResultsServiceImpl implements ResultsService {
     private ElectionService electionService;
     @Autowired
     private ElectoralCircleRepository electoralCircleRepository;
+
+    ////////////Testing
+    @Autowired
+    private VoteRepository voteRepository;
+
+
+
 
     @Override
     public ElectionResultDTO getPresidentialResults(Long electionId) {
@@ -169,4 +177,23 @@ public class ResultsServiceImpl implements ResultsService {
 
         return seats;
     }
+
+    @Override
+    public List<LegislativeResultDTO> getAllLegislativeResultsXX(Long electoralCircleId) {
+
+        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electoralCircleId).orElseThrow(() -> new IllegalArgumentException("Electoral circle not found"));
+        List<ElectoralCircle> allCircles = electoralCircleRepository.findAll();
+        List<LegislativeResultDTO> results = new ArrayList<>();
+
+        List<Vote> votes = voteRepository.findByDistrictName(electoralCircle.getDistricts().getDistrictName());
+
+        for (ElectoralCircle circle : allCircles) {
+            if (circle.getVotes() != null && !circle.getVotes().isEmpty()) {
+                results.add(calculateElectoralCircleResults(circle));
+            }
+        }
+        return results;
+    }
+
+
 }
