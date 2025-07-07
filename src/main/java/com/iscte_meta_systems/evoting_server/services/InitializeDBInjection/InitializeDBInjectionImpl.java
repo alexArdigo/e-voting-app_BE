@@ -63,7 +63,11 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election1.setSeats(16);
             electionService.createElection(election1);
             partiesAndCandidatesService.populatePartiesAndCandidatesFromJSONWithDTO(election1);
-            //Nao esta ligado a nenhuma Legislativa especifica (yet), fica apenas associado à legislativa "Default" (id 1) criada na DB por causa das relaçoes de herança
+            //Nao esta ligado a nenhuma Legislativa especifica (yet), fica apenas associado à legislativa "Default" (id 1) criada na DB por causa das relaçoes de herança, mas creio que podemos dar a volta facilmente a isso no futuro usando a StartDate
+            //tipo
+//            if(startaDate.equals(Legislative.getStartDate())) {
+//               save
+//            }
 
             ElectionDTO election2 = new ElectionDTO();
             election2.setName("Presidenciais 2026");
