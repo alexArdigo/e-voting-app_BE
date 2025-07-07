@@ -8,7 +8,11 @@ import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.model.VoteRequestModel;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -49,6 +53,9 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Autowired
     private ElectoralCircleRepository electoralCircleRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
 
@@ -196,11 +203,14 @@ public class ElectionServiceImpl implements ElectionService {
         Election election = getElectionById(electionId);
         Voter voter = voterService.getLoggedVoter();
 
-        String hash = voterService.getHashIdentification(voter.getNif());
-        VoterHash voterHash = voterHashRepository.getVoterHashByHashIdentification(hash);
+        String voterNif = voter.getNif().toString();
 
-        if(election.getVotersVoted() != null && election.getVotersVoted().contains(voterHash)) {
-            throw new IllegalStateException("Voter has already voted in this election.");
+        if (election.getVotersVoted() != null) {
+            for (VoterHash storedHash : election.getVotersVoted()) {
+                if (passwordEncoder.matches(voterNif, storedHash.getHashIdentification())) {
+                    throw new IllegalStateException("Voter has already voted in this election.");
+                }
+            }
         }
 
         if (!election.isStarted()) {
@@ -208,7 +218,7 @@ public class ElectionServiceImpl implements ElectionService {
         }
 
         Parish parish = voter.getParish();
-        Municipality municipality = voterHash.getMunicipality();
+        Municipality municipality = voter.getMunicipality();
 
         Organisation organisation = organisationRepository.findById(voteRequest.getOrganisationId())
                 .orElseThrow(() -> new RuntimeException("Organização não encontrada"));
@@ -218,10 +228,21 @@ public class ElectionServiceImpl implements ElectionService {
         vote.setMunicipality(municipality);
         vote.setParish(parish);
 
+        vote = voteRepository.save(vote);
         election.addVote(vote);
-        election.addVoted(voterHash.getHashIdentification());
+
+        if (election.getVotersVoted() == null) {
+            election.setVotersVoted(new ArrayList<>());
+        }
+
+        String hashedNif = passwordEncoder.encode(voterNif);
+        VoterHash newVoterHash = new VoterHash();
+        newVoterHash.setHashIdentification(hashedNif);
+        election.getVotersVoted().add(newVoterHash);
+
         electionRepository.save(election);
-        return voteRepository.save(vote);
+
+        return vote;
     }
 
     @Override
