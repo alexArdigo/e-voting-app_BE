@@ -64,9 +64,6 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             electionService.createElection(election1);
             partiesAndCandidatesService.populatePartiesAndCandidatesFromJSONWithDTO(election1);
 
-
-
-
             ElectionDTO election2 = new ElectionDTO();
             election2.setName("Presidenciais 2026");
             election2.setElectionType(ElectionType.PRESIDENTIAL);
