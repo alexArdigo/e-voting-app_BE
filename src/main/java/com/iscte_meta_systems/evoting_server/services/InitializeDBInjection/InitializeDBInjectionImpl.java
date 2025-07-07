@@ -69,11 +69,8 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election1.setEndDate("2026-03-11");
             election1.setDistrictName("Aveiro");
             election1.setSeats(16);
-//            partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(election1);
-
-//            election1.setOrganisations();
-
             electionService.createElection(election1);
+            partiesAndCandidatesService.populatePartiesAndCandidatesFromJSONWithDTO(election1);
 
             ElectionDTO election2 = new ElectionDTO();
             election2.setName("Presidenciais 2026");
