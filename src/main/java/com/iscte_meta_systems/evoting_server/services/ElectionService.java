@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.Election;
+import com.iscte_meta_systems.evoting_server.entities.Legislative;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
 import com.iscte_meta_systems.evoting_server.entities.Vote;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
@@ -33,4 +34,5 @@ public interface ElectionService {
 
     List<Vote> generateTestVotes(int numberOfVotes, Long electionId);
 
+    Legislative getLegislativeById(Long legislativeID);
 }
