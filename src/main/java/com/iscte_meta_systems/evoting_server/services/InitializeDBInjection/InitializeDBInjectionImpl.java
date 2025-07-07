@@ -2,7 +2,10 @@ package com.iscte_meta_systems.evoting_server.services.InitializeDBInjection;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
+import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.repositories.*;
+import com.iscte_meta_systems.evoting_server.services.ElectionService;
+import com.iscte_meta_systems.evoting_server.services.ElectionServiceImpl;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,36 +36,43 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     @Autowired
     private DistrictRepository districtRepository;
 
+    @Autowired
+    private ElectionService electionService;
+
     @PostConstruct
     public void init() {
         initializeElections();
-        initializeElectoralCircles();
-        initializeParties();
+//        initializeElectoralCircles();
+//        initializeParties();
     }
 
     @Override
     public void initializeElections() {
         if (electionRepository.count() == 0) {
-            Election election1 = new Election();
+            ElectionDTO election1 = new ElectionDTO();
             election1.setName("Eleições Legislativas 2025");
-            election1.setType(ElectionType.LEGISLATIVE);
+            election1.setElectionType(ElectionType.LEGISLATIVE);
             election1.setDescription("Eleições para a Assembleia da República");
-            election1.setStartDate(LocalDateTime.of(2025, 7, 1, 8, 0));
-            election1.setEndDate(LocalDateTime.of(2025, 7, 1, 19, 0));
-            election1.setStarted(true);
+            election1.setStartDate("2026-03-10");
+            election1.setEndDate("2026-03-11");
 
-            Election election2 = new Election();
+            electionService.createElection(election1);
+
+
+            ElectionDTO election2 = new ElectionDTO();
             election2.setName("Presidenciais 2026");
-            election2.setType(ElectionType.PRESIDENTIAL);
+            election2.setElectionType(ElectionType.PRESIDENTIAL);
             election2.setDescription("Eleições para Presidente da República");
-            election2.setStartDate(LocalDateTime.of(2026, 1, 20, 8, 0));
-            election2.setEndDate(LocalDateTime.of(2026, 1, 20, 19, 0));
-            election2.setStarted(false);
+            election2.setStartDate("2026-08-20");
+            election2.setEndDate("2026-8-20");
 
-            electionRepository.save(election1);
-            electionRepository.save(election2);
+            electionService.createElection(election2);
+
+//            electionRepository.save(election1);
+//            electionRepository.save(election2);
         }
     }
+
     @Override
     public void initializeParties() {
         Optional<Election> optionalElection = electionRepository.findAll().stream().findFirst();
@@ -123,39 +133,39 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             if (districts.isEmpty()) throw new IllegalStateException("Distritos não inicializados");
 
             ElectoralCircle aveiro2025 = createElectoralCircle(
-                "Ciclo Eleitoral Aveiro 2025",
-                "Eleições para a Assembleia da República",
-                LocalDateTime.of(2025, 7, 1, 8, 0),
-                LocalDateTime.of(2025, 7, 1, 19, 0),
-                true,
-                ElectionType.LEGISLATIVE,
-                ElectoralCircleType.NATIONAL,
-                16,
-                findDistrictByName(districts, "Aveiro")
+                    "Ciclo Eleitoral Aveiro 2025",
+                    "Eleições para a Assembleia da República",
+                    LocalDateTime.of(2025, 7, 1, 8, 0),
+                    LocalDateTime.of(2025, 7, 1, 19, 0),
+                    true,
+                    ElectionType.LEGISLATIVE,
+                    ElectoralCircleType.NATIONAL,
+                    16,
+                    findDistrictByName(districts, "Aveiro")
             );
 
             ElectoralCircle lisboa2024 = createElectoralCircle(
-                "Ciclo Eleitoral Lisboa 2024",
-                "Eleições para a Assembleia da República",
-                LocalDateTime.of(2024, 1, 20, 8, 0),
-                LocalDateTime.of(2024, 1, 20, 19, 0),
-                false,
-                ElectionType.LEGISLATIVE,
-                ElectoralCircleType.NATIONAL,
-                48,
-                findDistrictByName(districts, "Lisboa")
+                    "Ciclo Eleitoral Lisboa 2024",
+                    "Eleições para a Assembleia da República",
+                    LocalDateTime.of(2024, 1, 20, 8, 0),
+                    LocalDateTime.of(2024, 1, 20, 19, 0),
+                    false,
+                    ElectionType.LEGISLATIVE,
+                    ElectoralCircleType.NATIONAL,
+                    48,
+                    findDistrictByName(districts, "Lisboa")
             );
 
             ElectoralCircle lisboa2025 = createElectoralCircle(
-                "Ciclo Eleitoral Lisboa 2025",
-                "Eleições para a Assembleia da República",
-                LocalDateTime.of(2025, 7, 1, 8, 0),
-                LocalDateTime.of(2025, 7, 1, 19, 0),
-                true,
-                ElectionType.LEGISLATIVE,
-                ElectoralCircleType.NATIONAL,
-                48,
-                findDistrictByName(districts, "Lisboa")
+                    "Ciclo Eleitoral Lisboa 2025",
+                    "Eleições para a Assembleia da República",
+                    LocalDateTime.of(2025, 7, 1, 8, 0),
+                    LocalDateTime.of(2025, 7, 1, 19, 0),
+                    true,
+                    ElectionType.LEGISLATIVE,
+                    ElectoralCircleType.NATIONAL,
+                    48,
+                    findDistrictByName(districts, "Lisboa")
             );
 
             Election presidencial2026 = new Election();

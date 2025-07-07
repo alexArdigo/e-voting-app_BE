@@ -30,3 +30,4 @@ public class Legislative {
         this.electoralCircles = electoralCircles;
     }
 }
+
