@@ -49,6 +49,8 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
         initializeElections();
     }
 
+    //falta inicializar legislativas com nome e data de inicio e fim
+
     @Override
     public void initializeElections() {
         if (electionRepository.count() == 0) {
