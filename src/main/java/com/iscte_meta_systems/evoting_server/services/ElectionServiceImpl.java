@@ -201,7 +201,6 @@ public class ElectionServiceImpl implements ElectionService {
         Voter voter = voterService.getLoggedVoter();
 
         String voterNif = voter.getNif().toString();
-
         if (election.getVotersVoted() != null) {
             for (VoterHash storedHash : election.getVotersVoted()) {
                 if (passwordEncoder.matches(voterNif, storedHash.getHashIdentification())) {
