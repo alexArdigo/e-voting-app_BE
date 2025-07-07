@@ -5,6 +5,7 @@ import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
+import com.iscte_meta_systems.evoting_server.model.VoteRequestModel;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -191,12 +192,11 @@ public class ElectionServiceImpl implements ElectionService {
     }
 
     @Override
-    public Vote castVote(Long electionId, Vote voteRequest) {
+    public Vote castVote(Long electionId, VoteRequestModel voteRequest) {
         Election election = getElectionById(electionId);
         Voter voter = voterService.getLoggedVoter();
 
         String hash = voterService.getHashIdentification(voter.getNif());
-
         VoterHash voterHash = voterHashRepository.getVoterHashByHashIdentification(hash);
 
         if(election.getVotersVoted() != null && election.getVotersVoted().contains(voterHash)) {
@@ -208,8 +208,10 @@ public class ElectionServiceImpl implements ElectionService {
         }
 
         Parish parish = voter.getParish();
-        Organisation organisation = organisationRepository.getReferenceById(voteRequest.getOrganisation().getId());
         Municipality municipality = voterHash.getMunicipality();
+
+        Organisation organisation = organisationRepository.findById(voteRequest.getOrganisationId())
+                .orElseThrow(() -> new RuntimeException("Organização não encontrada"));
 
         Vote vote = new Vote();
         vote.setOrganisation(organisation);
@@ -328,6 +330,4 @@ public class ElectionServiceImpl implements ElectionService {
     public Legislative getLegislativeById(Long legislativeID) {
         return legislativeRepository.findById(legislativeID).orElseThrow(() -> new IllegalArgumentException("Legislative with ID " + legislativeID + " was not found."));
     }
-
-
 }
