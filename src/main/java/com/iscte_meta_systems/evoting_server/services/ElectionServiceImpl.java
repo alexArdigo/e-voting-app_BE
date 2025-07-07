@@ -163,7 +163,7 @@ public class ElectionServiceImpl implements ElectionService {
                     }
 
                     circle.setLegislative(legislative);
-                    circle = electionRepository.save(circle);
+                    circle = electoralCircleRepository.save(circle);
                     circles.add(circle);
                 }
 
