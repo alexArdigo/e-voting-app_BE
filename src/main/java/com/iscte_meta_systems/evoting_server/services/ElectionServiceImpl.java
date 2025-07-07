@@ -14,10 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -67,7 +64,7 @@ public class ElectionServiceImpl implements ElectionService {
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
         List<Election> elections = electionRepository.findAll();
 
-         return elections.stream()
+        return elections.stream()
                 .filter(e -> electionType == null || e.getClass().getSimpleName().equalsIgnoreCase(electionType))
                 .filter(e -> electionYear == null || (e.getStartDate() != null && e.getStartDate().getYear() == electionYear))
                 .map(e -> {
@@ -111,8 +108,10 @@ public class ElectionServiceImpl implements ElectionService {
             throw new IllegalArgumentException("Start and end dates are required.");
         }
 
-        LocalDateTime startDate = parseDateTimeFlexible(dto.getStartDate());
-        LocalDateTime endDate = parseDateTimeFlexible(dto.getEndDate());
+        String startDateStr = dto.getStartDate().contains("T") ? dto.getStartDate() : dto.getStartDate() + "T00:00:00";
+        String endDateStr = dto.getEndDate().contains("T") ? dto.getEndDate() : dto.getEndDate() + "T00:00:00";
+        LocalDateTime startDate = LocalDateTime.parse(startDateStr);
+        LocalDateTime endDate = LocalDateTime.parse(endDateStr);
 
         if (endDate.isBefore(startDate)) {
             throw new IllegalArgumentException("End date cannot be before start date.");
@@ -351,24 +350,5 @@ public class ElectionServiceImpl implements ElectionService {
     @Override
     public Legislative getLegislativeById(Long legislativeID) {
         return legislativeRepository.findById(legislativeID).orElseThrow(() -> new IllegalArgumentException("Legislative with ID " + legislativeID + " was not found."));
-    }
-
-    private LocalDateTime parseDateTimeFlexible(String dateStr) {
-        if (dateStr == null) return null;
-        try {
-            return LocalDateTime.parse(dateStr);
-        } catch (DateTimeParseException e) {
-            try {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                return LocalDateTime.parse(dateStr, formatter);
-            } catch (DateTimeParseException ex) {
-                try {
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                    return LocalDate.parse(dateStr, formatter).atStartOfDay();
-                } catch (DateTimeParseException exc) {
-                    throw new IllegalArgumentException("Formato de data inválido: " + dateStr);
-                }
-            }
-        }
     }
 }
