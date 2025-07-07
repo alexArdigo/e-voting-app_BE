@@ -6,13 +6,12 @@ import com.iscte_meta_systems.evoting_server.entities.Candidate;
 import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
 import com.iscte_meta_systems.evoting_server.entities.Party;
-import com.iscte_meta_systems.evoting_server.repositories.CandidateRepository;
-import com.iscte_meta_systems.evoting_server.repositories.DistrictRepository;
-import com.iscte_meta_systems.evoting_server.repositories.ElectionRepository;
-import com.iscte_meta_systems.evoting_server.repositories.PartyRepository;
+import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
+import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -34,6 +33,9 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
 
     @Autowired
     private DistrictRepository districtRepository;
+
+    @Autowired
+    private ElectoralCircleRepository electoralCircleRepository;
 
     @Override
     public void populatePartiesAndCandidatesFromJSON(ElectoralCircle electoralCircle) {
@@ -153,4 +155,69 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
         String name;
         String imageUrl;
     }
+
+    @Transactional
+    @Override
+    public void populatePartiesAndCandidatesFromJSONWithDTO(ElectionDTO electionDTO) {
+
+        List<ElectoralCircle> circles = electoralCircleRepository.findAll();
+
+        for(ElectoralCircle electoralCircle : circles) {
+
+            try {
+                String districtName = electoralCircle.getDistricts().getDistrictName();
+
+                Map<String, PartyData> partiesData = readPartiesFromJSON(districtName);
+
+                List<Organisation> organisations = new ArrayList<>();
+
+                for (PartyData partyData : partiesData.values()) {
+                    Party party = new Party();
+                    party.setOrganisationName(partyData.name);
+                    party.setName(partyData.name);
+                    party.setColor(partyData.color);
+                    party.setLogoUrl(partyData.logoUrl);
+                    party.setDescription(partyData.description);
+                    party.setElection(electoralCircle);
+
+                    List<Candidate> candidates = new ArrayList<>();
+                    for (CandidateData candidateData : partyData.candidates) {
+                        Candidate existingCandidate = candidateRepository.findByName(candidateData.name);
+                        Candidate candidate;
+
+                        if (existingCandidate != null) {
+                            candidate = existingCandidate;
+                        } else {
+                            candidate = new Candidate();
+                            candidate.setName(candidateData.name);
+                            candidate.setImageUrl(candidateData.imageUrl);
+                            candidateRepository.save(candidate);
+                        }
+                        candidates.add(candidate);
+                    }
+
+                    party.setCandidates(candidates);
+                    partyRepository.save(party);
+                    organisations.add(party);
+                }
+
+                if (electoralCircle.getOrganisations() == null) {
+                    electoralCircle.setOrganisations(new ArrayList<>());
+                }
+                electoralCircle.getOrganisations().addAll(organisations);
+
+                electionRepository.save(electoralCircle);
+
+                System.out.println("Successfully populated " + organisations.size() +
+                        " parties for district: " + districtName);
+
+            } catch (Exception e) {
+                System.err.println("Error populating parties and candidates for district " +
+                        electoralCircle.getDistricts().getDistrictName() + ": " + e.getMessage());
+                e.printStackTrace();
+            }
+
+        }
+    }
+
 }

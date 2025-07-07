@@ -7,18 +7,5 @@ public interface InitializeDBInjection {
 
     void initializeElections();
 
-    void initializeParties();
-
-    Party createParty(
-            String shortName,
-            String fullName,
-            String color,
-            String logoUrl,
-            Election election
-    );
-
-    void initializeElectoralCircles();
-
-
     //void initializeVotes();
 }

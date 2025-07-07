@@ -1,6 +1,8 @@
 package com.iscte_meta_systems.evoting_server.model;
 
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
+import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
+
 import java.util.List;
 
 public class ElectionDTO {
@@ -15,7 +17,7 @@ public class ElectionDTO {
     private Integer seats;
     private String municipalityName;
     private String parishName;
-    private String electoralCircleType;
+    private ElectoralCircleType electoralCircleType;
     private Long legislativeId;
     private Long id;
 
@@ -99,11 +101,11 @@ public class ElectionDTO {
         this.parishName = parishName;
     }
 
-    public String getElectoralCircleType() {
+    public ElectoralCircleType getElectoralCircleType() {
         return electoralCircleType;
     }
 
-    public void setElectoralCircleType(String electoralCircleType) {
+    public void setElectoralCircleType(ElectoralCircleType electoralCircleType) {
         this.electoralCircleType = electoralCircleType;
     }
 

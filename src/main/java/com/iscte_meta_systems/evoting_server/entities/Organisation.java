@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iscte_meta_systems.evoting_server.enums.OrganisationType;
 import jakarta.persistence.*;
 
@@ -13,6 +14,7 @@ public abstract class Organisation {
     private String organisationName;
 
     @ManyToOne
+    @JsonIgnore
     private Election election;
 
     public Long getId() {
