@@ -43,7 +43,7 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     public void init() {
         initializeElections();
         initializeElectoralCircles();
-        initializeParties();
+//        initializeParties();
     }
 
     @Override
@@ -59,13 +59,14 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             electionService.createElection(election1);
 
 
-            Election election2 = new Election();
+            ElectionDTO election2 = new ElectionDTO();
             election2.setName("Presidenciais 2026");
-            election2.setType(ElectionType.PRESIDENTIAL);
+            election2.setElectionType(ElectionType.PRESIDENTIAL);
             election2.setDescription("Eleições para Presidente da República");
-            election2.setStartDate(LocalDateTime.of(2026, 1, 20, 8, 0));
-            election2.setEndDate(LocalDateTime.of(2026, 1, 20, 19, 0));
-            election2.setStarted(false);
+            election2.setStartDate("2026-08-20,");
+            election2.setEndDate("2026-8-20");
+
+            electionService.createElection(election2);
 
 //            electionRepository.save(election1);
 //            electionRepository.save(election2);
