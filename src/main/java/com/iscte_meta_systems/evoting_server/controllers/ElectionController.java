@@ -1,9 +1,6 @@
 package com.iscte_meta_systems.evoting_server.controllers;
 
-import com.iscte_meta_systems.evoting_server.entities.Election;
-import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
-import com.iscte_meta_systems.evoting_server.entities.Organisation;
-import com.iscte_meta_systems.evoting_server.entities.Vote;
+import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ElectoralCircleRepository;
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
@@ -33,9 +30,19 @@ public class ElectionController {
         return electionService.getElections(electionType, electionYear);
     }
 
+    @GetMapping("legislatives")
+    public List<Legislative> getLegislatives() {
+        return electionService.getLegislatives();
+    }
+
     @GetMapping("/elections/{id}")
     public Election getElectionById(@PathVariable Long id) {
         return electionService.getElectionById(id);
+    }
+
+    @GetMapping("legislatives/{id}")
+    public Legislative getLegislativeById(@PathVariable Long id) {
+        return electionService.getLegislativeById(id);
     }
 
     @PostMapping("/elections")
