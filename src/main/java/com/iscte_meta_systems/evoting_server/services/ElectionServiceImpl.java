@@ -136,7 +136,6 @@ public class ElectionServiceImpl implements ElectionService {
                 baseElection = electionRepository.save(baseElection);
 
                 Legislative legislative = new Legislative();
-                legislative.setElection(baseElection);
                 legislative = legislativeRepository.save(legislative);
 
                 List<String> distritos = List.of(

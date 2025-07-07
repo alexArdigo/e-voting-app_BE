@@ -14,9 +14,6 @@ public class Legislative {
     @OneToMany
     private List<ElectoralCircle> electoralCircles;
 
-    @OneToOne
-    Election election;
-
     public Long getId() {
         return id;
     }
@@ -31,13 +28,5 @@ public class Legislative {
 
     public void setElectoralCircles(List<ElectoralCircle> electoralCircles) {
         this.electoralCircles = electoralCircles;
-    }
-
-    public Election getElection() {
-        return election;
-    }
-
-    public void setElection(Election election) {
-        this.election = election;
     }
 }
