@@ -42,7 +42,7 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     @PostConstruct
     public void init() {
         initializeElections();
-        initializeElectoralCircles();
+//        initializeElectoralCircles();
 //        initializeParties();
     }
 
