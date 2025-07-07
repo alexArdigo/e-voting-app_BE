@@ -8,11 +8,13 @@ import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import com.iscte_meta_systems.evoting_server.services.ElectionServiceImpl;
+import com.iscte_meta_systems.evoting_server.services.PartiesAndCandidatesService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -39,6 +41,8 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     private DistrictRepository districtRepository;
     @Autowired
     private ElectionService electionService;
+    @Autowired
+    private PartiesAndCandidatesService partiesAndCandidatesService;
 
     @PostConstruct
     public void init() {
@@ -50,10 +54,8 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     }
 
     private List<OrganisationDTO> organisations;
-    private String municipalityName;
-    private String parishName;
-    private String electoralCircleType;
-    private Long id;
+
+
 
     @Override
     public void initializeElections() {
@@ -67,6 +69,9 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election1.setEndDate("2026-03-11");
             election1.setDistrictName("Aveiro");
             election1.setSeats(16);
+//            partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(election1);
+
+//            election1.setOrganisations();
 
             electionService.createElection(election1);
 
