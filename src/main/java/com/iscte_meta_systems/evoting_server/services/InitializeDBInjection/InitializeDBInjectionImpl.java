@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.services.InitializeDBInjection;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
+import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.repositories.*;
@@ -36,7 +37,6 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     private ElectoralCircleRepository electoralCircleRepository;
     @Autowired
     private DistrictRepository districtRepository;
-
     @Autowired
     private ElectionService electionService;
 
@@ -49,12 +49,10 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
 
     }
 
-
     private List<OrganisationDTO> organisations;
     private String municipalityName;
     private String parishName;
     private String electoralCircleType;
-    private Long legislativeId;
     private Long id;
 
     @Override
@@ -63,6 +61,7 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             ElectionDTO election1 = new ElectionDTO();
             election1.setName("Eleições Legislativas 2025");
             election1.setElectionType(ElectionType.LEGISLATIVE);
+            election1.setElectoralCircleType(ElectoralCircleType.NATIONAL);
             election1.setDescription("Eleições para a Assembleia da República");
             election1.setStartDate("2026-03-10");
             election1.setEndDate("2026-03-11");
