@@ -61,7 +61,7 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
-        List<Election> elections = electionRepository.findAll();
+        List<Election> elections = electionRepository.findAllByType(ElectionType.PRESIDENTIAL);
 
          return elections.stream()
                 .filter(e -> electionType == null || e.getClass().getSimpleName().equalsIgnoreCase(electionType))
@@ -346,6 +346,11 @@ public class ElectionServiceImpl implements ElectionService {
     @Override
     public Legislative getLegislativeById(Long legislativeID) {
         return legislativeRepository.findById(legislativeID).orElseThrow(() -> new IllegalArgumentException("Legislative with ID " + legislativeID + " was not found."));
+    }
+
+    @Override
+    public List<Legislative> getLegislatives() {
+        return legislativeRepository.findAll();
     }
 
     private LocalDateTime parseDateTimeFlexible(String dateStr) {

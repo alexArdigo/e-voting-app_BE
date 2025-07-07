@@ -35,4 +35,5 @@ public interface ElectionService {
     List<Vote> generateTestVotes(int numberOfVotes, Long electionId);
 
     Legislative getLegislativeById(Long legislativeID);
+    List<Legislative> getLegislatives();
 }
