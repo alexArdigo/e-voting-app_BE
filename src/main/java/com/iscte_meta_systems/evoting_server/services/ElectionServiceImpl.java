@@ -353,6 +353,15 @@ public class ElectionServiceImpl implements ElectionService {
         return legislativeRepository.findAll();
     }
 
+    @Override
+    public ElectionDTO updateElection(Long id, ElectionDTO electionDTO) {
+        return null;
+    }
+
+    @Override
+    public void deleteElection(Long id) {
+    }
+
     private LocalDateTime parseDateTimeFlexible(String dateStr) {
         if (dateStr == null) return null;
         try {
