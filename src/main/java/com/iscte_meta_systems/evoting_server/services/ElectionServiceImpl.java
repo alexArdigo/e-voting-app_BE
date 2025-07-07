@@ -50,6 +50,8 @@ public class ElectionServiceImpl implements ElectionService {
     private ElectoralCircleRepository electoralCircleRepository;
 
 
+
+
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
         List<Election> elections = electionRepository.findAll();
@@ -322,6 +324,10 @@ public class ElectionServiceImpl implements ElectionService {
         return votes;
     }
 
+    @Override
+    public Legislative getLegislativeById(Long legislativeID) {
+        return legislativeRepository.findById(legislativeID).orElseThrow(() -> new IllegalArgumentException("Legislative with ID " + legislativeID + " was not found."));
+    }
 
 
 }
