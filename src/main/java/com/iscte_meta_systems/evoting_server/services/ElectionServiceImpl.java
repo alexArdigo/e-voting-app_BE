@@ -330,6 +330,4 @@ public class ElectionServiceImpl implements ElectionService {
     public Legislative getLegislativeById(Long legislativeID) {
         return legislativeRepository.findById(legislativeID).orElseThrow(() -> new IllegalArgumentException("Legislative with ID " + legislativeID + " was not found."));
     }
-
-
 }

@@ -2,7 +2,10 @@ package com.iscte_meta_systems.evoting_server.services.InitializeDBInjection;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
+import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.repositories.*;
+import com.iscte_meta_systems.evoting_server.services.ElectionService;
+import com.iscte_meta_systems.evoting_server.services.ElectionServiceImpl;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +36,9 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     @Autowired
     private DistrictRepository districtRepository;
 
+    @Autowired
+    private ElectionService electionService;
+
     @PostConstruct
     public void init() {
         initializeElections();
@@ -43,13 +49,17 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     @Override
     public void initializeElections() {
         if (electionRepository.count() == 0) {
-            Election election1 = new Election();
+            ElectionDTO election1 = new ElectionDTO();
             election1.setName("Eleições Legislativas 2025");
-            election1.setType(ElectionType.LEGISLATIVE);
+            election1.setElectionType(ElectionType.LEGISLATIVE);
             election1.setDescription("Eleições para a Assembleia da República");
-            election1.setStartDate(LocalDateTime.of(2025, 7, 1, 8, 0));
-            election1.setEndDate(LocalDateTime.of(2025, 7, 1, 19, 0));
-            election1.setStarted(true);
+           // election1.setStartDate(LocalDateTime.of(2025, 7, 1, 8, 0));
+           // election1.setEndDate(LocalDateTime.of(2025, 7, 1, 19, 0));
+           // election1.setStarted(true);
+
+            electionService.createElection(election1);
+
+
 
             Election election2 = new Election();
             election2.setName("Presidenciais 2026");
@@ -59,8 +69,8 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election2.setEndDate(LocalDateTime.of(2026, 1, 20, 19, 0));
             election2.setStarted(false);
 
-            electionRepository.save(election1);
-            electionRepository.save(election2);
+//            electionRepository.save(election1);
+//            electionRepository.save(election2);
         }
     }
     @Override
