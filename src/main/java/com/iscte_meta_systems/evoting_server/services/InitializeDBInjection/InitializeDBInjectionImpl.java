@@ -3,6 +3,7 @@ package com.iscte_meta_systems.evoting_server.services.InitializeDBInjection;
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
+import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import com.iscte_meta_systems.evoting_server.services.ElectionServiceImpl;
@@ -42,9 +43,19 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     @PostConstruct
     public void init() {
         initializeElections();
+//        initializeLegislatives();
 //        initializeElectoralCircles();
 //        initializeParties();
+
     }
+
+
+    private List<OrganisationDTO> organisations;
+    private String municipalityName;
+    private String parishName;
+    private String electoralCircleType;
+    private Long legislativeId;
+    private Long id;
 
     @Override
     public void initializeElections() {
@@ -55,9 +66,10 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election1.setDescription("Eleições para a Assembleia da República");
             election1.setStartDate("2026-03-10");
             election1.setEndDate("2026-03-11");
+            election1.setDistrictName("Aveiro");
+            election1.setSeats(16);
 
             electionService.createElection(election1);
-
 
             ElectionDTO election2 = new ElectionDTO();
             election2.setName("Presidenciais 2026");
