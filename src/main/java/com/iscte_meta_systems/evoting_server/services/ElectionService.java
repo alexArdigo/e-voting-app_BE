@@ -4,6 +4,7 @@ import com.iscte_meta_systems.evoting_server.entities.Election;
 import com.iscte_meta_systems.evoting_server.entities.Organisation;
 import com.iscte_meta_systems.evoting_server.entities.Vote;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
+import com.iscte_meta_systems.evoting_server.model.VoteRequestModel;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public interface ElectionService {
 
     Election endElection(Long id);
 
-    Vote castVote(Long id, Vote vote);
+    Vote castVote(Long id, VoteRequestModel vote);
 
     Boolean isStarted(Long id);
 
