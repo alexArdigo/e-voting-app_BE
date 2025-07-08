@@ -36,6 +36,9 @@ public class VoterServiceImpl implements VoterService {
     @Autowired
     private ParishRepository parishRepository;
 
+    @Autowired
+    private HelpCommentRepository helpCommentRepository;
+
 
     @Override
     public void saveVoterHash(Voter voter) {
@@ -63,6 +66,22 @@ public class VoterServiceImpl implements VoterService {
     @Override
     public String getHashIdentification(Long nif) {
         return passwordEncoder.encode(nif.toString());
+    }
+
+    @Override
+    public void removeLikeFromComment(String voterHash, HelpComment comment) {
+        if (voterHash == null || voterHash.isEmpty())
+            throw new NullPointerException("Voter hash cannot be null or empty");
+
+        if (comment == null)
+            throw new NullPointerException("Comment cannot be null");
+
+        if (!comment.hasLiked(voterHash)) {
+            throw new RuntimeException("Voter has not liked this comment");
+        }
+
+        comment.removeLike(voterHash);
+        helpCommentRepository.save(comment);
     }
 
 
