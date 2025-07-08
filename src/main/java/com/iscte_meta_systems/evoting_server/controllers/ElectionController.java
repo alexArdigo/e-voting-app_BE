@@ -7,6 +7,7 @@ import com.iscte_meta_systems.evoting_server.repositories.ElectoralCircleReposit
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import com.iscte_meta_systems.evoting_server.services.PartiesAndCandidatesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -52,7 +53,7 @@ public class ElectionController {
     }
 
     @GetMapping("/elections/{id}/ballot")
-    public List<Organisation> getBallotByElectionId(@PathVariable Long id){
+    public List<Organisation> getBallotByElectionId(@PathVariable Long id) {
         return electionService.getBallotByElectionId(id);
     }
 
@@ -106,7 +107,7 @@ public class ElectionController {
         return electionService.getNotActiveElections();
     }
 
-    @PostMapping ("/election/testVotes/{numberOfVotes}/{electionId}")
+    @PostMapping("/election/testVotes/{numberOfVotes}/{electionId}")
     public List<Vote> generateTestVotes(@PathVariable int numberOfVotes, @PathVariable Long electionId) {
         return electionService.generateTestVotes(numberOfVotes, electionId);
     }
