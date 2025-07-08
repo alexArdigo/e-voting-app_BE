@@ -51,6 +51,18 @@ public class CommentController {
         return commentService.getAllComments();
     }
 
+    @DeleteMapping("/comment/{id}")
+    public ResponseEntity<String> deleteComment(@PathVariable Long id) {
+        try {
+            commentService.deleteComment(id);
+            return ResponseEntity.ok("Comment deleted successfully.");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(403).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error deleting comment.");
+        }
+    }
+
     @GetMapping("/comment/{id}/hasLiked")
     public ResponseEntity<Boolean> hasUserLiked(@PathVariable Long id) {
         boolean liked = commentService.hasUserLiked(id);
