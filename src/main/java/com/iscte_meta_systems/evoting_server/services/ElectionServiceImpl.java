@@ -170,6 +170,7 @@ public class ElectionServiceImpl implements ElectionService {
 
                     circle.setLegislative(legislative);
                     circle = electoralCircleRepository.save(circle);
+                    partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(circle);
                     circles.add(circle);
                 }
 
