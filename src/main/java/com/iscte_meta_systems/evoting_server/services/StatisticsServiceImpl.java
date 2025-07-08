@@ -8,7 +8,6 @@ import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,7 +40,7 @@ public class StatisticsServiceImpl implements StatisticsService{
 
         ElectoralCircle electoralCircle = (ElectoralCircle) election;
 
-        if(!electoralCircle.getDistricts().equals(districtName)){
+        if(!electoralCircle.getDistrict().equals(districtName)){
             throw new IllegalArgumentException("The specified district does not match the electoral circle's districts.");
         }
 
@@ -242,7 +241,7 @@ public class StatisticsServiceImpl implements StatisticsService{
         int totalVotes = 0;
 
         for (ElectoralCircle e : electoralCircles) {
-            District district = e.getDistricts();
+            District district = e.getDistrict();
 
             if (e.getStartDate().getYear() == year) {
                 for (Vote vote : voteRepository.findByDistrictName(district.getDistrictName())) {

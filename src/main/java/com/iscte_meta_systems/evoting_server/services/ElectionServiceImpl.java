@@ -312,7 +312,7 @@ public class ElectionServiceImpl implements ElectionService {
 
         List<Municipality> municipalities = municipalityRepository.findAll().stream()
                 .filter(m -> m.getDistrict().getDistrictName()
-                        .equals(electoralCircle.getDistricts().getDistrictName()))
+                        .equals(electoralCircle.getDistrict().getDistrictName()))
                 .toList();
 
         List<Vote> votes = new ArrayList<>();
@@ -482,8 +482,8 @@ public class ElectionServiceImpl implements ElectionService {
                             circle.getParties().clear();
                         }
 
-                        if (circle.getParish() != null) {
-                            circle.getParish().clear();
+                        if (circle.getParishes() != null) {
+                            circle.getParishes().clear();
                         }
 
                         if (circle.getMunicipalities() != null) {

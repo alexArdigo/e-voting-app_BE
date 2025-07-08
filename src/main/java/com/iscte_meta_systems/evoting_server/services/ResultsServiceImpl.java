@@ -78,7 +78,7 @@ public class ResultsServiceImpl implements ResultsService {
         List<ElectoralCircle> allCircles = electoralCircleRepository.findAll();
         List<LegislativeResultDTO> results = new ArrayList<>();
 
-        List<Vote> votes = voteRepository.findByDistrictName(electoralCircle.getDistricts().getDistrictName());
+        List<Vote> votes = voteRepository.findByDistrictName(electoralCircle.getDistrict().getDistrictName());
 
         for (ElectoralCircle circle : allCircles) {
             if (circle.getVotes() != null && !circle.getVotes().isEmpty()) {
@@ -124,8 +124,8 @@ public class ResultsServiceImpl implements ResultsService {
     }
 
     private String getDistrictName(ElectoralCircle electoralCircle) {
-        if (electoralCircle.getDistricts() != null) {
-            return electoralCircle.getDistricts().getDistrictName();
+        if (electoralCircle.getDistrict() != null) {
+            return electoralCircle.getDistrict().getDistrictName();
         }
         return "Unknown District";
     }
