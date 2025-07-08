@@ -22,6 +22,7 @@ public class Election {
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    private boolean started = false;
 
     @JsonIgnore
     @OneToMany(mappedBy = "election", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -34,8 +35,6 @@ public class Election {
     @JsonIgnore
     @OneToMany(mappedBy = "election", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VoterHash> votersVoted = new ArrayList<>();
-
-    boolean started = false;
 
     public Election() {}
 

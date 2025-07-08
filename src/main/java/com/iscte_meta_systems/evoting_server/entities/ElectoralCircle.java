@@ -2,26 +2,44 @@ package com.iscte_meta_systems.evoting_server.entities;
 
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import jakarta.persistence.*;
-import org.springframework.data.geo.Circle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class ElectoralCircle extends Election {
 
     @ManyToOne
-    Legislative legislative;
+    @JoinColumn(name = "legislative_id")
+    private Legislative legislative;
 
     @ManyToOne
-    District districts;
-    @OneToMany
-    List<Party> parties;
-    @OneToMany
-    List<Municipality> municipalities;
-    @OneToMany
-    List<Parish> parish;
+    @JoinColumn(name = "district_id")
+    private District district;
+
+    @OneToMany(mappedBy = "electoralCircle", cascade = CascadeType.ALL)
+    private List<Party> parties = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "electoral_circle_municipalities",
+            joinColumns = @JoinColumn(name = "electoral_circle_id"),
+            inverseJoinColumns = @JoinColumn(name = "municipality_id")
+    )
+    private List<Municipality> municipalities = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "electoral_circle_parishes",
+            joinColumns = @JoinColumn(name = "electoral_circle_id"),
+            inverseJoinColumns = @JoinColumn(name = "parish_id")
+    )
+    private List<Parish> parishes = new ArrayList<>();
+
     private int seats;
-    ElectoralCircleType electoralCircleType;
+
+    @Enumerated(EnumType.STRING)
+    private ElectoralCircleType electoralCircleType;
 
 
     public ElectoralCircle() {
@@ -43,12 +61,12 @@ public class ElectoralCircle extends Election {
         this.municipalities = municipalities;
     }
 
-    public List<Parish> getParish() {
-        return parish;
+    public List<Parish> getParishes() {
+        return parishes;
     }
 
-    public void setParish(List<Parish> parish) {
-        this.parish = parish;
+    public void setParishes(List<Parish> parishes) {
+        this.parishes = parishes;
     }
 
     public int getSeats() {
@@ -67,12 +85,12 @@ public class ElectoralCircle extends Election {
         this.parties = parties;
     }
 
-    public District getDistricts() {
-        return districts;
+    public District getDistrict() {
+        return district;
     }
 
-    public void setDistricts(District districts) {
-        this.districts = districts;
+    public void setDistricts(District district) {
+        this.district = district;
     }
 
     public Legislative getLegislative() {

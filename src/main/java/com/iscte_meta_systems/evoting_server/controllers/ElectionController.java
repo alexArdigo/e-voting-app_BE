@@ -111,4 +111,19 @@ public class ElectionController {
     public List<Vote> generateTestVotes(@PathVariable int numberOfVotes, @PathVariable Long electionId) {
         return electionService.generateTestVotes(numberOfVotes, electionId);
     }
+
+    @PutMapping("/elections/{id}")
+    public ElectionDTO updateElection(@PathVariable Long id, @RequestBody ElectionDTO electionDTO) {
+        return electionService.updateElection(id, electionDTO);
+    }
+
+    @DeleteMapping("/elections/{id}")
+    public ResponseEntity<String> deleteElection(@PathVariable Long id) {
+        try {
+            electionService.deleteElection(id);
+            return ResponseEntity.ok("Eleição apagada com sucesso");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Erro ao apagar eleição: " + e.getMessage());
+        }
+    }
 }
