@@ -7,9 +7,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.text.Normalizer;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VoterServiceImpl implements VoterService {
@@ -46,6 +45,8 @@ public class VoterServiceImpl implements VoterService {
 
         if (!voterHashRepository.existsByHashIdentification(hashIdentification)) {
             try {
+
+
                 voterHashRepository.save(
                     new VoterHash(
                         hashIdentification,
@@ -98,23 +99,15 @@ public class VoterServiceImpl implements VoterService {
     }
 
     @Override
-    public ArrayList<Long> hasAlreadyVoted(String nif) {
-        if (nif == null || nif.isEmpty())
+    public Boolean hasAlreadyVoted(String hash, Long electionId) {
+        if (hash == null || electionId == null)
             throw new NullPointerException();
 
-        ArrayList<Long> electionsIds = new ArrayList<>();
-        List<Election> activeElections = electionRepository.findAll().stream()
-                .filter(Election::isStarted)
-                .toList();
+        Optional<Election> optional = electionRepository.findById(electionId);
+        List<VoterHash> votersVoted = optional.orElseThrow().getVotersVoted();
 
-        for (Election election : activeElections) {
-            for (VoterHash voterHash : election.getVotersVoted()) {
-                if (passwordEncoder.matches(nif, voterHash.getHashIdentification()))
-                    electionsIds.add(election.getId());
-            }
-        }
 
-        return electionsIds;
+        return votersVoted.contains(hash);
     }
 
     @Override
@@ -139,7 +132,7 @@ public class VoterServiceImpl implements VoterService {
         }
         String result = input.toLowerCase();
         // Remove diacritical marks (accents)
-        result = Normalizer.normalize(result, Normalizer.Form.NFD)
+        result = java.text.Normalizer.normalize(result, java.text.Normalizer.Form.NFD)
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
         return result;
     }

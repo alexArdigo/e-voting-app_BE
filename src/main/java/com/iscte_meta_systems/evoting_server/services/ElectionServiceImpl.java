@@ -27,6 +27,9 @@ public class ElectionServiceImpl implements ElectionService {
     private DistrictRepository districtRepository;
 
     @Autowired
+    private PartiesAndCandidatesService partiesAndCandidatesService;
+
+    @Autowired
     private ElectionRepository electionRepository;
 
     @Autowired
@@ -40,6 +43,8 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Autowired
     private LegislativeRepository legislativeRepository;
+    @Autowired
+    private VoterHashRepository voterHashRepository;
 
     @Autowired
     private ParishRepository parishRepository;

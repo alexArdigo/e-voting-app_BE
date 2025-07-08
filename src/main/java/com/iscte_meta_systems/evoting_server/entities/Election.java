@@ -33,7 +33,7 @@ public class Election {
     private List<Vote> votes = new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "election", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VoterHash> votersVoted = new ArrayList<>();
 
     public Election() {}
@@ -124,6 +124,13 @@ public class Election {
 
     public void setVotersVoted(List<VoterHash> votersVoted) {
         this.votersVoted = votersVoted;
+    }
+
+    public void addVoted(String hashIdentification) {
+        VoterHash voterHash = new VoterHash();
+        voterHash.setHashIdentification(hashIdentification);
+        voterHash.setElection(this);
+        this.votersVoted.add(voterHash);
     }
 
     public ElectionType getType() {
