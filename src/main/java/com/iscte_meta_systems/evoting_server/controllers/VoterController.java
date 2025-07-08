@@ -43,7 +43,7 @@ public class VoterController {
     }
 
     @PostMapping("/voters/has-voted")
-    public ResponseEntity<?> hasAlreadyVoted(@RequestParam("nif") String nif) {
+    public ResponseEntity<?> hasAlreadyVoted(@RequestParam("nif") Long nif) {
         return ResponseEntity.ok().body(voterService.hasAlreadyVoted(nif));
     }
 }
