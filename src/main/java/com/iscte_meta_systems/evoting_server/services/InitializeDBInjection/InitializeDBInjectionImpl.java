@@ -114,7 +114,7 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
 //
 //            Vote vote = new Vote();
 //            vote.setOrganisation(organisation);
-//            vote.setParishes(parish);
+//            vote.setParish(parish);
 //            vote.setMunicipality(municipality);
 //
 //            voteRepository.save(vote);

@@ -7,6 +7,7 @@ import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.model.VoteRequestModel;
 import com.iscte_meta_systems.evoting_server.repositories.*;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -314,7 +315,7 @@ public class ElectionServiceImpl implements ElectionService {
 
         List<Municipality> municipalities = municipalityRepository.findAll().stream()
                 .filter(m -> m.getDistrict().getDistrictName()
-                        .equals(electoralCircle.getDistrict().getDistrictName()))
+                        .equals(electoralCircle.getDistricts().getDistrictName()))
                 .toList();
 
         List<Vote> votes = new ArrayList<>();
@@ -356,26 +357,21 @@ public class ElectionServiceImpl implements ElectionService {
     }
 
     @Override
+    @Transactional
     public ElectionDTO updateElection(Long id, ElectionDTO electionDTO) {
         Election existingElection = getElectionById(id);
 
         if (existingElection.isStarted()) {
-            throw new IllegalStateException("Não é possível editar uma eleição que já foi iniciada.");
+            throw new IllegalStateException("Cannot edit an election that has already started.");
         }
 
-        if (electionDTO.getName() == null || electionDTO.getName().trim().isEmpty()) {
-            throw new IllegalArgumentException("Nome da eleição é obrigatório.");
-        }
-
-        if (electionDTO.getStartDate() == null || electionDTO.getEndDate() == null) {
-            throw new IllegalArgumentException("Data de início e fim são obrigatórias.");
-        }
+        validateElectionDTO(electionDTO);
 
         LocalDateTime startDate = parseDateTimeFlexible(electionDTO.getStartDate());
         LocalDateTime endDate = parseDateTimeFlexible(electionDTO.getEndDate());
 
         if (endDate.isBefore(startDate)) {
-            throw new IllegalArgumentException("Data de fim não pode ser anterior à data de início.");
+            throw new IllegalArgumentException("End date cannot be before start date.");
         }
 
         existingElection.setName(electionDTO.getName().trim());
@@ -383,15 +379,7 @@ public class ElectionServiceImpl implements ElectionService {
         existingElection.setStartDate(startDate);
         existingElection.setEndDate(endDate);
 
-        if (electionDTO.getElectionType() != null && !electionDTO.getElectionType().equals(existingElection.getType())) {
-            throw new IllegalArgumentException("Não é possível alterar o tipo de eleição após a criação.");
-        }
-
         Election updatedElection = electionRepository.save(existingElection);
-
-        if (existingElection.getType() == ElectionType.LEGISLATIVE) {
-            updateLegislativeCircles(existingElection, startDate, endDate);
-        }
 
         ElectionDTO resultDTO = new ElectionDTO();
         resultDTO.setId(updatedElection.getId());
@@ -404,106 +392,74 @@ public class ElectionServiceImpl implements ElectionService {
         return resultDTO;
     }
 
-    @Override
     public void deleteElection(Long id) {
         Election election = getElectionById(id);
 
         if (election.isStarted()) {
-            throw new IllegalStateException("Não é possível eliminar uma eleição que já foi iniciada.");
+            throw new IllegalStateException("Cannot delete an election that has already started.");
         }
 
         if (election.getVotes() != null && !election.getVotes().isEmpty()) {
-            throw new IllegalStateException("Não é possível eliminar uma eleição que já possui votos.");
+            throw new IllegalStateException("Cannot delete an election that already has votes.");
         }
 
         try {
-            if (election.getType() == ElectionType.LEGISLATIVE) {
-                deleteLegislativeCircles(election);
+            if (election instanceof ElectoralCircle) {
+                deleteElectoralCircle((ElectoralCircle) election);
+            } else if (election instanceof Presidential) {
+                deletePresidentialElection((Presidential) election);
             }
-
-            if (election.getOrganisations() != null) {
-                election.getOrganisations().clear();
-            }
-
-            if (election.getVotersVoted() != null) {
-                election.getVotersVoted().clear();
-            }
-
-            electionRepository.delete(election);
-
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao eliminar a eleição: " + e.getMessage(), e);
+            throw new RuntimeException("Error deleting election: " + e.getMessage(), e);
         }
     }
 
-    private void updateLegislativeCircles(Election election, LocalDateTime startDate, LocalDateTime endDate) {
-        if (election instanceof Presidential) {
-            return;
+    private void deletePresidentialElection(Presidential presidential) {
+        if (presidential.getCandidates() != null) {
+            presidential.getCandidates().clear();
+        }
+        if (presidential.getOrganisations() != null) {
+            presidential.getOrganisations().clear();
+        }
+        if (presidential.getVotersVoted() != null) {
+            presidential.getVotersVoted().clear();
         }
 
-        List<ElectoralCircle> circles = electoralCircleRepository.findAll().stream()
-                .filter(circle -> circle.getStartDate() != null &&
-                        circle.getEndDate() != null &&
-                        circle.getStartDate().equals(election.getStartDate()) &&
-                        circle.getEndDate().equals(election.getEndDate()))
-                .toList();
-
-        for (ElectoralCircle circle : circles) {
-            circle.setStartDate(startDate);
-            circle.setEndDate(endDate);
-            circle.setDescription(election.getDescription());
-            electoralCircleRepository.save(circle);
-        }
+        electionRepository.delete(presidential);
     }
 
-
-    private void deleteLegislativeCircles(Election election) {
-        if (election.getType() != ElectionType.LEGISLATIVE) {
-            return;
+    private void deleteElectoralCircle(ElectoralCircle circle) {
+        if (circle.getParties() != null) {
+            circle.getParties().clear();
+        }
+        if (circle.getMunicipalities() != null) {
+            circle.getMunicipalities().clear();
+        }
+        if (circle.getParish() != null) {
+            circle.getParish().clear();
+        }
+        if (circle.getOrganisations() != null) {
+            circle.getOrganisations().clear();
+        }
+        if (circle.getVotersVoted() != null) {
+            circle.getVotersVoted().clear();
         }
 
-        try {
-            List<Legislative> legislatives = legislativeRepository.findAll();
+        Legislative legislative = circle.getLegislative();
+        if (legislative != null) {
+            legislative.getElectoralCircles().remove(circle);
+            legislativeRepository.save(legislative);
+        }
 
-            for (Legislative legislative : legislatives) {
-                if (legislative.getElectoralCircles() != null) {
-                    List<ElectoralCircle> circlesToDelete = legislative.getElectoralCircles().stream()
-                            .filter(circle -> circle.getStartDate() != null &&
-                                    circle.getEndDate() != null &&
-                                    circle.getStartDate().equals(election.getStartDate()) &&
-                                    circle.getEndDate().equals(election.getEndDate()))
-                            .toList();
+        electionRepository.delete(circle);
+    }
 
-                    for (ElectoralCircle circle : circlesToDelete) {
-                        if (circle.getVotes() != null) {
-                            voteRepository.deleteAll(circle.getVotes());
-                            circle.setVotes(null);
-                        }
-
-                        if (circle.getParties() != null) {
-                            circle.getParties().clear();
-                        }
-
-                        if (circle.getParishes() != null) {
-                            circle.getParishes().clear();
-                        }
-
-                        if (circle.getMunicipalities() != null) {
-                            circle.getMunicipalities().clear();
-                        }
-
-                        circle.setLegislative(null);
-                        legislative.getElectoralCircles().remove(circle);
-
-                        legislativeRepository.save(legislative);
-                        electoralCircleRepository.save(circle);
-
-                        electoralCircleRepository.delete(circle);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao eliminar círculos legislativos: " + e.getMessage(), e);
+    private void validateElectionDTO(ElectionDTO dto) {
+        if (dto.getName() == null || dto.getName().trim().isEmpty()) {
+            throw new IllegalArgumentException("Election name is required.");
+        }
+        if (dto.getStartDate() == null || dto.getEndDate() == null) {
+            throw new IllegalArgumentException("Start and end dates are required.");
         }
     }
 

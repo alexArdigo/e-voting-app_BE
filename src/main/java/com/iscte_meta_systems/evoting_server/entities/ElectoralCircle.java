@@ -15,7 +15,7 @@ public class ElectoralCircle extends Election {
 
     @ManyToOne
     @JoinColumn(name = "district_id")
-    private District district;
+    private District districts;
 
     @OneToMany(mappedBy = "electoralCircle", cascade = CascadeType.ALL)
     private List<Party> parties = new ArrayList<>();
@@ -34,7 +34,7 @@ public class ElectoralCircle extends Election {
             joinColumns = @JoinColumn(name = "electoral_circle_id"),
             inverseJoinColumns = @JoinColumn(name = "parish_id")
     )
-    private List<Parish> parishes = new ArrayList<>();
+    private List<Parish> parish = new ArrayList<>();
 
     private int seats;
 
@@ -61,12 +61,12 @@ public class ElectoralCircle extends Election {
         this.municipalities = municipalities;
     }
 
-    public List<Parish> getParishes() {
-        return parishes;
+    public List<Parish> getParish() {
+        return parish;
     }
 
-    public void setParishes(List<Parish> parishes) {
-        this.parishes = parishes;
+    public void setParish(List<Parish> parish) {
+        this.parish = parish;
     }
 
     public int getSeats() {
@@ -85,12 +85,12 @@ public class ElectoralCircle extends Election {
         this.parties = parties;
     }
 
-    public District getDistrict() {
-        return district;
+    public District getDistricts() {
+        return districts;
     }
 
     public void setDistricts(District district) {
-        this.district = district;
+        this.districts = district;
     }
 
     public Legislative getLegislative() {

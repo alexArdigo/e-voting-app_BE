@@ -40,7 +40,7 @@ public class StatisticsServiceImpl implements StatisticsService{
 
         ElectoralCircle electoralCircle = (ElectoralCircle) election;
 
-        if(!electoralCircle.getDistrict().equals(districtName)){
+        if(!electoralCircle.getDistricts().equals(districtName)){
             throw new IllegalArgumentException("The specified district does not match the electoral circle's districts.");
         }
 
@@ -241,7 +241,7 @@ public class StatisticsServiceImpl implements StatisticsService{
         int totalVotes = 0;
 
         for (ElectoralCircle e : electoralCircles) {
-            District district = e.getDistrict();
+            District district = e.getDistricts();
 
             if (e.getStartDate().getYear() == year) {
                 for (Vote vote : voteRepository.findByDistrictName(district.getDistrictName())) {

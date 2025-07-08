@@ -39,11 +39,11 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
 
     @Override
     public void populatePartiesAndCandidatesFromJSON(ElectoralCircle electoralCircle) {
-        if (electoralCircle.getDistrict() == null) {
+        if (electoralCircle.getDistricts() == null) {
             throw new IllegalArgumentException("ElectoralCircle must have a district assigned");
         }
 
-        String districtName = electoralCircle.getDistrict().getDistrictName();
+        String districtName = electoralCircle.getDistricts().getDistrictName();
 
         try {
             Map<String, PartyData> partiesData = readPartiesFromJSON(districtName);
@@ -165,7 +165,7 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
         for(ElectoralCircle electoralCircle : circles) {
 
             try {
-                String districtName = electoralCircle.getDistrict().getDistrictName();
+                String districtName = electoralCircle.getDistricts().getDistrictName();
 
                 Map<String, PartyData> partiesData = readPartiesFromJSON(districtName);
 
@@ -213,7 +213,7 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
 
             } catch (Exception e) {
                 System.err.println("Error populating parties and candidates for district " +
-                        electoralCircle.getDistrict().getDistrictName() + ": " + e.getMessage());
+                        electoralCircle.getDistricts().getDistrictName() + ": " + e.getMessage());
                 e.printStackTrace();
             }
 
