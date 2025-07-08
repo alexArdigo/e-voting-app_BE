@@ -60,7 +60,7 @@ public class ElectionServiceImpl implements ElectionService {
 
 
     @Override
-    public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
+    public List<ElectionDTO> getElections(String electionType, Integer electionYear, boolean isActive) {
         List<Election> elections = electionRepository.findAllByType(ElectionType.PRESIDENTIAL);
 
          return elections.stream()

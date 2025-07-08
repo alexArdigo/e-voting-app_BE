@@ -27,9 +27,10 @@ public class ElectionController {
     @GetMapping("/elections")
     public List<ElectionDTO> getElections(
             @RequestParam(required = false) String electionType,
-            @RequestParam(required = false) Integer electionYear
+            @RequestParam(required = false) Integer electionYear,
+            @RequestParam(required = false) boolean isActive
     ) {
-        return electionService.getElections(electionType, electionYear);
+        return electionService.getElections(electionType, electionYear, isActive);
     }
 
     @GetMapping("legislatives")
@@ -90,11 +91,6 @@ public class ElectionController {
     @GetMapping("/{id}/isStarted")
     public boolean isElectionStarted(@PathVariable Long id) {
         return electionService.isStarted(id);
-    }
-
-    @GetMapping("/elections/all")
-    public List<Election> getAllElections() {
-        return electionService.getAllElections();
     }
 
     @GetMapping("/election/active")
