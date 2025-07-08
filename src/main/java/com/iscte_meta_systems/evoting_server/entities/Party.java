@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.entities;
 import com.iscte_meta_systems.evoting_server.enums.OrganisationType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 

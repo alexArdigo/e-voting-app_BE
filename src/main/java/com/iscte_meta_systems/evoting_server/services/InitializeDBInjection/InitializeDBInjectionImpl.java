@@ -59,8 +59,6 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election1.setDescription("Eleições para a Assembleia da República");
             election1.setStartDate("2026-03-10");
             election1.setEndDate("2026-03-11");
-            election1.setDistrictName("Aveiro");
-            election1.setSeats(16);
             electionService.createElection(election1);
             partiesAndCandidatesService.populatePartiesAndCandidatesFromJSONWithDTO(election1);
             //Nao esta ligado a nenhuma Legislativa especifica (yet), fica apenas associado à legislativa "Default" (id 1) criada na DB por causa das relaçoes de herança (acho), mas creio que podemos dar a volta facilmente a isso no futuro usando a StartDate

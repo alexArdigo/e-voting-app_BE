@@ -2,10 +2,7 @@ package com.iscte_meta_systems.evoting_server.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.iscte_meta_systems.evoting_server.entities.Candidate;
-import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
-import com.iscte_meta_systems.evoting_server.entities.Organisation;
-import com.iscte_meta_systems.evoting_server.entities.Party;
+import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesService {
@@ -162,16 +156,24 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
 
         List<ElectoralCircle> circles = electoralCircleRepository.findAll();
 
-        for(ElectoralCircle electoralCircle : circles) {
+        for (ElectoralCircle electoralCircle : circles) {
 
             try {
-                String districtName = electoralCircle.getDistricts().getDistrictName();
-
-                Map<String, PartyData> partiesData = readPartiesFromJSON(districtName);
-
+                Map<String, PartyData> partiesData = readPartiesByDistrictFromJSON(electoralCircle.getDistricts().getDistrictName());
                 List<Organisation> organisations = new ArrayList<>();
+                List<Party> partiesAlreadyCreated = partyRepository.findAll();
 
                 for (PartyData partyData : partiesData.values()) {
+                    boolean alreadyExists = false;
+                    for(Party e : partiesAlreadyCreated ) {
+                        if(partyData.name.equals(e.getName())){
+                            electoralCircle.getOrganisations().add(e);
+                            e.setElection(electoralCircle);
+                            alreadyExists = true;
+                        }
+                    }
+                    if (alreadyExists) continue;
+
                     Party party = new Party();
                     party.setOrganisationName(partyData.name);
                     party.setName(partyData.name);
@@ -181,19 +183,21 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
                     party.setElection(electoralCircle);
 
                     List<Candidate> candidates = new ArrayList<>();
-                    for (CandidateData candidateData : partyData.candidates) {
-                        Candidate existingCandidate = candidateRepository.findByName(candidateData.name);
-                        Candidate candidate;
+                    Set<String> seenCandidateNames = new HashSet<>();
 
-                        if (existingCandidate != null) {
-                            candidate = existingCandidate;
-                        } else {
+                    for (CandidateData candidateData : partyData.candidates) {
+                        if (seenCandidateNames.contains(candidateData.name)) continue;
+
+                        Candidate candidate = candidateRepository.findByName(candidateData.name);
+                        if (candidate == null) {
                             candidate = new Candidate();
                             candidate.setName(candidateData.name);
                             candidate.setImageUrl(candidateData.imageUrl);
-                            candidateRepository.save(candidate);
+                            candidate = candidateRepository.save(candidate);
                         }
+
                         candidates.add(candidate);
+                        seenCandidateNames.add(candidate.getName());
                     }
 
                     party.setCandidates(candidates);
@@ -201,23 +205,61 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
                     organisations.add(party);
                 }
 
-                if (electoralCircle.getOrganisations() == null) {
-                    electoralCircle.setOrganisations(new ArrayList<>());
-                }
                 electoralCircle.getOrganisations().addAll(organisations);
-
                 electionRepository.save(electoralCircle);
-
-                System.out.println("Successfully populated " + organisations.size() +
-                        " parties for district: " + districtName);
 
             } catch (Exception e) {
                 System.err.println("Error populating parties and candidates for district " +
                         electoralCircle.getDistricts().getDistrictName() + ": " + e.getMessage());
                 e.printStackTrace();
             }
-
         }
+    }
+
+
+
+    private Map<String, PartyData> readPartiesByDistrictFromJSON(String districtName) throws Exception {
+        ClassPathResource resource = new ClassPathResource("PartiesAndCandidates.json");
+        InputStream inputStream = resource.getInputStream();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode rootNode = objectMapper.readTree(inputStream);
+
+        Map<String, PartyData> partiesData = new HashMap<>();
+
+        JsonNode districtNode = rootNode.get(districtName);
+        if (districtNode == null) {
+            System.out.println("No data found for district: " + districtName);
+            return partiesData;
+        }
+
+        for (JsonNode partyNode : districtNode) {
+            String partyName = partyNode.get("partyName").asText();
+            String partyColor = partyNode.get("color").asText();
+            String partyLogoUrl = partyNode.get("logoUrl").asText();
+            String partyDescription = partyNode.get("description").asText();
+
+            PartyData partyData = new PartyData();
+            partyData.name = partyName;
+            partyData.color = partyColor;
+            partyData.logoUrl = partyLogoUrl;
+            partyData.description = partyDescription;
+            partyData.candidates = new ArrayList<>();
+
+            JsonNode candidatesNode = partyNode.get("candidates");
+            if (candidatesNode != null && candidatesNode.isArray()) {
+                for (JsonNode candidateNode : candidatesNode) {
+                    CandidateData candidateData = new CandidateData();
+                    candidateData.name = candidateNode.get("name").asText();
+                    candidateData.imageUrl = candidateNode.get("imageUrl").asText();
+                    partyData.candidates.add(candidateData);
+                }
+            }
+            partiesData.put(partyName, partyData);
+        }
+
+        inputStream.close();
+        return partiesData;
     }
 
 }
