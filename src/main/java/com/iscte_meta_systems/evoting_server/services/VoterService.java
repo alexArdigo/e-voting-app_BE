@@ -2,6 +2,8 @@ package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
 
+import java.util.ArrayList;
+
 public interface VoterService {
 
     District getDistrict(String districtName);
@@ -10,7 +12,7 @@ public interface VoterService {
 
     Parish getParish(String parishName, Municipality municipality);
 
-    Boolean hasAlreadyVoted(String voter, Long electionId);
+    ArrayList<Long> hasAlreadyVoted(String nif);
 
     Voter getLoggedVoter();
 
