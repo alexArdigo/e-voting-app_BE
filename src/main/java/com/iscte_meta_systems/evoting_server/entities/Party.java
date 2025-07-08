@@ -12,8 +12,8 @@ public class Party extends Organisation {
     private String color;
     private String logoUrl;
     private String description;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Candidate> candidates = new ArrayList<>();
+    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, orphanRemoval = true)
+    private List<Candidate> candidates;
 
     @ManyToOne
     @JoinColumn(name = "electoral_circle_id")

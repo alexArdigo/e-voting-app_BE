@@ -61,16 +61,15 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
 
                 List<Candidate> candidates = new ArrayList<>();
                 for (CandidateData candidateData : partyData.candidates) {
-                    Candidate existingCandidate = candidateRepository.findByName(candidateData.name);
-                    Candidate candidate;
+                    Candidate candidate = candidateRepository.findByName(candidateData.name);
 
-                    if (existingCandidate != null) {
-                        candidate = existingCandidate;
-                    } else {
+                    if (candidate == null) {
                         candidate = new Candidate();
                         candidate.setName(candidateData.name);
                         candidate.setImageUrl(candidateData.imageUrl);
-                        candidateRepository.save(candidate);
+                        candidate = candidateRepository.save(candidate);
+                    } else {
+                        candidate = candidateRepository.findById(candidate.getId()).orElse(candidate);
                     }
                     candidates.add(candidate);
                 }
