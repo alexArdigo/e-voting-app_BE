@@ -72,6 +72,18 @@ public class CommentServiceImpl implements CommentService {
         return true;
     }
 
+    @Override
+    public void deleteComment(Long id) {
+        User user = userService.getCurrentUser();
+        if (Role.ADMIN != user.getRole()) {
+            throw new RuntimeException("Only admins can delete comments.");
+        }
+        HelpComment comment = getCommentById(id);
+        if (comment.getAnswer() != null) {
+            answerRepository.delete(comment.getAnswer());
+        }
+        helpCommentRepository.delete(comment);
+    }
 
     @Override
     public List<HelpComment> getAllComments() {
