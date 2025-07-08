@@ -82,11 +82,11 @@ public class CommentServiceImpl implements CommentService {
         if (comment.getAnswer() != null) {
             answerRepository.delete(comment.getAnswer());
         }
-//        if (comment.getVoterHashLike() != null) {
-//            for (String voterHash : comment.getVoterHashLike()) {
-//                voterService.removeLikeFromComment(voterHash, comment);
-//            }
-//        }
+        if (comment.getVoterHashLike() != null) {
+            for (String voterHash : comment.getVoterHashLike()) {
+                voterService.removeLikeFromComment(voterHash, comment);
+            }
+        }
         helpCommentRepository.delete(comment);
     }
 

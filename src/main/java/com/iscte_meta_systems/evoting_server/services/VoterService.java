@@ -19,4 +19,5 @@ public interface VoterService {
     String getHashIdentification(Long nif);
 
 
+    void removeLikeFromComment(String voterHash, HelpComment comment);
 }
