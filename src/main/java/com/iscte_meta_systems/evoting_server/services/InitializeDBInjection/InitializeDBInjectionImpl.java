@@ -69,7 +69,6 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election3.setDescription("Eleições para a Assembleia da República");
             election3.setStartDate("2025-03-10");
             election3.setEndDate("2025-03-11");
-            election3.setStarted(true);
             electionService.createElection(election3);
             partiesAndCandidatesService.populatePartiesAndCandidatesFromJSONWithDTO(election3);
 
