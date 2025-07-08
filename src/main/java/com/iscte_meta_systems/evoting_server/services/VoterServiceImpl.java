@@ -7,6 +7,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.text.Normalizer;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +37,11 @@ public class VoterServiceImpl implements VoterService {
     @Autowired
     private ParishRepository parishRepository;
 
+    @Autowired
+    private HelpCommentRepository helpCommentRepository;
+    @Autowired
+    private VotingSessionRepository votingSessionRepository;
+
 
     @Override
     public void saveVoterHash(Voter voter) {
@@ -45,15 +52,13 @@ public class VoterServiceImpl implements VoterService {
 
         if (!voterHashRepository.existsByHashIdentification(hashIdentification)) {
             try {
-
-
                 voterHashRepository.save(
-                    new VoterHash(
-                        hashIdentification,
-                        voter.getDistrict(),
-                        voter.getMunicipality(),
-                        voter.getParish()
-                    )
+                        new VoterHash(
+                                hashIdentification,
+                                voter.getDistrict(),
+                                voter.getMunicipality(),
+                                voter.getParish()
+                        )
                 );
             } catch (Exception e) {
                 throw new RuntimeException("Error processing voter data: " + e.getMessage(), e);
@@ -64,6 +69,62 @@ public class VoterServiceImpl implements VoterService {
     @Override
     public String getHashIdentification(Long nif) {
         return passwordEncoder.encode(nif.toString());
+    }
+
+    @Override
+    public void removeLikeFromComment(String voterHash, HelpComment comment) {
+        if (voterHash == null || voterHash.isEmpty())
+            throw new NullPointerException("Voter hash cannot be null or empty");
+
+        if (comment == null)
+            throw new NullPointerException("Comment cannot be null");
+
+        if (!comment.hasLiked(voterHash)) {
+            throw new RuntimeException("Voter has not liked this comment");
+        }
+
+        //comment.removeLike(voterHash);
+        helpCommentRepository.save(comment);
+    }
+
+    @Override
+    public boolean startVoting(Long electionId, Long voterId) {
+        checkElectionAndVoter(electionId, voterId);
+
+        VotingSession existingSession = votingSessionRepository.findByElectionIdAndVoterId(electionId, voterId);
+        if (existingSession != null) {
+            throw new RuntimeException("Voting session already exists for election ID: " + electionId + " and voter ID: " + voterId);
+        }
+        votingSessionRepository.save(new VotingSession(electionId, voterId));
+        return true;
+    }
+
+    @Override
+    public void stopVoting(Long electionId, Long voterId) {
+        checkElectionAndVoter(electionId, voterId);
+
+        VotingSession votingSession = votingSessionRepository.findByElectionIdAndVoterId(electionId, voterId);
+        if (votingSession == null) {
+            throw new RuntimeException("Voting session not found for election ID: " + electionId + " and voter ID: " + voterId);
+        }
+
+        votingSessionRepository.delete(votingSession);
+    }
+
+    @Override
+    public boolean isVoting(Long id) {
+        return votingSessionRepository.existsById(id);
+    }
+
+    private void checkElectionAndVoter(Long electionId, Long voterId) {
+        Election election = electionRepository.findElectionById(electionId);
+        if (election == null || election.getId() == null) {
+            throw new RuntimeException("Election not found with ID: " + electionId);
+        }
+        Voter voter = voterRepository.findVoterById(voterId);
+        if (voter == null || voter.getId() == null) {
+            throw new RuntimeException("Voter not found with ID: " + voterId);
+        }
     }
 
 
@@ -80,11 +141,11 @@ public class VoterServiceImpl implements VoterService {
     public Municipality getMunicipality(String municipalityName, District district) {
         List<Municipality> municipalities = municipalityRepository.findByMunicipalityNameContainingIgnoreCase(municipalityName);
         return municipalities.stream()
-            .filter(m -> normalizeString(m.getMunicipalityName()).equalsIgnoreCase(normalizeString(municipalityName))
-                   && m.getDistrict().equals(district))
-            .findFirst()
-            .orElseThrow(() -> new RuntimeException("Municipality not found in district: " + municipalityName +
-                          ". Please check spelling and accents."));
+                .filter(m -> normalizeString(m.getMunicipalityName()).equalsIgnoreCase(normalizeString(municipalityName))
+                        && m.getDistrict().equals(district))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Municipality not found in district: " + municipalityName +
+                        ". Please check spelling and accents."));
     }
 
     @Override
@@ -99,16 +160,25 @@ public class VoterServiceImpl implements VoterService {
     }
 
     @Override
-    public Boolean hasAlreadyVoted(String hash, Long electionId) {
-        if (hash == null || electionId == null)
+    public ArrayList<Long> hasAlreadyVoted(Long nif) {
+        if (nif == null)
             throw new NullPointerException();
 
-        Optional<Election> optional = electionRepository.findById(electionId);
-        List<VoterHash> votersVoted = optional.orElseThrow().getVotersVoted();
+        ArrayList<Long> electionsIds = new ArrayList<>();
+        List<Election> activeElections = electionRepository.findAll().stream()
+                .filter(Election::isStarted)
+                .toList();
 
+        for (Election election : activeElections) {
+            for (VoterHash voterHash : election.getVotersVoted()) {
+                if (passwordEncoder.matches(nif.toString(), voterHash.getHashIdentification()))
+                    electionsIds.add(election.getId());
+            }
+        }
 
-        return votersVoted.contains(hash);
+        return electionsIds;
     }
+
 
     @Override
     public Voter getLoggedVoter() {
@@ -123,6 +193,7 @@ public class VoterServiceImpl implements VoterService {
     /**
      * Normalizes a string by removing diacritical marks (accents) and converting to lowercase
      * This helps with comparison when user input doesn't match exact characters in database
+     *
      * @param input The string to normalize
      * @return Normalized string without accents and in lowercase
      */
@@ -132,7 +203,7 @@ public class VoterServiceImpl implements VoterService {
         }
         String result = input.toLowerCase();
         // Remove diacritical marks (accents)
-        result = java.text.Normalizer.normalize(result, java.text.Normalizer.Form.NFD)
+        result = Normalizer.normalize(result, Normalizer.Form.NFD)
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
         return result;
     }
