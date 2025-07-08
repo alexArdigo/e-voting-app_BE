@@ -16,8 +16,8 @@ public class VoterController {
         return ResponseEntity.ok().body(voterService.getLoggedVoter());
     }
 
-    @GetMapping("/voters/has-voted")
-        public ResponseEntity<?> hasAlreadyVoted(@RequestParam String nif) {
+    @PostMapping("/voters/has-voted")
+        public ResponseEntity<?> hasAlreadyVoted(@RequestParam("nif") String nif) {
         return ResponseEntity.ok().body(voterService.hasAlreadyVoted(nif));
     }
 }

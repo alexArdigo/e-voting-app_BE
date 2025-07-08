@@ -25,8 +25,7 @@ public class OAuthController {
             @RequestParam String token,
             @RequestParam Long id
     ) {
-        oAuthService.authWithToken(token, id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(oAuthService.authWithToken(token, id));
     }
 
     @PostMapping("/callback")
