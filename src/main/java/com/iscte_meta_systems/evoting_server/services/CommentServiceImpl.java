@@ -44,7 +44,8 @@ public class CommentServiceImpl implements CommentService {
         Answer answerEntity = new Answer();
         answerEntity.setAnswer(answer);
         answerEntity.setComment(helpComment);
-        answerEntity.setAdmin(user);
+        answerEntity.setAdminId(user.getId());
+
         answerRepository.save(answerEntity);
 
         helpComment.setAnswer(answerEntity);
@@ -71,23 +72,6 @@ public class CommentServiceImpl implements CommentService {
         return true;
     }
 
-    @Override
-    public void deleteComment(Long id) {
-        User user = userService.getCurrentUser();
-        if (!Role.ADMIN.equals(user.getRole())) {
-            throw new RuntimeException("Only admins can delete comments.");
-        }
-        HelpComment comment = getCommentById(id);
-        if (comment.getAnswer() != null) {
-            answerRepository.delete(comment.getAnswer());
-        }
-        if (comment.getVoterHashLike() != null) {
-            for (String voterHash : comment.getVoterHashLike()) {
-                voterService.removeLikeFromComment(voterHash, comment);
-            }
-        }
-        helpCommentRepository.delete(comment);
-    }
 
     @Override
     public List<HelpComment> getAllComments() {
@@ -117,7 +101,7 @@ public class CommentServiceImpl implements CommentService {
         Answer answer = new Answer();
         answer.setAnswer("O voto, assim que registado, já não pode ser alterado.");
         answer.setComment(comment2);
-        answer.setAdmin(userService.getUserByUsername("Admin"));
+        answer.setAdminId(1L);
 
         answerRepository.save(answer);
 

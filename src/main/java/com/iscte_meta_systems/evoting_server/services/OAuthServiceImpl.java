@@ -98,8 +98,7 @@ public class OAuthServiceImpl implements OAuthService {
 
     @Override
     @Transactional
-    public Voter authWithToken(String token, Long voterId) {
-        System.out.println("voterId = " + voterId);
+    public void authWithToken(String token, Long voterId) {
         OAuthToken existingOAuthToken = oAuthTokenRepository.findOAuthTokenByToken(token);
 
         if (existingOAuthToken == null) {
@@ -109,8 +108,6 @@ public class OAuthServiceImpl implements OAuthService {
         authenticationToken(voterId.toString(), existingOAuthToken.getToken());
 
         oAuthTokenRepository.deleteByToken(existingOAuthToken.getToken());
-
-        return voterRepository.findVoterById(voterId);
 
     }
 

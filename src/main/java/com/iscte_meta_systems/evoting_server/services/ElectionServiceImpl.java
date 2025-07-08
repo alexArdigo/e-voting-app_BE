@@ -7,7 +7,6 @@ import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.model.VoteRequestModel;
 import com.iscte_meta_systems.evoting_server.repositories.*;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,10 +26,10 @@ public class ElectionServiceImpl implements ElectionService {
     private DistrictRepository districtRepository;
 
     @Autowired
-    private ElectionRepository electionRepository;
+    private PartiesAndCandidatesService partiesAndCandidatesService;
 
     @Autowired
-    private PartiesAndCandidatesService partiesAndCandidatesService;
+    private ElectionRepository electionRepository;
 
     @Autowired
     private VoterService voterService;
@@ -43,6 +42,8 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Autowired
     private LegislativeRepository legislativeRepository;
+    @Autowired
+    private VoterHashRepository voterHashRepository;
 
     @Autowired
     private ParishRepository parishRepository;
@@ -142,7 +143,6 @@ public class ElectionServiceImpl implements ElectionService {
                 baseElection = electionRepository.save(baseElection);
 
                 Legislative legislative = new Legislative();
-                legislative.setDateTime(startDate);
                 legislative = legislativeRepository.save(legislative);
 
                 List<String> distritos = List.of(
@@ -170,7 +170,6 @@ public class ElectionServiceImpl implements ElectionService {
 
                     circle.setLegislative(legislative);
                     circle = electoralCircleRepository.save(circle);
-                    partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(circle);
                     circles.add(circle);
                 }
 
@@ -352,113 +351,6 @@ public class ElectionServiceImpl implements ElectionService {
     @Override
     public List<Legislative> getLegislatives() {
         return legislativeRepository.findAll();
-    }
-
-    @Override
-    @Transactional
-    public ElectionDTO updateElection(Long id, ElectionDTO electionDTO) {
-        Election existingElection = getElectionById(id);
-
-        if (existingElection.isStarted()) {
-            throw new IllegalStateException("Cannot edit an election that has already started.");
-        }
-
-        validateElectionDTO(electionDTO);
-
-        LocalDateTime startDate = parseDateTimeFlexible(electionDTO.getStartDate());
-        LocalDateTime endDate = parseDateTimeFlexible(electionDTO.getEndDate());
-
-        if (endDate.isBefore(startDate)) {
-            throw new IllegalArgumentException("End date cannot be before start date.");
-        }
-
-        existingElection.setName(electionDTO.getName().trim());
-        existingElection.setDescription(electionDTO.getDescription() != null ? electionDTO.getDescription().trim() : null);
-        existingElection.setStartDate(startDate);
-        existingElection.setEndDate(endDate);
-
-        Election updatedElection = electionRepository.save(existingElection);
-
-        ElectionDTO resultDTO = new ElectionDTO();
-        resultDTO.setId(updatedElection.getId());
-        resultDTO.setName(updatedElection.getName());
-        resultDTO.setDescription(updatedElection.getDescription());
-        resultDTO.setStartDate(updatedElection.getStartDate().toString());
-        resultDTO.setEndDate(updatedElection.getEndDate().toString());
-        resultDTO.setElectionType(updatedElection.getType());
-
-        return resultDTO;
-    }
-
-    public void deleteElection(Long id) {
-        Election election = getElectionById(id);
-
-        if (election.isStarted()) {
-            throw new IllegalStateException("Cannot delete an election that has already started.");
-        }
-
-        if (election.getVotes() != null && !election.getVotes().isEmpty()) {
-            throw new IllegalStateException("Cannot delete an election that already has votes.");
-        }
-
-        try {
-            if (election instanceof ElectoralCircle) {
-                deleteElectoralCircle((ElectoralCircle) election);
-            } else if (election instanceof Presidential) {
-                deletePresidentialElection((Presidential) election);
-            }
-        } catch (Exception e) {
-            throw new RuntimeException("Error deleting election: " + e.getMessage(), e);
-        }
-    }
-
-    private void deletePresidentialElection(Presidential presidential) {
-        if (presidential.getCandidates() != null) {
-            presidential.getCandidates().clear();
-        }
-        if (presidential.getOrganisations() != null) {
-            presidential.getOrganisations().clear();
-        }
-        if (presidential.getVotersVoted() != null) {
-            presidential.getVotersVoted().clear();
-        }
-
-        electionRepository.delete(presidential);
-    }
-
-    private void deleteElectoralCircle(ElectoralCircle circle) {
-        if (circle.getParties() != null) {
-            circle.getParties().clear();
-        }
-        if (circle.getMunicipalities() != null) {
-            circle.getMunicipalities().clear();
-        }
-        if (circle.getParish() != null) {
-            circle.getParish().clear();
-        }
-        if (circle.getOrganisations() != null) {
-            circle.getOrganisations().clear();
-        }
-        if (circle.getVotersVoted() != null) {
-            circle.getVotersVoted().clear();
-        }
-
-        Legislative legislative = circle.getLegislative();
-        if (legislative != null) {
-            legislative.getElectoralCircles().remove(circle);
-            legislativeRepository.save(legislative);
-        }
-
-        electionRepository.delete(circle);
-    }
-
-    private void validateElectionDTO(ElectionDTO dto) {
-        if (dto.getName() == null || dto.getName().trim().isEmpty()) {
-            throw new IllegalArgumentException("Election name is required.");
-        }
-        if (dto.getStartDate() == null || dto.getEndDate() == null) {
-            throw new IllegalArgumentException("Start and end dates are required.");
-        }
     }
 
     private LocalDateTime parseDateTimeFlexible(String dateStr) {

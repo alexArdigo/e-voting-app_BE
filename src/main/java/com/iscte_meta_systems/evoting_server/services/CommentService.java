@@ -17,6 +17,4 @@ public interface CommentService {
     List<HelpComment> getAllComments();
 
     boolean hasUserLiked(Long commentId);
-
-    void deleteComment(Long id);
 }

@@ -36,8 +36,4 @@ public interface ElectionService {
 
     Legislative getLegislativeById(Long legislativeID);
     List<Legislative> getLegislatives();
-
-    ElectionDTO updateElection(Long id, ElectionDTO electionDTO);
-
-    void deleteElection(Long id);
 }

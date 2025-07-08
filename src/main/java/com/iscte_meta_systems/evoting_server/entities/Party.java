@@ -1,8 +1,8 @@
 package com.iscte_meta_systems.evoting_server.entities;
 import com.iscte_meta_systems.evoting_server.enums.OrganisationType;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,12 +12,8 @@ public class Party extends Organisation {
     private String color;
     private String logoUrl;
     private String description;
-    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, orphanRemoval = true)
-    private List<Candidate> candidates;
-
-    @ManyToOne
-    @JoinColumn(name = "electoral_circle_id")
-    private ElectoralCircle electoralCircle;
+    @OneToMany
+    List<Candidate> candidates;
 
     public Party() {
     }
@@ -64,9 +60,6 @@ public class Party extends Organisation {
     public List<Candidate> getCandidates() {return candidates;}
 
     public void setCandidates(List<Candidate> candidates) {this.candidates = candidates;}
-
-    public ElectoralCircle getElectoralCircle() { return electoralCircle; }
-    public void setElectoralCircle(ElectoralCircle electoralCircle) { this.electoralCircle = electoralCircle; }
 
     @Override
     public OrganisationType getOrganisationType() {

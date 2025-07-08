@@ -46,18 +46,6 @@ public class CommentController {
         }
     }
 
-    @DeleteMapping("/comment/{id}")
-    public ResponseEntity<String> deleteComment(@PathVariable Long id) {
-        try {
-            commentService.deleteComment(id);
-            return ResponseEntity.ok("Comment deleted successfully.");
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(403).body(e.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("Error deleting comment.");
-        }
-    }
-
     @GetMapping("/comments")
     public List<HelpComment> getAllComments() {
         return commentService.getAllComments();

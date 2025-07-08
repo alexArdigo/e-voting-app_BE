@@ -2,44 +2,26 @@ package com.iscte_meta_systems.evoting_server.entities;
 
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import jakarta.persistence.*;
+import org.springframework.data.geo.Circle;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class ElectoralCircle extends Election {
 
     @ManyToOne
-    @JoinColumn(name = "legislative_id")
-    private Legislative legislative;
+    Legislative legislative;
 
     @ManyToOne
-    @JoinColumn(name = "district_id")
-    private District districts;
-
-    @OneToMany(mappedBy = "electoralCircle", cascade = CascadeType.ALL)
-    private List<Party> parties = new ArrayList<>();
-
-    @ManyToMany
-    @JoinTable(
-            name = "electoral_circle_municipalities",
-            joinColumns = @JoinColumn(name = "electoral_circle_id"),
-            inverseJoinColumns = @JoinColumn(name = "municipality_id")
-    )
-    private List<Municipality> municipalities = new ArrayList<>();
-
-    @ManyToMany
-    @JoinTable(
-            name = "electoral_circle_parishes",
-            joinColumns = @JoinColumn(name = "electoral_circle_id"),
-            inverseJoinColumns = @JoinColumn(name = "parish_id")
-    )
-    private List<Parish> parish = new ArrayList<>();
-
+    District districts;
+    @OneToMany
+    List<Party> parties;
+    @OneToMany
+    List<Municipality> municipalities;
+    @OneToMany
+    List<Parish> parish;
     private int seats;
-
-    @Enumerated(EnumType.STRING)
-    private ElectoralCircleType electoralCircleType;
+    ElectoralCircleType electoralCircleType;
 
 
     public ElectoralCircle() {
@@ -89,8 +71,8 @@ public class ElectoralCircle extends Election {
         return districts;
     }
 
-    public void setDistricts(District district) {
-        this.districts = district;
+    public void setDistricts(District districts) {
+        this.districts = districts;
     }
 
     public Legislative getLegislative() {
