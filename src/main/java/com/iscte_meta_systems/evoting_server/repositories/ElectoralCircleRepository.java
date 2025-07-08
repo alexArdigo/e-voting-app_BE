@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ElectoralCircleRepository extends JpaRepository<ElectoralCircle, Long> {
 
-    ElectoralCircle findByDistricts_DistrictName(String districtName);
+    List<ElectoralCircle> findByDistricts_DistrictName(String districtName);
 
     @Query("SELECT ec FROM ElectoralCircle ec WHERE ec.legislative.id = :electionId")
     List<ElectoralCircle> findElectoralCirclesByLegislativeElectionId(@Param("electionId") Long electionId);
