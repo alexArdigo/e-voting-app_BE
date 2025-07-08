@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -13,6 +14,16 @@ public class Legislative {
 
     @OneToMany
     private List<ElectoralCircle> electoralCircles;
+
+    private LocalDateTime dateTime;
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
 
     public Long getId() {
         return id;
