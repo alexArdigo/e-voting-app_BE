@@ -12,7 +12,11 @@ public class Legislative {
     @GeneratedValue
     private Long id;
 
-    @OneToMany
+    private String name;
+    private String description;
+    private boolean started = false;
+
+    @OneToMany(mappedBy = "legislative", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ElectoralCircle> electoralCircles;
 
     private LocalDateTime dateTime;
@@ -39,5 +43,29 @@ public class Legislative {
 
     public void setElectoralCircles(List<ElectoralCircle> electoralCircles) {
         this.electoralCircles = electoralCircles;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isStarted() {
+        return started;
+    }
+
+    public void setStarted(boolean started) {
+        this.started = started;
     }
 }
