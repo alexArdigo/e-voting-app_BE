@@ -30,6 +30,9 @@ public class ElectionServiceImpl implements ElectionService {
     private ElectionRepository electionRepository;
 
     @Autowired
+    private PartiesAndCandidatesService partiesAndCandidatesService;
+
+    @Autowired
     private VoterService voterService;
 
     @Autowired
