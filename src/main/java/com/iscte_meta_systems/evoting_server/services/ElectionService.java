@@ -26,12 +26,6 @@ public interface ElectionService {
 
     Boolean isStarted(Long id);
 
-    List<Election> getAllElections();
-
-    List<ElectionDTO> getActiveElections();
-
-    List<Election> getNotActiveElections();
-
     List<Vote> generateTestVotes(int numberOfVotes, Long electionId);
 
     Legislative getLegislativeById(Long legislativeID);

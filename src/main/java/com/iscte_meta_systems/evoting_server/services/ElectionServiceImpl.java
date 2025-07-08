@@ -42,6 +42,7 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Autowired
     private LegislativeRepository legislativeRepository;
+
     @Autowired
     private VoterHashRepository voterHashRepository;
 
@@ -57,39 +58,51 @@ public class ElectionServiceImpl implements ElectionService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
-
     @Override
     public List<ElectionDTO> getElections(String electionType, Integer electionYear, boolean isActive) {
-        List<Election> elections = electionRepository.findAllByType(ElectionType.PRESIDENTIAL);
+        List<Election> elections;
 
-         return elections.stream()
-                .filter(e -> electionType == null || e.getClass().getSimpleName().equalsIgnoreCase(electionType))
-                .filter(e -> electionYear == null || (e.getStartDate() != null && e.getStartDate().getYear() == electionYear))
-                .map(e -> {
-                    ElectionDTO dto = new ElectionDTO();
-                    dto.setName(e.getName());
-                    dto.setDescription(e.getDescription());
-                    dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
-                    dto.setEndDate(e.getEndDate() != null ? e.getEndDate().toString() : null);
-                    dto.setElectionType(e.getType());
+        if (electionType != null) {
+            ElectionType type = ElectionType.valueOf(electionType.toUpperCase());
+            elections = electionRepository.findAllByType(type);
+        } else {
+            elections = electionRepository.findAll();
+        }
 
-                    if (e.getOrganisations() != null) {
-                        List<OrganisationDTO> orgDtos = e.getOrganisations().stream()
-                                .map(org -> {
-                                    OrganisationDTO orgDto = new OrganisationDTO();
-                                    orgDto.setName(org.getOrganisationName());
-                                    orgDto.setOrganisationType(org.getOrganisationType());
-                                    orgDto.setElectionId(org.getElection() != null ? org.getElection().getId() : null);
-                                    return orgDto;
-                                })
-                                .collect(Collectors.toList());
-                        dto.setOrganisations(orgDtos);
-                    }
-
-                    return dto;
-                })
+        return elections.stream()
+                .filter(e -> electionYear == null ||
+                        (e.getStartDate() != null && e.getStartDate().getYear() == electionYear))
+                .filter(e -> e.isStarted() == isActive)
+                .map(this::convertToDTO)
                 .collect(Collectors.toList());
+    }
+
+    private ElectionDTO convertToDTO(Election election) {
+        ElectionDTO dto = new ElectionDTO();
+        dto.setId(election.getId());
+        dto.setName(election.getName());
+        dto.setDescription(election.getDescription());
+        dto.setStartDate(election.getStartDate() != null ? election.getStartDate().toString() : null);
+        dto.setEndDate(election.getEndDate() != null ? election.getEndDate().toString() : null);
+        dto.setElectionType(election.getType());
+        dto.setStarted(election.isStarted());
+
+        if (election.getOrganisations() != null) {
+            dto.setOrganisations(election.getOrganisations()
+                    .stream()
+                    .map(this::convertOrgToDTO)
+                    .collect(Collectors.toList()));
+        }
+
+        return dto;
+    }
+
+    private OrganisationDTO convertOrgToDTO(Organisation org) {
+        OrganisationDTO dto = new OrganisationDTO();
+        dto.setName(org.getOrganisationName());
+        dto.setOrganisationType(org.getOrganisationType());
+        dto.setElectionId(org.getElection() != null ? org.getElection().getId() : null);
+        return dto;
     }
 
     @Override
@@ -247,45 +260,6 @@ public class ElectionServiceImpl implements ElectionService {
     public Boolean isStarted(Long id) {
         Election election = getElectionById(id);
         return election.isStarted();
-    }
-
-    @Override
-    public List<Election> getAllElections() {
-        return electionRepository.findAll();
-    }
-
-    @Override
-    public List<ElectionDTO> getActiveElections() {
-        List<Election> elections = electionRepository.findAll();
-        List<Election> activeElection = new ArrayList<>();
-        for (Election election : elections) {
-            if (election.isStarted()) {
-                activeElection.add(election);
-            }
-        }
-
-        return activeElection.stream().map(e -> {
-            ElectionDTO dto = new ElectionDTO();
-            dto.setId(e.getId());
-            dto.setName(e.getName());
-            dto.setDescription(e.getDescription());
-            dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
-            dto.setEndDate(e.getEndDate() != null ? e.getEndDate().toString() : null);
-            dto.setElectionType(e.getType());
-            return dto;
-        }).collect(Collectors.toList());
-    }
-
-    @Override
-    public List<Election> getNotActiveElections() {
-        List<Election> elections = electionRepository.findAll();
-        List<Election> notActiveElections = new ArrayList<>();
-        for (Election election : elections) {
-            if (!election.isStarted()) {
-                notActiveElections.add(election);
-            }
-        }
-        return notActiveElections;
     }
 
     @Override

@@ -7,7 +7,6 @@ import com.iscte_meta_systems.evoting_server.repositories.ElectoralCircleReposit
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import com.iscte_meta_systems.evoting_server.services.PartiesAndCandidatesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,19 +32,9 @@ public class ElectionController {
         return electionService.getElections(electionType, electionYear, isActive);
     }
 
-    @GetMapping("legislatives")
-    public List<Legislative> getLegislatives() {
-        return electionService.getLegislatives();
-    }
-
     @GetMapping("/elections/{id}")
     public Election getElectionById(@PathVariable Long id) {
         return electionService.getElectionById(id);
-    }
-
-    @GetMapping("legislatives/{id}")
-    public Legislative getLegislativeById(@PathVariable Long id) {
-        return electionService.getLegislativeById(id);
     }
 
     @PostMapping("/elections")
@@ -73,8 +62,12 @@ public class ElectionController {
         return electionService.endElection(id);
     }
 
-    @PostMapping("/elections/{id}/populate-parties")
+    @GetMapping("/elections/{id}/isStarted")
+    public boolean isElectionStarted(@PathVariable Long id) {
+        return electionService.isStarted(id);
+    }
 
+    @PostMapping("/elections/{id}/populate-parties")
     public String populatePartiesAndCandidates(@PathVariable Long id) {
         try {
             ElectoralCircle electoralCircle = electoralCircleRepository.findById(id)
@@ -88,23 +81,28 @@ public class ElectionController {
         }
     }
 
-    @GetMapping("/{id}/isStarted")
-    public boolean isElectionStarted(@PathVariable Long id) {
-        return electionService.isStarted(id);
-    }
-
-    @GetMapping("/election/active")
-    public List<ElectionDTO> getActiveElections() {
-        return electionService.getActiveElections();
-    }
-
-    @GetMapping("/election/notactive")
-    public List<Election> getNotActiveElections() {
-        return electionService.getNotActiveElections();
-    }
-
-    @PostMapping("/election/testVotes/{numberOfVotes}/{electionId}")
+    @PostMapping("/elections/testVotes/{numberOfVotes}/{electionId}")
     public List<Vote> generateTestVotes(@PathVariable int numberOfVotes, @PathVariable Long electionId) {
         return electionService.generateTestVotes(numberOfVotes, electionId);
+    }
+
+    @GetMapping("/legislatives")
+    public List<Legislative> getLegislatives() {
+        return electionService.getLegislatives();
+    }
+
+    @GetMapping("/legislatives/{id}")
+    public Legislative getLegislativeById(@PathVariable Long id) {
+        return electionService.getLegislativeById(id);
+    }
+
+    @GetMapping("/elections/active")
+    public List<ElectionDTO> getActiveElections() {
+        return electionService.getElections(null, null, true);
+    }
+
+    @GetMapping("/elections/inactive")
+    public List<ElectionDTO> getInactiveElections() {
+        return electionService.getElections(null, null, false);
     }
 }
