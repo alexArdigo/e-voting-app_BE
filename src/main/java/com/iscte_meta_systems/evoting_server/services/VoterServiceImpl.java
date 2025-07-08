@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class VoterServiceImpl implements VoterService {
@@ -69,22 +68,6 @@ public class VoterServiceImpl implements VoterService {
     @Override
     public String getHashIdentification(Long nif) {
         return passwordEncoder.encode(nif.toString());
-    }
-
-    @Override
-    public void removeLikeFromComment(String voterHash, HelpComment comment) {
-        if (voterHash == null || voterHash.isEmpty())
-            throw new NullPointerException("Voter hash cannot be null or empty");
-
-        if (comment == null)
-            throw new NullPointerException("Comment cannot be null");
-
-        if (!comment.hasLiked(voterHash)) {
-            throw new RuntimeException("Voter has not liked this comment");
-        }
-
-        //comment.removeLike(voterHash);
-        helpCommentRepository.save(comment);
     }
 
     @Override
