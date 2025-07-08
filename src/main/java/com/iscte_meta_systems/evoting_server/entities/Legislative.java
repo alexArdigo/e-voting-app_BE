@@ -3,7 +3,6 @@ package com.iscte_meta_systems.evoting_server.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
