@@ -143,6 +143,7 @@ public class ElectionServiceImpl implements ElectionService {
                 baseElection = electionRepository.save(baseElection);
 
                 Legislative legislative = new Legislative();
+                legislative.setDateTime(startDate);
                 legislative = legislativeRepository.save(legislative);
 
                 List<String> distritos = List.of(
@@ -176,7 +177,6 @@ public class ElectionServiceImpl implements ElectionService {
 
                 legislative.setElectoralCircles(circles);
                 legislativeRepository.save(legislative);
-                legislative.setDateTime(startDate);
 
                 ElectionDTO legislativeResult = new ElectionDTO();
                 legislativeResult.setName(baseElection.getName());
