@@ -11,7 +11,7 @@ public class Legislative {
     @GeneratedValue
     private Long id;
 
-    @OneToMany
+    @OneToMany(mappedBy = "legislative", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ElectoralCircle> electoralCircles;
 
     public Long getId() {
