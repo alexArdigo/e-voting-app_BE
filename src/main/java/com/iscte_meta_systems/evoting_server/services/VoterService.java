@@ -3,7 +3,6 @@ package com.iscte_meta_systems.evoting_server.services;
 import com.iscte_meta_systems.evoting_server.entities.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public interface VoterService {
 
@@ -23,9 +22,11 @@ public interface VoterService {
 
     boolean startVoting(Long electionId, Long userId);
 
-    void stopVoting(Long electionId, Long userId);
-
     boolean isVoting(Long id);
 
+    void stopVoting(Long electionId, Long userId);
+
     void removeLikeFromComment(String voterHash, HelpComment comment);
+
+
 }
