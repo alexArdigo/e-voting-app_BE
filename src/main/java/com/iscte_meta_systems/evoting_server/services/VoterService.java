@@ -18,6 +18,11 @@ public interface VoterService {
 
     String getHashIdentification(Long nif);
 
+    boolean startVoting(Long electionId, Long userId);
+
+    void stopVoting(Long electionId, Long userId);
+
+    boolean isVoting(Long id);
 
     void removeLikeFromComment(String voterHash, HelpComment comment);
 }
