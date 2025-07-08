@@ -76,4 +76,12 @@ public class HelpComment {
     public void setVoterHashLike(Set<String> voterHashLike) {
         this.voterHashLike = voterHashLike;
     }
+
+    public void removeLike(String voterHash) {
+        if (voterHashLike.contains(voterHash)) {
+            voterHashLike.remove(voterHash);
+        } else {
+            throw new RuntimeException("User has not liked this comment.");
+        }
+    }
 }

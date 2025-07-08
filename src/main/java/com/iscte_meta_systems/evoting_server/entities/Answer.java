@@ -1,10 +1,7 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Answer {
@@ -14,7 +11,10 @@ public class Answer {
     private Long id;
 
     private String answer;
-    private Long adminId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admin_id")
+    @JsonIgnore
+    private User admin;
     @OneToOne
     @JsonIgnore
     private HelpComment comment;
@@ -35,12 +35,12 @@ public class Answer {
         this.answer = answer;
     }
 
-    public Long getAdminId() {
-        return adminId;
+    public User getAdmin() {
+        return admin;
     }
 
-    public void setAdminId(Long adminId) {
-        this.adminId = adminId;
+    public void setAdmin(User admin) {
+        this.admin = admin;
     }
 
     public HelpComment getComment() {
