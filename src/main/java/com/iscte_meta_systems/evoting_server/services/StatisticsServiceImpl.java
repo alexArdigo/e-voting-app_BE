@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -211,27 +208,29 @@ public class StatisticsServiceImpl implements StatisticsService{
 //        return count;
 //    }
 
+
     @Override
     public int getVotesByPartyByDistrict(String partyName, String districtName, int year) {
-
-        ElectoralCircle electoralCircle = electoralCircleRepository.findByDistricts_DistrictName(districtName);
-
-        List<Vote> votes = voteRepository.findByDistrictName(districtName);
-        if (votes == null || votes.isEmpty()) {
-            System.out.println("Sem votos para o distrito " + districtName);
-            return 0;
-        }
-
         int count = 0;
-        for (Vote vote : votes) {
-            if (vote.getOrganisation() instanceof Party &&
-                    vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName) &&
-                    vote.getParish().getMunicipality().getDistrict().getDistrictName().equalsIgnoreCase(districtName) &&
-                    electoralCircle.getStartDate().getYear() == year) {
-                count++;
+        List<ElectoralCircle> electoralCircles = electoralCircleRepository.findByDistricts_DistrictName(districtName);
+
+        for(ElectoralCircle e : electoralCircles) {
+            if (e.getStartDate().getYear() == year) {
+                List<Vote> votes = e.getVotes();
+                if (votes == null || votes.isEmpty()) {
+                    System.out.println("Sem votos para o distrito " + districtName);
+                    return 0;
+                }
+                for (Vote vote : votes) {
+                    if (vote.getOrganisation() instanceof Party &&
+                            vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName) &&
+                            vote.getParish().getMunicipality().getDistrict().getDistrictName().equalsIgnoreCase(districtName) &&
+                            e.getStartDate().getYear() == year) {
+                        count++;
+                    }
+                }
             }
         }
-
         return count;
     }
 
@@ -245,7 +244,7 @@ public class StatisticsServiceImpl implements StatisticsService{
             District district = e.getDistricts();
 
             if (e.getStartDate().getYear() == year) {
-                for (Vote vote : voteRepository.findByDistrictName(district.getDistrictName())) {
+                for (Vote vote : e.getVotes()) {
                     if (vote.getOrganisation().getOrganisationName().equalsIgnoreCase(partyName)) {
                         totalVotes++;
                     }
@@ -255,6 +254,21 @@ public class StatisticsServiceImpl implements StatisticsService{
 
         return totalVotes;
     }
+
+    @Override
+    public List<Party> getParties() {
+        List<Party> parties = partyRepository.findAll();
+        List<Party> cleanPartyList = new ArrayList<>();
+        Set<String> uniquePartyNames = new HashSet<>();
+
+        for (Party party : parties) {
+            if (uniquePartyNames.add(party.getOrganisationName().toLowerCase())) {
+                cleanPartyList.add(party);
+            }
+        }
+        return cleanPartyList;
+    }
+
 }
 
 
