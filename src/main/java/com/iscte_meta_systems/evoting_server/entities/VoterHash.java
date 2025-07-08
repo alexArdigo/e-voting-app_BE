@@ -20,8 +20,7 @@ public class VoterHash {
     @ManyToOne
     Parish parish;
 
-    @ManyToOne
-    Election election;
+
     public VoterHash() {
     }
 
@@ -77,11 +76,4 @@ public class VoterHash {
         this.parish = parish;
     }
 
-    public Election getElection() {
-        return election;
-    }
-
-    public void setElection(Election election) {
-        this.election = election;
-    }
 }
