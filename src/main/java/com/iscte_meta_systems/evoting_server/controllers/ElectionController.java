@@ -7,6 +7,7 @@ import com.iscte_meta_systems.evoting_server.repositories.ElectoralCircleReposit
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import com.iscte_meta_systems.evoting_server.services.PartiesAndCandidatesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -104,5 +105,20 @@ public class ElectionController {
     @GetMapping("/elections/inactive")
     public List<ElectionDTO> getInactiveElections() {
         return electionService.getElections(null, null, false);
+    }
+
+    @PutMapping("/elections/{id}")
+    public ElectionDTO updateElection(@PathVariable Long id, @RequestBody ElectionDTO electionDTO) {
+        return electionService.updateElection(id, electionDTO);
+    }
+
+    @DeleteMapping("/elections/{id}")
+    public ResponseEntity<String> deleteElection(@PathVariable Long id) {
+        try {
+            electionService.deleteElection(id);
+            return ResponseEntity.ok("Eleição apagada com sucesso");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Erro ao apagar eleição: " + e.getMessage());
+        }
     }
 }
