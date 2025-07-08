@@ -12,7 +12,7 @@ import java.util.List;
 public interface ElectionService {
     List<Organisation> getBallotByElectionId(Long id);
 
-    List<ElectionDTO> getElections(String electionType, Integer electionYear, boolean isActive);
+    List<ElectionDTO> getElections(String electionType, Integer electionYear, Boolean isActive);
 
     Election getElectionById(Long id);
 

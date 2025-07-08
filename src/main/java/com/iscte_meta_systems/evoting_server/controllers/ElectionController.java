@@ -27,7 +27,7 @@ public class ElectionController {
     public List<ElectionDTO> getElections(
             @RequestParam(required = false) String electionType,
             @RequestParam(required = false) Integer electionYear,
-            @RequestParam(required = false) boolean isActive
+            @RequestParam(required = false) Boolean isActive
     ) {
         return electionService.getElections(electionType, electionYear, isActive);
     }

@@ -59,7 +59,7 @@ public class ElectionServiceImpl implements ElectionService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public List<ElectionDTO> getElections(String electionType, Integer electionYear, boolean isActive) {
+    public List<ElectionDTO> getElections(String electionType, Integer electionYear, Boolean isActive) {
         List<Election> elections;
 
         if (electionType != null) {
