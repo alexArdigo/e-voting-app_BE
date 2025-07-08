@@ -17,6 +17,5 @@ public class Presidential extends Election {
 
     public void addCandidate(UniParty candidate) {
         candidates.add(candidate);
-//        candidate.setPresidential(this);
     }
 }
