@@ -57,7 +57,11 @@ public class UserController {
     }
 
     @GetMapping ("/loggedUser")
-    public User getLoggedUser() {
-        return userService.getLoggedUser();
+    public UserRegisterDTO getLoggedUser() {
+        User user = userService.getLoggedUser();
+        return (user != null) ? new UserRegisterDTO(user) : null;
     }
+
+
+
 }
