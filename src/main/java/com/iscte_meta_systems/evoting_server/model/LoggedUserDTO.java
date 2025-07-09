@@ -27,7 +27,7 @@ public class LoggedUserDTO {
             this.institutionName = viewer.getInstitutionName();
             if (viewer.getLastLogin() != null) {
                 this.lastLogin = viewer.getLastLogin()
-                        .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                        .format(DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy"));
             } else {
                 this.lastLogin = null;
             }
