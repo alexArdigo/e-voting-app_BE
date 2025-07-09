@@ -76,8 +76,8 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election2.setName("Presidenciais 2026");
             election2.setElectionType(ElectionType.PRESIDENTIAL);
             election2.setDescription("Eleições para Presidente da República");
-            election2.setStartDate("2026-08-20");
-            election2.setEndDate("2026-08-20");
+            election2.setStartDate("2025-07-09T12:22");
+            election2.setEndDate("2025-07-09T12:24");
 
             electionService.createElection(election2);
         }

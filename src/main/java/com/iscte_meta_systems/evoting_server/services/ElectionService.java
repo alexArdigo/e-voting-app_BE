@@ -20,9 +20,9 @@ public interface ElectionService {
 
     ElectionDTO createElection(ElectionDTO electionDTO);
 
-    Election startElection(Long id);
-
-    Election endElection(Long id);
+//    Election startElection(Long id);
+//
+//    Election endElection(Long id);
 
     Vote castVote(Long id, VoteRequestModel vote);
 

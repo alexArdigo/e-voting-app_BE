@@ -274,24 +274,24 @@ public class ElectionServiceImpl implements ElectionService {
         return election.isStarted();
     }
 
-    @Override
-    public Election startElection(Long id) {
-        Election election = getElectionById(id);
-        election.startElection();
-        return electionRepository.save(election);
-    }
-
-    @Override
-    public Election endElection(Long id) {
-        Instant instant = Instant.now();
-        ZonedDateTime now = instant.atZone(ZoneId.of("Europe/London"));
-        Election election = getElectionById(id);
-        if (!election.isStarted()) {
-            throw new IllegalArgumentException("The election with the " + id + " was not found.");
-        }
-        election.endElection();
-        return electionRepository.save(election);
-    }
+//    @Override
+//    public Election startElection(Long id) {
+//        Election election = getElectionById(id);
+//        election.startElection();
+//        return electionRepository.save(election);
+//    }
+//
+//    @Override
+//    public Election endElection(Long id) {
+//        Instant instant = Instant.now();
+//        ZonedDateTime now = instant.atZone(ZoneId.of("Europe/London"));
+//        Election election = getElectionById(id);
+//        if (!election.isStarted()) {
+//            throw new IllegalArgumentException("The election with the " + id + " was not found.");
+//        }
+//        election.endElection();
+//        return electionRepository.save(election);
+//    }
 
     @Transactional
     @Override
@@ -475,13 +475,14 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Scheduled(cron = "0 * * * * *")
     public void scheduledStartElections() {
-        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon"));
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon")).withSecond(0).withNano(0);
         List<Election> electionsToStart = electionRepository.findAll().stream()
             .filter(e -> !e.isStarted() &&
                 e.getStartDate() != null &&
-                ZonedDateTime.of(e.getStartDate(), ZoneId.of("Europe/Lisbon")).withSecond(0).isEqual(now.withSecond(0)))
+                ZonedDateTime.of(e.getStartDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
             .toList();
         for (Election election : electionsToStart) {
+            election.setStarted(true);
             election.startElection();
             electionRepository.save(election);
         }
@@ -489,11 +490,11 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Scheduled(cron = "0 * * * * *")
     public void scheduledEndElections() {
-        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon"));
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon")).withSecond(0).withNano(0);
         List<Election> electionsToEnd = electionRepository.findAll().stream()
             .filter(e -> e.isStarted() &&
                 e.getEndDate() != null &&
-                ZonedDateTime.of(e.getEndDate(), ZoneId.of("Europe/Lisbon")).withSecond(0).isEqual(now.withSecond(0)))
+                ZonedDateTime.of(e.getEndDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
             .toList();
         for (Election election : electionsToEnd) {
             election.endElection();
