@@ -47,6 +47,8 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     @PostConstruct
     public void init() {
         initializeElections();
+        initializeVotes();
+
     }
 
     @Override
@@ -84,25 +86,12 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @Override
+    public void initializeVotes() {
+        for (int i = 2; i <= 23; i++) {
+            electionService.generateTestVotes(100, (long) i);
+        }
+    }
 
 
     //    @Transactional

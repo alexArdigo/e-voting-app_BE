@@ -272,6 +272,7 @@ public class ElectionServiceImpl implements ElectionService {
         return electionRepository.save(election);
     }
 
+    @Transactional
     @Override
     public List<Vote> generateTestVotes(int numberOfVotes, Long electionId) {
         List<Organisation> organisations = organisationRepository.findAll();
