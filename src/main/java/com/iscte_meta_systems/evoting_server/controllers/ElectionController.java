@@ -24,12 +24,13 @@ public class ElectionController {
     @Autowired
     private PartiesAndCandidatesService partiesAndCandidatesService;
 
-    @GetMapping("/elections/presidential")
-    public List<ElectionDTO> getPresidentialElections(
+    @GetMapping("/elections")
+    public List<ElectionDTO> getPresidentialOrElectoralCircle(
+            @RequestParam(required = false) String electionType,
             @RequestParam(required = false) Integer electionYear,
             @RequestParam(required = false) Boolean isActive
     ) {
-        return electionService.getPresidentialElections(electionYear, isActive);
+        return electionService.getPresidentialOrElectoralCircle(electionType, electionYear, isActive);
     }
 
     @GetMapping("/elections/legislative")

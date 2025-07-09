@@ -60,8 +60,8 @@ public class ElectionServiceImpl implements ElectionService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public List<ElectionDTO> getPresidentialElections(Integer electionYear, Boolean isActive) {
-        List<Election> elections = electionRepository.findAllByType(ElectionType.PRESIDENTIAL);
+    public List<ElectionDTO> getPresidentialOrElectoralCircle(String electionType, Integer electionYear, Boolean isActive) {
+        List<Election> elections = electionRepository.findAllByType(electionType == null ? null : ElectionType.valueOf(electionType.toUpperCase()));
         return elections.stream()
                 .filter(e -> filterByYear(e, electionYear))
                 .filter(e -> filterByActive(e, isActive))
