@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import com.iscte_meta_systems.evoting_server.entities.ElectoralCircle;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDateTime;
@@ -82,25 +83,13 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
         }
     }
 
+    @Override
+    public void initializeVotes() {
+        for (int i = 2; i <= 23; i++) {
+            electionService.generateTestVotes(100, (long) i);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
     //    @Transactional
