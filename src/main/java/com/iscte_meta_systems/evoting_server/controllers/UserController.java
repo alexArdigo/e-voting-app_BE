@@ -42,9 +42,9 @@ public class UserController {
         return userService.pendingAuthorization();
     }
 
-    @PostMapping("/approveViewer/{viewerId}")
-    public String approveViewer(@PathVariable Long viewerId) {
-        if (userService.approveViewer(viewerId)) {
+    @PostMapping("/approveViewer")
+    public String approveViewer(@RequestParam Long id) {
+        if (userService.approveViewer(id)) {
             return "Viewer approved successfully";
         } else {
             return "Viewer approval failed";
@@ -62,6 +62,8 @@ public class UserController {
         return (user != null) ? new UserRegisterDTO(user) : null;
     }
 
-
-
+    @GetMapping("/approvedViewers")
+    public List<User> approvedViewers() {
+        return userService.approvedViewers();
+    }
 }
