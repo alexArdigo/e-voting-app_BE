@@ -10,10 +10,10 @@ import com.iscte_meta_systems.evoting_server.repositories.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -269,6 +269,8 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Override
     public Election endElection(Long id) {
+        Instant instant = Instant.now();
+        ZonedDateTime now = instant.atZone(ZoneId.of("Europe/London"));
         Election election = getElectionById(id);
         if (!election.isStarted()) {
             throw new IllegalArgumentException("The election with the " + id + " was not found.");
@@ -455,4 +457,33 @@ public class ElectionServiceImpl implements ElectionService {
             }
         }
     }
+
+    @Scheduled(cron = "0 * * * * *")
+    public void scheduledStartElections() {
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon"));
+        List<Election> electionsToStart = electionRepository.findAll().stream()
+            .filter(e -> !e.isStarted() &&
+                e.getStartDate() != null &&
+                ZonedDateTime.of(e.getStartDate(), ZoneId.of("Europe/Lisbon")).withSecond(0).isEqual(now.withSecond(0)))
+            .toList();
+        for (Election election : electionsToStart) {
+            election.startElection();
+            electionRepository.save(election);
+        }
+    }
+
+    @Scheduled(cron = "0 * * * * *")
+    public void scheduledEndElections() {
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon"));
+        List<Election> electionsToEnd = electionRepository.findAll().stream()
+            .filter(e -> e.isStarted() &&
+                e.getEndDate() != null &&
+                ZonedDateTime.of(e.getEndDate(), ZoneId.of("Europe/Lisbon")).withSecond(0).isEqual(now.withSecond(0)))
+            .toList();
+        for (Election election : electionsToEnd) {
+            election.endElection();
+            electionRepository.save(election);
+        }
+    }
+
 }
