@@ -7,5 +7,7 @@ public interface InitializeDBInjection {
 
     void initializeElections();
 
+    public void initializeVotes();
+
     //void initializeVotes();
 }

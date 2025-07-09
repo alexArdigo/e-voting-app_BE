@@ -4,10 +4,13 @@ import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import jakarta.persistence.Entity;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Viewer extends User {
 
     private String institutionName;
+    private LocalDateTime lastLogin;
 
     public Viewer() {
     }
@@ -24,6 +27,14 @@ public class Viewer extends User {
 
     public void setInstitutionName(String institutionName) {
         this.institutionName = institutionName;
+    }
+
+    public LocalDateTime getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(LocalDateTime lastLogin) {
+        this.lastLogin = lastLogin;
     }
 
 

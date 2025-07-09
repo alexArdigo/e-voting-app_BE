@@ -108,14 +108,20 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean approveViewer(Long viewerId) {
-        Viewer viewer = viewerRepository.findById(viewerId).orElse(null);
-        if (viewer != null) {
-            viewer.setIsAuthorized(true);
-            viewerRepository.save(viewer);
+    public boolean approveViewer(Long id) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user != null) {
+            user.setIsAuthorized(true);
+            userRepository.save(user);
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<User> approvedViewers() {
+        List<User> u = userRepository.findByIsAuthorizedTrue();
+        return u;
     }
 
     @Override

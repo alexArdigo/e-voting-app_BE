@@ -21,11 +21,8 @@ public class ResultsServiceImpl implements ResultsService {
     private ElectionService electionService;
     @Autowired
     private ElectoralCircleRepository electoralCircleRepository;
-
     @Autowired
     private VoteRepository voteRepository;
-
-
 
 
     @Override
@@ -136,8 +133,8 @@ public class ResultsServiceImpl implements ResultsService {
         if (election.getVotes() != null) {
             for (Vote vote : election.getVotes()) {
                 if (vote.getOrganisation() != null) {
-                    Long orgId = vote.getOrganisation().getId();
-                    voteCounts.put(orgId, voteCounts.getOrDefault(orgId, 0) + 1);
+                    Long organizationId = vote.getOrganisation().getId();
+                    voteCounts.put(organizationId, voteCounts.getOrDefault(organizationId, 0) + 1);
                 }
             }
         }
@@ -148,8 +145,8 @@ public class ResultsServiceImpl implements ResultsService {
     private Map<Long, Integer> calculateDHondtSeats(Map<Long, Integer> voteCounts, int totalSeats) {
         Map<Long, Integer> seats = new HashMap<>();
 
-        for (Long orgId : voteCounts.keySet()) {
-            seats.put(orgId, 0);
+        for (Long organizationId : voteCounts.keySet()) {
+            seats.put(organizationId, 0);
         }
 
         for (int seat = 0; seat < totalSeats; seat++) {
@@ -157,15 +154,15 @@ public class ResultsServiceImpl implements ResultsService {
             double highestQuotient = 0;
 
             for (Map.Entry<Long, Integer> entry : voteCounts.entrySet()) {
-                Long orgId = entry.getKey();
+                Long organizationId = entry.getKey();
                 int votes = entry.getValue();
 
                 if (votes > 0) {
-                    double quotient = (double) votes / (seats.get(orgId) + 1);
+                    double quotient = (double) votes / (seats.get(organizationId) + 1);
 
                     if (quotient > highestQuotient) {
                         highestQuotient = quotient;
-                        winnerOrgId = orgId;
+                        winnerOrgId = organizationId;
                     }
                 }
             }
@@ -209,19 +206,19 @@ public class ResultsServiceImpl implements ResultsService {
                 for (Vote vote : votes) {
                     Organisation org = vote.getOrganisation();
                     if (org != null) {
-                        Long orgId = org.getId();
-                        voteCounts.put(orgId, voteCounts.getOrDefault(orgId, 0) + 1);
-                        organisationsById.putIfAbsent(orgId, org);
+                        Long organizationId = org.getId();
+                        voteCounts.put(organizationId, voteCounts.getOrDefault(organizationId, 0) + 1);
+                        organisationsById.putIfAbsent(organizationId, org);
                     }
                 }
 
                 Map<Long, Integer> seatDistribution = calculateDHondtSeats(voteCounts, circle.getSeats());
 
                 for (Map.Entry<Long, Integer> entry : seatDistribution.entrySet()) {
-                    Long orgId = entry.getKey();
+                    Long organizationId = entry.getKey();
                     int seats = entry.getValue();
 
-                    Organisation org = organisationsById.get(orgId);
+                    Organisation org = organisationsById.get(organizationId);
                     if (org != null) {
                         String partyName = org.getOrganisationName();
                         partySeatsMap.put(partyName, partySeatsMap.getOrDefault(partyName, 0) + seats);
