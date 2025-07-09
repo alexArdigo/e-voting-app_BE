@@ -150,6 +150,7 @@ public class ElectionServiceImpl implements ElectionService {
 
                 Legislative legislative = new Legislative();
                 legislative = legislativeRepository.save(legislative);
+                legislative.setDateTime(startDate);
 
                 List<String> distritos = List.of(
                         "Viana do Castelo", "Braga", "Vila Real", "Bragança", "Porto", "Aveiro", "Viseu", "Guarda",
@@ -182,7 +183,6 @@ public class ElectionServiceImpl implements ElectionService {
 
                 legislative.setElectoralCircles(circles);
                 legislativeRepository.save(legislative);
-                legislative.setDateTime(startDate);
 
                 ElectionDTO legislativeResult = new ElectionDTO();
                 legislativeResult.setName(baseElection.getName());
