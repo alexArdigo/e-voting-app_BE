@@ -8,4 +8,6 @@ import java.util.List;
 public interface ViewerRepository extends JpaRepository<Viewer, Long> {
     List<Viewer> findByIsAuthorizedTrue();
     List<Viewer> findByIsAuthorizedFalse();
+
+    Viewer findByUsername(String username);
 }
