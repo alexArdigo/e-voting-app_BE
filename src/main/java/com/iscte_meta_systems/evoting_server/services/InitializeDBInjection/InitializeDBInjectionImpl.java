@@ -57,8 +57,8 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election1.setElectionType(ElectionType.LEGISLATIVE);
             election1.setElectoralCircleType(ElectoralCircleType.NATIONAL);
             election1.setDescription("Eleições para a Assembleia da República");
-            election1.setStartDate("2026-03-10");
-            election1.setEndDate("2026-03-11");
+            election1.setStartDate("2026-03-10T08:00");
+            election1.setEndDate("2026-03-11T20:00");
             electionService.createElection(election1);
 
             ElectionDTO election3 = new ElectionDTO();
@@ -66,8 +66,8 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election3.setElectionType(ElectionType.LEGISLATIVE);
             election3.setElectoralCircleType(ElectoralCircleType.NATIONAL);
             election3.setDescription("Eleições para a Assembleia da República");
-            election3.setStartDate("2025-03-10");
-            election3.setEndDate("2025-03-11");
+            election3.setStartDate("2025-03-10T08:00");
+            election3.setEndDate("2025-03-11T20:00");
             electionService.createElection(election3);
 
 
