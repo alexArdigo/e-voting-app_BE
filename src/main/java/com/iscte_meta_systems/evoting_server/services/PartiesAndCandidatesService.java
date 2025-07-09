@@ -8,6 +8,4 @@ import java.util.List;
 
 public interface PartiesAndCandidatesService {
     void populatePartiesAndCandidatesFromJSON(ElectoralCircle electoralCircle);
-
-    void populatePartiesAndCandidatesFromJSONWithDTO(ElectionDTO electionDTO);
 }
