@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
 import jakarta.persistence.*;
 import org.springframework.data.geo.Circle;
@@ -9,6 +10,7 @@ import java.util.List;
 @Entity
 public class ElectoralCircle extends Election {
 
+    @JsonIgnore
     @ManyToOne
     Legislative legislative;
 

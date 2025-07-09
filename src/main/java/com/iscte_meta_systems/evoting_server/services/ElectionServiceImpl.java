@@ -71,7 +71,12 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Override
     public List<Legislative> getLegislativeElections(Integer electionYear, Boolean isActive) {
-        return legislativeRepository.findAll();
+        List<Legislative> elections = legislativeRepository.findAll();
+
+        return elections.stream()
+                .filter(e -> electionYear == null || e.getYear() == electionYear)
+                .filter(e -> isActive == null || e.isStarted() == isActive)
+                .collect(Collectors.toList());
     }
 
 
@@ -137,6 +142,7 @@ public class ElectionServiceImpl implements ElectionService {
                 election = electionRepository.save(election);
 
                 ElectionDTO presidentialResult = new ElectionDTO();
+                presidentialResult.setId(election.getId());
                 presidentialResult.setName(election.getName());
                 presidentialResult.setDescription(election.getDescription());
                 presidentialResult.setStartDate(election.getStartDate().toString());
@@ -154,8 +160,10 @@ public class ElectionServiceImpl implements ElectionService {
                 baseElection = electionRepository.save(baseElection);
 
                 Legislative legislative = new Legislative();
+                legislative.setName(dto.getName());
+                legislative.setDescription(dto.getDescription());
+                legislative.setStartDate(startDate);
                 legislative = legislativeRepository.save(legislative);
-                legislative.setDateTime(startDate);
 
                 List<String> distritos = List.of(
                         "Viana do Castelo", "Braga", "Vila Real", "Bragança", "Porto", "Aveiro", "Viseu", "Guarda",
@@ -182,16 +190,22 @@ public class ElectionServiceImpl implements ElectionService {
 
                     circle.setLegislative(legislative);
                     circle = electoralCircleRepository.save(circle);
-                    partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(circle);
+
+                    try {
+                        partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(circle);
+                    } catch (Exception e) {
+                        System.err.println("Error populating parties for circle " + circle.getName() + ": " + e.getMessage());
+                    }
+
                     circles.add(circle);
                 }
-
                 legislative.setElectoralCircles(circles);
-                legislativeRepository.save(legislative);
+                legislative = legislativeRepository.save(legislative);
 
                 ElectionDTO legislativeResult = new ElectionDTO();
-                legislativeResult.setName(baseElection.getName());
-                legislativeResult.setDescription(baseElection.getDescription());
+                legislativeResult.setId(legislative.getId());
+                legislativeResult.setName(legislative.getName());
+                legislativeResult.setDescription(legislative.getDescription());
                 legislativeResult.setStartDate(startDate.toString());
                 legislativeResult.setEndDate(endDate.toString());
                 legislativeResult.setElectionType(ElectionType.LEGISLATIVE);
