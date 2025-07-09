@@ -32,7 +32,7 @@ public class AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccess
             viewerRepository.save(viewer);
         }
 
-        super.onAuthenticationSuccess(request, response, authentication);
+        response.setStatus(HttpServletResponse.SC_OK);
     }
 
 
