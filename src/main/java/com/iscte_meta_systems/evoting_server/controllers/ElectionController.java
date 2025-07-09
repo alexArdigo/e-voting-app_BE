@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.controllers;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
+import com.iscte_meta_systems.evoting_server.model.ElectoralCircleDTO;
 import com.iscte_meta_systems.evoting_server.model.LegislativeDTO;
 import com.iscte_meta_systems.evoting_server.model.VoteRequestModel;
 import com.iscte_meta_systems.evoting_server.repositories.ElectoralCircleRepository;
@@ -136,20 +137,20 @@ public class ElectionController {
         }
     }
 
-    @Deprecated
-    @PutMapping("/elections/{id}")
-    public ElectionDTO updateElection(@PathVariable Long id, @RequestBody ElectionDTO electionDTO) {
-        return electionService.updateElection(id, electionDTO);
-    }
-
-    @Deprecated
-    @DeleteMapping("/elections/{id}")
-    public ResponseEntity<String> deleteElection(@PathVariable Long id) {
-        try {
-            electionService.deleteElection(id);
-            return ResponseEntity.ok("Election deleted successfully");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error deleting election: " + e.getMessage());
-        }
-    }
+//    @Deprecated
+//    @PutMapping("/elections/{id}")
+//    public ElectionDTO updateElection(@PathVariable Long id, @RequestBody ElectionDTO electionDTO) {
+//        return electionService.updateElection(id, electionDTO);
+//    }
+//
+//    @Deprecated
+//    @DeleteMapping("/elections/{id}")
+//    public ResponseEntity<String> deleteElection(@PathVariable Long id) {
+//        try {
+//            electionService.deleteElection(id);
+//            return ResponseEntity.ok("Election deleted successfully");
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().body("Error deleting election: " + e.getMessage());
+//        }
+//    }
 }
