@@ -21,6 +21,9 @@ public class SecurityWebConfig {
     @Autowired
     UserAuthenticationProvider userAuthenticationProvider;
 
+    @Autowired
+    private AuthenticationSuccessHandler AuthenticationSuccessHandler;
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -89,7 +92,7 @@ public class SecurityWebConfig {
         httpSecurity.formLogin(loginConfig -> {
             loginConfig.loginPage("/login");
             loginConfig.loginProcessingUrl("/login");
-            loginConfig.successHandler((request, response, authentication) -> response.setStatus(200));
+            loginConfig.successHandler(AuthenticationSuccessHandler);
             loginConfig.failureHandler((request, response, authentication) -> response.setStatus(401));
         });
 
