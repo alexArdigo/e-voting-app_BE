@@ -15,4 +15,6 @@ public interface ElectionRepository extends JpaRepository<Election, Long> {
     Election findByStartDate(LocalDateTime startDate);
 
     List<Election> findAllByType(ElectionType electionType);
+
+    Election findElectionById(Long electionId);
 }
