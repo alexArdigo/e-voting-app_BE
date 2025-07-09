@@ -2,6 +2,7 @@ package com.iscte_meta_systems.evoting_server.controllers;
 
 import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.entities.Viewer;
+import com.iscte_meta_systems.evoting_server.model.LoggedUserDTO;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ViewerRepository;
 import com.iscte_meta_systems.evoting_server.services.UserService;
@@ -57,9 +58,9 @@ public class UserController {
     }
 
     @GetMapping ("/loggedUser")
-    public UserRegisterDTO getLoggedUser() {
+    public LoggedUserDTO getLoggedUser() {
         User user = userService.getLoggedUser();
-        return (user != null) ? new UserRegisterDTO(user) : null;
+        return (user != null) ? new LoggedUserDTO(user) : null;
     }
 
 
