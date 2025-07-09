@@ -123,15 +123,21 @@ public class ElectionServiceImpl implements ElectionService {
         if (dto.getName() == null) {
             throw new IllegalArgumentException("Election name is required.");
         }
-        if (dto.getStartDate() == null || dto.getEndDate() == null) {
-            throw new IllegalArgumentException("Start and end dates are required.");
+        if (dto.getStartDate() == null) {
+            throw new IllegalArgumentException("Start date is required.");
         }
 
         LocalDateTime startDate = parseDateTimeFlexible(dto.getStartDate());
-        LocalDateTime endDate = parseDateTimeFlexible(dto.getEndDate());
+        LocalDateTime endDate = null;
 
-        if (endDate.isBefore(startDate)) {
-            throw new IllegalArgumentException("End date cannot be before start date.");
+        if (dto.getElectionType() == ElectionType.PRESIDENTIAL) {
+            if (dto.getEndDate() == null || dto.getEndDate().trim().isEmpty()) {
+                throw new IllegalArgumentException("End date is required for presidential elections.");
+            }
+            endDate = parseDateTimeFlexible(dto.getEndDate());
+            if (endDate == null || endDate.isBefore(startDate)) {
+                throw new IllegalArgumentException("End date cannot be before start date or is invalid.");
+            }
         }
         Election election;
         switch (dto.getElectionType()) {
@@ -142,7 +148,6 @@ public class ElectionServiceImpl implements ElectionService {
                 election.setDescription(dto.getDescription());
                 election.setStartDate(startDate);
                 election.setEndDate(endDate);
-
                 election = electionRepository.save(election);
 
                 ElectionDTO presidentialResult = new ElectionDTO();
@@ -160,7 +165,7 @@ public class ElectionServiceImpl implements ElectionService {
                 baseElection.setName(dto.getName());
                 baseElection.setDescription(dto.getDescription());
                 baseElection.setStartDate(startDate);
-                baseElection.setEndDate(endDate);
+                baseElection.setEndDate(null);
                 baseElection = electionRepository.save(baseElection);
 
                 Legislative legislative = new Legislative();
@@ -183,7 +188,7 @@ public class ElectionServiceImpl implements ElectionService {
                     circle.setSeats(seatsDistritos[i]);
                     circle.setElectoralCircleType(ElectoralCircleType.NATIONAL);
                     circle.setStartDate(startDate);
-                    circle.setEndDate(endDate);
+                    circle.setEndDate(null);
                     circle.setDescription(dto.getDescription());
                     circle.setType(ElectionType.LEGISLATIVE);
 
@@ -211,7 +216,7 @@ public class ElectionServiceImpl implements ElectionService {
                 legislativeResult.setName(legislative.getName());
                 legislativeResult.setDescription(legislative.getDescription());
                 legislativeResult.setStartDate(startDate.toString());
-                legislativeResult.setEndDate(endDate.toString());
+                legislativeResult.setEndDate(null);
                 legislativeResult.setElectionType(ElectionType.LEGISLATIVE);
                 return legislativeResult;
 
@@ -387,9 +392,12 @@ public class ElectionServiceImpl implements ElectionService {
         validateLegislativeDTO(legislativeDTO);
 
         LocalDateTime startDate = parseDateTimeFlexible(legislativeDTO.getStartDate());
-        LocalDateTime endDate = parseDateTimeFlexible(legislativeDTO.getEndDate());
+        LocalDateTime endDate = null;
 
-        validateDates(startDate, endDate);
+        if (legislativeDTO.getEndDate() != null && !legislativeDTO.getEndDate().trim().isEmpty()) {
+            endDate = parseDateTimeFlexible(legislativeDTO.getEndDate());
+            validateDates(startDate, endDate);
+        }
 
         legislative.setName(legislativeDTO.getName().trim());
         legislative.setDescription(legislativeDTO.getDescription() != null ?
@@ -508,9 +516,6 @@ public class ElectionServiceImpl implements ElectionService {
         }
         if (dto.getStartDate() == null) {
             throw new IllegalArgumentException("Start date is required.");
-        }
-        if (dto.getEndDate() == null) {
-            throw new IllegalArgumentException("End date is required.");
         }
     }
 
