@@ -18,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -61,14 +62,19 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Override
     public List<ElectionDTO> getPresidentialOrElectoralCircle(String electionType, Integer electionYear, Boolean isActive) {
-        List<Election> elections = electionRepository.findAllByType(electionType == null ? null : ElectionType.valueOf(electionType.toUpperCase()));
+        List<Election> elections = Optional.ofNullable(electionType)
+                .map(type -> electionRepository.findAllByType(ElectionType.valueOf(type.toUpperCase())))
+                .orElseGet(electionRepository::findAll);
+        return processElections(elections, electionYear, isActive);
+    }
+
+    private List<ElectionDTO> processElections(List<Election> elections, Integer electionYear, Boolean isActive) {
         return elections.stream()
                 .filter(e -> filterByYear(e, electionYear))
                 .filter(e -> filterByActive(e, isActive))
                 .map(this::convertToDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
-
     @Override
     public List<Legislative> getLegislativeElections(Integer electionYear, Boolean isActive) {
         List<Legislative> elections = legislativeRepository.findAll();

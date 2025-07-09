@@ -1,19 +1,14 @@
 package com.iscte_meta_systems.evoting_server.model;
 
 import com.iscte_meta_systems.evoting_server.entities.User;
-import com.iscte_meta_systems.evoting_server.entities.Viewer;
 import com.iscte_meta_systems.evoting_server.enums.Role;
-
-import java.time.LocalDateTime;
 
 public class UserRegisterDTO {
     private String username;
     private String password;
     private String name;
     private String institutionName;
-    private LocalDateTime lastLogin;
     private Role role;
-
 
     public UserRegisterDTO() {
     }
@@ -30,12 +25,6 @@ public class UserRegisterDTO {
         this.password = user.getPassword();
         this.name = user.getName();
         this.role = user.getRole();
-
-        if (user instanceof Viewer viewer) {
-            this.institutionName = viewer.getInstitutionName();
-            this.lastLogin = viewer.getLastLogin();
-
-        }
     }
 
     public String getUsername() {
@@ -76,13 +65,5 @@ public class UserRegisterDTO {
 
     public void setRole(Role role) {
         this.role = role;
-    }
-
-    public LocalDateTime getLastLogin() {
-        return lastLogin;
-    }
-
-    public void setLastLogin(LocalDateTime lastLogin) {
-        this.lastLogin = lastLogin;
     }
 }
