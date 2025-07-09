@@ -18,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -61,17 +62,27 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Override
     public List<ElectionDTO> getPresidentialOrElectoralCircle(String electionType, Integer electionYear, Boolean isActive) {
-        List<Election> elections = electionRepository.findAllByType(electionType == null ? null : ElectionType.valueOf(electionType.toUpperCase()));
+        List<Election> elections = Optional.ofNullable(electionType)
+                .map(type -> electionRepository.findAllByType(ElectionType.valueOf(type.toUpperCase())))
+                .orElseGet(electionRepository::findAll);
+        return processElections(elections, electionYear, isActive);
+    }
+
+    private List<ElectionDTO> processElections(List<Election> elections, Integer electionYear, Boolean isActive) {
         return elections.stream()
                 .filter(e -> filterByYear(e, electionYear))
                 .filter(e -> filterByActive(e, isActive))
                 .map(this::convertToDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
-
     @Override
     public List<Legislative> getLegislativeElections(Integer electionYear, Boolean isActive) {
-        return legislativeRepository.findAll();
+        List<Legislative> elections = legislativeRepository.findAll();
+
+        return elections.stream()
+                .filter(e -> electionYear == null || e.getYear() == electionYear)
+                .filter(e -> isActive == null || e.isStarted() == isActive)
+                .collect(Collectors.toList());
     }
 
 
@@ -137,6 +148,7 @@ public class ElectionServiceImpl implements ElectionService {
                 election = electionRepository.save(election);
 
                 ElectionDTO presidentialResult = new ElectionDTO();
+                presidentialResult.setId(election.getId());
                 presidentialResult.setName(election.getName());
                 presidentialResult.setDescription(election.getDescription());
                 presidentialResult.setStartDate(election.getStartDate().toString());
@@ -154,8 +166,10 @@ public class ElectionServiceImpl implements ElectionService {
                 baseElection = electionRepository.save(baseElection);
 
                 Legislative legislative = new Legislative();
+                legislative.setName(dto.getName());
+                legislative.setDescription(dto.getDescription());
+                legislative.setStartDate(startDate);
                 legislative = legislativeRepository.save(legislative);
-                legislative.setDateTime(startDate);
 
                 List<String> distritos = List.of(
                         "Viana do Castelo", "Braga", "Vila Real", "Bragança", "Porto", "Aveiro", "Viseu", "Guarda",
@@ -182,16 +196,22 @@ public class ElectionServiceImpl implements ElectionService {
 
                     circle.setLegislative(legislative);
                     circle = electoralCircleRepository.save(circle);
-                    partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(circle);
+
+                    try {
+                        partiesAndCandidatesService.populatePartiesAndCandidatesFromJSON(circle);
+                    } catch (Exception e) {
+                        System.err.println("Error populating parties for circle " + circle.getName() + ": " + e.getMessage());
+                    }
+
                     circles.add(circle);
                 }
-
                 legislative.setElectoralCircles(circles);
-                legislativeRepository.save(legislative);
+                legislative = legislativeRepository.save(legislative);
 
                 ElectionDTO legislativeResult = new ElectionDTO();
-                legislativeResult.setName(baseElection.getName());
-                legislativeResult.setDescription(baseElection.getDescription());
+                legislativeResult.setId(legislative.getId());
+                legislativeResult.setName(legislative.getName());
+                legislativeResult.setDescription(legislative.getDescription());
                 legislativeResult.setStartDate(startDate.toString());
                 legislativeResult.setEndDate(endDate.toString());
                 legislativeResult.setElectionType(ElectionType.LEGISLATIVE);
@@ -260,25 +280,7 @@ public class ElectionServiceImpl implements ElectionService {
         return election.isStarted();
     }
 
-    @Override
-    public Election startElection(Long id) {
-        Election election = getElectionById(id);
-        election.startElection();
-        return electionRepository.save(election);
-    }
-
-    @Override
-    public Election endElection(Long id) {
-        Instant instant = Instant.now();
-        ZonedDateTime now = instant.atZone(ZoneId.of("Europe/London"));
-        Election election = getElectionById(id);
-        if (!election.isStarted()) {
-            throw new IllegalArgumentException("The election with the " + id + " was not found.");
-        }
-        election.endElection();
-        return electionRepository.save(election);
-    }
-
+    @Transactional
     @Override
     public List<Vote> generateTestVotes(int numberOfVotes, Long electionId) {
         List<Organisation> organisations = organisationRepository.findAll();
@@ -460,13 +462,14 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Scheduled(cron = "0 * * * * *")
     public void scheduledStartElections() {
-        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon"));
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon")).withSecond(0).withNano(0);
         List<Election> electionsToStart = electionRepository.findAll().stream()
             .filter(e -> !e.isStarted() &&
                 e.getStartDate() != null &&
-                ZonedDateTime.of(e.getStartDate(), ZoneId.of("Europe/Lisbon")).withSecond(0).isEqual(now.withSecond(0)))
+                ZonedDateTime.of(e.getStartDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
             .toList();
         for (Election election : electionsToStart) {
+            election.setStarted(true);
             election.startElection();
             electionRepository.save(election);
         }
@@ -474,11 +477,11 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Scheduled(cron = "0 * * * * *")
     public void scheduledEndElections() {
-        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon"));
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon")).withSecond(0).withNano(0);
         List<Election> electionsToEnd = electionRepository.findAll().stream()
             .filter(e -> e.isStarted() &&
                 e.getEndDate() != null &&
-                ZonedDateTime.of(e.getEndDate(), ZoneId.of("Europe/Lisbon")).withSecond(0).isEqual(now.withSecond(0)))
+                ZonedDateTime.of(e.getEndDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
             .toList();
         for (Election election : electionsToEnd) {
             election.endElection();
