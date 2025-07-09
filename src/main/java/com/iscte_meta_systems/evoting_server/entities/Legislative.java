@@ -15,18 +15,17 @@ public class Legislative {
     private String name;
     private String description;
     private boolean started = false;
-
     @OneToMany(mappedBy = "legislative", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ElectoralCircle> electoralCircles;
 
-    private LocalDateTime dateTime;
+    private LocalDateTime startDate;
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
+    public LocalDateTime getStartDate() {
+        return startDate;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setStartDate(LocalDateTime dateTime) {
+        this.startDate = dateTime;
     }
 
     public Long getId() {
@@ -67,5 +66,12 @@ public class Legislative {
 
     public void setStarted(boolean started) {
         this.started = started;
+    }
+
+    public Integer getYear() {
+        if (startDate != null) {
+            return startDate.getYear();
+        }
+        return null;
     }
 }
