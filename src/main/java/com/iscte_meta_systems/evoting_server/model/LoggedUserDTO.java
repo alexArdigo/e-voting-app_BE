@@ -5,6 +5,7 @@ import com.iscte_meta_systems.evoting_server.entities.Viewer;
 import com.iscte_meta_systems.evoting_server.enums.Role;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class LoggedUserDTO {
 
@@ -12,7 +13,7 @@ public class LoggedUserDTO {
     private String username;
     private String name;
     private String institutionName;
-    private LocalDateTime lastLogin;
+    private String lastLogin;
     private Role role;
 
 
@@ -24,7 +25,12 @@ public class LoggedUserDTO {
 
         if (user instanceof Viewer viewer) {
             this.institutionName = viewer.getInstitutionName();
-            this.lastLogin = viewer.getLastLogin();
+            if (viewer.getLastLogin() != null) {
+                this.lastLogin = viewer.getLastLogin()
+                        .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            } else {
+                this.lastLogin = null;
+            }
 
         }
     }
@@ -61,11 +67,11 @@ public class LoggedUserDTO {
         this.role = role;
     }
 
-    public LocalDateTime getLastLogin() {
+    public String getLastLogin() {
         return lastLogin;
     }
 
-    public void setLastLogin(LocalDateTime lastLogin) {
+    public void setLastLogin(String lastLogin) {
         this.lastLogin = lastLogin;
     }
 
