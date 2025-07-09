@@ -61,16 +61,6 @@ public class ElectionController {
         return electionService.castVote(id, vote);
     }
 
-//    @PostMapping("/elections/{id}/startElection")
-//    public Election startElection(@PathVariable Long id) {
-//        return electionService.startElection(id);
-//    }
-//
-//    @PostMapping("/elections/{id}/endElection")
-//    public Election endElection(@PathVariable Long id) {
-//        return electionService.endElection(id);
-//    }
-
     @GetMapping("/elections/{id}/isStarted")
     public boolean isElectionStarted(@PathVariable Long id) {
         return electionService.isStarted(id);

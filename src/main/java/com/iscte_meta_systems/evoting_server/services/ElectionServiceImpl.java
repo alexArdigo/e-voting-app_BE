@@ -274,25 +274,6 @@ public class ElectionServiceImpl implements ElectionService {
         return election.isStarted();
     }
 
-//    @Override
-//    public Election startElection(Long id) {
-//        Election election = getElectionById(id);
-//        election.startElection();
-//        return electionRepository.save(election);
-//    }
-//
-//    @Override
-//    public Election endElection(Long id) {
-//        Instant instant = Instant.now();
-//        ZonedDateTime now = instant.atZone(ZoneId.of("Europe/London"));
-//        Election election = getElectionById(id);
-//        if (!election.isStarted()) {
-//            throw new IllegalArgumentException("The election with the " + id + " was not found.");
-//        }
-//        election.endElection();
-//        return electionRepository.save(election);
-//    }
-
     @Transactional
     @Override
     public List<Vote> generateTestVotes(int numberOfVotes, Long electionId) {
