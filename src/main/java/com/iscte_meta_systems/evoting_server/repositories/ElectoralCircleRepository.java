@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -15,4 +16,5 @@ public interface ElectoralCircleRepository extends JpaRepository<ElectoralCircle
 
     @Query("SELECT ec FROM ElectoralCircle ec WHERE ec.legislative.id = :electionId")
     List<ElectoralCircle> findElectoralCirclesByLegislativeElectionId(@Param("electionId") Long electionId);
+
 }

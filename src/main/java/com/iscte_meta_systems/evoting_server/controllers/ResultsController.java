@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ResultsController {
@@ -27,5 +28,15 @@ public class ResultsController {
     @GetMapping("/Elections/{id}/results/legislative")
     public List<LegislativeResultDTO> getAllLegislativeResults(@PathVariable Long id) {
         return resultsService.getAllLegislativeResults(id);
+    }
+
+    @GetMapping("/Elections/results/legislative/year")
+    public List<LegislativeResultDTO> getAllLegislativeResultsByYear(@RequestParam int year) {
+        return resultsService.getAllLegislativeResultsByYear(year);
+    }
+
+    @GetMapping("/Elections/results/legislative/seats")
+    public Map<String, Integer> getLegislativeSeatsByPartyForYear(@RequestParam int year) {
+        return resultsService.getLegislativeSeatsByPartyForYear(year);
     }
 }

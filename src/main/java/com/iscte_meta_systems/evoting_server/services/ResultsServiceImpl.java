@@ -178,5 +178,59 @@ public class ResultsServiceImpl implements ResultsService {
         return seats;
     }
 
+    @Override
+    public List<LegislativeResultDTO> getAllLegislativeResultsByYear(int year) {
+
+        List<ElectoralCircle> allCircles = electoralCircleRepository.findAll();
+        List<ElectoralCircle> e = new ArrayList<>();
+        List<LegislativeResultDTO> results = new ArrayList<>();
+
+        for (ElectoralCircle circle : allCircles) {
+            if (circle.getVotes() != null && !circle.getVotes().isEmpty() && circle.getStartDate().getYear() == year) {
+                results.add(calculateElectoralCircleResults(circle));
+            }
+        }
+        return results;
+    }
+
+    @Override
+    public Map<String, Integer> getLegislativeSeatsByPartyForYear(int year) {
+        List<ElectoralCircle> allCircles = electoralCircleRepository.findAll();
+        Map<String, Integer> partySeatsMap = new HashMap<>();
+
+        for (ElectoralCircle circle : allCircles) {
+            if (circle.getStartDate() != null && circle.getStartDate().getYear() == year) {
+                List<Vote> votes = circle.getVotes();
+                if (votes == null || votes.isEmpty()) continue;
+
+                Map<Long, Integer> voteCounts = new HashMap<>();
+                Map<Long, Organisation> organisationsById = new HashMap<>();
+
+                for (Vote vote : votes) {
+                    Organisation org = vote.getOrganisation();
+                    if (org != null) {
+                        Long orgId = org.getId();
+                        voteCounts.put(orgId, voteCounts.getOrDefault(orgId, 0) + 1);
+                        organisationsById.putIfAbsent(orgId, org);
+                    }
+                }
+
+                Map<Long, Integer> seatDistribution = calculateDHondtSeats(voteCounts, circle.getSeats());
+
+                for (Map.Entry<Long, Integer> entry : seatDistribution.entrySet()) {
+                    Long orgId = entry.getKey();
+                    int seats = entry.getValue();
+
+                    Organisation org = organisationsById.get(orgId);
+                    if (org != null) {
+                        String partyName = org.getOrganisationName();
+                        partySeatsMap.put(partyName, partySeatsMap.getOrDefault(partyName, 0) + seats);
+                    }
+                }
+            }
+        }
+
+        return partySeatsMap;
+    }
 
 }
