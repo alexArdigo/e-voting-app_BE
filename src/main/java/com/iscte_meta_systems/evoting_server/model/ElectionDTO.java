@@ -20,6 +20,7 @@ public class ElectionDTO {
     private ElectoralCircleType electoralCircleType;
     private Long legislativeId;
     private Long id;
+    private boolean isStarted;
 
     public ElectionType getElectionType() {
         return electionType;
@@ -123,5 +124,12 @@ public class ElectionDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public boolean isStarted() {
+        return isStarted;
+    }
+    public void setStarted(boolean started) {
+        isStarted = started;
     }
 }

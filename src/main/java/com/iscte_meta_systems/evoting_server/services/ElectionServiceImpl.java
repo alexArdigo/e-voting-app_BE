@@ -7,12 +7,13 @@ import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
 import com.iscte_meta_systems.evoting_server.model.VoteRequestModel;
 import com.iscte_meta_systems.evoting_server.repositories.*;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Autowired
     private LegislativeRepository legislativeRepository;
+
     @Autowired
     private VoterHashRepository voterHashRepository;
 
@@ -57,39 +59,48 @@ public class ElectionServiceImpl implements ElectionService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
+    @Override
+    public List<ElectionDTO> getPresidentialOrElectoralCircle(String electionType, Integer electionYear, Boolean isActive) {
+        List<Election> elections = electionRepository.findAllByType(electionType == null ? null : ElectionType.valueOf(electionType.toUpperCase()));
+        return elections.stream()
+                .filter(e -> filterByYear(e, electionYear))
+                .filter(e -> filterByActive(e, isActive))
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
 
     @Override
-    public List<ElectionDTO> getElections(String electionType, Integer electionYear) {
-        List<Election> elections = electionRepository.findAllByType(ElectionType.PRESIDENTIAL);
+    public List<Legislative> getLegislativeElections(Integer electionYear, Boolean isActive) {
+        return legislativeRepository.findAll();
+    }
 
-         return elections.stream()
-                .filter(e -> electionType == null || e.getClass().getSimpleName().equalsIgnoreCase(electionType))
-                .filter(e -> electionYear == null || (e.getStartDate() != null && e.getStartDate().getYear() == electionYear))
-                .map(e -> {
-                    ElectionDTO dto = new ElectionDTO();
-                    dto.setName(e.getName());
-                    dto.setDescription(e.getDescription());
-                    dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
-                    dto.setEndDate(e.getEndDate() != null ? e.getEndDate().toString() : null);
-                    dto.setElectionType(e.getType());
 
-                    if (e.getOrganisations() != null) {
-                        List<OrganisationDTO> orgDtos = e.getOrganisations().stream()
-                                .map(org -> {
-                                    OrganisationDTO orgDto = new OrganisationDTO();
-                                    orgDto.setName(org.getOrganisationName());
-                                    orgDto.setOrganisationType(org.getOrganisationType());
-                                    orgDto.setElectionId(org.getElection() != null ? org.getElection().getId() : null);
-                                    return orgDto;
-                                })
-                                .collect(Collectors.toList());
-                        dto.setOrganisations(orgDtos);
-                    }
+    private ElectionDTO convertToDTO(Election election) {
+        ElectionDTO dto = new ElectionDTO();
+        dto.setId(election.getId());
+        dto.setName(election.getName());
+        dto.setDescription(election.getDescription());
+        dto.setStartDate(election.getStartDate() != null ? election.getStartDate().toString() : null);
+        dto.setEndDate(election.getEndDate() != null ? election.getEndDate().toString() : null);
+        dto.setElectionType(election.getType());
+        dto.setStarted(election.isStarted());
 
-                    return dto;
-                })
-                .collect(Collectors.toList());
+        if (election.getOrganisations() != null) {
+            dto.setOrganisations(election.getOrganisations()
+                    .stream()
+                    .map(this::convertOrgToDTO)
+                    .collect(Collectors.toList()));
+        }
+
+        return dto;
+    }
+
+    private OrganisationDTO convertOrgToDTO(Organisation org) {
+        OrganisationDTO dto = new OrganisationDTO();
+        dto.setName(org.getOrganisationName());
+        dto.setOrganisationType(org.getOrganisationType());
+        dto.setElectionId(org.getElection() != null ? org.getElection().getId() : null);
+        return dto;
     }
 
     @Override
@@ -144,6 +155,7 @@ public class ElectionServiceImpl implements ElectionService {
 
                 Legislative legislative = new Legislative();
                 legislative = legislativeRepository.save(legislative);
+                legislative.setDateTime(startDate);
 
                 List<String> distritos = List.of(
                         "Viana do Castelo", "Braga", "Vila Real", "Bragança", "Porto", "Aveiro", "Viseu", "Guarda",
@@ -176,7 +188,6 @@ public class ElectionServiceImpl implements ElectionService {
 
                 legislative.setElectoralCircles(circles);
                 legislativeRepository.save(legislative);
-                legislative.setDateTime(startDate);
 
                 ElectionDTO legislativeResult = new ElectionDTO();
                 legislativeResult.setName(baseElection.getName());
@@ -250,45 +261,6 @@ public class ElectionServiceImpl implements ElectionService {
     }
 
     @Override
-    public List<Election> getAllElections() {
-        return electionRepository.findAll();
-    }
-
-    @Override
-    public List<ElectionDTO> getActiveElections() {
-        List<Election> elections = electionRepository.findAll();
-        List<Election> activeElection = new ArrayList<>();
-        for (Election election : elections) {
-            if (election.isStarted()) {
-                activeElection.add(election);
-            }
-        }
-
-        return activeElection.stream().map(e -> {
-            ElectionDTO dto = new ElectionDTO();
-            dto.setId(e.getId());
-            dto.setName(e.getName());
-            dto.setDescription(e.getDescription());
-            dto.setStartDate(e.getStartDate() != null ? e.getStartDate().toString() : null);
-            dto.setEndDate(e.getEndDate() != null ? e.getEndDate().toString() : null);
-            dto.setElectionType(e.getType());
-            return dto;
-        }).collect(Collectors.toList());
-    }
-
-    @Override
-    public List<Election> getNotActiveElections() {
-        List<Election> elections = electionRepository.findAll();
-        List<Election> notActiveElections = new ArrayList<>();
-        for (Election election : elections) {
-            if (!election.isStarted()) {
-                notActiveElections.add(election);
-            }
-        }
-        return notActiveElections;
-    }
-
-    @Override
     public Election startElection(Long id) {
         Election election = getElectionById(id);
         election.startElection();
@@ -297,6 +269,8 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Override
     public Election endElection(Long id) {
+        Instant instant = Instant.now();
+        ZonedDateTime now = instant.atZone(ZoneId.of("Europe/London"));
         Election election = getElectionById(id);
         if (!election.isStarted()) {
             throw new IllegalArgumentException("The election with the " + id + " was not found.");
@@ -355,6 +329,51 @@ public class ElectionServiceImpl implements ElectionService {
         return legislativeRepository.findAll();
     }
 
+    @Override
+    @Transactional
+    public ElectionDTO updateElection(Long id, ElectionDTO electionDTO) {
+        Election existingElection = getElectionById(id);
+
+        if (existingElection.isStarted()) {
+            throw new IllegalStateException("Cannot edit an election that has already started.");
+        }
+
+        validateElectionDTO(electionDTO);
+
+        LocalDateTime startDate = parseDateTimeFlexible(electionDTO.getStartDate());
+        LocalDateTime endDate = parseDateTimeFlexible(electionDTO.getEndDate());
+
+        validateDates(startDate, endDate);
+
+        updateElectionFields(existingElection, electionDTO, startDate, endDate);
+
+        Election updatedElection = electionRepository.save(existingElection);
+        return convertToDTO(updatedElection);
+    }
+
+    @Override
+    @Transactional
+    public void deleteElection(Long id) {
+        Election election = getElectionById(id);
+
+        validateElectionForDeletion(election);
+
+        if (election instanceof ElectoralCircle) {
+            deleteElectoralCircle((ElectoralCircle) election);
+        } else if (election instanceof Presidential) {
+            deletePresidentialElection((Presidential) election);
+        }
+    }
+
+    private void validateElectionDTO(ElectionDTO dto) {
+        if (dto.getName() == null || dto.getName().trim().isEmpty()) {
+            throw new IllegalArgumentException("Election name is required.");
+        }
+        if (dto.getStartDate() == null || dto.getEndDate() == null) {
+            throw new IllegalArgumentException("Start and end dates are required.");
+        }
+    }
+
     private LocalDateTime parseDateTimeFlexible(String dateStr) {
         if (dateStr == null) return null;
         try {
@@ -373,4 +392,98 @@ public class ElectionServiceImpl implements ElectionService {
             }
         }
     }
+
+    private List<Election> getElectionsByType(String electionType) {
+        if (electionType != null) {
+            ElectionType type = ElectionType.valueOf(electionType.toUpperCase());
+            return electionRepository.findAllByType(type);
+        }
+        return electionRepository.findAll();
+    }
+
+    private boolean filterByYear(Election election, Integer year) {
+        return year == null || (election.getStartDate() != null && election.getStartDate().getYear() == year);
+    }
+
+    private boolean filterByActive(Election election, Boolean isActive) {
+        return isActive == null || election.isStarted() == isActive;
+    }
+
+    private void validateDates(LocalDateTime startDate, LocalDateTime endDate) {
+        if (endDate.isBefore(startDate)) {
+            throw new IllegalArgumentException("End date cannot be before start date.");
+        }
+    }
+
+    private void updateElectionFields(Election election, ElectionDTO dto, LocalDateTime startDate, LocalDateTime endDate) {
+        election.setName(dto.getName().trim());
+        election.setDescription(dto.getDescription() != null ? dto.getDescription().trim() : null);
+        election.setStartDate(startDate);
+        election.setEndDate(endDate);
+    }
+
+    private void validateElectionForDeletion(Election election) {
+        if (election.isStarted()) {
+            throw new IllegalStateException("Cannot delete an election that has already started.");
+        }
+
+        if (election.getVotes() != null && !election.getVotes().isEmpty()) {
+            throw new IllegalStateException("Cannot delete an election that already has votes.");
+        }
+    }
+
+    private void deletePresidentialElection(Presidential presidential) {
+        clearCollections(presidential.getCandidates(), presidential.getOrganisations(), presidential.getVotersVoted());
+        electionRepository.delete(presidential);
+    }
+
+    private void deleteElectoralCircle(ElectoralCircle circle) {
+        clearCollections(circle.getParties(), circle.getMunicipalities(), circle.getParish(),
+                circle.getOrganisations(), circle.getVotersVoted());
+
+        Legislative legislative = circle.getLegislative();
+        if (legislative != null) {
+            legislative.getElectoralCircles().remove(circle);
+            legislativeRepository.save(legislative);
+        }
+
+        electionRepository.delete(circle);
+    }
+
+    private void clearCollections(List<?>... collections) {
+        for (List<?> collection : collections) {
+            if (collection != null) {
+                collection.clear();
+            }
+        }
+    }
+
+    @Scheduled(cron = "0 * * * * *")
+    public void scheduledStartElections() {
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon"));
+        List<Election> electionsToStart = electionRepository.findAll().stream()
+            .filter(e -> !e.isStarted() &&
+                e.getStartDate() != null &&
+                ZonedDateTime.of(e.getStartDate(), ZoneId.of("Europe/Lisbon")).withSecond(0).isEqual(now.withSecond(0)))
+            .toList();
+        for (Election election : electionsToStart) {
+            election.startElection();
+            electionRepository.save(election);
+        }
+    }
+
+    @Scheduled(cron = "0 * * * * *")
+    public void scheduledEndElections() {
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon"));
+        List<Election> electionsToEnd = electionRepository.findAll().stream()
+            .filter(e -> e.isStarted() &&
+                e.getEndDate() != null &&
+                ZonedDateTime.of(e.getEndDate(), ZoneId.of("Europe/Lisbon")).withSecond(0).isEqual(now.withSecond(0)))
+            .toList();
+        for (Election election : electionsToEnd) {
+            election.endElection();
+            electionRepository.save(election);
+        }
+    }
+
 }

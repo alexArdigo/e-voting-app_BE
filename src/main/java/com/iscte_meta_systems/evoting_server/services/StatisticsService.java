@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.services;
 import com.iscte_meta_systems.evoting_server.entities.Election;
+import com.iscte_meta_systems.evoting_server.entities.Party;
 import com.iscte_meta_systems.evoting_server.model.PartyVoteStatsDTO;
 
 import java.util.List;
@@ -19,5 +20,7 @@ public interface StatisticsService {
     public int getVotesByPartyByDistrict(String partyName, String districtName, int year);
 
     public int getGlobalVotesByPartyByYearOfElection(String partyName, int year);
+
+    public List<Party> getParties();
 
 }

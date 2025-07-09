@@ -25,26 +25,25 @@ public class ElectionController {
     private PartiesAndCandidatesService partiesAndCandidatesService;
 
     @GetMapping("/elections")
-    public List<ElectionDTO> getElections(
+    public List<ElectionDTO> getPresidentialOrElectoralCircle(
             @RequestParam(required = false) String electionType,
-            @RequestParam(required = false) Integer electionYear
+            @RequestParam(required = false) Integer electionYear,
+            @RequestParam(required = false) Boolean isActive
     ) {
-        return electionService.getElections(electionType, electionYear);
+        return electionService.getPresidentialOrElectoralCircle(electionType, electionYear, isActive);
     }
 
-    @GetMapping("legislatives")
-    public List<Legislative> getLegislatives() {
-        return electionService.getLegislatives();
+    @GetMapping("/elections/legislative")
+    public List<Legislative> getLegislativeElections(
+            @RequestParam(required = false) Integer electionYear,
+            @RequestParam(required = false) Boolean isActive
+    ) {
+        return electionService.getLegislativeElections(electionYear, isActive);
     }
 
     @GetMapping("/elections/{id}")
     public Election getElectionById(@PathVariable Long id) {
         return electionService.getElectionById(id);
-    }
-
-    @GetMapping("legislatives/{id}")
-    public Legislative getLegislativeById(@PathVariable Long id) {
-        return electionService.getLegislativeById(id);
     }
 
     @PostMapping("/elections")
@@ -72,8 +71,12 @@ public class ElectionController {
         return electionService.endElection(id);
     }
 
-    @PostMapping("/elections/{id}/populate-parties")
+    @GetMapping("/elections/{id}/isStarted")
+    public boolean isElectionStarted(@PathVariable Long id) {
+        return electionService.isStarted(id);
+    }
 
+    @PostMapping("/elections/{id}/populate-parties")
     public String populatePartiesAndCandidates(@PathVariable Long id) {
         try {
             ElectoralCircle electoralCircle = electoralCircleRepository.findById(id)
@@ -87,28 +90,28 @@ public class ElectionController {
         }
     }
 
-    @GetMapping("/{id}/isStarted")
-    public boolean isElectionStarted(@PathVariable Long id) {
-        return electionService.isStarted(id);
-    }
-
-    @GetMapping("/elections/all")
-    public List<Election> getAllElections() {
-        return electionService.getAllElections();
-    }
-
-    @GetMapping("/election/active")
-    public List<ElectionDTO> getActiveElections() {
-        return electionService.getActiveElections();
-    }
-
-    @GetMapping("/election/notactive")
-    public List<Election> getNotActiveElections() {
-        return electionService.getNotActiveElections();
-    }
-
-    @PostMapping("/election/testVotes/{numberOfVotes}/{electionId}")
+    @PostMapping("/elections/testVotes/{numberOfVotes}/{electionId}")
     public List<Vote> generateTestVotes(@PathVariable int numberOfVotes, @PathVariable Long electionId) {
         return electionService.generateTestVotes(numberOfVotes, electionId);
+    }
+
+    @GetMapping("/legislatives/{id}")
+    public Legislative getLegislativeById(@PathVariable Long id) {
+        return electionService.getLegislativeById(id);
+    }
+
+    @PutMapping("/elections/{id}")
+    public ElectionDTO updateElection(@PathVariable Long id, @RequestBody ElectionDTO electionDTO) {
+        return electionService.updateElection(id, electionDTO);
+    }
+
+    @DeleteMapping("/elections/{id}")
+    public ResponseEntity<String> deleteElection(@PathVariable Long id) {
+        try {
+            electionService.deleteElection(id);
+            return ResponseEntity.ok("Eleição apagada com sucesso");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Erro ao apagar eleição: " + e.getMessage());
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.iscte_meta_systems.evoting_server.controllers;
 
+import com.iscte_meta_systems.evoting_server.entities.Party;
 import com.iscte_meta_systems.evoting_server.model.DistrictStatisticsDTO;
 import com.iscte_meta_systems.evoting_server.model.PartyVoteStatsDTO;
 import com.iscte_meta_systems.evoting_server.services.StatisticsService;
@@ -57,5 +58,9 @@ public class StatisticsController {
             @RequestParam String partyName,
             @RequestParam int year) {
         return statisticsService.getGlobalVotesByPartyByYearOfElection(partyName, year);
+    }
+    @GetMapping("/cleanParties")
+    public List<Party> getParties() {
+        return statisticsService.getParties();
     }
 }

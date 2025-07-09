@@ -5,10 +5,7 @@ import com.iscte_meta_systems.evoting_server.model.VoterDTO;
 import com.iscte_meta_systems.evoting_server.services.VoterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class VoterController {
@@ -21,8 +18,32 @@ public class VoterController {
         return ResponseEntity.ok().body(voterService.getLoggedVoter());
     }
 
-    @GetMapping("/voters/has-voted")
-    public ResponseEntity<?> hasAlreadyVoted(@RequestBody String hash, Long electionId) {
-        return ResponseEntity.ok().body(voterService.hasAlreadyVoted(hash, electionId));
+    @PostMapping("/voters/start-voting")
+    public ResponseEntity<?> startVoting(
+            @RequestParam("electionId") Long electionId,
+            @RequestParam("voterId") Long voterId
+    ) {
+        return ResponseEntity.ok().body(voterService.startVoting(electionId, voterId));
+    }
+
+    @GetMapping("/voters/{id}/is-voting")
+    public ResponseEntity<?> isVoting(
+            @PathVariable("id") Long id
+    ) {
+        return ResponseEntity.ok().body(voterService.isVoting(id));
+    }
+
+    @PostMapping("/voters/stop-voting")
+    public ResponseEntity<?> stopVoting(
+            @RequestParam("electionId") Long electionId,
+            @RequestParam("voterId") Long voterId
+    ) {
+        voterService.stopVoting(electionId, voterId);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/voters/has-voted")
+    public ResponseEntity<?> hasAlreadyVoted(@RequestParam("nif") Long nif) {
+        return ResponseEntity.ok().body(voterService.hasAlreadyVoted(nif));
     }
 }

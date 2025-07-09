@@ -12,7 +12,9 @@ import java.util.List;
 public interface ElectionService {
     List<Organisation> getBallotByElectionId(Long id);
 
-    List<ElectionDTO> getElections(String electionType, Integer electionYear);
+    List<ElectionDTO> getPresidentialOrElectoralCircle(String electionType, Integer electionYear, Boolean isActive);
+
+    List<Legislative> getLegislativeElections(Integer electionYear, Boolean isActive);
 
     Election getElectionById(Long id);
 
@@ -26,14 +28,12 @@ public interface ElectionService {
 
     Boolean isStarted(Long id);
 
-    List<Election> getAllElections();
-
-    List<ElectionDTO> getActiveElections();
-
-    List<Election> getNotActiveElections();
-
     List<Vote> generateTestVotes(int numberOfVotes, Long electionId);
 
     Legislative getLegislativeById(Long legislativeID);
     List<Legislative> getLegislatives();
+
+    ElectionDTO updateElection(Long id, ElectionDTO electionDTO);
+
+    void deleteElection(Long id);
 }

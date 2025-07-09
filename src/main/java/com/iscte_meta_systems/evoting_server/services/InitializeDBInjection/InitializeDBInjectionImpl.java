@@ -53,19 +53,23 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     public void initializeElections() {
         if (electionRepository.count() == 0) {
             ElectionDTO election1 = new ElectionDTO();
-            election1.setName("Eleições Legislativas 2025");
+            election1.setName("Eleições Legislativas 2026");
             election1.setElectionType(ElectionType.LEGISLATIVE);
             election1.setElectoralCircleType(ElectoralCircleType.NATIONAL);
             election1.setDescription("Eleições para a Assembleia da República");
-            election1.setStartDate("2026-03-10");
-            election1.setEndDate("2026-03-11");
+            election1.setStartDate("2026-07-09T11:10");
+            election1.setEndDate("2026-07-09T11:15");
             electionService.createElection(election1);
-            partiesAndCandidatesService.populatePartiesAndCandidatesFromJSONWithDTO(election1);
-            //Nao esta ligado a nenhuma Legislativa especifica (yet), fica apenas associado à legislativa "Default" (id 1) criada na DB por causa das relaçoes de herança (acho), mas creio que podemos dar a volta facilmente a isso no futuro usando a StartDate
-            //tipo
-//            if(startaDate.equals(Legislative.getStartDate())) {
-//               save
-//            }
+
+            ElectionDTO election3 = new ElectionDTO();
+            election3.setName("Eleições Portuguesas Legislativas 2025");
+            election3.setElectionType(ElectionType.LEGISLATIVE);
+            election3.setElectoralCircleType(ElectoralCircleType.NATIONAL);
+            election3.setDescription("Eleições para a Assembleia da República");
+            election3.setStartDate("2025-03-10T08:00");
+            election3.setEndDate("2025-03-11T20:00");
+            electionService.createElection(election3);
+
 
             ElectionDTO election2 = new ElectionDTO();
             election2.setName("Presidenciais 2026");
