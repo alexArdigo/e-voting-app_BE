@@ -19,11 +19,13 @@ public interface UserService {
 
     List<Viewer> pendingAuthorization();
 
-    boolean approveViewer(Long viewerId);
+    public boolean approveViewer(Long id);
 
     User getCurrentUser();
 
     User login(LoginDTO loginDTO);
 
     User getLoggedUser();
+
+    public List<User> approvedViewers();
 }

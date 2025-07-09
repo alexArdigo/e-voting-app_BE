@@ -62,7 +62,7 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election1.setStartDate("2026-03-10");
             election1.setEndDate("2026-03-11");
             electionService.createElection(election1);
-            partiesAndCandidatesService.populatePartiesAndCandidatesFromJSONWithDTO(election1);
+//            partiesAndCandidatesService.populatePartiesAndCandidatesFromJSONWithDTO(election1);
 
             ElectionDTO election3 = new ElectionDTO();
             election3.setName("Eleições Portuguesas Legislativas 2025");
@@ -72,7 +72,7 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election3.setStartDate("2025-03-10");
             election3.setEndDate("2025-03-11");
             electionService.createElection(election3);
-            partiesAndCandidatesService.populatePartiesAndCandidatesFromJSONWithDTO(election3);
+//            partiesAndCandidatesService.populatePartiesAndCandidatesFromJSONWithDTO(election3);
 
 
             ElectionDTO election2 = new ElectionDTO();
