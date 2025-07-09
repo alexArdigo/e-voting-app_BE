@@ -60,15 +60,20 @@ public class ElectionServiceImpl implements ElectionService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public List<ElectionDTO> getElections(String electionType, Integer electionYear, Boolean isActive) {
-        List<Election> elections = getElectionsByType(electionType);
-
+    public List<ElectionDTO> getPresidentialElections(Integer electionYear, Boolean isActive) {
+        List<Election> elections = electionRepository.findAllByType(ElectionType.PRESIDENTIAL);
         return elections.stream()
                 .filter(e -> filterByYear(e, electionYear))
                 .filter(e -> filterByActive(e, isActive))
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<Legislative> getLegislativeElections(Integer electionYear, Boolean isActive) {
+        return legislativeRepository.findAll();
+    }
+
 
     private ElectionDTO convertToDTO(Election election) {
         ElectionDTO dto = new ElectionDTO();

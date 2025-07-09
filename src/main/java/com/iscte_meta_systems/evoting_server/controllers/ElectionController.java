@@ -24,13 +24,20 @@ public class ElectionController {
     @Autowired
     private PartiesAndCandidatesService partiesAndCandidatesService;
 
-    @GetMapping("/elections")
-    public List<ElectionDTO> getElections(
-            @RequestParam(required = false) String electionType,
+    @GetMapping("/elections/presidential")
+    public List<ElectionDTO> getPresidentialElections(
             @RequestParam(required = false) Integer electionYear,
             @RequestParam(required = false) Boolean isActive
     ) {
-        return electionService.getElections(electionType, electionYear, isActive);
+        return electionService.getPresidentialElections(electionYear, isActive);
+    }
+
+    @GetMapping("/elections/legislative")
+    public List<Legislative> getLegislativeElections(
+            @RequestParam(required = false) Integer electionYear,
+            @RequestParam(required = false) Boolean isActive
+    ) {
+        return electionService.getLegislativeElections(electionYear, isActive);
     }
 
     @GetMapping("/elections/{id}")
@@ -87,24 +94,9 @@ public class ElectionController {
         return electionService.generateTestVotes(numberOfVotes, electionId);
     }
 
-    @GetMapping("/legislatives")
-    public List<Legislative> getLegislatives() {
-        return electionService.getLegislatives();
-    }
-
     @GetMapping("/legislatives/{id}")
     public Legislative getLegislativeById(@PathVariable Long id) {
         return electionService.getLegislativeById(id);
-    }
-
-    @GetMapping("/elections/active")
-    public List<ElectionDTO> getActiveElections() {
-        return electionService.getElections(null, null, true);
-    }
-
-    @GetMapping("/elections/inactive")
-    public List<ElectionDTO> getInactiveElections() {
-        return electionService.getElections(null, null, false);
     }
 
     @PutMapping("/elections/{id}")
