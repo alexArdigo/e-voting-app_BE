@@ -23,6 +23,6 @@ public interface OrganisationService {
 
     List<UniParty> getAllUniParties();
 
-    OrganisationDTO updateOrganisation(Long id, OrganisationDTO organisationDTO);
+    Organisation updateOrganisation(Long id, OrganisationDTO organisationDTO);
 }
 
