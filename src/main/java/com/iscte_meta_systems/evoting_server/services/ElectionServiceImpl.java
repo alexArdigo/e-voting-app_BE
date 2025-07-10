@@ -604,6 +604,15 @@ public class ElectionServiceImpl implements ElectionService {
             election.startElection();
             electionRepository.save(election);
         }
+        List<Legislative> legislativesToStart = legislativeRepository.findAll().stream()
+            .filter(l -> !l.isStarted() &&
+                l.getStartDate() != null &&
+                ZonedDateTime.of(l.getStartDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
+            .toList();
+        for (Legislative legislative : legislativesToStart) {
+            legislative.setStarted(true);
+            legislativeRepository.save(legislative);
+        }
     }
 
     @Scheduled(cron = "0 * * * * *")
@@ -617,6 +626,15 @@ public class ElectionServiceImpl implements ElectionService {
         for (Election election : electionsToEnd) {
             election.endElection();
             electionRepository.save(election);
+        }
+        List<Legislative> legislativesToEnd = legislativeRepository.findAll().stream()
+            .filter(l -> l.isStarted() &&
+                l.getEndDate() != null &&
+                ZonedDateTime.of(l.getEndDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
+            .toList();
+        for (Legislative legislative : legislativesToEnd) {
+            legislative.setStarted(false);
+            legislativeRepository.save(legislative);
         }
     }
 }

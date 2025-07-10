@@ -19,6 +19,7 @@ public class Legislative {
     private List<ElectoralCircle> electoralCircles;
 
     private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
     public LocalDateTime getStartDate() {
         return startDate;
@@ -26,6 +27,11 @@ public class Legislative {
 
     public void setStartDate(LocalDateTime dateTime) {
         this.startDate = dateTime;
+        if (dateTime != null) {
+            this.endDate = dateTime.plusHours(8);
+        } else {
+            this.endDate = null;
+        }
     }
 
     public Long getId() {
@@ -73,5 +79,13 @@ public class Legislative {
             return startDate.getYear();
         }
         return null;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
     }
 }

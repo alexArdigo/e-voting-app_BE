@@ -136,21 +136,4 @@ public class ElectionController {
             return ResponseEntity.badRequest().body("Error deleting electoral circle: " + e.getMessage());
         }
     }
-
-//    @Deprecated
-//    @PutMapping("/elections/{id}")
-//    public ElectionDTO updateElection(@PathVariable Long id, @RequestBody ElectionDTO electionDTO) {
-//        return electionService.updateElection(id, electionDTO);
-//    }
-//
-//    @Deprecated
-//    @DeleteMapping("/elections/{id}")
-//    public ResponseEntity<String> deleteElection(@PathVariable Long id) {
-//        try {
-//            electionService.deleteElection(id);
-//            return ResponseEntity.ok("Election deleted successfully");
-//        } catch (Exception e) {
-//            return ResponseEntity.badRequest().body("Error deleting election: " + e.getMessage());
-//        }
-//    }
 }
