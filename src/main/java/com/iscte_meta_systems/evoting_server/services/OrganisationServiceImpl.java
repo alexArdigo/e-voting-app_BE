@@ -93,4 +93,9 @@ public class OrganisationServiceImpl implements OrganisationService {
         return uniPartyRepository.findAll();
     }
 
+    @Override
+    public OrganisationDTO updateOrganisation(Long id, OrganisationDTO organisationDTO) {
+        return null;
+    }
+
 }
