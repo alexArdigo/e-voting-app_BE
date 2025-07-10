@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class VoterServiceImpl implements VoterService {
@@ -71,15 +72,16 @@ public class VoterServiceImpl implements VoterService {
     }
 
     @Override
-    public boolean startVoting(Long electionId, Long voterId) {
+    public Map<String, String> startVoting(Long electionId, Long voterId) {
         checkElectionAndVoter(electionId, voterId);
 
         VotingSession existingSession = votingSessionRepository.findByElectionIdAndVoterId(electionId, voterId);
         if (existingSession != null) {
-            throw new RuntimeException("Voting session already exists for election ID: " + electionId + " and voter ID: " + voterId);
+            return Map.of("timeLeft", existingSession.getRemainingTime().toString());
         }
-        votingSessionRepository.save(new VotingSession(electionId, voterId));
-        return true;
+        VotingSession votingSession = votingSessionRepository.save(new VotingSession(electionId, voterId));
+
+        return Map.of("timeLeft", votingSession.getRemainingTime().toString());
     }
 
     @Override
