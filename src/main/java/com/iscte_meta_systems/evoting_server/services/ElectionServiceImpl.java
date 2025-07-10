@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -57,6 +58,17 @@ public class ElectionServiceImpl implements ElectionService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private UploadFileService upLoadFileService;
+
+    @Autowired
+    private PartyRepository partyRepository;
+
+    @Autowired
+    private UniPartyRepository uniPartyRepository;
+
+    @Autowired
+    private CandidateRepository candidateRepository;
 
     @Override
     public List<ElectionDTO> getPresidentialOrElectoralCircle(String electionType, Integer electionYear, Boolean isActive) {
@@ -477,6 +489,87 @@ public class ElectionServiceImpl implements ElectionService {
                 .orElseThrow(() -> new IllegalArgumentException("Electoral circle with ID " + id + " not found."));
 
         deleteElectoralCircleInternal(circle);
+    }
+
+    @Override
+    public void uploadCSV(MultipartFile file, Long electionId) {
+        if (file == null || file.isEmpty()) {
+            throw new IllegalArgumentException("File cannot be null or empty");
+        }
+
+        Election election = getElectionById(electionId);
+        if (election == null) {
+            throw new IllegalArgumentException("Election with ID " + electionId + " not found.");
+        }
+
+        try {
+            if (election.getType() == ElectionType.PRESIDENTIAL) {
+                // For presidential elections, parse and add UniParty entities directly to the election
+                List<Organisation> organisations = upLoadFileService.parceCSVFile(file, election);
+                for (Organisation org : organisations) {
+                    org.setElection(election);
+                    if (org instanceof UniParty) {
+                        uniPartyRepository.save((UniParty) org);
+                    }
+                    election.addOrganisation(org);
+                }
+                electionRepository.save(election);
+
+            } else if (election.getType() == ElectionType.LEGISLATIVE) {
+                // For legislative elections, follow the same pattern as createElection:
+                // Get the Legislative entity and add parties to each of its electoral circles
+                Legislative legislative = legislativeRepository.findById(electionId)
+                        .orElseThrow(() -> new IllegalArgumentException("Legislative election with ID " + electionId + " not found."));
+
+                // Parse the CSV to get the template parties and candidates
+                List<Organisation> templateOrganisations = upLoadFileService.parceCSVFile(file, election);
+
+                if (legislative.getElectoralCircles() != null) {
+                    for (ElectoralCircle circle : legislative.getElectoralCircles()) {
+                        // For each electoral circle, create copies of the template parties
+                        for (Organisation templateOrg : templateOrganisations) {
+                            if (templateOrg instanceof Party) {
+                                Party templateParty = (Party) templateOrg;
+
+                                // Create a new party instance for this electoral circle
+                                Party partyForCircle = new Party();
+                                partyForCircle.setOrganisationName(templateParty.getOrganisationName());
+                                partyForCircle.setName(templateParty.getName());
+                                partyForCircle.setColor(templateParty.getColor());
+                                partyForCircle.setLogoUrl(templateParty.getLogoUrl());
+                                partyForCircle.setDescription(templateParty.getDescription());
+                                partyForCircle.setElection(election); // Set election reference
+
+                                // Copy candidates for this party
+                                List<Candidate> candidatesForCircle = new ArrayList<>();
+                                if (templateParty.getCandidates() != null) {
+                                    for (Candidate templateCandidate : templateParty.getCandidates()) {
+                                        Candidate candidateForCircle = new Candidate();
+                                        candidateForCircle.setName(templateCandidate.getName());
+                                        candidateForCircle.setImageUrl(templateCandidate.getImageUrl());
+                                        candidateForCircle = candidateRepository.save(candidateForCircle);
+                                        candidatesForCircle.add(candidateForCircle);
+                                    }
+                                }
+                                partyForCircle.setCandidates(candidatesForCircle);
+
+                                // Save the party and add it to the electoral circle
+                                partyForCircle = partyRepository.save(partyForCircle);
+
+                                if (circle.getParties() == null) {
+                                    circle.setParties(new ArrayList<>());
+                                }
+                                circle.getParties().add(partyForCircle);
+                            }
+                        }
+                        // Save the electoral circle with its new parties
+                        electoralCircleRepository.save(circle);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Error processing CSV file: " + e.getMessage(), e);
+        }
     }
 
     private void deleteElectoralCircleInternal(ElectoralCircle circle) {

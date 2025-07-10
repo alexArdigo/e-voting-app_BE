@@ -5,6 +5,7 @@ import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.ElectoralCircleDTO;
 import com.iscte_meta_systems.evoting_server.model.LegislativeDTO;
 import com.iscte_meta_systems.evoting_server.model.VoteRequestModel;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -37,4 +38,6 @@ public interface ElectionService {
 
     ElectoralCircle updateElectoralCircle(Long id, ElectoralCircleDTO electoralCircleDTO);
     void deleteElectoralCircle(Long id);
+
+    void uploadCSV(MultipartFile file, Long electionId);
 }
