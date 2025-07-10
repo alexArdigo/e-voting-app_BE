@@ -105,14 +105,20 @@ public class OrganisationServiceImpl implements OrganisationService {
         }
 
         if (organisation instanceof Party party) {
-            party.setColor(organisationDTO.getColor());
-            party.setDescription(organisationDTO.getDescription());
-            party.setLogoUrl(organisationDTO.getLogoUrl());
+            if (organisationDTO.getColor() != null) {
+                party.setColor(organisationDTO.getColor());
+            }
+            if (organisationDTO.getDescription() != null) {
+                party.setDescription(organisationDTO.getDescription());
+            }
+            if (organisationDTO.getLogoUrl() != null) {
+                party.setLogoUrl(organisationDTO.getLogoUrl());
+            }
 
         } else if (organisation instanceof UniParty uniParty) {
-
-            uniParty.setImageUrl(organisationDTO.getImageUrl());
-
+            if (organisationDTO.getImageUrl() != null) {
+                uniParty.setImageUrl(organisationDTO.getImageUrl());
+            }
         }
 
         return organisationRepository.save(organisation);
