@@ -63,4 +63,6 @@ public class OrganisationController {
     public OrganisationDTO createOrganisation(@RequestBody OrganisationDTO organisationDTO) {
         return organisationService.createOrganisation(organisationDTO);
     }
+
+    @PutMapping("/organisations/{id}")
 }
