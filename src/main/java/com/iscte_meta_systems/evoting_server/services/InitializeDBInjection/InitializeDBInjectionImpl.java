@@ -56,7 +56,7 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     public void init() {
         initializeElections();
         initializeVotes();
-        initializeTestusers();
+//        initializeTestusers();
     }
 
     @Override
