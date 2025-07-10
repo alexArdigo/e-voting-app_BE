@@ -104,6 +104,18 @@ public class OrganisationServiceImpl implements OrganisationService {
             Election election = electionService.getElectionById(organisationDTO.getElectionId());
             organisation.setElection(election);
         }
+
+        if (organisation instanceof Party party) {
+            party.setColor(organisationDTO.getColor());
+            party.setDescription(organisationDTO.getDescription());
+            party.setLogoUrl(organisationDTO.getLogoUrl());
+
+        } else if (organisation instanceof UniParty uniParty) {
+
+            uniParty.setImageUrl(organisationDTO.getImageUrl());
+
+        }
+
         return organisationRepository.save(organisation);
 
     }
