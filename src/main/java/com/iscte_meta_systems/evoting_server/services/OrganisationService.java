@@ -22,5 +22,7 @@ public interface OrganisationService {
     Party addParty(String name, String color, String imageURL, String description);
 
     List<UniParty> getAllUniParties();
+
+    OrganisationDTO updateOrganisation(Long id, OrganisationDTO organisationDTO);
 }
 
