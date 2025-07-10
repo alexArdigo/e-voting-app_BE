@@ -9,5 +9,7 @@ public interface InitializeDBInjection {
 
     public void initializeVotes();
 
+    public void initializeTestusers();
+
     //void initializeVotes();
 }

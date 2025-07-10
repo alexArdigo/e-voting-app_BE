@@ -3,12 +3,15 @@ package com.iscte_meta_systems.evoting_server.services.InitializeDBInjection;
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
+import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.model.ElectionDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationDTO;
+import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import com.iscte_meta_systems.evoting_server.services.ElectionService;
 import com.iscte_meta_systems.evoting_server.services.ElectionServiceImpl;
 import com.iscte_meta_systems.evoting_server.services.PartiesAndCandidatesService;
+import com.iscte_meta_systems.evoting_server.services.UserService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,10 +47,16 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     private ElectionService electionService;
     @Autowired
     private PartiesAndCandidatesService partiesAndCandidatesService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private ViewerRepository viewerRepository;
 
     @PostConstruct
     public void init() {
         initializeElections();
+        initializeVotes();
+        initializeTestusers();
     }
 
     @Override
@@ -88,6 +97,18 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
         for (int i = 2; i <= 23; i++) {
             electionService.generateTestVotes(100, (long) i);
         }
+    }
 
+    @Override
+    public void initializeTestusers() {
+        for (int i = 1; i <= 30; i++) {
+            UserRegisterDTO userRegisterDTO = new UserRegisterDTO();
+            userRegisterDTO.setPassword("password" + i);
+            userRegisterDTO.setRole(Role.VIEWER);
+            userRegisterDTO.setUsername("viewer" + i);
+            userRegisterDTO.setName("Viewer User " + i);
+            userRegisterDTO.setInstitutionName("Test Institution " + i);
+            userService.registerViewer(userRegisterDTO);
+        }
     }
 }
