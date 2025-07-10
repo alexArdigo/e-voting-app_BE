@@ -41,6 +41,5 @@ public abstract class Organisation {
         this.election = election;
     }
 
-    // Adicione este método abstrato
     public abstract OrganisationType getOrganisationType();
 }
