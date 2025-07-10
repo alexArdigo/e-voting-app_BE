@@ -42,7 +42,7 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
         try {
             Map<String, PartyData> partiesData = readPartiesFromJSON(districtName);
 
-            List<Organisation> organisations = new ArrayList<>();
+            List<Party> parties = new ArrayList<>();
 
             for (PartyData partyData : partiesData.values()) {
                 Party party = new Party();
@@ -65,16 +65,16 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
 
                 party.setCandidates(candidates);
                 partyRepository.save(party);
-                organisations.add(party);
+                parties.add(party);
             }
 
-            if (electoralCircle.getOrganisations() == null) {
-                electoralCircle.setOrganisations(new ArrayList<>());
+            if (electoralCircle.getParties() == null) {
+                electoralCircle.setParties(new ArrayList<>());
             }
-            electoralCircle.getOrganisations().addAll(organisations);
+            electoralCircle.getParties().addAll(parties);
             electoralCircleRepository.save(electoralCircle);
 
-            System.out.println("Successfully populated " + organisations.size() +
+            System.out.println("Successfully populated " + parties.size() +
                     " parties for district: " + districtName);
 
         } catch (Exception e) {
