@@ -10,6 +10,13 @@ public class OrganisationDTO {
     private String name;
     private Long ElectionId;
 
+    private String color;
+    private String description;
+    private String logoUrl;
+
+
+    private String imageUrl;
+
     public OrganisationType getOrganisationType() {
         return organisationType;
     }
@@ -32,6 +39,38 @@ public class OrganisationDTO {
     
     public void setElectionId(Long electionId) {
         this.ElectionId = electionId;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
 }

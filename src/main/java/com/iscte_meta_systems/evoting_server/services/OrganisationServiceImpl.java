@@ -94,4 +94,36 @@ public class OrganisationServiceImpl implements OrganisationService {
         return uniPartyRepository.findAll();
     }
 
+    @Override
+    public Organisation updateOrganisation(Long id, OrganisationDTO organisationDTO) {
+        Organisation organisation = getOrganisationById(id);
+
+        organisation.setOrganisationName(organisationDTO.getName());
+
+        if(organisationDTO.getElectionId() != null) {
+            Election election = electionService.getElectionById(organisationDTO.getElectionId());
+            organisation.setElection(election);
+        }
+
+        if (organisation instanceof Party party) {
+            if (organisationDTO.getColor() != null) {
+                party.setColor(organisationDTO.getColor());
+            }
+            if (organisationDTO.getDescription() != null) {
+                party.setDescription(organisationDTO.getDescription());
+            }
+            if (organisationDTO.getLogoUrl() != null) {
+                party.setLogoUrl(organisationDTO.getLogoUrl());
+            }
+
+        } else if (organisation instanceof UniParty uniParty) {
+            if (organisationDTO.getImageUrl() != null) {
+                uniParty.setImageUrl(organisationDTO.getImageUrl());
+            }
+        }
+
+        return organisationRepository.save(organisation);
+
+    }
+
 }

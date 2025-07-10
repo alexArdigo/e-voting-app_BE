@@ -63,4 +63,9 @@ public class OrganisationController {
     public OrganisationDTO createOrganisation(@RequestBody OrganisationDTO organisationDTO) {
         return organisationService.createOrganisation(organisationDTO);
     }
+
+    @PutMapping("/organisations/{id}")
+    public Organisation updateOrganisation(@PathVariable Long id, @RequestBody OrganisationDTO organisationDTO) {
+        return organisationService.updateOrganisation(id, organisationDTO);
+    }
 }
