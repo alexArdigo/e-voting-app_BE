@@ -95,8 +95,17 @@ public class OrganisationServiceImpl implements OrganisationService {
     }
 
     @Override
-    public OrganisationDTO updateOrganisation(Long id, OrganisationDTO organisationDTO) {
-        return null;
+    public Organisation updateOrganisation(Long id, OrganisationDTO organisationDTO) {
+        Organisation organisation = getOrganisationById(id);
+
+        organisation.setOrganisationName(organisationDTO.getName());
+
+        if(organisationDTO.getElectionId() != null) {
+            Election election = electionService.getElectionById(organisationDTO.getElectionId());
+            organisation.setElection(election);
+        }
+        return organisationRepository.save(organisation);
+
     }
 
 }
