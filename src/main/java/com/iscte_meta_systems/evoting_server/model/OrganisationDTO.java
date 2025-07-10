@@ -10,6 +10,13 @@ public class OrganisationDTO {
     private String name;
     private Long ElectionId;
 
+    private String color;
+    private String description;
+    private String logoUrl;
+
+
+    private String imageUrl;
+
     public OrganisationType getOrganisationType() {
         return organisationType;
     }
@@ -33,5 +40,6 @@ public class OrganisationDTO {
     public void setElectionId(Long electionId) {
         this.ElectionId = electionId;
     }
+
 
 }
