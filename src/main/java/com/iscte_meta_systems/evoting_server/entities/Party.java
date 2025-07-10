@@ -16,8 +16,6 @@ public class Party extends Organisation {
     private String description;
     @OneToMany
     List<Candidate> candidates;
-    @ManyToOne
-    private ElectoralCircle electoralCircle;
 
     public Party() {
     }
@@ -64,14 +62,6 @@ public class Party extends Organisation {
     public List<Candidate> getCandidates() {return candidates;}
 
     public void setCandidates(List<Candidate> candidates) {this.candidates = candidates;}
-
-    public ElectoralCircle getElectoralCircle() {
-        return electoralCircle;
-    }
-
-    public void setElectoralCircle(ElectoralCircle electoralCircle) {
-        this.electoralCircle = electoralCircle;
-    }
 
     @Override
     public OrganisationType getOrganisationType() {
