@@ -160,14 +160,6 @@ public class ElectionServiceImpl implements ElectionService {
                 return presidentialResult;
 
             case LEGISLATIVE:
-                Election baseElection = new Election();
-                baseElection.setType(ElectionType.LEGISLATIVE);
-                baseElection.setName(dto.getName());
-                baseElection.setDescription(dto.getDescription());
-                baseElection.setStartDate(startDate);
-                baseElection.setEndDate(null);
-                baseElection = electionRepository.save(baseElection);
-
                 Legislative legislative = new Legislative();
                 legislative.setName(dto.getName());
                 legislative.setDescription(dto.getDescription());
@@ -208,16 +200,14 @@ public class ElectionServiceImpl implements ElectionService {
 
                     circles.add(circle);
                 }
-                legislative.setElectoralCircles(circles);
-                legislative = legislativeRepository.save(legislative);
 
                 ElectionDTO legislativeResult = new ElectionDTO();
                 legislativeResult.setId(legislative.getId());
                 legislativeResult.setName(legislative.getName());
                 legislativeResult.setDescription(legislative.getDescription());
-                legislativeResult.setStartDate(startDate.toString());
-                legislativeResult.setEndDate(null);
+                legislativeResult.setStartDate(legislative.getStartDate().toString());
                 legislativeResult.setElectionType(ElectionType.LEGISLATIVE);
+                legislativeResult.setElectoralCircleType(ElectoralCircleType.NATIONAL);
                 return legislativeResult;
 
             default:
@@ -630,3 +620,4 @@ public class ElectionServiceImpl implements ElectionService {
         }
     }
 }
+
