@@ -11,6 +11,7 @@ import com.iscte_meta_systems.evoting_server.services.PartiesAndCandidatesServic
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -49,8 +50,21 @@ public class ElectionController {
     }
 
     @PostMapping("/elections")
-    public ElectionDTO createElection(@RequestBody ElectionDTO electionDTO) {
-        return electionService.createElection(electionDTO);
+    public ResponseEntity<?> createElection(@RequestBody ElectionDTO electionDTO) {
+        return ResponseEntity.ok().body(electionService.createElection(electionDTO));
+    }
+
+    @PostMapping("/elections/uploadCSV")
+    public ResponseEntity<String> uploadCSV(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("electionId") Long electionId
+    ) {
+        try {
+            electionService.uploadCSV(file, electionId);
+            return ResponseEntity.ok("CSV file uploaded successfully");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error uploading CSV file: " + e.getMessage());
+        }
     }
 
     @GetMapping("/elections/{id}/ballot")
