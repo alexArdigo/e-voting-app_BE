@@ -2,9 +2,7 @@ package com.iscte_meta_systems.evoting_server.entities;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.iscte_meta_systems.evoting_server.enums.Role;
-import com.iscte_meta_systems.evoting_server.services.VoterService;
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Voter {
@@ -25,11 +23,13 @@ public class Voter {
     @ManyToOne
     private Parish parish;
     private Role role = Role.VOTER;
+    @OneToOne
+    private OAuthToken oAuthToken;
 
     public Voter() {
     }
 
-    public Voter(JsonNode jsonNode, District district, Municipality municipality, Parish parish) {
+    public Voter(JsonNode jsonNode, District district, Municipality municipality, Parish parish, OAuthToken oAuthToken) {
         if (jsonNode == null) {
             throw new NullPointerException("JsonNode cannot be null");
         }
@@ -41,6 +41,7 @@ public class Voter {
         this.district = district;
         this.municipality = municipality;
         this.parish = parish;
+        this.oAuthToken = oAuthToken;
     }
 
     public Long getId() {
@@ -113,5 +114,13 @@ public class Voter {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public OAuthToken getOAuthToken() {
+        return oAuthToken;
+    }
+
+    public void setOAuthToken(OAuthToken oAuthToken) {
+        this.oAuthToken = oAuthToken;
     }
 }

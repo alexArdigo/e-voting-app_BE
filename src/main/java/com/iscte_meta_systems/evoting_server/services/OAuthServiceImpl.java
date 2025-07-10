@@ -98,30 +98,36 @@ public class OAuthServiceImpl implements OAuthService {
 
     @Override
     @Transactional
-    public void authWithToken(String token, Long voterId) {
+    public void authWithToken(String token) {
         OAuthToken existingOAuthToken = oAuthTokenRepository.findOAuthTokenByToken(token);
 
         if (existingOAuthToken == null) {
             throw new IllegalArgumentException("Invalid OAuth token");
         }
 
-        authenticationToken(voterId.toString(), existingOAuthToken.getToken());
+        UsernamePasswordAuthenticationToken authToken = authenticationToken(existingOAuthToken);
 
-        oAuthTokenRepository.deleteByToken(existingOAuthToken.getToken());
+        oAuthTokenRepository.deleteByToken(token);
 
     }
 
-    private UsernamePasswordAuthenticationToken authenticationToken(String voterId, String token) {
+    private UsernamePasswordAuthenticationToken authenticationToken(OAuthToken token) {
+        Voter voter = voterRepository.findByoAuthToken(token);
+        if (voter == null) {
+            throw new IllegalArgumentException("Voter not found for the provided OAuth token");
+        }
 
         UsernamePasswordAuthenticationToken authToken =
-                new UsernamePasswordAuthenticationToken(voterId, token);
+                new UsernamePasswordAuthenticationToken(voter.getId(), token.getToken());
         Authentication authentication = voterAuthenticationProvider.authenticate(authToken);
-
         if (authentication != null && authentication.isAuthenticated()) {
             org.springframework.security.core.context.SecurityContextHolder.getContext().setAuthentication(authentication);
         }
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
         request.getSession(true).setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
+
+        voter.setOAuthToken(null);
+        voterRepository.save(voter);
 
         return authToken;
     }
@@ -141,14 +147,15 @@ public class OAuthServiceImpl implements OAuthService {
 
         JsonNode user = payload.get("user");
 
-        return addVoter(user, token);
+        return addVoter(user, oAuthToken);
     }
 
     @Override
-    public Long addVoter(JsonNode user, String token) {
+    public Long addVoter(JsonNode user, OAuthToken token) {
         Voter existingVoter = voterRepository.findVoterByNif(user.path("nif").asLong());
-
-        if (existingVoter != null) {
+        if (existingVoter != null && existingVoter.getId() != null) {
+            existingVoter.setOAuthToken(token);
+            voterRepository.save(existingVoter);
             return existingVoter.getId();
         }
 
@@ -156,7 +163,7 @@ public class OAuthServiceImpl implements OAuthService {
         Municipality municipality = voterService.getMunicipality(user.path("municipality").asText(), district);
         Parish parish = voterService.getParish(user.path("parish").asText(), municipality);
 
-        Voter voter = voterRepository.save(new Voter(user, district, municipality, parish));
+        Voter voter = voterRepository.save(new Voter(user, district, municipality, parish, token));
         voterService.saveVoterHash(voter);
 
         return voter.getId();
