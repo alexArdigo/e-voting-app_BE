@@ -29,4 +29,5 @@ public interface VoterService {
 
     void removeLikeFromComment(VoterHash voterHash, HelpComment comment);
 
+    Object hasAlreadyThisElection(Long electionId, Long voterId);
 }

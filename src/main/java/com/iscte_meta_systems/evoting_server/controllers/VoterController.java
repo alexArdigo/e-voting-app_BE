@@ -44,4 +44,14 @@ public class VoterController {
     public ResponseEntity<?> hasAlreadyVotedList(@RequestParam("nif") Long nif) {
         return ResponseEntity.ok().body(voterService.hasAlreadyVotedList(nif));
     }
+
+    @PostMapping("/voters/has-voted-election")
+    public ResponseEntity<?> hasAlreadyThisElection(
+            @RequestParam("electionId") Long electionId,
+            @RequestParam("voterId") Long voterId
+    ) {
+        return ResponseEntity.ok().body(voterService.hasAlreadyThisElection(electionId, voterId));
+    }
+
+
 }

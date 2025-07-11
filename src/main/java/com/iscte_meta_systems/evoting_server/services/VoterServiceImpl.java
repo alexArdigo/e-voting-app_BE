@@ -164,6 +164,15 @@ public class VoterServiceImpl implements VoterService {
         return electionsIds;
     }
 
+    @Override
+    public Map<String, Boolean> hasAlreadyThisElection(Long electionId, Long voterId) {
+        VotingSession votingSession = votingSessionRepository.findByElectionIdAndVoterId(electionId, voterId);
+        if (votingSession != null) {
+            return Map.of("hasVoted", true);
+        }
+        return null;
+    }
+
 
     @Override
     public Voter getLoggedVoter() {
@@ -193,6 +202,8 @@ public class VoterServiceImpl implements VoterService {
         comment.removeLike(voterHash);
         helpCommentRepository.save(comment);
     }
+
+
 
     /**
      * Normalizes a string by removing diacritical marks (accents) and converting to lowercase
