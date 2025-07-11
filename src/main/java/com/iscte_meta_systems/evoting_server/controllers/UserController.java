@@ -52,6 +52,16 @@ public class UserController {
         }
     }
 
+    @PostMapping("/deleteApprovedViewer")
+    public String deleteApprovedViewer(@RequestParam Long id) {
+        try {
+            userService.deleteApprovedViewer(id);
+            return "Approved viewer deleted successfully";
+        } catch (Exception e) {
+            return "Error deleting approved viewer: " + e.getMessage();
+        }
+    }
+
     @GetMapping("/findUserByUsername")
     public User findUserByUsername(@RequestParam("username") String username) {
         return userService.getUserByUsername(username);
