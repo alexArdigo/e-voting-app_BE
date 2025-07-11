@@ -1,7 +1,5 @@
 package com.iscte_meta_systems.evoting_server.controllers;
 
-import com.iscte_meta_systems.evoting_server.entities.Election;
-import com.iscte_meta_systems.evoting_server.model.VoterDTO;
 import com.iscte_meta_systems.evoting_server.services.VoterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -42,8 +40,8 @@ public class VoterController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/voters/has-voted")
-    public ResponseEntity<?> hasAlreadyVoted(@RequestParam("nif") Long nif) {
-        return ResponseEntity.ok().body(voterService.hasAlreadyVoted(nif));
+    @PostMapping("/voters/has-voted-list")
+    public ResponseEntity<?> hasAlreadyVotedList(@RequestParam("nif") Long nif) {
+        return ResponseEntity.ok().body(voterService.hasAlreadyVotedList(nif));
     }
 }

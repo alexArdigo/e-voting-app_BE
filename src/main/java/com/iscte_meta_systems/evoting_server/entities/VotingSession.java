@@ -30,6 +30,10 @@ public class VotingSession {
         return (int) java.time.Duration.between(LocalDateTime.now(), expirationTime).getSeconds();
     }
 
+    public boolean isExpired() {
+        return LocalDateTime.now().isAfter(expirationTime);
+    }
+
     public Long getId() {
         return id;
     }

@@ -13,7 +13,7 @@ public interface VoterService {
 
     Parish getParish(String parishName, Municipality municipality);
 
-    ArrayList<Long> hasAlreadyVoted(Long nif);
+    ArrayList<Long> hasAlreadyVotedList(Long nif);
 
     Voter getLoggedVoter();
 
