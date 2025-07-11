@@ -125,6 +125,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public boolean deleteApprovedViewer(Long id) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user != null && user.getRole() == Role.VIEWER) {
+            viewerRepository.delete((Viewer) user);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public User getCurrentUser() {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (!userRepository.existsByUsername(username))
