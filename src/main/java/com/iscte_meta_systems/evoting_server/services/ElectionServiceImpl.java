@@ -140,7 +140,7 @@ public class ElectionServiceImpl implements ElectionService {
         }
 
         LocalDateTime startDate = parseDateTimeFlexible(dto.getStartDate());
-        LocalDateTime endDate = null;
+        LocalDateTime endDate = parseDateTimeFlexible(dto.getEndDate());
 
         if (dto.getElectionType() == ElectionType.PRESIDENTIAL) {
             if (dto.getEndDate() == null || dto.getEndDate().trim().isEmpty()) {
@@ -176,6 +176,7 @@ public class ElectionServiceImpl implements ElectionService {
                 legislative.setName(dto.getName());
                 legislative.setDescription(dto.getDescription());
                 legislative.setStartDate(startDate);
+                legislative.setEndDate(endDate);
                 legislative = legislativeRepository.save(legislative);
 
                 List<String> distritos = List.of(
@@ -192,7 +193,7 @@ public class ElectionServiceImpl implements ElectionService {
                     circle.setSeats(seatsDistritos[i]);
                     circle.setElectoralCircleType(ElectoralCircleType.NATIONAL);
                     circle.setStartDate(startDate);
-                    circle.setEndDate(null);
+                    circle.setEndDate(endDate);
                     circle.setDescription(dto.getDescription());
                     circle.setType(ElectionType.LEGISLATIVE);
 
