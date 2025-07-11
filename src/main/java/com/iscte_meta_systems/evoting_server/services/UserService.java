@@ -28,4 +28,6 @@ public interface UserService {
     User getLoggedUser();
 
     public List<User> approvedViewers();
+
+    boolean deleteApprovedViewer(Long id);
 }
