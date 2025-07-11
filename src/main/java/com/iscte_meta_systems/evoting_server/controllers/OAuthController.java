@@ -46,11 +46,11 @@ public class OAuthController {
     @GetMapping("/logged")
     public ResponseEntity<?> getLogged() {
         User user = userService.getLoggedUser();
-        Voter voter = voterService.getLoggedVoter();
 
         if (user != null) {
             return ResponseEntity.ok().body(user);
         }
+        Voter voter = voterService.getLoggedVoter();
         if (voter != null) {
             return ResponseEntity.ok().body(voter);
         }

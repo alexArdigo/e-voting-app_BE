@@ -172,7 +172,6 @@ public class VoterServiceImpl implements VoterService {
         if (id == null || id.isEmpty() || id.equals("anonymousUser")) {
             return null;
         }
-
         if (!voterRepository.existsById(Long.parseLong(id))) {
             return null;
         }
