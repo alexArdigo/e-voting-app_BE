@@ -145,7 +145,7 @@ public class VoterServiceImpl implements VoterService {
     }
 
     @Override
-    public ArrayList<Long> hasAlreadyVoted(Long nif) {
+    public ArrayList<Long> hasAlreadyVotedList(Long nif) {
         if (nif == null)
             throw new NullPointerException();
 
@@ -170,6 +170,10 @@ public class VoterServiceImpl implements VoterService {
         String id = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
 
         if (id == null || id.isEmpty() || id.equals("anonymousUser")) {
+            return null;
+        }
+
+        if (!voterRepository.existsById(Long.parseLong(id))) {
             return null;
         }
         return voterRepository.findVoterById(Long.valueOf(id));
