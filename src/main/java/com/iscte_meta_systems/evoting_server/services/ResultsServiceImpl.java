@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ResultsServiceImpl implements ResultsService {
@@ -69,13 +70,9 @@ public class ResultsServiceImpl implements ResultsService {
     }
 
     @Override
-    public List<LegislativeResultDTO> getAllLegislativeResults(Long electoralCircleId) {
-
-        ElectoralCircle electoralCircle = electoralCircleRepository.findById(electoralCircleId).orElseThrow(() -> new IllegalArgumentException("Electoral circle not found"));
-        List<ElectoralCircle> allCircles = electoralCircleRepository.findAll();
+    public List<LegislativeResultDTO> getAllLegislativeResults(Long legislativeId) {
+        List<ElectoralCircle> allCircles = electoralCircleRepository.findElectoralCirclesByLegislativeElectionId(legislativeId);
         List<LegislativeResultDTO> results = new ArrayList<>();
-
-        List<Vote> votes = voteRepository.findByDistrictName(electoralCircle.getDistricts().getDistrictName());
 
         for (ElectoralCircle circle : allCircles) {
             if (circle.getVotes() != null && !circle.getVotes().isEmpty()) {
@@ -109,6 +106,23 @@ public class ResultsServiceImpl implements ResultsService {
                 orgResult.setVotes(votes);
                 orgResult.setPercentage(totalVotes > 0 ? (votes * 100.0) / totalVotes : 0.0);
                 orgResult.setSeats(seatDistribution.getOrDefault(org.getId(), 0));
+
+                int seats = orgResult.getSeats();
+                List<String> electedCandidates = new ArrayList<>();
+                if (org instanceof Party) {
+                    List<Candidate> candidates = ((Party) org).getCandidates();
+                    if (candidates != null) {
+                        electedCandidates = candidates.stream()
+                                .limit(seats)
+                                .map(Candidate::getName)
+                                .collect(Collectors.toList());
+                    }
+
+                    orgResult.setColor(((Party) org).getColor());
+                } else {
+                    orgResult.setColor(null);
+                }
+                orgResult.setElectedCandidates(electedCandidates);
 
                 organisationResults.add(orgResult);
             }
