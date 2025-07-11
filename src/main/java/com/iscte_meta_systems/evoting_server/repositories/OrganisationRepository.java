@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface OrganisationRepository extends JpaRepository<Organisation, Long> {
 
+    Organisation getOrganisationById(Long organisationId);
     List<Organisation> findByOrganisationName(String name);
 }

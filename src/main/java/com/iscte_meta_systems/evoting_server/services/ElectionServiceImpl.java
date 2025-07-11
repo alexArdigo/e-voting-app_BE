@@ -3,6 +3,7 @@ package com.iscte_meta_systems.evoting_server.services;
 import com.iscte_meta_systems.evoting_server.entities.*;
 import com.iscte_meta_systems.evoting_server.enums.ElectionType;
 import com.iscte_meta_systems.evoting_server.enums.ElectoralCircleType;
+import com.iscte_meta_systems.evoting_server.enums.VoteType;
 import com.iscte_meta_systems.evoting_server.model.*;
 import com.iscte_meta_systems.evoting_server.repositories.*;
 import jakarta.transaction.Transactional;
@@ -85,6 +86,7 @@ public class ElectionServiceImpl implements ElectionService {
                 .map(this::convertToDTO)
                 .toList();
     }
+
     @Override
     public List<Legislative> getLegislativeElections(Integer electionYear, Boolean isActive) {
         List<Legislative> elections = legislativeRepository.findAll();
@@ -255,13 +257,20 @@ public class ElectionServiceImpl implements ElectionService {
         Parish parish = voter.getParish();
         Municipality municipality = voter.getMunicipality();
 
-        Organisation organisation = organisationRepository.findById(voteRequest.getOrganisationId())
-                .orElseThrow(() -> new RuntimeException("Organization not found"));
+        Organisation organisation = organisationRepository.getOrganisationById(voteRequest.getOrganisationId());
 
         Vote vote = new Vote();
         vote.setOrganisation(organisation);
         vote.setMunicipality(municipality);
         vote.setParish(parish);
+
+        if (organisation.getId() == -1L) {
+            vote.setVoteType(VoteType.BLANK);
+        } else if (organisation.getId() == null) {
+            vote.setVoteType(VoteType.INVALID);
+        } else {
+            vote.setVoteType(VoteType.VALID);
+        }
 
         vote = voteRepository.save(vote);
         election.addVote(vote);
@@ -689,20 +698,20 @@ public class ElectionServiceImpl implements ElectionService {
     public void scheduledStartElections() {
         ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon")).withSecond(0).withNano(0);
         List<Election> electionsToStart = electionRepository.findAll().stream()
-            .filter(e -> !e.isStarted() &&
-                e.getStartDate() != null &&
-                ZonedDateTime.of(e.getStartDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
-            .toList();
+                .filter(e -> !e.isStarted() &&
+                        e.getStartDate() != null &&
+                        ZonedDateTime.of(e.getStartDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
+                .toList();
         for (Election election : electionsToStart) {
             election.setStarted(true);
             election.startElection();
             electionRepository.save(election);
         }
         List<Legislative> legislativesToStart = legislativeRepository.findAll().stream()
-            .filter(l -> !l.isStarted() &&
-                l.getStartDate() != null &&
-                ZonedDateTime.of(l.getStartDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
-            .toList();
+                .filter(l -> !l.isStarted() &&
+                        l.getStartDate() != null &&
+                        ZonedDateTime.of(l.getStartDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
+                .toList();
         for (Legislative legislative : legislativesToStart) {
             legislative.setStarted(true);
             legislativeRepository.save(legislative);
@@ -713,19 +722,19 @@ public class ElectionServiceImpl implements ElectionService {
     public void scheduledEndElections() {
         ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Lisbon")).withSecond(0).withNano(0);
         List<Election> electionsToEnd = electionRepository.findAll().stream()
-            .filter(e -> e.isStarted() &&
-                e.getEndDate() != null &&
-                ZonedDateTime.of(e.getEndDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
-            .toList();
+                .filter(e -> e.isStarted() &&
+                        e.getEndDate() != null &&
+                        ZonedDateTime.of(e.getEndDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
+                .toList();
         for (Election election : electionsToEnd) {
             election.endElection();
             electionRepository.save(election);
         }
         List<Legislative> legislativesToEnd = legislativeRepository.findAll().stream()
-            .filter(l -> l.isStarted() &&
-                l.getEndDate() != null &&
-                ZonedDateTime.of(l.getEndDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
-            .toList();
+                .filter(l -> l.isStarted() &&
+                        l.getEndDate() != null &&
+                        ZonedDateTime.of(l.getEndDate().withSecond(0).withNano(0), ZoneId.of("Europe/Lisbon")).isEqual(now))
+                .toList();
         for (Legislative legislative : legislativesToEnd) {
             legislative.setStarted(false);
             legislativeRepository.save(legislative);
