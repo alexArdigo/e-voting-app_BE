@@ -28,7 +28,7 @@ public class Legislative {
     public void setStartDate(LocalDateTime dateTime) {
         this.startDate = dateTime;
         if (dateTime != null) {
-            this.endDate = dateTime.plusHours(8);
+            this.endDate = dateTime.plusHours(12);
         } else {
             this.endDate = null;
         }
