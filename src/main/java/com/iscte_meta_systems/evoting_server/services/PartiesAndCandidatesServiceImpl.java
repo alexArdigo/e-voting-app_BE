@@ -51,6 +51,7 @@ public class PartiesAndCandidatesServiceImpl implements PartiesAndCandidatesServ
                 party.setColor(partyData.color);
                 party.setLogoUrl(partyData.logoUrl);
                 party.setDescription(partyData.description);
+                party.setElection(electoralCircle);
 
                 List<Candidate> candidates = new ArrayList<>();
                 for (CandidateData candidateData : partyData.candidates) {
