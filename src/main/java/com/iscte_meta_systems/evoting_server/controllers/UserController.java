@@ -53,12 +53,12 @@ public class UserController {
     }
 
     @PostMapping("/deleteApprovedViewer")
-    public String deleteApprovedViewer(@RequestParam Long id) {
+    public ResponseEntity<String> deleteApprovedViewer(@RequestParam Long id) {
         try {
             userService.deleteApprovedViewer(id);
-            return "Approved viewer deleted successfully";
+            return ResponseEntity.ok("Viewer deleted successfully");
         } catch (Exception e) {
-            return "Error deleting approved viewer: " + e.getMessage();
+            return ResponseEntity.badRequest().body("Error deleting viewer: " + e.getMessage());
         }
     }
 
