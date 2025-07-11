@@ -264,7 +264,7 @@ public class ElectionServiceImpl implements ElectionService {
         vote.setMunicipality(municipality);
         vote.setParish(parish);
 
-        if (organisation.getId() == -1L) {
+        if (voteRequest.getOrganisationId() == -1) {
             vote.setVoteType(VoteType.BLANK);
         } else if (organisation.getId() == null) {
             vote.setVoteType(VoteType.INVALID);
