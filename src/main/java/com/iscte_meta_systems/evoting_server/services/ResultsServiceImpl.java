@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ResultsServiceImpl implements ResultsService {
@@ -109,6 +110,19 @@ public class ResultsServiceImpl implements ResultsService {
                 orgResult.setVotes(votes);
                 orgResult.setPercentage(totalVotes > 0 ? (votes * 100.0) / totalVotes : 0.0);
                 orgResult.setSeats(seatDistribution.getOrDefault(org.getId(), 0));
+
+                int seats = orgResult.getSeats();
+                List<String> electedCandidates = new ArrayList<>();
+                if (org instanceof Party) {
+                    List<Candidate> candidates = ((Party) org).getCandidates();
+                    if (candidates != null) {
+                        electedCandidates = candidates.stream()
+                                .limit(seats)
+                                .map(Candidate::getName)
+                                .collect(Collectors.toList());
+                    }
+                }
+                orgResult.setElectedCandidates(electedCandidates);
 
                 organisationResults.add(orgResult);
             }

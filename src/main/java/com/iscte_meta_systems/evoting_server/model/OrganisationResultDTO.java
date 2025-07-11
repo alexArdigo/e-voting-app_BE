@@ -1,11 +1,14 @@
 package com.iscte_meta_systems.evoting_server.model;
 
+import java.util.List;
+
 public class OrganisationResultDTO {
 
     private String organisationName;
     private int votes;
     private double percentage;
-    private int seats; // Para legislativas
+    private int seats;
+    private List<String> electedCandidates;
 
     public OrganisationResultDTO() {}
 
@@ -39,5 +42,13 @@ public class OrganisationResultDTO {
 
     public void setSeats(int seats) {
         this.seats = seats;
+    }
+
+    public List<String> getElectedCandidates() {
+        return electedCandidates;
+    }
+
+    public void setElectedCandidates(List<String> electedCandidates) {
+        this.electedCandidates = electedCandidates;
     }
 }
