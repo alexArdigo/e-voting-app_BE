@@ -97,7 +97,7 @@ public class OrganisationServiceImpl implements OrganisationService {
     @Override
     public Organisation updateOrganisation(Long id, OrganisationDTO organisationDTO) {
         Organisation organisation = getOrganisationById(id);
-        List<Organisation> organisations = organisationRepository.findByOrganisationName(organisationDTO.getName());
+        List<Organisation> organisations = organisationRepository.findByOrganisationName(organisation.getOrganisationName());
 
         for (Organisation org : organisations) {
             if (org.getOrganisationName() != null)
