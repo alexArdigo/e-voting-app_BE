@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.entities;
 
 
+import com.iscte_meta_systems.evoting_server.enums.VoteType;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,7 @@ public class Vote {
     private Municipality municipality;
     @ManyToOne
     private Parish parish;
+    private VoteType voteType;
 
     public Vote() {
     }
@@ -51,4 +53,11 @@ public class Vote {
         this.parish = parish;
     }
 
+    public VoteType getVoteType() {
+        return voteType;
+    }
+
+    public void setVoteType(VoteType voteType) {
+        this.voteType = voteType;
+    }
 }
