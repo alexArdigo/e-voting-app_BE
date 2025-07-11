@@ -94,6 +94,7 @@ public class SecurityWebConfig {
             loginConfig.loginProcessingUrl("/login");
             loginConfig.successHandler(AuthenticationSuccessHandler);
             loginConfig.failureHandler((request, response, authentication) -> response.setStatus(401));
+
         });
 
         httpSecurity.logout(
