@@ -176,8 +176,8 @@ public class VoterServiceImpl implements VoterService {
     }
 
     @Override
-    public void removeLikeFromComment(String voterHash, HelpComment comment) {
-        if (voterHash == null || voterHash.isEmpty())
+    public void removeLikeFromComment(VoterHash voterHash, HelpComment comment) {
+        if (voterHash == null)
             throw new NullPointerException("Voter hash cannot be null or empty");
 
         if (comment == null)

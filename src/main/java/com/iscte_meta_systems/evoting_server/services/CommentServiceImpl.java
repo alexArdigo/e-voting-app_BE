@@ -3,11 +3,14 @@ package com.iscte_meta_systems.evoting_server.services;
 import com.iscte_meta_systems.evoting_server.entities.Answer;
 import com.iscte_meta_systems.evoting_server.entities.HelpComment;
 import com.iscte_meta_systems.evoting_server.entities.User;
+import com.iscte_meta_systems.evoting_server.entities.VoterHash;
 import com.iscte_meta_systems.evoting_server.enums.Role;
 import com.iscte_meta_systems.evoting_server.repositories.AnswerRepository;
 import com.iscte_meta_systems.evoting_server.repositories.HelpCommentRepository;
+import com.iscte_meta_systems.evoting_server.repositories.VoterHashRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +26,10 @@ public class CommentServiceImpl implements CommentService {
     private UserService userService;
     @Autowired
     private VoterService voterService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private VoterHashRepository voterHashRepository;
 
     @Override
     public HelpComment comment(String comentario) {
@@ -35,7 +42,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Answer answerComment(String answer, Long id) {
         User user = userService.getCurrentUser();
-        if (Role.ADMIN!= user.getRole()) {
+        if (!Role.ADMIN.equals(user.getRole())) {
             throw new RuntimeException("Only admins can answer comments.");
         }
 
@@ -63,11 +70,23 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public boolean likeComment(Long id) {
         HelpComment comment = getCommentById(id);
-        String voterHash = userService.getCurrentUser().getUsername();
-        if (comment.hasLiked(voterHash)) {
+        String nif = voterService.getLoggedVoter().getNif().toString();
+
+        boolean alreadyLiked = comment.getVoterHashLike().stream()
+                .anyMatch(vh -> passwordEncoder.matches(nif, vh.getHashIdentification()));
+
+        if (alreadyLiked) {
             return false;
         }
-        comment.addLike(voterHash);
+
+        String hash = passwordEncoder.encode(nif);
+
+        VoterHash newLike = new VoterHash();
+        newLike.setHashIdentification(hash);
+        comment.addLike(newLike);
+
+        voterHashRepository.save(newLike);
+
         helpCommentRepository.save(comment);
         return true;
     }
@@ -83,7 +102,7 @@ public class CommentServiceImpl implements CommentService {
             answerRepository.delete(comment.getAnswer());
         }
         if (comment.getVoterHashLike() != null) {
-            for (String voterHash : comment.getVoterHashLike()) {
+            for (VoterHash voterHash : comment.getVoterHashLike()) {
                 voterService.removeLikeFromComment(voterHash, comment);
             }
         }
@@ -99,7 +118,9 @@ public class CommentServiceImpl implements CommentService {
     public boolean hasUserLiked(Long commentId) {
         HelpComment comment = getCommentById(commentId);
         String voterHash = voterService.getLoggedVoter().getNif().toString();
-        return comment.getVoterHashLike().contains(voterHash);
+        String nif = voterService.getLoggedVoter().getNif().toString();
+        return comment.getVoterHashLike().stream()
+                .anyMatch(vh -> passwordEncoder.matches(nif, vh.getHashIdentification()));
     }
 
     @PostConstruct

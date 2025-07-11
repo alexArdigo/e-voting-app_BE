@@ -27,6 +27,6 @@ public interface VoterService {
 
     void stopVoting(Long electionId, Long userId);
 
-    void removeLikeFromComment(String voterHash, HelpComment comment);
+    void removeLikeFromComment(VoterHash voterHash, HelpComment comment);
 
 }

@@ -17,18 +17,18 @@ public class HelpComment {
     @OneToOne
     private Answer answer;
 
-    @ElementCollection
-    private Set<String> voterHashLike = new HashSet<>();
+    @ManyToMany
+    private Set<VoterHash> voterHashLike = new HashSet<>();
 
     public HelpComment() {
         this.localDateTime = LocalDateTime.now();
     }
 
-    public void addLike(String voterHash) {
+    public void addLike(VoterHash voterHash) {
         voterHashLike.add(voterHash);
     }
 
-    public boolean hasLiked(String voterHash) {
+    public boolean hasLiked(VoterHash voterHash) {
         return voterHashLike.contains(voterHash);
     }
 
@@ -69,15 +69,15 @@ public class HelpComment {
         this.localDateTime = localDateTime;
     }
 
-    public Set<String> getVoterHashLike() {
+    public Set<VoterHash> getVoterHashLike() {
         return voterHashLike;
     }
 
-    public void setVoterHashLike(Set<String> voterHashLike) {
+    public void setVoterHashLike(Set<VoterHash> voterHashLike) {
         this.voterHashLike = voterHashLike;
     }
 
-    public void removeLike(String voterHash) {
+    public void removeLike(VoterHash voterHash) {
         if (voterHashLike.contains(voterHash)) {
             voterHashLike.remove(voterHash);
         } else {
