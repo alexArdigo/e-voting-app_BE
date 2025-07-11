@@ -117,6 +117,7 @@ public class OrganisationServiceImpl implements OrganisationService {
 
             } else if (org instanceof UniParty uniParty) {
                 if (org.getOrganisationName() != null)
+
                     uniParty.setName(organisationDTO.getName());
                 if (organisationDTO.getImageUrl() != null) {
                     uniParty.setImageUrl(organisationDTO.getImageUrl());
