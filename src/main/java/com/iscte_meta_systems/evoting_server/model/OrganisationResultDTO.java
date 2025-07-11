@@ -9,8 +9,10 @@ public class OrganisationResultDTO {
     private double percentage;
     private int seats;
     private List<String> electedCandidates;
+    private String color;
 
-    public OrganisationResultDTO() {}
+    public OrganisationResultDTO() {
+    }
 
     public String getOrganisationName() {
         return organisationName;
@@ -50,5 +52,13 @@ public class OrganisationResultDTO {
 
     public void setElectedCandidates(List<String> electedCandidates) {
         this.electedCandidates = electedCandidates;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

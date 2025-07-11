@@ -121,6 +121,10 @@ public class ResultsServiceImpl implements ResultsService {
                                 .map(Candidate::getName)
                                 .collect(Collectors.toList());
                     }
+
+                    orgResult.setColor(((Party) org).getColor());
+                } else {
+                    orgResult.setColor(null);
                 }
                 orgResult.setElectedCandidates(electedCandidates);
 
