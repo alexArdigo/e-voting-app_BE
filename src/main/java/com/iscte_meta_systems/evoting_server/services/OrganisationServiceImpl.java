@@ -97,33 +97,35 @@ public class OrganisationServiceImpl implements OrganisationService {
     @Override
     public Organisation updateOrganisation(Long id, OrganisationDTO organisationDTO) {
         Organisation organisation = getOrganisationById(id);
+        List<Organisation> organisations = organisationRepository.findByOrganisationName(organisationDTO.getName());
 
-        organisation.setOrganisationName(organisationDTO.getName());
+        for (Organisation org : organisations) {
+            if (org.getOrganisationName() != null)
+                org.setOrganisationName(organisationDTO.getName());
+            if (org instanceof Party party) {
+                if (org.getOrganisationName() != null)
+                    party.setName(organisationDTO.getName());
+                if (organisationDTO.getColor() != null) {
+                    party.setColor(organisationDTO.getColor());
+                }
+                if (organisationDTO.getDescription() != null) {
+                    party.setDescription(organisationDTO.getDescription());
+                }
+                if (organisationDTO.getLogoUrl() != null) {
+                    party.setLogoUrl(organisationDTO.getLogoUrl());
+                }
 
-        if(organisationDTO.getElectionId() != null) {
-            Election election = electionService.getElectionById(organisationDTO.getElectionId());
-            organisation.setElection(election);
+            } else if (org instanceof UniParty uniParty) {
+                if (org.getOrganisationName() != null)
+                    uniParty.setName(organisationDTO.getName());
+                if (organisationDTO.getImageUrl() != null) {
+                    uniParty.setImageUrl(organisationDTO.getImageUrl());
+                }
+            }
         }
+        organisationRepository.saveAll(organisations);
 
-        if (organisation instanceof Party party) {
-            if (organisationDTO.getColor() != null) {
-                party.setColor(organisationDTO.getColor());
-            }
-            if (organisationDTO.getDescription() != null) {
-                party.setDescription(organisationDTO.getDescription());
-            }
-            if (organisationDTO.getLogoUrl() != null) {
-                party.setLogoUrl(organisationDTO.getLogoUrl());
-            }
-
-        } else if (organisation instanceof UniParty uniParty) {
-            if (organisationDTO.getImageUrl() != null) {
-                uniParty.setImageUrl(organisationDTO.getImageUrl());
-            }
-        }
-
-        return organisationRepository.save(organisation);
-
+        return organisation;
     }
 
 }
