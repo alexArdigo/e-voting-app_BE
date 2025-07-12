@@ -80,9 +80,12 @@ public class UserController {
         return userService.approvedViewers();
     }
 
+
+    public record ProfilePictureDTO(String profilePicture) {}
+
     @PutMapping("/{id}/profilePicture")
-    public ResponseEntity<String> updateProfilePicture(@PathVariable Long id, @RequestParam String profilePicture) {
-        boolean success = userService.updateProfilePicture(id, profilePicture);
+    public ResponseEntity<String> updateProfilePicture(@PathVariable Long id, @RequestBody ProfilePictureDTO dto) {
+        boolean success = userService.updateProfilePicture(id, dto.profilePicture());
 
         if (success) {
             return ResponseEntity.ok("Profile picture updated successfully");
@@ -93,13 +96,6 @@ public class UserController {
 
     @GetMapping("/{id}/profilePicture")
     public ResponseEntity<String> getProfilePicture(@PathVariable Long id) {
-//        Viewer viewer = userService.getProfilePicture(id);
-//        if (viewer != null && viewer.getProfilePicture() != null) {
-//            return ResponseEntity.ok(viewer.getProfilePicture());
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
         String picture = userService.getProfilePicture(id);
         if (picture != null) {
             return ResponseEntity.ok(picture);
