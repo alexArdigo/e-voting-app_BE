@@ -94,6 +94,22 @@ public class UserController {
 //        Viewer updatedViewer = viewerRepository.save(viewer);
     }
 
+    @GetMapping("/{id}/profilePicture")
+    public ResponseEntity<String> getProfilePicture(@PathVariable Long id) {
+//        Viewer viewer = userService.getProfilePicture(id);
+//        if (viewer != null && viewer.getProfilePicture() != null) {
+//            return ResponseEntity.ok(viewer.getProfilePicture());
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+        String picture = userService.getProfilePicture(id);
+        if (picture != null) {
+            return ResponseEntity.ok(picture);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
 }
