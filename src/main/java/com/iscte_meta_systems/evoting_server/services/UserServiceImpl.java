@@ -105,24 +105,24 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean approveViewer(Long id) {
-        User user = userRepository.findById(id).orElse(null);
-        if (user != null) {
-            user.setIsAuthorized(true);
-            userRepository.save(user);
+        Viewer viewer = viewerRepository.findById(id).orElse(null);
+        if (viewer != null) {
+            viewer.setIsAuthorized(true);
+            viewerRepository.save(viewer);
             return true;
         }
         return false;
     }
 
     @Override
-    public List<User> approvedViewers() {
-        return userRepository.findByIsAuthorizedTrue();
+    public List<Viewer> approvedViewers() {
+        return viewerRepository.findByIsAuthorizedTrue();
     }
 
     @Override
     public boolean deleteApprovedViewer(Long id) {
         Viewer viewer = viewerRepository.findById(id).orElse(null);
-        if (viewer != null) {
+        if (viewer != null && viewer.getIsAuthorized()) {
             viewerRepository.delete(viewer);
             return true;
         }
