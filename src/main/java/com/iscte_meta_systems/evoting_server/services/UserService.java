@@ -30,4 +30,6 @@ public interface UserService {
     public List<Viewer> approvedViewers();
 
     boolean deleteApprovedViewer(Long id);
+
+    String getProfilePicture(Long id);
 }
