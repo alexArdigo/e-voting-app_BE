@@ -11,6 +11,7 @@ public class Viewer extends User {
 
     private String institutionName;
     private LocalDateTime lastLogin;
+    private String profilePicture;
 
     public Viewer() {
     }
@@ -19,6 +20,7 @@ public class Viewer extends User {
         super(userRegisterDTO);
         this.institutionName = userRegisterDTO.getInstitutionName();
         this.setRole(Role.VIEWER);
+        this.profilePicture = "default.png";
     }
 
     public String getInstitutionName() {
@@ -35,6 +37,14 @@ public class Viewer extends User {
 
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
 
