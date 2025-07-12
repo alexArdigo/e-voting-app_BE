@@ -144,7 +144,10 @@ public class UserServiceImpl implements UserService{
         User user = userRepository.findById(id).orElse(null);
         if (!(user instanceof Viewer viewer)) return false;
 
-        List<String> allowedImages = List.of("img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg");
+        List<String> allowedImages = List.of("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Medialivre.png/1024px-Medialivre.png",
+                "https://upload.wikimedia.org/wikipedia/commons/7/7b/Logo_impresa.gif",
+                "https://upload.wikimedia.org/wikipedia/pt/e/e1/Media-capital-logo-certo-300x224.png",
+                "https://apradiodifusao.pt/wp-content/uploads/2025/04/imagem-2.jpg");
         if (!allowedImages.contains(profilePicture)) return false;
 
         viewer.setProfilePicture(profilePicture);
