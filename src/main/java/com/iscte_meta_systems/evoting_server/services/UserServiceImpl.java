@@ -130,6 +130,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public String getProfilePicture(Long id) {
+        User user = userRepository.findById(id).orElse(null);
+
+        if (user instanceof Viewer) {
+            return ((Viewer) user).getProfilePicture();
+        }
+        return null;
+    }
+
+    @Override
     public User getCurrentUser() {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (!userRepository.existsByUsername(username))
