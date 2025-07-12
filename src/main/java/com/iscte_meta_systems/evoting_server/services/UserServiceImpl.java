@@ -100,11 +100,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<Viewer> pendingAuthorization() {
-        if(viewerRepository.findByIsAuthorizedFalse().isEmpty()) {
-            throw new RuntimeException("No pending viewers found");
-        }
-        List<Viewer> pendingViewers = viewerRepository.findByIsAuthorizedFalse();
-        return pendingViewers;
+        return viewerRepository.findByIsAuthorizedFalse();
     }
 
     @Override
@@ -120,8 +116,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> approvedViewers() {
-        List<User> u = userRepository.findByIsAuthorizedTrue();
-        return u;
+        return userRepository.findByIsAuthorizedTrue();
     }
 
     @Override
