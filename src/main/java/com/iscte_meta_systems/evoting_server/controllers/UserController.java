@@ -89,9 +89,6 @@ public class UserController {
         } else {
             return ResponseEntity.badRequest().body("Failed to update profile picture");
         }
-
-//        viewer.setProfilePicture(profilePictureUrl);
-//        Viewer updatedViewer = viewerRepository.save(viewer);
     }
 
     @GetMapping("/{id}/profilePicture")
