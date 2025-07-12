@@ -3,6 +3,7 @@ package com.iscte_meta_systems.evoting_server.controllers;
 import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.entities.Viewer;
 import com.iscte_meta_systems.evoting_server.model.LoggedUserDTO;
+import com.iscte_meta_systems.evoting_server.model.ProfilePictureDTO;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ViewerRepository;
 import com.iscte_meta_systems.evoting_server.services.UserService;
@@ -81,11 +82,9 @@ public class UserController {
     }
 
 
-    public record ProfilePictureDTO(String profilePicture) {}
-
     @PutMapping("/{id}/profilePicture")
     public ResponseEntity<String> updateProfilePicture(@PathVariable Long id, @RequestBody ProfilePictureDTO dto) {
-        boolean success = userService.updateProfilePicture(id, dto.profilePicture());
+        boolean success = userService.updateProfilePicture(id, dto.getProfilePicture());
 
         if (success) {
             return ResponseEntity.ok("Profile picture updated successfully");
