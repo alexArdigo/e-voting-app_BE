@@ -76,7 +76,7 @@ public class UserController {
     }
 
     @GetMapping("/approvedViewers")
-    public List<User> approvedViewers() {
+    public List<Viewer> approvedViewers() {
         return userService.approvedViewers();
     }
 }
