@@ -163,15 +163,6 @@ public class VoterServiceImpl implements VoterService {
         return null;
     }
 
-    @Override
-    public Map<String, Boolean> hasAlreadyThisElection(Long electionId, Long voterId) {
-        VotingSession votingSession = votingSessionRepository.findByElectionIdAndVoterId(electionId, voterId);
-        if (votingSession != null) {
-            return Map.of("hasVoted", true);
-        }
-        return null;
-    }
-
 
     @Override
     public Voter getLoggedVoter() {
