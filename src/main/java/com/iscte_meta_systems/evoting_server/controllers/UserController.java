@@ -79,4 +79,21 @@ public class UserController {
     public List<Viewer> approvedViewers() {
         return userService.approvedViewers();
     }
+
+    @PutMapping("/{id}/profilePicture")
+    public ResponseEntity<String> updateProfilePicture(@PathVariable Long id, @RequestParam String profilePicture) {
+        boolean success = userService.updateProfilePicture(id, profilePicture);
+
+        if (success) {
+            return ResponseEntity.ok("Profile picture updated successfully");
+        } else {
+            return ResponseEntity.badRequest().body("Failed to update profile picture");
+        }
+
+//        viewer.setProfilePicture(profilePictureUrl);
+//        Viewer updatedViewer = viewerRepository.save(viewer);
+    }
+
+
+
 }
