@@ -32,4 +32,6 @@ public interface UserService {
     boolean deleteApprovedViewer(Long id);
 
     String getProfilePicture(Long id);
+
+    boolean updateProfilePicture(Long id, String profilePicture);
 }
