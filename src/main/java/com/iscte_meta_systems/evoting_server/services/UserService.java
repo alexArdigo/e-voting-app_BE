@@ -27,7 +27,7 @@ public interface UserService {
 
     User getLoggedUser();
 
-    public List<User> approvedViewers();
+    public List<Viewer> approvedViewers();
 
     boolean deleteApprovedViewer(Long id);
 }
