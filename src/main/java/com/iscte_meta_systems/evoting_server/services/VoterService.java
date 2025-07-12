@@ -2,7 +2,7 @@ package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public interface VoterService {
@@ -13,7 +13,7 @@ public interface VoterService {
 
     Parish getParish(String parishName, Municipality municipality);
 
-    ArrayList<Long> hasAlreadyVotedList(Long nif);
+    List<Long> hasAlreadyVotedList(Long nif);
 
     Voter getLoggedVoter();
 

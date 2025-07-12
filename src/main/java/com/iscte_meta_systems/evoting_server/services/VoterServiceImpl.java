@@ -8,7 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.Normalizer;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -145,23 +144,23 @@ public class VoterServiceImpl implements VoterService {
     }
 
     @Override
-    public ArrayList<Long> hasAlreadyVotedList(Long nif) {
-        if (nif == null)
+    public List<Long> hasAlreadyVotedList(Long voterId) {
+        if (voterId == null)
             throw new NullPointerException();
 
-        ArrayList<Long> electionsIds = new ArrayList<>();
-        List<Election> activeElections = electionRepository.findAll().stream()
-                .filter(Election::isStarted)
-                .toList();
 
-        for (Election election : activeElections) {
-            for (VoterHash voterHash : election.getVotersVoted()) {
-                if (passwordEncoder.matches(nif.toString(), voterHash.getHashIdentification()))
-                    electionsIds.add(election.getId());
-            }
+        return votingSessionRepository.findAll().stream()
+                .filter(votingSession -> votingSession.getVoterId().equals(voterId))
+                .map(VotingSession::getElectionId).toList();
+    }
+
+    @Override
+    public Map<String, Boolean> hasAlreadyThisElection(Long electionId, Long voterId) {
+        VotingSession votingSession = votingSessionRepository.findByElectionIdAndVoterId(electionId, voterId);
+        if (votingSession != null) {
+            return Map.of("hasVoted", true);
         }
-
-        return electionsIds;
+        return null;
     }
 
     @Override
