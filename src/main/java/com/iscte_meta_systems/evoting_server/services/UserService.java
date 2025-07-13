@@ -4,6 +4,7 @@ import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.entities.Viewer;
 import com.iscte_meta_systems.evoting_server.model.LoginDTO;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -34,4 +35,8 @@ public interface UserService {
     String getProfilePicture(Long id);
 
     boolean updateProfilePicture(Long id, String profilePicture);
+
+    String uploadProfileImage(MultipartFile file);
+
+    String getProfileImagePath(Long userId);
 }
