@@ -12,6 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 
 @RestController
@@ -104,8 +107,49 @@ public class UserController {
         }
     }
 
+    @GetMapping("/profile-image")
+    public ResponseEntity<byte[]> getMyProfileImage(){
+
+        try{
+            User user = userService.getLoggedUser();
+            if (user == null) {
+                return ResponseEntity.status(401).build();
+            }
+
+            String imagePath = userService.getProfileImagePath(user.getId());
+            if( imagePath == null){
+                return ResponseEntity.notFound().build();
+            }
+
+            File imageFile = new File(imagePath);
+            if( !imageFile.exists() ){
+                return ResponseEntity.notFound().build();
+            }
+
+            byte[] imageBytes = Files.readAllBytes(imageFile.toPath());
+
+            String contentType = "image/jpeg";
+            String fileName = imageFile.getName().toLowerCase();
+            if (fileName.endsWith(".png")){
+                contentType = "image/png";
+            } else if (fileName.endsWith(".jpg")){
+                contentType = "image/jpeg";
+            }
+
+            return ResponseEntity.ok()
+                    .header("content-type", contentType)
+                    .header("Cache-Control", "no-cache")
+                    .body(imageBytes);
+
+        }catch (IOException e) {
+            return ResponseEntity.status(500).build();
+        }catch (Exception e){
+            return ResponseEntity.status(500).build();
+        }
+    }
+
     @PostMapping("/upload-image")
-    public ResponseEntity<String> uploadProfilePicture(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<String> uploadProfileImage(@RequestParam("file") MultipartFile file) {
 
         try{
             if (file == null || file.isEmpty()) {
