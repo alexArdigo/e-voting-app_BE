@@ -26,7 +26,7 @@ import java.util.List;
 import static java.lang.System.out;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
@@ -76,11 +76,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public String registerViewer(UserRegisterDTO userRegisterDTO){
-        if(userRegisterDTO == null || userRegisterDTO.getUsername() == null || userRegisterDTO.getPassword() == null) {
+    public String registerViewer(UserRegisterDTO userRegisterDTO) {
+        if (userRegisterDTO == null || userRegisterDTO.getUsername() == null || userRegisterDTO.getPassword() == null) {
             throw new IllegalArgumentException("Invalid data provided");
         }
-        if(userRepository.existsByUsername(userRegisterDTO.getUsername())){
+        if (userRepository.existsByUsername(userRegisterDTO.getUsername())) {
             throw new IllegalArgumentException("Username already exists");
         }
         Viewer viewer = new Viewer(userRegisterDTO);
@@ -93,7 +93,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User getUserByUsername(String username) {
-        if(username == null || username.isEmpty()) {
+        if (username == null || username.isEmpty()) {
             throw new IllegalArgumentException("Username is either null or empty");
         }
         return userRepository.findByUsername(username);
@@ -101,7 +101,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean userExists(String username) {
-        if(username == null || username.isEmpty()) {
+        if (username == null || username.isEmpty()) {
             throw new IllegalArgumentException("Username is either null or empty");
         }
         return userRepository.existsByUsername(username);
@@ -192,7 +192,7 @@ public class UserServiceImpl implements UserService{
             viewerRepository.save(viewer);
 
             return fileName;
-        }catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException("Error uploading image" + e.getMessage());
         }
     }
@@ -200,7 +200,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public String getProfileImagePath(Long userId) {
 
-        try{
+        try {
             Viewer viewer = viewerRepository.findByUserId(userId);
             if (viewer == null || viewer.getProfilePicture() == null) {
                 return null;
@@ -208,9 +208,10 @@ public class UserServiceImpl implements UserService{
             return "uploads" + File.separator + viewer.getProfilePicture();
         } catch (Exception e) {
 
-        return null;
+            return null;
+        }
     }
-}
+
     @Override
     public String getProfilePicture(Long id) {
         User user = userRepository.findById(id).orElse(null);
@@ -234,7 +235,7 @@ public class UserServiceImpl implements UserService{
         User existingAdmin = userRepository.findByUsername("Admin");
         String encodedPassword = passwordEncoder.encode("123456");
         if (existingAdmin == null) {
-            User admin = new Admin( new UserRegisterDTO(
+            User admin = new Admin(new UserRegisterDTO(
                     "Admin",
                     encodedPassword,
                     "Admin",
