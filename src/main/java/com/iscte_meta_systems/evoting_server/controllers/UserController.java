@@ -10,6 +10,7 @@ import com.iscte_meta_systems.evoting_server.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -100,6 +101,37 @@ public class UserController {
             return ResponseEntity.ok(picture);
         } else {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/upload-image")
+    public ResponseEntity<String> uploadProfilePicture(@RequestParam("file") MultipartFile file) {
+
+        try{
+            if (file == null || file.isEmpty()) {
+                return ResponseEntity.badRequest().body("File is empty");
+            }
+
+            User user = userService.getLoggedUser();
+            if (user == null){
+                return ResponseEntity.status(401).body("User not logged in");
+            }
+
+            String contentType = file.getContentType();
+            if (contentType == null || !contentType.startsWith("image/")){
+                return ResponseEntity.badRequest().body("File type not supported");
+            }
+
+            long maxSize = 5 * 1024 * 1024;
+            if(file.getSize() > maxSize){
+                return ResponseEntity.badRequest().body("File is too large");
+            }
+
+            String fileName = userService.uploadProfileImage(file);
+            return ResponseEntity.ok("image saved successfully" +fileName);
+
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body("Error uploading profile picture");
         }
     }
 
