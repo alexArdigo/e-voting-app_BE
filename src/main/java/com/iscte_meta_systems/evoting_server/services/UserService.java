@@ -39,4 +39,6 @@ public interface UserService {
     String uploadProfileImage(MultipartFile file);
 
     String getProfileImagePath(Long userId);
+
+    boolean updateViewerInfo(Long id, String name, String institution, String username);
 }

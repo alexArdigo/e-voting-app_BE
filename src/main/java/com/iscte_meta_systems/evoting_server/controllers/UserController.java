@@ -4,11 +4,14 @@ import com.iscte_meta_systems.evoting_server.entities.User;
 import com.iscte_meta_systems.evoting_server.entities.Viewer;
 import com.iscte_meta_systems.evoting_server.model.LoggedUserDTO;
 import com.iscte_meta_systems.evoting_server.model.ProfilePictureDTO;
+import com.iscte_meta_systems.evoting_server.model.UpdateViewerInfoDTO;
 import com.iscte_meta_systems.evoting_server.model.UserRegisterDTO;
 import com.iscte_meta_systems.evoting_server.repositories.ViewerRepository;
 import com.iscte_meta_systems.evoting_server.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -179,5 +182,12 @@ public class UserController {
         }
     }
 
+    @PutMapping("/viewer/update-info")
+    public ResponseEntity<?> updateViewerInfo(@RequestBody UpdateViewerInfoDTO dto) {
+        boolean updated = userService.updateViewerInfo(dto.getId(), dto.getName(), dto.getInstitution(), dto.getUsername());
 
+        return updated
+                ? ResponseEntity.ok("Atualizado com sucesso.")
+                : ResponseEntity.status(HttpStatus.NOT_FOUND).body("Utilizador não encontrado.");
+    }
 }

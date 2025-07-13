@@ -57,7 +57,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
     }
 
-
     @Override
     public String registerAdmin(UserRegisterDTO userRegisterDTO) {
         if (userRegisterDTO == null || userRegisterDTO.getUsername() == null || userRegisterDTO.getPassword() == null) {
@@ -87,7 +86,6 @@ public class UserServiceImpl implements UserService {
         viewerRepository.save(viewer);
         return "Viewer registered successfully";
     }
-
 
     @Override
     public User getUserByUsername(String username) {
@@ -246,5 +244,18 @@ public class UserServiceImpl implements UserService {
             userRepository.save(admin);
             out.println("Admin registered");
         }
+    }
+
+    @Override
+    public boolean updateViewerInfo(Long id, String name, String institution, String username) {
+        Viewer viewer = viewerRepository.findById(id).orElse(null);
+        if (viewer != null) {
+            viewer.setName(name);
+            viewer.setUsername(username);
+            viewer.setInstitutionName(institution);
+            viewerRepository.save(viewer);
+            return true;
+        }
+        return false;
     }
 }
