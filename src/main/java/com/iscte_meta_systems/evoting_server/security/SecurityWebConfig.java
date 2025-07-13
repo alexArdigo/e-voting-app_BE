@@ -84,6 +84,9 @@ public class SecurityWebConfig {
 
             auth.requestMatchers(HttpMethod.GET, "/findUserByUsername", "/voters/has-voted").authenticated();
 
+            auth.requestMatchers(HttpMethod.GET, "/profile-image").authenticated();
+            auth.requestMatchers(HttpMethod.POST, "/upload-image").authenticated();
+
             auth.requestMatchers("/**").permitAll();
 
             //auth.requestMatchers("**").denyAll();
