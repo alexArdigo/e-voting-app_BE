@@ -186,7 +186,7 @@ public class UserServiceImpl implements UserService {
             Path filePath = Paths.get(uploadDirPath, fileName);
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
-            Viewer viewer = viewerRepository.findByUserId(user.getId());
+            Viewer viewer = viewerRepository.findByUsername(user.getUsername());
 
             viewer.setProfilePicture(fileName);
             viewerRepository.save(viewer);
@@ -201,7 +201,9 @@ public class UserServiceImpl implements UserService {
     public String getProfileImagePath(Long userId) {
 
         try {
-            Viewer viewer = viewerRepository.findByUserId(userId);
+            User user = userRepository.findById(userId).orElse(null);
+            assert user != null;
+            Viewer viewer = viewerRepository.findByUsername(user.getUsername());
             if (viewer == null || viewer.getProfilePicture() == null) {
                 return null;
             }
