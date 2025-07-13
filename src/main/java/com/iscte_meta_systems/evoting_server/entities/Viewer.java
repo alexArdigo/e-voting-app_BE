@@ -20,7 +20,6 @@ public class Viewer extends User {
         super(userRegisterDTO);
         this.institutionName = userRegisterDTO.getInstitutionName();
         this.setRole(Role.VIEWER);
-        this.profilePicture = "https://cdn-icons-png.flaticon.com/512/10109/10109817.png";
     }
 
     public String getInstitutionName() {
