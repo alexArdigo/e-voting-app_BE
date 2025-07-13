@@ -199,9 +199,18 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public String getProfileImagePath(Long userId) {
-        return "";
-    }
 
+        try{
+            Viewer viewer = viewerRepository.findByUserId(userId);
+            if (viewer == null || viewer.getProfilePicture() == null) {
+                return null;
+            }
+            return "uploads" + File.separator + viewer.getProfilePicture();
+        } catch (Exception e) {
+
+        return null;
+    }
+}
     @Override
     public String getProfilePicture(Long id) {
         User user = userRepository.findById(id).orElse(null);
