@@ -10,4 +10,6 @@ public interface ViewerRepository extends JpaRepository<Viewer, Long> {
     List<Viewer> findByIsAuthorizedFalse();
 
     Viewer findByUsername(String username);
+
+    Viewer findByUserId(Long id);
 }

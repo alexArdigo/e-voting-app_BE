@@ -13,7 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 import static java.lang.System.out;
@@ -29,6 +36,8 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private UserService userService;
 
     @Override
     public User login(LoginDTO loginDTO) {
@@ -144,6 +153,53 @@ public class UserServiceImpl implements UserService{
         viewer.setProfilePicture(profilePicture);
         userRepository.save(viewer);
         return true;
+    }
+
+    @Override
+    public String uploadProfileImage(MultipartFile file) {
+
+        try {
+            if (file == null || file.isEmpty()) {
+                throw new RuntimeException("File is empty");
+            }
+
+            User user = userService.getLoggedUser();
+            if (user == null) {
+                throw new RuntimeException("User is not logged in");
+            }
+
+            String uploadDirPath = "uploads";
+            File uploadDir = new File(uploadDirPath);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs();
+            }
+
+            String originalFileName = file.getOriginalFilename();
+            String fileExtension = "";
+            if (originalFileName != null && originalFileName.contains(".")) {
+                fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+            } else {
+                fileExtension = ".jpg";
+            }
+
+            String fileName = "profile_" + user.getId() + fileExtension;
+            Path filePath = Paths.get(uploadDirPath, fileName);
+            Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+
+            Viewer viewer = viewerRepository.findByUserId(user.getId());
+
+            viewer.setProfilePicture(fileName);
+            viewerRepository.save(viewer);
+
+            return fileName;
+        }catch (IOException e) {
+            throw new RuntimeException("Error uploading image" + e.getMessage());
+        }
+    }
+
+    @Override
+    public String getProfileImagePath(Long userId) {
+        return "";
     }
 
     @Override
