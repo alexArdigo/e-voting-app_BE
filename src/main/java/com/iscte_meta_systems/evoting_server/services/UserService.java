@@ -34,4 +34,6 @@ public interface UserService {
     String getProfilePicture(Long id);
 
     boolean updateProfilePicture(Long id, String profilePicture);
+
+    boolean updateViewerInfo(Long id, String name, String institution, String username);
 }
