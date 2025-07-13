@@ -130,6 +130,23 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public boolean updateProfilePicture(Long id, String profilePicture) {
+        User user = userRepository.findById(id).orElse(null);
+        if (!(user instanceof Viewer viewer)) return false;
+
+        List<String> allowedImages = List.of("https://play-lh.googleusercontent.com/JZYM9BfoFZxY-NYrjmQr6BPpireEvDvcVliADoG-XpESbjQC3tu170Qjb-wgdWGwfUC3=s188-rw",
+                "https://upload.wikimedia.org/wikipedia/commons/7/7b/Logo_impresa.gif",
+                "https://eco.imgix.net/uploads/2017/06/cropped-mediacapital.png?w=372&q=60&auto=compress,format",
+                "https://cdn-icons-png.flaticon.com/512/10109/10109817.png",
+                "https://apradiodifusao.pt/wp-content/uploads/2025/04/imagem-2.jpg");
+        if (!allowedImages.contains(profilePicture)) return false;
+
+        viewer.setProfilePicture(profilePicture);
+        userRepository.save(viewer);
+        return true;
+    }
+
+    @Override
     public String getProfilePicture(Long id) {
         User user = userRepository.findById(id).orElse(null);
 
@@ -137,22 +154,6 @@ public class UserServiceImpl implements UserService{
             return ((Viewer) user).getProfilePicture();
         }
         return null;
-    }
-
-    @Override
-    public boolean updateProfilePicture(Long id, String profilePicture) {
-        User user = userRepository.findById(id).orElse(null);
-        if (!(user instanceof Viewer viewer)) return false;
-
-        List<String> allowedImages = List.of("https://play-lh.googleusercontent.com/JZYM9BfoFZxY-NYrjmQr6BPpireEvDvcVliADoG-XpESbjQC3tu170Qjb-wgdWGwfUC3=s188-rw",
-                "https://upload.wikimedia.org/wikipedia/commons/7/7b/Logo_impresa.gif",
-                "https://upload.wikimedia.org/wikipedia/pt/e/e1/Media-capital-logo-certo-300x224.png",
-                "https://apradiodifusao.pt/wp-content/uploads/2025/04/imagem-2.jpg");
-        if (!allowedImages.contains(profilePicture)) return false;
-
-        viewer.setProfilePicture(profilePicture);
-        userRepository.save(viewer);
-        return true;
     }
 
     @Override
