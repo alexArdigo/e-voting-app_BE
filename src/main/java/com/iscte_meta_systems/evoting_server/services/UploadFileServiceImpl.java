@@ -17,7 +17,7 @@ import java.util.Map;
 
 /**
  * CSV format required:
- * For Presidential elections: organisationName,imageUrl
+ * For Presidential elections: candidateName,imageUrl
  * For Legislative elections: organisationName,color,logoUrl,description,candidateName,candidateImageUrl
  * The first row should be a header and will be skipped.
  */
@@ -53,19 +53,35 @@ public class UploadFileServiceImpl implements UploadFileService {
                 idx.put(headers[i].trim().toLowerCase(), i);
             }
 
-            int iOrg = idx.get("organisationname");
-            int iImg = idx.getOrDefault("imageurl", -1);
+            Integer iCandidateName = idx.get("candidatename");
+            Integer iImageUrl = idx.get("imageurl");
+
+            if (iCandidateName == null) {
+                throw new RuntimeException("CSV must contain 'candidateName' column for presidential elections");
+            }
 
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] cols = line.split(",");
-                String candName = cols.length > iOrg ? cols[iOrg].trim() : "";
-                if (!candName.isEmpty()) {
-                    UniParty up = new UniParty();
-                    up.setOrganisationName(candName);
-                    up.setName(candName);
-                    if (iImg >= 0 && cols.length > iImg) up.setImageUrl(cols[iImg].trim());
-                    organisations.add(up);
+                String candidateName = cols.length > iCandidateName ? cols[iCandidateName].trim() : "";
+
+                if (!candidateName.isEmpty()) {
+                    Candidate candidate = new Candidate();
+                    candidate.setName(candidateName);
+                    if (iImageUrl != null && cols.length > iImageUrl) {
+                        candidate.setImageUrl(cols[iImageUrl].trim());
+                    }
+                    candidate = candidateRepository.save(candidate);
+
+                    UniParty uniParty = new UniParty();
+                    uniParty.setOrganisationName(candidateName);
+                    uniParty.setName(candidateName);
+                    if (iImageUrl != null && cols.length > iImageUrl) {
+                        uniParty.setImageUrl(cols[iImageUrl].trim());
+                    }
+                    uniParty.setCandidate(candidate);
+
+                    organisations.add(uniParty);
                 }
             }
         } catch (Exception e) {
