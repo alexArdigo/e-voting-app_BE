@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping ("/registerAdmin")
+    @PostMapping("/registerAdmin")
     public ResponseEntity<String> registerAdmin(UserRegisterDTO userRegisterDTO) {
         try {
             String result = userService.registerAdmin(userRegisterDTO);
@@ -33,17 +33,17 @@ public class UserController {
         }
     }
 
-    @PostMapping ("/registerViewer")
+    @PostMapping("/registerViewer")
     public ResponseEntity<String> registerViewer(UserRegisterDTO userRegisterDTO) {
         try {
-        String result = userService.registerViewer(userRegisterDTO);
-        return ResponseEntity.ok(result);
+            String result = userService.registerViewer(userRegisterDTO);
+            return ResponseEntity.ok(result);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error registering viewer: " + e.getMessage());
         }
     }
 
-    @GetMapping ("/pendingAuthorization")
+    @GetMapping("/pendingAuthorization")
     public List<Viewer> pendingAuthorization() {
         return userService.pendingAuthorization();
     }
@@ -74,7 +74,7 @@ public class UserController {
         return userService.getUserByUsername(username);
     }
 
-    @GetMapping ("/loggedUser")
+    @GetMapping("/loggedUser")
     public LoggedUserDTO getLoggedUser() {
         User user = userService.getLoggedUser();
         return (user != null) ? new LoggedUserDTO(user) : null;
@@ -108,21 +108,21 @@ public class UserController {
     }
 
     @GetMapping("/profile-image")
-    public ResponseEntity<byte[]> getMyProfileImage(){
+    public ResponseEntity<byte[]> getMyProfileImage() {
 
-        try{
+        try {
             User user = userService.getLoggedUser();
             if (user == null) {
                 return ResponseEntity.status(401).build();
             }
 
             String imagePath = userService.getProfileImagePath(user.getId());
-            if( imagePath == null){
+            if (imagePath == null) {
                 return ResponseEntity.notFound().build();
             }
 
             File imageFile = new File(imagePath);
-            if( !imageFile.exists() ){
+            if (!imageFile.exists()) {
                 return ResponseEntity.notFound().build();
             }
 
@@ -130,9 +130,9 @@ public class UserController {
 
             String contentType = "image/jpeg";
             String fileName = imageFile.getName().toLowerCase();
-            if (fileName.endsWith(".png")){
+            if (fileName.endsWith(".png")) {
                 contentType = "image/png";
-            } else if (fileName.endsWith(".jpg")){
+            } else if (fileName.endsWith(".jpg")) {
                 contentType = "image/jpeg";
             }
 
@@ -141,9 +141,9 @@ public class UserController {
                     .header("Cache-Control", "no-cache")
                     .body(imageBytes);
 
-        }catch (IOException e) {
+        } catch (IOException e) {
             return ResponseEntity.status(500).build();
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(500).build();
         }
     }
@@ -151,30 +151,30 @@ public class UserController {
     @PostMapping("/upload-image")
     public ResponseEntity<String> uploadProfileImage(@RequestParam("file") MultipartFile file) {
 
-        try{
+        try {
             if (file == null || file.isEmpty()) {
                 return ResponseEntity.badRequest().body("File is empty");
             }
 
             User user = userService.getLoggedUser();
-            if (user == null){
+            if (user == null) {
                 return ResponseEntity.status(401).body("User not logged in");
             }
 
             String contentType = file.getContentType();
-            if (contentType == null || !contentType.startsWith("image/")){
+            if (contentType == null || !contentType.startsWith("image/")) {
                 return ResponseEntity.badRequest().body("File type not supported");
             }
 
             long maxSize = 5 * 1024 * 1024;
-            if(file.getSize() > maxSize){
+            if (file.getSize() > maxSize) {
                 return ResponseEntity.badRequest().body("File is too large");
             }
 
             String fileName = userService.uploadProfileImage(file);
-            return ResponseEntity.ok("image saved successfully" +fileName);
+            return ResponseEntity.ok("image saved successfully" + fileName);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error uploading profile picture");
         }
     }
