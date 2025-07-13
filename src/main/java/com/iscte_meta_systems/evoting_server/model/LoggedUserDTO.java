@@ -15,6 +15,7 @@ public class LoggedUserDTO {
     private String institutionName;
     private String lastLogin;
     private Role role;
+    private String profilePicture;
 
 
     public LoggedUserDTO(User user) {
@@ -27,11 +28,11 @@ public class LoggedUserDTO {
             this.institutionName = viewer.getInstitutionName();
             if (viewer.getLastLogin() != null) {
                 this.lastLogin = viewer.getLastLogin()
-                        .format(DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy"));
+                        .format(DateTimeFormatter.ofPattern("dd-MM-yyyy  HH:mm"));
             } else {
                 this.lastLogin = null;
             }
-
+            this.profilePicture = viewer.getProfilePicture();
         }
     }
 
@@ -81,6 +82,14 @@ public class LoggedUserDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 }
 
