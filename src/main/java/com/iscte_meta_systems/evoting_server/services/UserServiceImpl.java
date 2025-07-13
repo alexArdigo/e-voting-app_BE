@@ -36,8 +36,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    private UserService userService;
 
     @Override
     public User login(LoginDTO loginDTO) {
@@ -163,7 +161,7 @@ public class UserServiceImpl implements UserService {
                 throw new RuntimeException("File is empty");
             }
 
-            User user = userService.getLoggedUser();
+            User user = this.getLoggedUser();
             if (user == null) {
                 throw new RuntimeException("User is not logged in");
             }
