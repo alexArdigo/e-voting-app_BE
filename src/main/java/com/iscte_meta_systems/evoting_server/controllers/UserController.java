@@ -82,7 +82,7 @@ public class UserController {
     }
 
 
-    @PutMapping("/{id}/profilePicture")
+    @PutMapping("/{id}/updateProfilePicture")
     public ResponseEntity<String> updateProfilePicture(@PathVariable Long id, @RequestBody ProfilePictureDTO dto) {
         boolean success = userService.updateProfilePicture(id, dto.getProfilePicture());
 
