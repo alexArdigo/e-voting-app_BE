@@ -2,7 +2,7 @@
   "Aveiro" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "INÊS GONÇALVES MARCÃO PINTO BASTOS",
@@ -56,7 +56,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "LUÍS EMÍDIO LOPES MATEUS FAZENDA",
@@ -110,7 +110,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO SARAIVA GONÇALVES SANTOS FRAZÃO",
@@ -164,7 +164,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "ANA CARLA GAMELAS DINIZ ANTUNES",
@@ -218,7 +218,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "MÁRIO FILIPE AMORIM FARIA OLIVEIRA LOPES",
@@ -326,7 +326,7 @@
   }, {
     "partyName" : "Nós, Cidadãos!",
     "color" : "#4169E1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nc-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e9/Logotipo_nós_cidadãos.png",
     "description" : "Nós, Cidadãos! - Partido político português",
     "candidates" : [ {
       "name" : "JOAQUIM PAULO PINTO ALVES",
@@ -380,7 +380,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "RICARDO ABEL DE OLIVEIRA GONÇALVES",
@@ -434,7 +434,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "ANA TERESA DA SILVA GONÇALVES",
@@ -488,7 +488,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "ISABEL CRISTINA LOPES TAVARES",
@@ -542,7 +542,7 @@
   }, {
     "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
     "color" : "#DC143C",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/4/48/PCTP-MRPP_logo.png",
     "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
     "candidates" : [ {
       "name" : "ALEXANDRE DE ALMEIDA CALDEIRA",
@@ -596,7 +596,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "LUIS FILIPE MONTENEGRO CARDOSO DE MORAIS ESTEVES",
@@ -650,7 +650,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ AMÉRICO QUARESMA PEREIRA",
@@ -758,7 +758,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ PORFÍRIO TAVARES ALVES SANTOS",
@@ -812,7 +812,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "SPALLOU PINTO FERREIRA",
@@ -867,7 +867,7 @@
   "Beja" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "CARLOS ALBERTO NUNES SANTOS MARCELINO",
@@ -882,7 +882,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "ALBERTO MANUEL BELLO DA CUNHA MATOS",
@@ -897,7 +897,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "RUI CELESTINO DOS SANTOS CRISTINA",
@@ -912,7 +912,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ ARTUR GONÇALVES ANTUNES",
@@ -927,7 +927,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "GENEROSA CORREIA DE BRITO",
@@ -957,7 +957,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "JORGE MANUEL DA GAMA PINTO VALENTE",
@@ -972,7 +972,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "LUÍS CARLOS PAIXÃO COENTRO",
@@ -987,7 +987,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "BERNARDINO JOSÉ TORRÃO SOARES",
@@ -1002,7 +1002,7 @@
   }, {
     "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
     "color" : "#DC143C",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/4/48/PCTP-MRPP_logo.png",
     "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
     "candidates" : [ {
       "name" : "MARIA HELENA VALENTE PINTO",
@@ -1017,7 +1017,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "GONÇALO NUNO RAIO VALENTE E HENRIQUE",
@@ -1032,7 +1032,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "BENTO JOSÉ FURÃO FIALHO",
@@ -1062,7 +1062,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "MARGARIDA ISABEL INVERNO DO ROSÁRIO",
@@ -1077,7 +1077,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "IRIS RAQUEL UEBELHOER DE LÁ FÉRIA E OLIVEIRA",
@@ -1093,7 +1093,7 @@
   "Braga" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "GONÇALO NICOLAU CERQUEIRA SOPAS DE MELO BANDEIRA",
@@ -1156,7 +1156,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "FRANCISCO ANACLETO LOUÇÃ",
@@ -1219,7 +1219,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO FILIPE DIAS MELO PEIXOTO",
@@ -1282,7 +1282,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "TIAGO FERNANDO RIBEIRO RODRIGUES",
@@ -1345,7 +1345,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "RUI NUNO DE OLIVEIRA GARCIA ROCHA",
@@ -1408,7 +1408,7 @@
   }, {
     "partyName" : "Juntos pelo Povo",
     "color" : "#FFD700",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logotipo_Partido_Juntos_pelo_Povo.png",
     "description" : "Juntos pelo Povo - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO MANUEL ARRIFANA HORTA",
@@ -1534,7 +1534,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ JOAQUIM GOMES PEIXOTO",
@@ -1597,7 +1597,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "TIAGO JORGE MONTEIRO TEIXEIRA",
@@ -1660,7 +1660,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "SANDRA DE OLIVEIRA CARDOSO",
@@ -1723,7 +1723,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "HUGO ALEXANDRE LOPES SOARES",
@@ -1786,7 +1786,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "SANDRA CRISTINA CORDEIRO ALEMÃO",
@@ -1912,7 +1912,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO JOÃO DE ARAÚJO FERNANDES",
@@ -1975,7 +1975,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "MIGUEL AMADOR ROSA",
@@ -2039,7 +2039,7 @@
   "Bragança" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "BRUNO MIGUEL MATOS DO REGO DO NASCIMENTO E SÁ COUTINHO",
@@ -2054,7 +2054,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "VITOR FILIPE OLIVEIRA GONÇALVES PIMENTA",
@@ -2069,7 +2069,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ MÁRIO PINHEIRO MESQUITA",
@@ -2084,7 +2084,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "CARLOS ALBERTO TELES",
@@ -2099,7 +2099,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "NUNO ALEXANDRE MONTEIRO FERNANDES",
@@ -2129,7 +2129,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "OCTÁVIO JOSÉ PIRES",
@@ -2144,7 +2144,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "FÁTIMA DA CONCEIÇÃO BORGES BENTO",
@@ -2159,7 +2159,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "HERNANI DINIS VENANCIO DIAS",
@@ -2174,7 +2174,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "MARIA DOS ANJOS CARVALHO CIDADE",
@@ -2204,7 +2204,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "DAMIANA ISABEL CEPEDA FALCÃO",
@@ -2219,7 +2219,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "CÉSAR CARLOS VIEIRA VALENTE",
@@ -2235,7 +2235,7 @@
   "Castelo Branco" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "FILIPE MANUEL DA SILVA LOURENÇO",
@@ -2253,7 +2253,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "INÊS FILIPA DA SILVA ANTUNES",
@@ -2271,7 +2271,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO FILIPE DIAS RIBEIRO",
@@ -2289,7 +2289,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "CARLOS MANUEL FERNANDES LOBO",
@@ -2307,7 +2307,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "MANUEL CARLOS LOUREIRO DE LEMOS",
@@ -2343,7 +2343,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "PAUL FERNANDES SUMMERS",
@@ -2361,7 +2361,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "VÍTOR MANUEL REIS SILVA",
@@ -2379,7 +2379,7 @@
   }, {
     "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
     "color" : "#DC143C",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/4/48/PCTP-MRPP_logo.png",
     "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ ALBINO ALVES MARRUCHO",
@@ -2397,7 +2397,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO TRIGO DE MORAIS DE ALBUQUERQUE REIS",
@@ -2415,7 +2415,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "LUÍS ARTUR FLÔR ALMEIDA DUQUE-VIEIRA",
@@ -2451,7 +2451,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "EVA MARISA MOTA DE SOUSA",
@@ -2469,7 +2469,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "DANIEL RICARDO MARANHÃO SANTANA",
@@ -2488,7 +2488,7 @@
   "Coimbra" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "SANCHO CRISTÓVÃO MARQUES ANTUNES",
@@ -2521,7 +2521,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "MIGUEL GONÇALO CARDINA CODINHA",
@@ -2554,7 +2554,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "PAULO JORGE RODRIGUES NOGUEIRA SECO",
@@ -2587,7 +2587,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO MIGUEL BELO DE CARVALHO DA COSTA MARQUES",
@@ -2620,7 +2620,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "ANA CATARINA DA CRUZ GOMES GRAVETO",
@@ -2653,7 +2653,7 @@
   }, {
     "partyName" : "Juntos pelo Povo",
     "color" : "#FFD700",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logotipo_Partido_Juntos_pelo_Povo.png",
     "description" : "Juntos pelo Povo - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO GUILHERME GONÇALVES RIBEIRO",
@@ -2719,7 +2719,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "JOANA CRISTINA SARABANDO FERNANDES BENTO RODRIGUES",
@@ -2752,7 +2752,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO PEDRO DIAS FONTES DA COSTA",
@@ -2785,7 +2785,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO FERNANDO DO NASCIMENTO TEIXEIRA",
@@ -2818,7 +2818,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "RITA FRAGOSO DE RHODES ALARCÃO JÚDICE DE ABREU E MOTA",
@@ -2851,7 +2851,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "MANUEL HUMBERTO LOPES SÃO JOÃO",
@@ -2917,7 +2917,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "INÊS DE ABREU TAFULA",
@@ -2950,7 +2950,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "MANUEL LOUREIRO BAETA",
@@ -2984,7 +2984,7 @@
   "Évora" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "RODRIGO JOSÉ RAMALHO PAIAS",
@@ -2999,7 +2999,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO MIGUEL NUNES FERREIRA",
@@ -3014,7 +3014,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "JORGE MANUEL DE VALSASSINA GALVEIAS RODRIGUES",
@@ -3029,7 +3029,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "CARLA MARIA ASSUNÇÃO ANDRADE REBELO RIBEIRO",
@@ -3044,7 +3044,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "RODRIGO VARGAS MENDONÇA",
@@ -3074,7 +3074,7 @@
   }, {
     "partyName" : "Nós, Cidadãos!",
     "color" : "#4169E1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nc-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e9/Logotipo_nós_cidadãos.png",
     "description" : "Nós, Cidadãos! - Partido político português",
     "candidates" : [ {
       "name" : "JORGE MANUEL CORREIA CANHOTO",
@@ -3089,7 +3089,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "SÉRGIO MANUEL PASCOAL NEVES",
@@ -3104,7 +3104,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "MARIA DA GRAÇA DUARTE NASCIMENTO",
@@ -3119,7 +3119,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "FRANCISCO MARIA GONÇALVES LOPES FIGUEIRA",
@@ -3134,7 +3134,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "LUIS DA SILVA MADEIRA",
@@ -3164,7 +3164,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "RICARDO JOÃO CAMÕES MENDES",
@@ -3179,7 +3179,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "HÉLDER FILIPE TOMAZ MACHADO",
@@ -3195,7 +3195,7 @@
   "Faro" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO CARLOS TEIXEIRA SIMPLÍCIO",
@@ -3228,7 +3228,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ GUILHERME FIGUEIREDO NOBRE DE GUSMÃO",
@@ -3261,7 +3261,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO MIGUEL SOARES PINTO",
@@ -3294,7 +3294,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "FÁBIO JOSÉ ROSA FATAL",
@@ -3327,7 +3327,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "DANIEL MARTINS VIEGAS",
@@ -3360,7 +3360,7 @@
   }, {
     "partyName" : "Juntos pelo Povo",
     "color" : "#FFD700",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logotipo_Partido_Juntos_pelo_Povo.png",
     "description" : "Juntos pelo Povo - Partido político português",
     "candidates" : [ {
       "name" : "MANUEL GOMES MERCEANO",
@@ -3426,7 +3426,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "CARLOS MIGUEL DO CARMO NATAL",
@@ -3459,7 +3459,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "SAÚL JOSÉ LOPES ROSA",
@@ -3492,7 +3492,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "CATARINA ALEXANDRA MATOS MARQUES",
@@ -3525,7 +3525,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "MARIA DA GRAÇA MARTINS DA SILVA CARVALHO",
@@ -3558,7 +3558,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "JOANA COSTA LOPES DO REGO",
@@ -3624,7 +3624,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "RUI PEDRO ROUPA CURADO",
@@ -3657,7 +3657,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "BRUNO MIGUEL CASTELÃO AIRES DOS SANTOS",
@@ -3691,7 +3691,7 @@
   "Guarda" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "FRANCISCO JOSÉ FIGUEIREDO MONTEIRO",
@@ -3706,7 +3706,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "BEATRIZ REALINHO PIRES",
@@ -3721,7 +3721,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "CARLOS NUNO GOMES E SIMÕES DE MELO",
@@ -3736,7 +3736,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "DIOGO CRISTIANO DE CASTRO CASANOVA",
@@ -3751,7 +3751,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "RUI FERNANDO RIBEIRO ABREU",
@@ -3781,7 +3781,7 @@
   }, {
     "partyName" : "Nós, Cidadãos!",
     "color" : "#4169E1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nc-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e9/Logotipo_nós_cidadãos.png",
     "description" : "Nós, Cidadãos! - Partido político português",
     "candidates" : [ {
       "name" : "CÉLIO JOSÉ FORTUNA ALVES",
@@ -3796,7 +3796,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO MIGUEL PEREIRA DE ALMEIDA",
@@ -3811,7 +3811,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "CATARINA ALEXANDRA BENTOS COSTA",
@@ -3826,7 +3826,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "DULCINEIA CATARINA MOURA DE SOUSA COITO",
@@ -3841,7 +3841,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "MANUEL SARAIVA BORGES",
@@ -3871,7 +3871,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "MARIA DO CÉU NOGUEIRA DA ROCHA",
@@ -3886,7 +3886,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "OLIVIER PACHECO CARNEIRO",
@@ -3902,7 +3902,7 @@
   "Leiria" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "NUNO HENRIQUES MONTEIRO E SILVA BARROSO",
@@ -3938,7 +3938,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "FERNANDO JOSÉ MENDES ROSAS",
@@ -3974,7 +3974,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "GABRIEL SÉRGIO MITHÁ RIBEIRO",
@@ -4010,7 +4010,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "DANIEL CARLOS DE ALMEIDA RAMOS",
@@ -4046,7 +4046,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "ANDRÉ FILIPE GONÇALVES PEREIRA ABRANTES AMARAL",
@@ -4118,7 +4118,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "FÁBIO NOEL SEQUEIRA SOEIRO",
@@ -4154,7 +4154,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "RODRIGO JOSÉ NUNES ANDRADE",
@@ -4190,7 +4190,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO PAULO QUINZICO DELGADO",
@@ -4226,7 +4226,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "ANA MARGARIDA BALSEIRO DE SOUSA LOPES",
@@ -4262,7 +4262,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "SOFIA DA LOURA INÁCIO",
@@ -4334,7 +4334,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "ORLANDO JOSÉ SANTOS CORREIA",
@@ -4370,7 +4370,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO SÉRGIO QUINTELA AGOSTINHO",
@@ -4407,7 +4407,7 @@
   "Lisboa" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "JOANA BEATRIZ NUNES VICENTE AMARAL DIAS TERRINCA",
@@ -4557,7 +4557,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "MARIANA MORTÁGUA",
@@ -4707,7 +4707,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "ANDRE CLARO AMARAL VENTURA",
@@ -4857,7 +4857,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "RUI PEDRO FONSECA NOGUEIRA DA FONSECA E CASTRO",
@@ -5007,7 +5007,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "MARIANA DE LEMOS QUINTÃO CORREIA LEITÃO",
@@ -5157,7 +5157,7 @@
   }, {
     "partyName" : "Juntos pelo Povo",
     "color" : "#FFD700",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logotipo_Partido_Juntos_pelo_Povo.png",
     "description" : "Juntos pelo Povo - Partido político português",
     "candidates" : [ {
       "name" : "VANESSA FILIPA MARQUES CARVALHO DOS SANTOS PEREIRA",
@@ -5457,7 +5457,7 @@
   }, {
     "partyName" : "Nós, Cidadãos!",
     "color" : "#4169E1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nc-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e9/Logotipo_nós_cidadãos.png",
     "description" : "Nós, Cidadãos! - Partido político português",
     "candidates" : [ {
       "name" : "JOAQUIM MANUEL DA ROCHA AFONSO",
@@ -5607,7 +5607,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "OSSANDA LIBER JOÃO FILIPE CRUZ DOS SANTOS",
@@ -5757,7 +5757,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "PAULA INÊS ALVES DE SOUSA REAL",
@@ -5907,7 +5907,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "PAULO ALEXANDRE CANTIGAS RAIMUNDO",
@@ -6057,7 +6057,7 @@
   }, {
     "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
     "color" : "#DC143C",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/4/48/PCTP-MRPP_logo.png",
     "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
     "candidates" : [ {
       "name" : "MARIA CIDÁLIA DA LUZ GONÇALVES GUERREIRO",
@@ -6207,7 +6207,7 @@
   }, {
     "partyName" : "PARTIDO LIBERAL SOCIAL",
     "color" : "#4682B4",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pls-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/39/Logo-partido-liberal-social.png",
     "description" : "PARTIDO LIBERAL SOCIAL - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO MIGUEL DOS SANTOS JANEIRO",
@@ -6357,7 +6357,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "JOAQUIM JOSÉ MIRANDA SARMENTO",
@@ -6507,7 +6507,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "GONÇALO MARIA PACHECO DA CÂMARA PEREIRA",
@@ -6807,7 +6807,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "MÁRCIA JOÃO BRAZ DE TIMÓTEO HENRIQUES",
@@ -6957,7 +6957,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "DUARTE FILIPE PIRES DO ROSÁRIO COSTA",
@@ -7108,7 +7108,7 @@
   "Portalegre" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "AUGUSTO MANUEL FONA VIEIRA",
@@ -7120,7 +7120,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ CARITA MONTEIRO",
@@ -7132,7 +7132,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO FERREIRA LOPES ALEIXO",
@@ -7144,7 +7144,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "MADALENA DE UTRA MACHADO PINTO COELHO THOMAS",
@@ -7156,7 +7156,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "FRANCISCO BISCAYA CARDOSO",
@@ -7180,7 +7180,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "TELMA ISABEL TAVARES DO ESPÍRITO SANTO",
@@ -7192,7 +7192,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "HELENA ISABEL DUARTE NEVES",
@@ -7204,7 +7204,7 @@
   }, {
     "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
     "color" : "#DC143C",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/4/48/PCTP-MRPP_logo.png",
     "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO MANUEL ESPERTO CORRICAS",
@@ -7216,7 +7216,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "MANUEL CASTRO ALMEIDA",
@@ -7228,7 +7228,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "HUGO ALEXANDRE PIRES LOPES",
@@ -7252,7 +7252,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "EMANUEL DE JESUS FIGUEIREDO MARTINS",
@@ -7264,7 +7264,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "ANA RITA AMANTE LEAL VIDE",
@@ -7277,7 +7277,7 @@
   "Porto" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "BRUNO ALEXANDRE RAMALHO FIALHO",
@@ -7403,7 +7403,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "MARISA ISABEL DOS SANTOS MATIAS",
@@ -7529,7 +7529,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "RUI PEDRO DA SILVA AFONSO",
@@ -7655,7 +7655,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "BRUNO MIGUEL BENIGNO REBELO",
@@ -7781,7 +7781,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "CARLOS MANUEL GUIMARÃES OLIVEIRA PINTO",
@@ -7907,7 +7907,7 @@
   }, {
     "partyName" : "Juntos pelo Povo",
     "color" : "#FFD700",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logotipo_Partido_Juntos_pelo_Povo.png",
     "description" : "Juntos pelo Povo - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ MANUEL DA SILVA CARVALHO VIEIRA",
@@ -8159,7 +8159,7 @@
   }, {
     "partyName" : "Nós, Cidadãos!",
     "color" : "#4169E1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nc-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e9/Logotipo_nós_cidadãos.png",
     "description" : "Nós, Cidadãos! - Partido político português",
     "candidates" : [ {
       "name" : "MANUEL DE JESUS FERREIRA LEITE",
@@ -8285,7 +8285,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "ISRAEL PONTES RAMOS LOPES AUGUSTO",
@@ -8411,7 +8411,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "HUGO ALEXANDRE TRINDADE CORREIA",
@@ -8537,7 +8537,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "MANUEL ALFREDO DA ROCHA MAIA",
@@ -8663,7 +8663,7 @@
   }, {
     "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
     "color" : "#DC143C",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/4/48/PCTP-MRPP_logo.png",
     "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO MANUEL VALENTE PINTO",
@@ -8789,7 +8789,7 @@
   }, {
     "partyName" : "PARTIDO LIBERAL SOCIAL",
     "color" : "#4682B4",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pls-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/39/Logo-partido-liberal-social.png",
     "description" : "PARTIDO LIBERAL SOCIAL - Partido político português",
     "candidates" : [ {
       "name" : "DANIEL FERNANDO ROCHA AMARAL",
@@ -8915,7 +8915,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "PAULO ARTUR DOS SANTOS CASTRO DE CAMPOS RANGEL",
@@ -9041,7 +9041,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO JOÃO FONTES MAIA",
@@ -9293,7 +9293,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "VITORINO FRANCISCO DA ROCHA E SILVA",
@@ -9419,7 +9419,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "RICARDO MIGUEL PINTO LOUREIRO",
@@ -9546,7 +9546,7 @@
   "Santarém" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "MARTA DA SILVA GAMEIRO",
@@ -9579,7 +9579,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "BRUNO MIGUEL GÓIS CARREIRA",
@@ -9612,7 +9612,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO ALEXANDRE ARRABAÇA DE SILVA OLIVEIRA CORREIA",
@@ -9645,7 +9645,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "FILIPA SOFIA MARGARIDO ESTEVES",
@@ -9678,7 +9678,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "AFONSO CABRAL CHORA CLAUDINO DAS NEVES",
@@ -9744,7 +9744,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "VERA FAZENDA MATOS",
@@ -9777,7 +9777,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "INÊS FILIPA AGOSTINHO DOS SANTOS",
@@ -9810,7 +9810,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "FERNANDO MANUEL DE ALMEIDA ALEXANDRE",
@@ -9843,7 +9843,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "AMÉRICO RAFAEL DE FREITAS",
@@ -9909,7 +9909,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "ANDRÉ RICARDO DE OLIVEIRA ANTUNES",
@@ -9942,7 +9942,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "JORGE MIGUEL DOS SANTOS SILVA",
@@ -9976,7 +9976,7 @@
   "Setúbal" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "MÁRCIO ANTONIO DE SOUZA OLIVEIRA",
@@ -10039,7 +10039,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "JOANA RODRIGUES MORTÁGUA",
@@ -10102,7 +10102,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "RITA MARIA CID MATIAS",
@@ -10165,7 +10165,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "CARLOS JOSÉ MARTELO PAGARÁ",
@@ -10228,7 +10228,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "JOANA RITA MADALENO CORDEIRO",
@@ -10291,7 +10291,7 @@
   }, {
     "partyName" : "Juntos pelo Povo",
     "color" : "#FFD700",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logotipo_Partido_Juntos_pelo_Povo.png",
     "description" : "Juntos pelo Povo - Partido político português",
     "candidates" : [ {
       "name" : "LUÍS FRANCISCO ISRAEL DE ALMEIDA RIBEIRO",
@@ -10417,7 +10417,7 @@
   }, {
     "partyName" : "Nós, Cidadãos!",
     "color" : "#4169E1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nc-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e9/Logotipo_nós_cidadãos.png",
     "description" : "Nós, Cidadãos! - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ PEDRO PAIS PEREIRA",
@@ -10480,7 +10480,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO RICARDO VIEIRA ARAÚJO",
@@ -10543,7 +10543,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "MARIANA VIEIRA CRESPO",
@@ -10606,7 +10606,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "PAULA ALEXANDRA SOBRAL GUERREIRO SANTOS BARBOSA",
@@ -10669,7 +10669,7 @@
   }, {
     "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
     "color" : "#DC143C",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/4/48/PCTP-MRPP_logo.png",
     "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
     "candidates" : [ {
       "name" : "NUNO CORREIA DA SILVA",
@@ -10732,7 +10732,7 @@
   }, {
     "partyName" : "PARTIDO LIBERAL SOCIAL",
     "color" : "#4682B4",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pls-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/39/Logo-partido-liberal-social.png",
     "description" : "PARTIDO LIBERAL SOCIAL - Partido político português",
     "candidates" : [ {
       "name" : "JOSE ANTONIO DE JESUS CARDOSO",
@@ -10795,7 +10795,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "MARIA TERESA DA SILVA MORAIS",
@@ -10858,7 +10858,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "MARIA ORLANDA FERREIRA EURICO MATIAS",
@@ -10984,7 +10984,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "ANA PAULA GONÇALVES MARQUES DE FREITAS",
@@ -11047,7 +11047,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "DIANA MARGARIDA MARTINS PEDRO TAVARES",
@@ -11111,7 +11111,7 @@
   "Viana do Castelo" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "LUÍS FILIPE MARTINS AREZES",
@@ -11132,7 +11132,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "ADRIANA  BEATRIZ OLIVEIRA TEMPORÃO",
@@ -11153,7 +11153,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "EDUARDO ALEXANDRE RIBEIRO GONÇALVES TEIXEIRA",
@@ -11174,7 +11174,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ ÂNGELO MORENO LIMA",
@@ -11195,7 +11195,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "HUGO JOEL FERNANDES DE SÁ PEREIRA",
@@ -11237,7 +11237,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "ISABEL MARIA FRAGOSO DE RHODES MENDONÇA",
@@ -11258,7 +11258,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : " JOAQUIM CELESTINO SIMÕES RIBEIRO",
@@ -11279,7 +11279,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ PEDRO CORREIA DE AGUIAR BRANCO",
@@ -11300,7 +11300,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "RAUL OLIVEIRA NUNES FERREIRA",
@@ -11342,7 +11342,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO MARCELO MAIO NOGUEIRA BASTOS ALMEIDA",
@@ -11363,7 +11363,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "VLADIMIRO RAMIRO OSÓRIO",
@@ -11385,7 +11385,7 @@
   "Vila Real" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO ANTÓNIO VILELA DO CABEÇO",
@@ -11406,7 +11406,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "ANABELA DINIS BRANCO DE OLIVEIRA",
@@ -11427,7 +11427,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "MARIA MANUELA PEREIRA TENDER",
@@ -11448,7 +11448,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "MARIA IRENE SOARES COSTA",
@@ -11469,7 +11469,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "JOANA MARGARIDA MAGALHÃES FERREIRA",
@@ -11511,7 +11511,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "RUI OLIVEIRA DE ALMEIDA",
@@ -11532,7 +11532,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ LUÍS TEIXEIRA FERREIRA",
@@ -11553,7 +11553,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "ANA PAULA MECHEIRO DE ALMEIDA MARTINS SILVESTRE CORREIA",
@@ -11574,7 +11574,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "EDGARDO COSTA MADEIRA",
@@ -11616,7 +11616,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO JOSÉ DA SILVA OLIVEIRA",
@@ -11637,7 +11637,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "SILVIA MARIA PINTO SERAFIM FERNANDES MOURINHA",
@@ -11659,7 +11659,7 @@
   "Viseu" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "LUIS RAFAEL CRUZ DE ALMEIDA",
@@ -11689,7 +11689,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "DAVID FILIPE DOS SANTOS",
@@ -11719,7 +11719,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO JOSÉ RODRIGUES TILLY",
@@ -11749,7 +11749,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO MIGUEL DA FONSECA PINTO",
@@ -11779,7 +11779,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO PEDRO GOUVEIA OSÓRIO ANTAS DE BARROS",
@@ -11839,7 +11839,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO CARLOS RODRIGUES ANDRADE",
@@ -11869,7 +11869,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "ALEXANDRE COSTA E SOUSA HOFFMANN CASTELA",
@@ -11899,7 +11899,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO EGREJAS LEITÃO AMARO",
@@ -11929,7 +11929,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "LUIS DUARTE AZEVEDO ALMEIDA",
@@ -11989,7 +11989,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "LUIS DA SILVA LOURENÇO",
@@ -12019,7 +12019,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "JORGE ANDRÉ FONTOURA VIDE",
@@ -12050,7 +12050,7 @@
   "Madeira" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO GILBERTO RAMOS DE ABREU",
@@ -12074,7 +12074,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "DIOGO JOSÉ FERREIRA TEIXEIRA",
@@ -12098,7 +12098,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "FRANCISCO  MANUEL DE FREITAS GOMES",
@@ -12122,7 +12122,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO ÁLVARO AGUIAR ARAÚJO",
@@ -12146,7 +12146,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO HENRIQUES CORTE FERNANDES",
@@ -12170,7 +12170,7 @@
   }, {
     "partyName" : "Juntos pelo Povo",
     "color" : "#FFD700",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logotipo_Partido_Juntos_pelo_Povo.png",
     "description" : "Juntos pelo Povo - Partido político português",
     "candidates" : [ {
       "name" : "FILIPE MARTINIANO MARTINS DE SOUSA",
@@ -12218,7 +12218,7 @@
   }, {
     "partyName" : "Partido da Terra",
     "color" : "#8FBC8F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/mpt-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/8/87/Partido_da_Terra.png",
     "description" : "Partido da Terra - Partido político português",
     "candidates" : [ {
       "name" : "RICARDO JORGE DA SILVA CAMACHO",
@@ -12242,7 +12242,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "PAULO RICARDO AZEVEDO",
@@ -12266,7 +12266,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "VÁLTER DIOGO ORNELAS RAMOS",
@@ -12290,7 +12290,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "HERLANDA MARIA GOUVEIA AMADO",
@@ -12314,7 +12314,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO EMANUEL ABREU COELHO",
@@ -12338,7 +12338,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "LUIS MIGUEL AZEVEDO DE ORNELAS",
@@ -12386,7 +12386,7 @@
   }, {
     "partyName" : "Partido Trabalhista Português",
     "color" : "#CD853F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ptp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/17/Partido_Trabalhista_Português.png",
     "description" : "Partido Trabalhista Português - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ EDGAR MARQUES SILVA",
@@ -12410,7 +12410,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "JOANA RUBINA MARTINS MENDES",
@@ -12435,7 +12435,7 @@
   "Açores" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "RUI JORGE DE SOUSA MATOS",
@@ -12456,7 +12456,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO GASPAR AMARAL",
@@ -12477,7 +12477,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "FRANCISCO GABRIEL MENESES DE LIMA",
@@ -12498,7 +12498,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "ROQUE MANUEL DA SILVA GAIO E MELO DE ALMEIDA",
@@ -12519,7 +12519,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "HUGO BERTO DA COSTA SOUSA ALMEIDA",
@@ -12540,7 +12540,7 @@
   }, {
     "partyName" : "Juntos pelo Povo",
     "color" : "#FFD700",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logotipo_Partido_Juntos_pelo_Povo.png",
     "description" : "Juntos pelo Povo - Partido político português",
     "candidates" : [ {
       "name" : "CARLOS AUGUSTO BORGES RODRIGUES FURTADO",
@@ -12582,7 +12582,7 @@
   }, {
     "partyName" : "Partido da Terra",
     "color" : "#8FBC8F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/mpt-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/8/87/Partido_da_Terra.png",
     "description" : "Partido da Terra - Partido político português",
     "candidates" : [ {
       "name" : "MANUEL OLIVEIRA CARREIRA",
@@ -12603,7 +12603,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "DINARTE MANUEL ANDRADE PIMENTEL",
@@ -12624,7 +12624,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO JOSÉ SALGADO DE ALMEIDA",
@@ -12687,7 +12687,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO PEDRO BRAZ DE TIMÓTEO HENRIQUES",
@@ -12709,7 +12709,7 @@
   "Europa" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO JOSÉ DOS SANTOS FERRO",
@@ -12721,7 +12721,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "MARIA TERESA NÓBREGA DUARTE SOARES",
@@ -12733,7 +12733,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ DIAS FERNANDES",
@@ -12745,7 +12745,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "JORGE ALBERTO FÁTIMA PEREIRA CAMEIRÃO DE ALMEIDA",
@@ -12757,7 +12757,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "ANA LUÍSA FLÔR MOURA",
@@ -12769,7 +12769,7 @@
   }, {
     "partyName" : "Juntos pelo Povo",
     "color" : "#FFD700",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logotipo_Partido_Juntos_pelo_Povo.png",
     "description" : "Juntos pelo Povo - Partido político português",
     "candidates" : [ {
       "name" : "ÉLVIO DUARTE MARTINS SOUSA",
@@ -12793,7 +12793,7 @@
   }, {
     "partyName" : "Nós, Cidadãos!",
     "color" : "#4169E1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nc-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e9/Logotipo_nós_cidadãos.png",
     "description" : "Nós, Cidadãos! - Partido político português",
     "candidates" : [ {
       "name" : "JOÃO MANUEL PEIXOTO JARDINE NETO",
@@ -12805,7 +12805,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO AFONSO DA SILVA BORGES GODINHO",
@@ -12817,7 +12817,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "PAULO NUNO DE CARNEIRO VIEIRA DE CASTRO",
@@ -12829,7 +12829,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "JOANA DE ABREU CARVALHO",
@@ -12841,7 +12841,7 @@
   }, {
     "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
     "color" : "#DC143C",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/4/48/PCTP-MRPP_logo.png",
     "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
     "candidates" : [ {
       "name" : "ANTÓNIO LUÍS COSTA MORAIS",
@@ -12853,7 +12853,7 @@
   }, {
     "partyName" : "PARTIDO LIBERAL SOCIAL",
     "color" : "#4682B4",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pls-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/39/Logo-partido-liberal-social.png",
     "description" : "PARTIDO LIBERAL SOCIAL - Partido político português",
     "candidates" : [ {
       "name" : "ERIK JOSÉ WEBER",
@@ -12865,7 +12865,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ MANUEL FERREIRA FERNANDES",
@@ -12877,7 +12877,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "PAULO ALEXANDRE LOPES DE BRITO",
@@ -12901,7 +12901,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "PEDRO MIGUEL SERRANO DA SILVA",
@@ -12913,7 +12913,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "ANA PATRÍCIA SIMÕES GONÇALVES DE CARVALHO",
@@ -12926,7 +12926,7 @@
   "Fora da Europa" : [ {
     "partyName" : "ALTERNATIVA DEMOCRÁTICA NACIONAL",
     "color" : "#800080",
-    "logoUrl" : "https://pt.wikipedia.org/wiki/Alternativa_Democrática_Nacional#/media/Ficheiro:AlternativaDN_OutroLogo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/c/cc/AlternativaDN_OutroLogo.png",
     "description" : "ALTERNATIVA DEMOCRÁTICA NACIONAL - Partido político português",
     "candidates" : [ {
       "name" : "MARIA EMÍLIA CARDOSO GADELHA",
@@ -12938,7 +12938,7 @@
   }, {
     "partyName" : "Bloco de Esquerda",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/be-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/38/LeftBloc.svg",
     "description" : "Bloco de Esquerda - Partido político português",
     "candidates" : [ {
       "name" : "ANA ISABEL CARNEIRO GOUVEIA DA SILVA",
@@ -12950,7 +12950,7 @@
   }, {
     "partyName" : "CHEGA",
     "color" : "#000080",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ch-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c4/Símbolo_principal_do_CHEGA.png",
     "description" : "CHEGA - Partido político português",
     "candidates" : [ {
       "name" : "MANUEL MAGNO ALVES",
@@ -12962,7 +12962,7 @@
   }, {
     "partyName" : "Ergue-te",
     "color" : "#8B4513",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/e-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ergue-te_logo.png",
     "description" : "Ergue-te - Partido político português",
     "candidates" : [ {
       "name" : "JORGE DA COSTA ALVES",
@@ -12974,7 +12974,7 @@
   }, {
     "partyName" : "Iniciativa Liberal",
     "color" : "#00CED1",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/il-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/0/00/Iniciativa_Liberal_logo_1.png",
     "description" : "Iniciativa Liberal - Partido político português",
     "candidates" : [ {
       "name" : "CHRISTIAN MICHAEL ERNST WERNER BAUMS HÖHN",
@@ -12986,7 +12986,7 @@
   }, {
     "partyName" : "Juntos pelo Povo",
     "color" : "#FFD700",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/jpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logotipo_Partido_Juntos_pelo_Povo.png",
     "description" : "Juntos pelo Povo - Partido político português",
     "candidates" : [ {
       "name" : "LINA GRACIELA JARDIM PEREIRA",
@@ -13010,7 +13010,7 @@
   }, {
     "partyName" : "NOVA DIREITA",
     "color" : "#2F4F4F",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/nd-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/c1/Nova_Direita_Logotipo.png",
     "description" : "NOVA DIREITA - Partido político português",
     "candidates" : [ {
       "name" : "ALEXANDRE JOSÉ DE OLIVEIRA PAULO MENDES",
@@ -13022,7 +13022,7 @@
   }, {
     "partyName" : "PESSOAS-ANIMAIS-NATUREZA",
     "color" : "#90EE90",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pan-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/0/06/Logo_Pessoas-Animais-Natureza.png",
     "description" : "PESSOAS-ANIMAIS-NATUREZA - Partido político português",
     "candidates" : [ {
       "name" : "NELSON CORREIA ABREU",
@@ -13034,7 +13034,7 @@
   }, {
     "partyName" : "CDU - Coligação Democrática Unitária",
     "color" : "#FF0000",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pcppev-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/b/ba/Logo_of_the_Unitary_Democratic_Coalition.svg",
     "description" : "CDU - Coligação Democrática Unitária - Partido político português",
     "candidates" : [ {
       "name" : "ANA ISABEL MOURA FRIAS DE OLIVEIRA",
@@ -13046,7 +13046,7 @@
   }, {
     "partyName" : "Partido Comunista dos Trabalhadores Portugueses",
     "color" : "#DC143C",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pctpmrpp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/4/48/PCTP-MRPP_logo.png",
     "description" : "Partido Comunista dos Trabalhadores Portugueses - Partido político português",
     "candidates" : [ {
       "name" : "HUMBERTO FILIPE DA SILVA FREITAS",
@@ -13058,7 +13058,7 @@
   }, {
     "partyName" : "PARTIDO LIBERAL SOCIAL",
     "color" : "#4682B4",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/pls-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/3/39/Logo-partido-liberal-social.png",
     "description" : "PARTIDO LIBERAL SOCIAL - Partido político português",
     "candidates" : [ {
       "name" : "HÉLDER DANIEL DE AZEVEDO ALVARES",
@@ -13070,7 +13070,7 @@
   }, {
     "partyName" : "AD - COLIGAÇÃO PSD/CDS",
     "color" : "#FF8C00",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppdpsdcdspp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/pt/c/ce/Logotipo_da_AD_%28Abril_2024%29.png",
     "description" : "AD - COLIGAÇÃO PSD/CDS - Partido político português",
     "candidates" : [ {
       "name" : "JOSÉ DE ALMEIDA CESÁRIO",
@@ -13082,7 +13082,7 @@
   }, {
     "partyName" : "Partido Popular Monárquico",
     "color" : "#9932CC",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/ppm-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/e/e2/Símbolo_do_PPM.png",
     "description" : "Partido Popular Monárquico - Partido político português",
     "candidates" : [ {
       "name" : "DEOLINDA ROSA MACHADO VIEIRA ESTÊVÃO",
@@ -13106,7 +13106,7 @@
   }, {
     "partyName" : "Reagir Incluir Reciclar",
     "color" : "#20B2AA",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/rir-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/2/2f/Reagir_Incluir_Reciclar_logo.png",
     "description" : "Reagir Incluir Reciclar - Partido político português",
     "candidates" : [ {
       "name" : "LUÍS MIGUEL DE JESUS MENDES",
@@ -13118,7 +13118,7 @@
   }, {
     "partyName" : "Volt Portugal",
     "color" : "#9370DB",
-    "logoUrl" : "https://www.legislativas2025.mai.gov.pt/images/vp-logo.png",
+    "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_of_Volt.svg",
     "description" : "Volt Portugal - Partido político português",
     "candidates" : [ {
       "name" : "LEANDRO AUGUSTO DA MOTA DASMACENO",
