@@ -754,7 +754,5 @@ public class ElectionServiceImpl implements ElectionService {
         return electoralCircleIds;
     }
 
-
-
 }
 
