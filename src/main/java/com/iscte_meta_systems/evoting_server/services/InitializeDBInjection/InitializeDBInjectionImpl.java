@@ -90,7 +90,7 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
 
             electionService.createElection(election2);
 
-            for (int i = 2; i <= 23; i++) {
+            for (int i = 1; i <= 23; i++) {
                 electionService.generateTestVotes(100, (long) i);
 
             }
