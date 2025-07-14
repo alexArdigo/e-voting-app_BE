@@ -55,8 +55,8 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     @PostConstruct
     public void init() {
         initializeElections();
-        initializeVotes();
-        initializeTestusers();
+//        initializeVotes();
+//        initializeTestusers();
     }
 
     @Override
