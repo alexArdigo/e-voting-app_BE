@@ -55,7 +55,7 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     @PostConstruct
     public void init() {
         initializeElections();
-        initializeVotes();
+//        initializeVotes();
 //        initializeTestusers();
     }
 
@@ -89,6 +89,11 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election2.setEndDate("2025-07-09T12:24");
 
             electionService.createElection(election2);
+
+            for (int i = 2; i <= 23; i++) {
+                electionService.generateTestVotes(100, (long) i);
+
+            }
         }
     }
 
