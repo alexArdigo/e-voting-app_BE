@@ -740,5 +740,19 @@ public class ElectionServiceImpl implements ElectionService {
             legislativeRepository.save(legislative);
         }
     }
+
+    @Override
+    public List<Long> getAllElectoralCircleIds(Long id) {
+
+        Legislative legislative = legislativeRepository.findById(id).get();
+        List<ElectoralCircle> electoralCircle = legislative.getElectoralCircles();
+
+        List<Long> electoralCircleIds = electoralCircle.stream()
+                .map(ElectoralCircle::getId)
+                .collect(Collectors.toList());
+
+        return electoralCircleIds;
+    }
+
 }
 

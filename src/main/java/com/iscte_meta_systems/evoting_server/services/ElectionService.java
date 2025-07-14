@@ -40,4 +40,6 @@ public interface ElectionService {
     void deleteElectoralCircle(Long id);
 
     void uploadCSV(MultipartFile file, Long electionId);
+
+    List<Long> getAllElectoralCircleIds(Long id);
 }
