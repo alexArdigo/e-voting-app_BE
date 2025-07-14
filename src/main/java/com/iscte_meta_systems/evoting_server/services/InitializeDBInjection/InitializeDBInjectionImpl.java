@@ -89,13 +89,18 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
             election2.setEndDate("2025-07-09T12:24");
 
             electionService.createElection(election2);
+
+            for (int i = 2; i <= 23; i++) {
+                electionService.generateTestVotes(100, (long) i);
+
+            }
         }
     }
 
     @Override
     public void initializeVotes() {
         for (int i = 2; i <= 23; i++) {
-            electionService.generateTestVotes(100, (long) i);
+            electionService.generateTestVotes(10, (long) i);
         }
     }
 
