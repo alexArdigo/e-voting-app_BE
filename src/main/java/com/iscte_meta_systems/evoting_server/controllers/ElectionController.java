@@ -150,4 +150,9 @@ public class ElectionController {
             return ResponseEntity.badRequest().body("Error deleting electoral circle: " + e.getMessage());
         }
     }
+
+    @GetMapping("/elections/legislative/{id}/electoral-circle")
+    public List<Long> getAllElectoralCircleIds(@PathVariable Long id) {
+        return electionService.getAllElectoralCircleIds(id);
+    }
 }
