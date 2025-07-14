@@ -740,5 +740,8 @@ public class ElectionServiceImpl implements ElectionService {
             legislativeRepository.save(legislative);
         }
     }
+
+
+
 }
 
