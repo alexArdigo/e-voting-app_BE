@@ -1,6 +1,7 @@
 package com.iscte_meta_systems.evoting_server.services;
 
 import com.iscte_meta_systems.evoting_server.entities.*;
+import com.iscte_meta_systems.evoting_server.enums.VoteType;
 import com.iscte_meta_systems.evoting_server.model.ElectionResultDTO;
 import com.iscte_meta_systems.evoting_server.model.LegislativeResultDTO;
 import com.iscte_meta_systems.evoting_server.model.OrganisationResultDTO;
@@ -94,6 +95,7 @@ public class ResultsServiceImpl implements ResultsService {
         result.setDistrictName(getDistrictName(electoralCircle));
         result.setTotalSeats(totalSeats);
         result.setTotalVotes(totalVotes);
+        result.setBlankVotes(countBlankVotes(electoralCircle));
 
         List<OrganisationResultDTO> organisationResults = new ArrayList<>();
 
@@ -242,6 +244,13 @@ public class ResultsServiceImpl implements ResultsService {
         }
 
         return partySeatsMap;
+    }
+
+    private int countBlankVotes(ElectoralCircle electoralCircle) {
+        if (electoralCircle.getVotes() == null) return 0;
+        return (int) electoralCircle.getVotes().stream()
+                .filter(vote -> vote.getVoteType() == VoteType.BLANK)
+                .count();
     }
 
 }

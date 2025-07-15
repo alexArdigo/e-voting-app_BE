@@ -8,6 +8,7 @@ public class LegislativeResultDTO {
     private String districtName;
     private int totalSeats;
     private int totalVotes;
+    private int blankVotes;
     private List<OrganisationResultDTO> results;
 
     public LegislativeResultDTO() {}
@@ -42,6 +43,14 @@ public class LegislativeResultDTO {
 
     public void setTotalVotes(int totalVotes) {
         this.totalVotes = totalVotes;
+    }
+
+    public int getBlankVotes() {
+        return blankVotes;
+    }
+
+    public void setBlankVotes(int blankVotes) {
+        this.blankVotes = blankVotes;
     }
 
     public List<OrganisationResultDTO> getResults() {
