@@ -34,31 +34,37 @@ public class ResultsServiceImpl implements ResultsService {
         if (!(election instanceof Presidential)) {
             throw new IllegalArgumentException("Election is not a presidential");
         }
-        Map<Long, Integer> voteCounts = countVotesByOrganisation(election);
-        int totalVotes = voteCounts.values().stream().mapToInt(Integer::intValue).sum();
+        Presidential presidential = (Presidential) election;
+        List<UniParty> candidates = presidential.getCandidates();
+        Map<Long, Integer> voteCounts = new HashMap<>();
+        int totalVotes = 0;
+        if (election.getVotes() != null) {
+            for (UniParty candidate : candidates) {
+                int votes = (int) election.getVotes().stream()
+                        .filter(v -> v.getOrganisation() != null && v.getOrganisation().getId().equals(candidate.getId()))
+                        .count();
+                voteCounts.put(candidate.getId(), votes);
+                totalVotes += votes;
+            }
+        }
 
         ElectionResultDTO result = new ElectionResultDTO();
         result.setElectionName(election.getName());
         result.setElectionType("presidential");
         result.setTotalVotes(totalVotes);
 
-        List<OrganisationResultDTO> organisationResults = new ArrayList<>();
-
-        for (Organisation org : election.getOrganisations()) {
-            OrganisationResultDTO orgResult = new OrganisationResultDTO();
-            orgResult.setOrganisationName(org.getOrganisationName());
-
-            int votes = voteCounts.get(org.getId());
-            orgResult.setVotes(votes);
-            orgResult.setPercentage((double) (votes * 100) / totalVotes);
-            orgResult.setSeats(0);
-
-            organisationResults.add(orgResult);
+        List<OrganisationResultDTO> candidateResults = new ArrayList<>();
+        for (UniParty candidate : candidates) {
+            OrganisationResultDTO candidateResult = new OrganisationResultDTO();
+            candidateResult.setOrganisationName(candidate.getName());
+            int votes = voteCounts.get(candidate.getId());
+            candidateResult.setVotes(votes);
+            candidateResult.setPercentage(totalVotes > 0 ? (double) (votes * 100) / totalVotes : 0.0);
+            candidateResult.setSeats(0);
+            candidateResults.add(candidateResult);
         }
-
-        organisationResults.sort((o1, o2) -> Double.compare(o2.getPercentage(), o1.getPercentage()));
-        result.setResults(organisationResults);
-
+        candidateResults.sort((o1, o2) -> Double.compare(o2.getPercentage(), o1.getPercentage()));
+        result.setResults(candidateResults);
         return result;
     }
 
