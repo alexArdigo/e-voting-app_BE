@@ -24,11 +24,11 @@ public class VoterController {
         return ResponseEntity.ok().body(voterService.startVoting(electionId, voterId));
     }
 
-    @GetMapping("/voters/{id}/is-voting")
+    @GetMapping("/voters/{id}/voting-status")
     public ResponseEntity<?> isVoting(
             @PathVariable("id") Long id
     ) {
-        return ResponseEntity.ok().body(voterService.isVoting(id));
+        return ResponseEntity.ok().body(voterService.votingStatus(id));
     }
 
     @PostMapping("/voters/stop-voting")

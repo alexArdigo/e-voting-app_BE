@@ -23,7 +23,7 @@ public interface VoterService {
 
     Map<String, String> startVoting(Long electionId, Long userId);
 
-    boolean isVoting(Long id);
+    Map<String, Object> votingStatus(Long id);
 
     void stopVoting(Long electionId, Long userId);
 

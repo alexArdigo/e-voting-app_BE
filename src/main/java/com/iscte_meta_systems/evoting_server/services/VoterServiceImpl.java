@@ -96,8 +96,22 @@ public class VoterServiceImpl implements VoterService {
     }
 
     @Override
-    public boolean isVoting(Long id) {
-        return votingSessionRepository.existsById(id);
+    public Map<String, Object> votingStatus(Long id) {
+        System.out.println("id = " + id);
+        List<VotingSession> votingSession = votingSessionRepository.findAllByVoterId(id);
+
+        for (VotingSession session : votingSession) {
+            if (!session.isExpired()) {
+                return Map.of(
+                        "electionId", session.getElectionId(),
+                        "isVoting", true
+                );
+            }
+        }
+
+        return Map.of(
+                "isVoting", false
+        );
     }
 
     private void checkElectionAndVoter(Long electionId, Long voterId) {
@@ -192,7 +206,6 @@ public class VoterServiceImpl implements VoterService {
         comment.removeLike(voterHash);
         helpCommentRepository.save(comment);
     }
-
 
 
     /**
