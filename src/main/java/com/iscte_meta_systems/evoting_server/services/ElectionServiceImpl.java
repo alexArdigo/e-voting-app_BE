@@ -326,6 +326,13 @@ public class ElectionServiceImpl implements ElectionService {
             vote.setMunicipality(municipality);
             vote.setOrganisation(organisation);
 
+            double random = Math.random();
+            if (random < 0.15) {
+                vote.setVoteType(VoteType.BLANK);
+            } else {
+                vote.setVoteType(VoteType.VALID);
+            }
+
             votes.add(vote);
             electoralCircle.addVote(vote);
         }
@@ -755,4 +762,3 @@ public class ElectionServiceImpl implements ElectionService {
     }
 
 }
-
