@@ -14,9 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-//Feito totalmente pelo ClaudeAI
-
-//prompts - https://claude.ai/share/03a14eed-8c2d-41da-ac13-76e5186ca6f7
+//Criado com a ajuda de AI.
 
 public class ElectionDataFetcher {
 
