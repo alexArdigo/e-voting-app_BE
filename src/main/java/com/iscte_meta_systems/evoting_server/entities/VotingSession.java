@@ -16,6 +16,7 @@ public class VotingSession {
     private Long electionId;
     private Long voterId;
     private LocalDateTime expirationTime;
+    private boolean isActive = false;
 
     public VotingSession() {
     }
@@ -24,6 +25,7 @@ public class VotingSession {
         this.electionId = electionId;
         this.voterId = voterId;
         this.expirationTime = LocalDateTime.now().plusSeconds(300);
+        this.isActive = true;
     }
 
     public Integer getRemainingTime() {
@@ -66,4 +68,10 @@ public class VotingSession {
         this.expirationTime = expirationTime;
     }
 
+    public boolean isActive() {
+        return isActive;
+    }
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 }

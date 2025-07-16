@@ -88,11 +88,13 @@ public class VoterServiceImpl implements VoterService {
         checkElectionAndVoter(electionId, voterId);
 
         VotingSession votingSession = votingSessionRepository.findByElectionIdAndVoterId(electionId, voterId);
-        if (votingSession == null) {
+        if (votingSession == null || votingSession.getId() == null) {
             throw new RuntimeException("Voting session not found for election ID: " + electionId + " and voter ID: " + voterId);
         }
 
-        votingSessionRepository.delete(votingSession);
+        votingSession.setActive(false);
+        votingSessionRepository.save(votingSession);
+
     }
 
     @Override
@@ -101,7 +103,7 @@ public class VoterServiceImpl implements VoterService {
         List<VotingSession> votingSession = votingSessionRepository.findAllByVoterId(id);
 
         for (VotingSession session : votingSession) {
-            if (!session.isExpired()) {
+            if (session.isActive() && !session.isExpired()) {
                 return Map.of(
                         "electionId", session.getElectionId(),
                         "isVoting", true
