@@ -63,26 +63,26 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
     public void initializeElections() {
         if (electionRepository.count() == 0) {
             ElectionDTO election1 = new ElectionDTO();
-            election1.setName("Eleições Legislativas 2026");
+            election1.setName("Eleições Legislativas 2024");
             election1.setElectionType(ElectionType.LEGISLATIVE);
             election1.setElectoralCircleType(ElectoralCircleType.NATIONAL);
             election1.setDescription("Eleições para a Assembleia da República");
-            election1.setStartDate("2026-07-09T11:10");
-            election1.setEndDate("2026-07-09T11:15");
+            election1.setStartDate("2024-07-09T08:00");
+            election1.setEndDate("2024-07-09T20:00");
             electionService.createElection(election1);
 
             ElectionDTO election3 = new ElectionDTO();
-            election3.setName("Eleições Portuguesas Legislativas 2025");
+            election3.setName("Eleições Portuguesas Legislativas 2023");
             election3.setElectionType(ElectionType.LEGISLATIVE);
             election3.setElectoralCircleType(ElectoralCircleType.NATIONAL);
             election3.setDescription("Eleições para a Assembleia da República");
-            election3.setStartDate("2025-03-10T08:00");
-            election3.setEndDate("2025-03-11T20:00");
+            election3.setStartDate("2023-05-10T08:00");
+            election3.setEndDate("2023-05-11T20:00");
             electionService.createElection(election3);
 
 
             ElectionDTO election2 = new ElectionDTO();
-            election2.setName("Presidenciais 2026");
+            election2.setName("Presidenciais 2025");
             election2.setElectionType(ElectionType.PRESIDENTIAL);
             election2.setDescription("Eleições para Presidente da República");
             election2.setStartDate("2025-07-09T12:22");
@@ -90,7 +90,7 @@ public class InitializeDBInjectionImpl implements InitializeDBInjection {
 
             electionService.createElection(election2);
 
-            for (int i = 1; i <= 23; i++) {
+            for (int i = 1; i <= 44; i++) {
                 electionService.generateTestVotes(100, (long) i);
 
             }
